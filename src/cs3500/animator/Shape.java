@@ -11,7 +11,7 @@ public abstract class Shape implements IShape {
 
   protected Double position;
   protected double[] dimensions;
-  protected final Color color;
+  protected Color color;
   protected final int order;
 
   /**
@@ -53,7 +53,7 @@ public abstract class Shape implements IShape {
     this.position = new Double(pos.getX(), pos.getY());
   }
 
-  public Double getPosition() throws NullPointerException {
+  public Double getPosition() {
     return this.position;
   }
 
@@ -64,6 +64,15 @@ public abstract class Shape implements IShape {
 
   public double[] getSize(){
     return this.dimensions;
+  }
+
+  public void changeColor(Color c) throws NullPointerException{
+    Objects.requireNonNull(c);
+    this.color = c;
+  }
+
+  public Color getColor(){
+    return this.color;
   }
 
   public int getPriority() {

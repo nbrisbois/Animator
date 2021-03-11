@@ -12,6 +12,7 @@ public abstract class Shape implements IShape {
   protected Double position;
   protected double[] dimensions;
   protected Color color;
+  protected static int numberOfShapes = 0;
   protected final int order;
 
   /**
@@ -27,26 +28,32 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(Double pos, double x, double y, Color color, int order)
+  public Shape(Double pos, double x, double y, Color color)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
 
-    if (x < 0 || y < 0 || order < 0) {
-      throw new IllegalArgumentException("Primitive constructor elements must not be non negative");
-    }
-
-    // TODO: Figure out how to implement Order
-
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
-    this.order = order;
+    numberOfShapes += 1;
+    this.order = numberOfShapes;
   }
 
-  public void render() {
+  /**
+   * constructor for oval.
+   */
+  public Shape(Double pos, Color color)
+      throws NullPointerException, IllegalArgumentException {
+    Objects.requireNonNull(pos);
+    Objects.requireNonNull(color);
 
+    this.position = new Double(pos.getX(), pos.getY());
+    this.color = new Color(color.getRGB());
+    numberOfShapes += 1;
+    this.order = numberOfShapes;
   }
+
 
   public void changePosition(Double pos) throws NullPointerException {
     Objects.requireNonNull(pos);
@@ -54,7 +61,7 @@ public abstract class Shape implements IShape {
   }
 
   public Double getPosition() {
-    return this.position;
+    return new Double(position.getX(), position.getY());
   }
 
   public void changeSize(double[] size) throws NullPointerException {
@@ -63,16 +70,16 @@ public abstract class Shape implements IShape {
   }
 
   public double[] getSize(){
-    return this.dimensions;
+    return new double[]{dimensions[0], dimensions[1]};
   }
 
   public void changeColor(Color c) throws NullPointerException{
     Objects.requireNonNull(c);
-    this.color = c;
+    this.color = new Color(c.getRGB());
   }
 
   public Color getColor(){
-    return this.color;
+    return new Color(color.getRGB());
   }
 
   public int getPriority() {

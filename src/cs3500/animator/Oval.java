@@ -5,9 +5,12 @@ import java.awt.geom.Point2D.Double;
 
 public class Oval extends Shape {
 
-  public Oval(Double pos, double h, double w, Color color, int order)
+  protected double rad;
+
+  public Oval(Double pos, double rad, Color color)
       throws NullPointerException, IllegalArgumentException {
-    super(pos, h, w, color, order);
+    super(pos, color);
+    this.rad = rad;
   }
 
   @Override

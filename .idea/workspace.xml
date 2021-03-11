@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Animator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Triangle.java" afterDir="false" />
-    </list>
+    <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="Edited Shapes" />
+    <list id="31c8cd67-1c70-44ec-9d39-d080f31ab9bb" name="Revert &quot;Edited Shapes&quot;" comment="Revert &quot;Edited Shapes&quot;&#10;&#10;This reverts commit a1735bc0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,10 +40,23 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Nikolas-Branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

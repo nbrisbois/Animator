@@ -82,6 +82,20 @@ public class TriangleTest {
   }
 
   /**
+   * ChangeColor() AND GetColor() Tests
+   */
+  @Test
+  public void colorMethodsTest() {
+    Triangle tri = new Triangle(new Double(0, 0), 10, 20, Color.BLACK, 0);
+
+    Assert.assertNotEquals(tri.getColor(), Color.BLUE);
+    Assert.assertEquals(tri.getColor(), Color.BLACK);
+    tri.changeColor(Color.ORANGE);
+    Assert.assertNotEquals(tri.getColor(), Color.BLACK);
+    Assert.assertEquals(tri.getColor(), Color.ORANGE);
+  }
+
+  /**
    * GetPriority Tests
    */
   @Test

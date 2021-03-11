@@ -82,6 +82,20 @@ public class OvalTest {
   }
 
   /**
+   * ChangeColor() AND GetColor() Tests
+   */
+  @Test
+  public void colorMethodsTest() {
+    Oval oval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 0);
+
+    Assert.assertNotEquals(oval.getColor(), Color.BLUE);
+    Assert.assertEquals(oval.getColor(), Color.BLACK);
+    oval.changeColor(Color.ORANGE);
+    Assert.assertNotEquals(oval.getColor(), Color.BLACK);
+    Assert.assertEquals(oval.getColor(), Color.ORANGE);
+  }
+
+  /**
    * GetPriority Tests
    */
   @Test

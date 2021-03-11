@@ -82,6 +82,20 @@ public class RectangleTest {
   }
 
   /**
+   * ChangeColor() AND GetColor() Tests
+   */
+  @Test
+  public void colorMethodsTest() {
+    Rectangle rect = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 0);
+
+    Assert.assertNotEquals(rect.getColor(), Color.BLUE);
+    Assert.assertEquals(rect.getColor(), Color.BLACK);
+    rect.changeColor(Color.ORANGE);
+    Assert.assertNotEquals(rect.getColor(), Color.BLACK);
+    Assert.assertEquals(rect.getColor(), Color.ORANGE);
+  }
+
+  /**
    * GetPriority Tests
    */
   @Test

@@ -15,9 +15,4 @@ public class Oval extends Shape {
 
   }
 
-  @Override
-  public void changeSize(int size) {
-
-  }
-
 }

@@ -10,7 +10,9 @@ public interface IShape {
 
   Double getPosition();
 
-  void changeSize(int size);
+  void changeSize(double[] size);
+
+  double[] getSize();
 
   int getPriority();
 

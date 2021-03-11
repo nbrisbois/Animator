@@ -10,7 +10,7 @@ import java.util.Objects;
 public abstract class Shape implements IShape {
 
   protected Double position;
-  protected final double[] dimensions;
+  protected double[] dimensions;
   protected final Color color;
   protected final int order;
 
@@ -57,8 +57,13 @@ public abstract class Shape implements IShape {
     return this.position;
   }
 
-  public void changeSize(int size) {
+  public void changeSize(double[] size) throws NullPointerException {
+    Objects.requireNonNull(size);
+    this.dimensions = new double[]{size[0], size[1]};
+  }
 
+  public double[] getSize(){
+    return this.dimensions;
   }
 
   public int getPriority() {

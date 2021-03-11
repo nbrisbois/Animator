@@ -2,6 +2,7 @@ package cs3500.animator;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
+import java.util.Objects;
 
 /**
  * Rectangle Specific Implementation of a Shape Class.
@@ -30,9 +31,5 @@ public class Rectangle extends Shape {
     // Not sure what to do here
   }
 
-  @Override
-  public void changeSize(int size) {
-
-  }
 
 }

@@ -1,7 +1,6 @@
 package cs3500.animator;
 
 import java.awt.Color;
-import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 
 public class Triangle extends Shape {
@@ -16,18 +15,5 @@ public class Triangle extends Shape {
 
   }
 
-  @Override
-  public void changePos(int pos) {
 
-  }
-
-  @Override
-  public void changeSize(int size) {
-
-  }
-
-  @Override
-  public int getPriority() {
-    return 0;
-  }
 }

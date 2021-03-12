@@ -8,7 +8,8 @@ import java.util.Objects;
  */
 public class BasicAnimationModel implements AnimationModel {
 
-  private List<IShape> shapes;
+
+  private final List<IShape> shapes;
   private final int sceneHeight;
   private final int sceneWidth;
   private final int duration;
@@ -98,4 +99,5 @@ public class BasicAnimationModel implements AnimationModel {
   public List<IShape> getShapes() {
     return shapes;
   }
+
 }

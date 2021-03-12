@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class OvalTest {
 
-  Triangle testOval;
+  Oval testOval;
 
   @Before
   public void setUp() {
@@ -22,6 +22,6 @@ public class OvalTest {
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Triangle(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
   }
 }

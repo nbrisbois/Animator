@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class RectangleTest {
 
-  Rectangle testOval;
+  Rectangle testRect;
 
   @Before
   public void setUp() {
@@ -22,6 +22,6 @@ public class RectangleTest {
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    testRect = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
   }
 }

@@ -9,9 +9,13 @@ import java.util.List;
  */
 public class Polygon extends Shape {
 
-  public Polygon(Double pos, double h, double w, Color color, int t, List<Motion> motions, int sides)
+  private final int sides;
+
+  public Polygon(Double pos, double h, double w, Color color, int t, List<Motion> motions,
+      int sides)
       throws NullPointerException, IllegalArgumentException {
     super(pos, h, w, color, t, motions);
+    this.sides = sides;
   }
 
   /**

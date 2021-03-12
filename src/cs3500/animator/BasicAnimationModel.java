@@ -100,4 +100,12 @@ public class BasicAnimationModel implements AnimationModel {
     return shapes;
   }
 
+  @Override
+  public String toString() {
+    String answer = "";
+    for (IShape shape : shapes) {
+      answer += shape.render() + "\n \n";
+    }
+    return answer;
+  }
 }

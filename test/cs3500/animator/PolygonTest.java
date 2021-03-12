@@ -8,7 +8,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TriangleTest {
+/**
+ * Test class for triangle.
+ */
+public class PolygonTest {
 
   Oval testOval;
 

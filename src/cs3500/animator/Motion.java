@@ -2,7 +2,11 @@ package cs3500.animator;
 
 import java.awt.Color;
 
+/**
+ * Representing a motion that a shape goes through.
+ */
 public class Motion {
+
   private final int movementX;
   private final int movementY;
   private final Color color;
@@ -13,15 +17,18 @@ public class Motion {
   /**
    * The constructor of a motion object.
    *
-   * @param movementX the movement the shape is taking horizontally
-   * @param movementY the movement the shape is taking vertically
-   * @param color the color the shape changes to
-   * @param scaleX the horizontal size change of the shape
-   * @param scaleY the vertical size change of the shape
+   * @param movementX  the movement the shape is taking horizontally
+   * @param movementY  the movement the shape is taking vertically
+   * @param color      the color the shape changes to
+   * @param scaleX     the horizontal size change of the shape
+   * @param scaleY     the vertical size change of the shape
    * @param ticksTaken the time this motion takes
    */
   public Motion(int movementX, int movementY, Color color, double scaleX, double scaleY,
-      int ticksTaken) {
+      int ticksTaken) throws IllegalArgumentException {
+    if (scaleX < 0 || scaleY < 0 || ticksTaken < 0) {
+      throw new IllegalArgumentException("Negative argument");
+    }
     this.movementX = movementX;
     this.movementY = movementY;
     this.color = color;

@@ -13,7 +13,7 @@ public abstract class Shape implements IShape {
   protected Double position;
   protected double[] dimensions;
   protected Color color;
-  protected int startTik;
+  protected int startTick;
   protected static int numberOfShapes = 0;
   protected final int order;
   protected List<Motion> motions;
@@ -25,23 +25,30 @@ public abstract class Shape implements IShape {
    * @param x     Dimension one of Two
    * @param y     Dimension two of Two
    * @param color The color of the Shape
+   * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
+   *                  initially on the Screen
+   * @param motions   A list of motions detailing how the shape will move as time goes on
    * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
    *                                  is provided
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(Double pos, double x, double y, Color color, int startTik, List<Motion> motions)
+  public Shape(Double pos, double x, double y, Color color, int startTick, List<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
+    Objects.requireNonNull(motions);
+
+    if (x < 0 || y < 0 || startTick < 0) {
+      throw new IllegalArgumentException("Primitive constructor elements must not be non negative");
+    }
 
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
-    this.startTik = startTik;
-    numberOfShapes += 1;
-    this.order = numberOfShapes;
+    this.startTick = startTick;
     this.motions = motions;
+    this.order = ++numberOfShapes;
   }
 
   public void changePosition(Double pos) throws NullPointerException {
@@ -71,13 +78,13 @@ public abstract class Shape implements IShape {
     return new Color(color.getRGB());
   }
 
-  public int getStartTik() {
-    int t = this.startTik;
+  public int getStartTick() {
+    int t = this.startTick;
     return t;
   }
 
-  public void changeTik(int t) {
-    this.startTik += t;
+  public void changeTick(int t) {
+    this.startTick += t;
   }
 
   public int getPriority() {
@@ -97,7 +104,7 @@ public abstract class Shape implements IShape {
     newShape.changePosition(newPosition);
     newShape.changeSize(newSize);
     newShape.changeColor(motions.get(motionIndex).getColor());
-    newShape.changeTik(motions.get(motionIndex).getTicks());
+    newShape.changeTick(motions.get(motionIndex).getTicks());
     return newShape;
   }
 }

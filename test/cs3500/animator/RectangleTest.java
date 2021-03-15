@@ -92,7 +92,35 @@ public class RectangleTest {
    */
   @Test
   public void renderTest() {
-    // TODO: Not sure what these tests will look like
+    List<Motion> motions = new ArrayList<>();
+    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0, 5);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 52);
+    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8, 32);
+    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1, 40);
+    motions.add(motion1);
+    Rectangle testOval1 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    motions.add(motion2);
+    Rectangle testOval2 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    motions.add(motion3);
+    Rectangle testOval3 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    motions.add(motion4);
+    Rectangle testOval4 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+
+
+    Assert.assertEquals("Shape R rectangle\n"
+        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255", testOval1.render());
+    Assert.assertEquals("Shape R rectangle\n"
+        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255", testOval2.render());
+    Assert.assertEquals("Shape R rectangle\n"
+        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+        + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255", testOval3.render());
+    Assert.assertEquals("Shape R rectangle\n"
+        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+        + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
+        + "motion R 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ", testOval4.render());
   }
 
   /**
@@ -166,6 +194,6 @@ public class RectangleTest {
     motions.add(motion2);
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
 
-    Assert.assertEquals(testRectangle.getPriority(), 15);
+    Assert.assertEquals(testRectangle.getPriority(), 61);
   }
 }

@@ -77,7 +77,7 @@ public class Polygon extends Shape {
       rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
       */
       String rowAnswer = String.format(
-          "\nmotion C %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
+          "\nmotion P %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
               + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
           old.getStartTick(),
           old.getPosition().getX(),

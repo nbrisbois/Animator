@@ -102,7 +102,35 @@ public class PolygonTest {
    */
   @Test
   public void renderTest() {
-    // TODO: Not sure what these tests will look like
+    List<Motion> motions = new ArrayList<>();
+    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0, 5);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 52);
+    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8, 32);
+    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1, 40);
+    motions.add(motion1);
+    Polygon testOval1 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 3);
+    motions.add(motion2);
+    Polygon testOval2 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 3);
+    motions.add(motion3);
+    Polygon testOval3 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 3);
+    motions.add(motion4);
+    Polygon testOval4 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 3);
+
+
+    Assert.assertEquals("Shape P polygon\n"
+        + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255", testOval1.render());
+    Assert.assertEquals("Shape P polygon\n"
+        + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255", testOval2.render());
+    Assert.assertEquals("Shape P polygon\n"
+        + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+        + "motion P 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255", testOval3.render());
+    Assert.assertEquals("Shape P polygon\n"
+        + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+        + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+        + "motion P 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
+        + "motion P 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ", testOval4.render());
   }
 
   /**
@@ -176,7 +204,7 @@ public class PolygonTest {
     motions.add(motion2);
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 10);
 
-    Assert.assertEquals(testPolygon.getPriority(), 15);
+    Assert.assertEquals(40, testPolygon.getPriority());
   }
 
   /**
@@ -191,6 +219,6 @@ public class PolygonTest {
     motions.add(motion2);
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, 10);
 
-    Assert.assertEquals(testPolygon.getSides(), 10);
+    Assert.assertEquals(10, testPolygon.getSides());
   }
 }

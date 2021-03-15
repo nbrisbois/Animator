@@ -19,13 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="">
+    <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="Edited Shapes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
+>>>>>>> 1daab3eddfd6dd2c7253e120582cc52444d052dd
     </list>
+    <list id="31c8cd67-1c70-44ec-9d39-d080f31ab9bb" name="Revert &quot;Edited Shapes&quot;" comment="Revert &quot;Edited Shapes&quot;&#10;&#10;This reverts commit a1735bc0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +148,23 @@
       <map>
         <entry key="MAIN">
           <value>
+<<<<<<< HEAD
             <State />
+=======
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Nikolas-Branch" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+>>>>>>> 1daab3eddfd6dd2c7253e120582cc52444d052dd
           </value>
         </entry>
       </map>

@@ -1,0 +1,208 @@
+Index: src/cs3500/animator/Oval.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cs3500.animator;\r\n\r\nimport java.awt.Color;\r\nimport java.awt.geom.Point2D.Double;\r\n\r\npublic class Oval extends Shape {\r\n\r\n  public Oval(Double pos, double h, double w, Color color, int order)\r\n      throws NullPointerException, IllegalArgumentException {\r\n    super(pos, h, w, color, order);\r\n  }\r\n\r\n  @Override\r\n  public void render() {\r\n\r\n  }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cs3500/animator/Oval.java b/src/cs3500/animator/Oval.java
+--- a/src/cs3500/animator/Oval.java	(revision 30d4db90a1ec4b071cf2f6394bad300bce1b96e1)
++++ b/src/cs3500/animator/Oval.java	(date 1615497483754)
+@@ -5,9 +5,16 @@
+ 
+ public class Oval extends Shape {
+ 
+-  public Oval(Double pos, double h, double w, Color color, int order)
++  protected double rad;
++
++  protected Oval(Double pos, double rad, Color color, int order)
+       throws NullPointerException, IllegalArgumentException {
+-    super(pos, h, w, color, order);
++    super(pos, color, order);
++    if (rad < 0) {
++      throw new IllegalArgumentException("Radius cannot be less than zero");
++    }
++
++    this.rad = rad;
+   }
+ 
+   @Override
+@@ -15,4 +22,9 @@
+ 
+   }
+ 
++  @Override
++  public double[] getSize(){
++    return new double[]{rad};
++  }
++
+ }
+Index: src/cs3500/animator/Shape.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cs3500.animator;\r\n\r\nimport java.awt.Color;\r\nimport java.awt.geom.Point2D.Double;\r\nimport java.util.Objects;\r\n\r\n/**\r\n * Abstract Class that all eligible shapes will be created from.\r\n */\r\npublic abstract class Shape implements IShape {\r\n\r\n  protected Double position;\r\n  protected double[] dimensions;\r\n  protected Color color;\r\n  protected final int order;\r\n\r\n  /**\r\n   * Abstract Shape Constructor.\r\n   *\r\n   * @param pos   The spawn position of the Shape\r\n   * @param x     Dimension one of Two\r\n   * @param y     Dimension two of Two\r\n   * @param color The color of the Shape\r\n   * @param order The order priority number of the Shape\r\n   * @throws NullPointerException     A NullPointerException is thrown when a null Object argument\r\n   *                                  is provided\r\n   * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are\r\n   *                                  invalid\r\n   */\r\n  public Shape(Double pos, double x, double y, Color color, int order)\r\n      throws NullPointerException, IllegalArgumentException {\r\n    Objects.requireNonNull(pos);\r\n    Objects.requireNonNull(color);\r\n\r\n    if (x < 0 || y < 0 || order < 0) {\r\n      throw new IllegalArgumentException(\"Primitive constructor elements must not be non negative\");\r\n    }\r\n\r\n    // TODO: Figure out how to implement Order\r\n\r\n    this.position = new Double(pos.getX(), pos.getY());\r\n    this.dimensions = new double[]{x, y};\r\n    this.color = new Color(color.getRGB());\r\n    this.order = order;\r\n  }\r\n\r\n  public void render() {\r\n\r\n  }\r\n\r\n  public void changePosition(Double pos) throws NullPointerException {\r\n    Objects.requireNonNull(pos);\r\n    this.position = new Double(pos.getX(), pos.getY());\r\n  }\r\n\r\n  public Double getPosition() {\r\n    return this.position;\r\n  }\r\n\r\n  public void changeSize(double[] size) throws NullPointerException {\r\n    Objects.requireNonNull(size);\r\n    this.dimensions = new double[]{size[0], size[1]};\r\n  }\r\n\r\n  public double[] getSize(){\r\n    return this.dimensions;\r\n  }\r\n\r\n  public void changeColor(Color c) throws NullPointerException{\r\n    Objects.requireNonNull(c);\r\n    this.color = c;\r\n  }\r\n\r\n  public Color getColor(){\r\n    return this.color;\r\n  }\r\n\r\n  public int getPriority() {\r\n    return this.order;\r\n  }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cs3500/animator/Shape.java b/src/cs3500/animator/Shape.java
+--- a/src/cs3500/animator/Shape.java	(revision 30d4db90a1ec4b071cf2f6394bad300bce1b96e1)
++++ b/src/cs3500/animator/Shape.java	(date 1615502342298)
+@@ -12,7 +12,8 @@
+   protected Double position;
+   protected double[] dimensions;
+   protected Color color;
+-  protected final int order;
++  private static int numOfShapes = 0;
++  protected int order;
+ 
+   /**
+    * Abstract Shape Constructor.
+@@ -27,7 +28,7 @@
+    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
+    *                                  invalid
+    */
+-  public Shape(Double pos, double x, double y, Color color, int order)
++  protected Shape(Double pos, double x, double y, Color color)
+       throws NullPointerException, IllegalArgumentException {
+     Objects.requireNonNull(pos);
+     Objects.requireNonNull(color);
+@@ -41,11 +42,25 @@
+     this.position = new Double(pos.getX(), pos.getY());
+     this.dimensions = new double[]{x, y};
+     this.color = new Color(color.getRGB());
+-    this.order = order;
++    numOfShapes =+ 1;
++    this.order = numOfShapes;
+   }
+ 
+-  public void render() {
++  /**
++   * Constructor for oval.
++   */
++  protected Shape(Double pos, Color color)
++      throws NullPointerException, IllegalArgumentException {
++    Objects.requireNonNull(pos);
++    Objects.requireNonNull(color);
+ 
++    // TODO: Figure out how to implement Order
++
++    this.position = new Double(pos.getX(), pos.getY());
++    this.dimensions = new double[]{0.0, 0.0};
++    this.color = new Color(color.getRGB());
++    numOfShapes =+ 1;
++    this.order = numOfShapes;
+   }
+ 
+   public void changePosition(Double pos) throws NullPointerException {
+@@ -54,7 +69,8 @@
+   }
+ 
+   public Double getPosition() {
+-    return this.position;
++
++    return new Double(position.getX(), position.getY());
+   }
+ 
+   public void changeSize(double[] size) throws NullPointerException {
+@@ -63,20 +79,26 @@
+   }
+ 
+   public double[] getSize(){
+-    return this.dimensions;
++
++    return new double[] {dimensions[0], dimensions[1]};
+   }
+ 
+   public void changeColor(Color c) throws NullPointerException{
+     Objects.requireNonNull(c);
+-    this.color = c;
++    this.color = new Color(c.getRGB());
+   }
+ 
+   public Color getColor(){
+-    return this.color;
++    return new Color(color.getRGB());
+   }
++
+ 
+   public int getPriority() {
+     return this.order;
+   }
+ 
++  protected void changeOrder(int order) {
++    this.order = order;
++  }
++
+ }
+Index: src/cs3500/animator/IShape.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cs3500.animator;\r\n\r\nimport java.awt.Color;\r\nimport java.awt.geom.Point2D.Double;\r\n\r\npublic interface IShape {\r\n\r\n  void render();\r\n\r\n  /**\r\n   * Changes the position of the same to the provided position\r\n   * @param pos the position the shape will move to\r\n   */\r\n  void changePosition(Double pos) throws NullPointerException;\r\n\r\n  /**\r\n   * Getter to obtain the position of the shape\r\n   * @return Point2D.Double representing the position\r\n   */\r\n  Double getPosition();\r\n\r\n  /**\r\n   * Changes the current size of the shape\r\n   * @param size A two element array representing the new dimensions of the shape\r\n   */\r\n  void changeSize(double[] size) throws NullPointerException;\r\n\r\n  /**\r\n   * Getter to obtain the size dimensions of the shape\r\n   * @return A two element array representing the dimensions of the shape\r\n   */\r\n  double[] getSize();\r\n\r\n  /**\r\n   * Changes the current color of the shape to the provided color\r\n   * @param c New color of shape\r\n   */\r\n  void changeColor(Color c) throws NullPointerException;\r\n\r\n  /**\r\n   * Getter for the current shape color\r\n   * @return current shape color\r\n   */\r\n  Color getColor();\r\n\r\n  /**\r\n   * Getter for the Overlap priority of the shape\r\n   * @return unique integer\r\n   */\r\n  int getPriority();\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cs3500/animator/IShape.java b/src/cs3500/animator/IShape.java
+--- a/src/cs3500/animator/IShape.java	(revision 30d4db90a1ec4b071cf2f6394bad300bce1b96e1)
++++ b/src/cs3500/animator/IShape.java	(date 1615501425163)
+@@ -49,4 +49,6 @@
+    */
+   int getPriority();
+ 
+-}
++  void changePriority (IShape shape);
++
++  }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5f271b42-a700-4c6d-90c0-3daab1764a9b\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/Animator.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/.gitignore\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/cs3500/animator/IShape.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/cs3500/animator/IShape.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/cs3500/animator/Oval.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/cs3500/animator/Oval.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/cs3500/animator/Rectangle.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/cs3500/animator/Rectangle.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/cs3500/animator/Shape.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/cs3500/animator/Shape.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/cs3500/animator/Triangle.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/cs3500/animator/Triangle.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1paDSgmeh5oCuyr1vOe5HGBO33z\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.0\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.0\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5f271b42-a700-4c6d-90c0-3daab1764a9b\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1615412310095</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1615412310095</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 30d4db90a1ec4b071cf2f6394bad300bce1b96e1)
++++ b/.idea/workspace.xml	(date 1615501425612)
+@@ -2,16 +2,10 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/Animator.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Triangle.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -50,10 +44,23 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="origin/main" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+ </project>
+\ No newline at end of file

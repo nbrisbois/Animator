@@ -52,6 +52,7 @@ public abstract class Shape implements IShape {
     this.order = ++numberOfShapes;
   }
 
+
   public void changePosition(Double pos) throws NullPointerException {
     Objects.requireNonNull(pos);
     this.position = new Double(pos.getX(), pos.getY());

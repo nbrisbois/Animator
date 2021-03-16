@@ -26,9 +26,9 @@ public class Polygon extends Shape {
   @Override
   public String render() {
     String answer = "Shape P polygon";
-    Shape old = this;
+    IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
-      Shape newShape = this.executeMotion(i);
+      IShape newShape = this.executeMotion(i);
       String rowAnswer =
           "\nmotion P start t: " + old.getStartTik() + " x: " + old.getPosition().getX() + " y: "
               + old.getPosition().getY() + " w: " + old.getSize()[0] + " h: " + old.getSize()[1]
@@ -42,5 +42,9 @@ public class Polygon extends Shape {
     return answer;
   }
 
-
+  @Override
+  public IShape copy() {
+    return new Polygon(this.position, this.dimensions[0], this.dimensions[1],
+        this.color, this.startTik, this.motions, this.sides);
+  }
 }

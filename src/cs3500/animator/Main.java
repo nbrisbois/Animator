@@ -20,9 +20,9 @@ public class Main {
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
     shapes.add(testRect);
-    testModel = new BasicAnimationModel.ModelBuilder(shapes).setScene(50, 50).setDuration(30)
-        .build();
-    String answer = testModel.toString();
+    testModel = new BasicAnimationModel(shapes,50, 50, 30);
+    testOval.changeColor(Color.RED);
+    String answer = testModel.getShapes().get(0).getColor().toString();
     System.out.println(answer);
   }
 }

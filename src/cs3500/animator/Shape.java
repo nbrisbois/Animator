@@ -85,10 +85,11 @@ public abstract class Shape implements IShape {
   }
 
   public void addMotion(Motion m) {
-    this.motions.add(m);
+    this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(),
+        m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  public Shape executeMotion(int motionIndex) {
+  public IShape executeMotion(int motionIndex) {
     Shape newShape = this;
     Double newPosition = new Double(position.getX() + motions.get(motionIndex).getMoveX(),
         position.getY() + motions.get(motionIndex).getMoveY());

@@ -34,9 +34,9 @@ public class Rectangle extends Shape {
   @Override
   public String render() {
     String answer = "Shape R rectangle";
-    Shape old = this;
+    IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
-      Shape newShape = this.executeMotion(i);
+      IShape newShape = this.executeMotion(i);
       String rowAnswer =
           "\nmotion R start t: " + old.getStartTik() + " x: " + old.getPosition().getX() + " y: "
               + old.getPosition().getY() + " w: " + old.getSize()[0] + " h: " + old.getSize()[1]
@@ -50,5 +50,9 @@ public class Rectangle extends Shape {
     return answer;
   }
 
-
+  @Override
+  public IShape copy() {
+    return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
+        this.color, this.startTik, this.motions);
+  }
 }

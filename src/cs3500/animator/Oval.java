@@ -21,26 +21,60 @@ public class Oval extends Shape {
    */
   @Override
   public String render() {
-    String answer = "Shape C oval";
+    StringBuilder answer = new StringBuilder();
+    answer.append("Shape C oval");
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
       IShape newShape = this.executeMotion(i);
-      String rowAnswer =
-          "\nmotion C start t: " + old.getStartTik() + " x: " + old.getPosition().getX() + " y: "
-              + old.getPosition().getY() + " w: " + old.getSize()[0] + " h: " + old.getSize()[1]
-              + " rgb: " + String.valueOf(old.getColor().getRGB()) + "   end t: "
-              + newShape.getStartTik() + " x: " + newShape.getPosition().getX() + " y: "
-              + newShape.getPosition().getY() + " w: " + newShape.getSize()[0] + " h: "
-              + newShape.getSize()[1] + " rgb: " + String.valueOf(newShape.getColor().getRGB());
-      answer += rowAnswer;
+      /*
+      StringBuilder rowAnswerWithLabel = new StringBuilder();
+      rowAnswerWithLabel.append(String.format("\nmotion C start t: %d ", old.getStartTik()));
+      rowAnswerWithLabel.append(String.format("x: %.0f ", old.getPosition().getX()));
+      rowAnswerWithLabel.append(String.format("y: %.0f ", old.getPosition().getY()));
+      rowAnswerWithLabel.append(String.format("w: %.0f ", old.getSize()[0]));
+      rowAnswerWithLabel.append(String.format("h: %.0f ", old.getSize()[1]));
+      rowAnswerWithLabel.append(String.format("rgb: %d ", old.getColor().getRed()));
+      rowAnswerWithLabel.append(String.format("%d ", old.getColor().getGreen()));
+      rowAnswerWithLabel.append(String.format("%d   ", old.getColor().getBlue()));
+      rowAnswerWithLabel.append(String.format("end t: %d ",  newShape.getStartTik()));
+      rowAnswerWithLabel.append(String.format("x: %.0f ", newShape.getPosition().getX()));
+      rowAnswerWithLabel.append(String.format("y: %.0f ", newShape.getPosition().getY()));
+      rowAnswerWithLabel.append(String.format("w: %.0f ", newShape.getSize()[0]));
+      rowAnswerWithLabel.append(String.format("h: %.0f ", newShape.getSize()[1]));
+      rowAnswerWithLabel.append(String.format("rgb: %d ", newShape.getColor().getRed()));
+      rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
+      rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
+      */
+      String rowAnswer = String.format(
+          "\nmotion C %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
+              + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
+          old.getStartTick(),
+          old.getPosition().getX(),
+          old.getPosition().getY(),
+          old.getSize()[0],
+          old.getSize()[1],
+          old.getColor().getRed(),
+          old.getColor().getGreen(),
+          old.getColor().getBlue(),
+          newShape.getStartTick(),
+          newShape.getPosition().getX(),
+          newShape.getPosition().getY(),
+          newShape.getSize()[0],
+          newShape.getSize()[1],
+          newShape.getColor().getRed(),
+          newShape.getColor().getGreen(),
+          newShape.getColor().getBlue()
+      );
+
+      answer.append(rowAnswer);
       old = this.executeMotion(i);
     }
-    return answer;
+    return answer.toString();
   }
 
   @Override
   public IShape copy() {
     return new Oval(this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTik, this.motions);
+        this.color, this.startTick, this.motions);
   }
 }

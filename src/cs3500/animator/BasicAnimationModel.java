@@ -2,6 +2,7 @@ package cs3500.animator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Represents a basic animation model.
@@ -36,16 +37,34 @@ public class BasicAnimationModel implements AnimationModel {
     return copy;
   }
 
+  /**
+   * Helper function used to add a shape to the Model
+   *
+   * @param shape the shape to be added
+   * @throws NullPointerException thrown when shape is null
+   */
   @Override
-  public void addShape(IShape shape) {
+  public void addShape(IShape shape) throws NullPointerException {
+    Objects.requireNonNull(shape);
     this.shapes.add(shape.copy());
   }
 
+  /**
+   * Helper function used to get the current list of shapes from the Model
+   *
+   * @return List of IShapes
+   */
   @Override
   public List<IShape> getShapes() {
     return this.copyShapes(this.shapes);
   }
 
+  /**
+   * Convert current model instance into a mutable string. This string contains all shapes and their
+   * motion history
+   *
+   * @return string
+   */
   @Override
   public String toString() {
     String answer = "";

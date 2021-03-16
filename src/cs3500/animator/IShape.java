@@ -57,14 +57,14 @@ public interface IShape {
    *
    * @return a int representing the starting tick of the shape
    */
-  int getStartTik();
+  int getStartTick();
 
   /**
    * Change the starting tick of the shape.
    *
    * @param t an int representing the new tick
    */
-  void changeTik(int t);
+  void changeTick(int t);
 
   /**
    * Getter for the Overlap priority of the shape.

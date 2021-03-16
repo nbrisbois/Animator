@@ -5,6 +5,8 @@ import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Abstract Class that all eligible shapes will be created from.
@@ -17,7 +19,7 @@ public abstract class Shape implements IShape {
   protected int startTick;
   protected static int numberOfShapes = 0;
   protected final int order;
-  protected List<Motion> motions;
+  protected Queue<Motion> motions;
 
   /**
    * Abstract Shape Constructor.
@@ -34,7 +36,7 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(Double pos, double x, double y, Color color, int startTick, List<Motion> motions)
+  public Shape(Double pos, double x, double y, Color color, int startTick, Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -48,7 +50,7 @@ public abstract class Shape implements IShape {
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
     this.startTick = startTick;
-    this.motions = new ArrayList<>(motions);
+    this.motions = new PriorityQueue<Motion>(motions);
     this.order = ++numberOfShapes;
   }
 
@@ -98,16 +100,17 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  public Shape executeMotion(int motionIndex) {
-    Shape newShape = this;
-    Double newPosition = new Double(position.getX() + motions.get(motionIndex).getMoveX(),
-        position.getY() + motions.get(motionIndex).getMoveY());
-    double[] newSize = new double[]{dimensions[0] * motions.get(motionIndex).getScaleX(),
-        dimensions[1] * motions.get(motionIndex).getScaleY()};
-    newShape.changePosition(newPosition);
-    newShape.changeSize(newSize);
-    newShape.changeColor(motions.get(motionIndex).getColor());
-    newShape.changeTick(motions.get(motionIndex).getTicks());
-    return newShape;
+  public void calculateMotion(long currentTick) {
+    int time = motions.peek().getTicks();
+    if (currentTick >= time) {
+      motions.remove();
+      time = motions.peek().getTicks();
+    }
+    position.setLocation(
+        position.getX() + ((motions.peek().getMoveX()-position.getX())/(time-currentTick)),
+        position.getY() + ((motions.peek().getMoveX()-position.getX())/(time-currentTick)));
+    dimensions[0] = motions.peek().getScaleX()-dimensions[0]/(time-currentTick);
+    dimensions[1] = motions.peek().getScaleY()-dimensions[0]/(time-currentTick);
+    color = motions.peek().getColor();
   }
 }

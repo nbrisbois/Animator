@@ -14,6 +14,7 @@ public class BasicAnimationModel implements AnimationModel {
   private final int sceneHeight;
   private final int sceneWidth;
   private final int duration;
+  private final int speed;
 
   /**
    * Construct an animation model.
@@ -23,20 +24,19 @@ public class BasicAnimationModel implements AnimationModel {
    * @param sceneWidth  the width of the scene
    * @param duration    the ticks of how long this model lasts
    */
-  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration) {
+  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration, int frameSpeed) {
+    if (duration < 0) {
+      throw new IllegalArgumentException("Duration cannot be less than zero ticks");
+    }
+    if (frameSpeed < 0) {
+      throw new IllegalArgumentException("Frame speed cannot go lower than 1");
+    }
     Objects.requireNonNull(shapes);
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
     this.duration = duration;
-  }
-
-  private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
-    for (IShape shape : shapes) {
-      copy.add(shape.copy());
-    }
-    return copy;
+    this.speed = frameSpeed;
   }
 
   /**
@@ -78,4 +78,28 @@ public class BasicAnimationModel implements AnimationModel {
     }
     return answer;
   }
+
+  @Override
+  public int getDuration() {
+    return duration;
+  }
+
+  @Override
+  public void moveShapes(long time) {
+    for (int i = 0; i < shapes.size(); i++) {
+      shapes.get(i).calculateMotion(time*speed);
+      //something something render?
+    }
+  }
+
+
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<IShape>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
+    }
+    return copy;
+  }
+
+
 }

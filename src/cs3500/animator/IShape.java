@@ -86,7 +86,7 @@ public interface IShape {
    * @param motionIndex an integer representing the index of the motion we want to execute
    * @return the Shape after undergoing a motion
    */
-  Shape executeMotion(int motionIndex);
+  void calculateMotion(long motionIndex);
 
   /**
    * Make a copy of the current shape.

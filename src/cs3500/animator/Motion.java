@@ -6,10 +6,10 @@ import java.util.Objects;
 /**
  * Representing a motion that a shape goes through.
  */
-public class Motion {
+public class Motion implements Comparable {
 
-  private final int movementX;
-  private final int movementY;
+  private final double movementX;
+  private final double movementY;
   private final Color color;
   private final double scaleX;
   private final double scaleY;
@@ -25,7 +25,7 @@ public class Motion {
    * @param scaleY     the vertical size change of the shape
    * @param ticksTaken the time this motion takes
    */
-  public Motion(int movementX, int movementY, Color color, double scaleX, double scaleY,
+  public Motion(double movementX, double movementY, Color color, double scaleX, double scaleY,
       int ticksTaken) throws IllegalArgumentException {
     if (scaleX < 0 || scaleY < 0 || ticksTaken < 0) {
       throw new IllegalArgumentException("Negative argument");
@@ -36,14 +36,14 @@ public class Motion {
     this.color = color;
     this.scaleX = scaleX;
     this.scaleY = scaleY;
-    this.ticksTaken = ticksTaken;
+    this.ticksTaken = ticksTaken * 1000;
   }
 
-  public int getMoveX() {
+  public double getMoveX() {
     return movementX;
   }
 
-  public int getMoveY() {
+  public double getMoveY() {
     return movementY;
   }
 
@@ -62,5 +62,10 @@ public class Motion {
 
   public int getTicks() {
     return ticksTaken;
+  }
+
+  @Override
+  public int compareTo(Object o) {
+    return 0;
   }
 }

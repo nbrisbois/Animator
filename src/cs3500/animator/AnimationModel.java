@@ -27,4 +27,9 @@ public interface AnimationModel {
    * @return a String textualize the animation
    */
   String toString();
+
+  int getDuration();
+
+
+  void moveShapes(long time);
 }

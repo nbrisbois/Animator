@@ -5,8 +5,15 @@ import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main Function Class.
+ */
 public class Main {
 
+  /**
+   * Main function to run basic model.
+   * @param args StdIn
+   */
   public static void main(String... args) {
     List<Motion> motions = new ArrayList<Motion>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
@@ -23,9 +30,7 @@ public class Main {
     shapes.add(testRect);
     shapes.add(testPoly);
 
-    AnimationModel testModel = new BasicAnimationModel.ModelBuilder(shapes).setScene(50, 50)
-        .setDuration(30)
-        .build();
+    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 50);
     String answer = testModel.toString();
     System.out.println(answer);
   }

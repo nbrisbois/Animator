@@ -36,7 +36,7 @@ public class Polygon extends Shape {
   }
 
   /**
-   * Getter used to return the number of sides the polygon has
+   * Getter used to return the number of sides the polygon has.
    *
    * @return int number of sides
    */
@@ -103,4 +103,14 @@ public class Polygon extends Shape {
     return answer.toString();
   }
 
+  /**
+   * Make a copy of the Polygon.
+   *
+   * @return a new Polygon
+   */
+  @Override
+  public IShape copy() {
+    return new Polygon(this.position, this.dimensions[0], this.dimensions[1],
+        this.color, this.startTick, this.motions, this.sides);
+  }
 }

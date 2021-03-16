@@ -15,8 +15,10 @@ public class OvalTest {
   @Before
   public void setUp() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
@@ -29,8 +31,10 @@ public class OvalTest {
   @Test(expected = NullPointerException.class)
   public void ovalNullPositionObjectConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Oval(null, 10, 20, Color.BLACK, 1, motions);
@@ -39,8 +43,10 @@ public class OvalTest {
   @Test(expected = NullPointerException.class)
   public void ovalNullColorObjectConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Oval(new Double(0, 0), 10, 20, null, 1, motions);
@@ -57,8 +63,10 @@ public class OvalTest {
   @Test(expected = IllegalArgumentException.class)
   public void ovalInvalidHeightConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Oval(new Double(0, 0), -1, 20, Color.BLACK, 1, motions);
@@ -67,8 +75,10 @@ public class OvalTest {
   @Test(expected = IllegalArgumentException.class)
   public void ovalInvalidWidthConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Oval(new Double(0, 0), 10, -1, Color.BLACK, 1, motions);
@@ -77,23 +87,29 @@ public class OvalTest {
   @Test(expected = IllegalArgumentException.class)
   public void ovalInvalidStartTickConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Oval(new Double(0, 0), 10, 20, Color.BLACK, -1, motions);
   }
 
   /**
-   * Render() Tests
+   * Render() Tests.
    */
   @Test
   public void renderTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0, 5);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 52);
-    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8, 32);
-    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1, 40);
+    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
+        5);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        52);
+    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8,
+        32);
+    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1,
+        40);
     motions.add(motion1);
     Oval testOval1 = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
     motions.add(motion2);
@@ -103,33 +119,38 @@ public class OvalTest {
     motions.add(motion4);
     Oval testOval4 = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
 
-
     Assert.assertEquals("Shape C oval\n"
-        + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255", testOval1.render());
+            + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255",
+        testOval1.render());
     Assert.assertEquals("Shape C oval\n"
-        + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255", testOval2.render());
+            + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255",
+        testOval2.render());
     Assert.assertEquals("Shape C oval\n"
-        + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-        + "motion C 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255", testOval3.render());
+            + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+            + "motion C 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255",
+        testOval3.render());
     Assert.assertEquals("Shape C oval\n"
-        + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-        + "motion C 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
-        + "motion C 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ", testOval4.render());
+            + "motion C 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion C 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+            + "motion C 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
+            + "motion C 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ",
+        testOval4.render());
   }
 
   /**
-   * ChangePosition() AND GetPosition() Tests
+   * ChangePosition() AND GetPosition() Tests.
    */
   @Test
   public void positionMethodsTest() {
     Double positionOne = new Double(0, 0);
     Double positionTwo = new Double(1, 1);
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     testOval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
@@ -140,15 +161,17 @@ public class OvalTest {
   }
 
   /**
-   * ChangeSize() AND GetSize() Tests
+   * ChangeSize() AND GetSize() Tests.
    */
   @Test
   public void sizeMethodsTest() {
     double[] sizeOne = new double[]{1, 1};
     double[] sizeTwo = new double[]{30, 15};
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     testOval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
@@ -161,13 +184,15 @@ public class OvalTest {
   }
 
   /**
-   * ChangeColor() AND GetColor() Tests
+   * ChangeColor() AND GetColor() Tests.
    */
   @Test
   public void colorMethodsTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     testOval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
@@ -180,13 +205,15 @@ public class OvalTest {
   }
 
   /**
-   * GetPriority Tests
+   * GetPriority Tests.
    */
   @Test
   public void getPriorityTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     testOval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);

@@ -1,5 +1,6 @@
 package cs3500.animator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,79 +16,26 @@ public class BasicAnimationModel implements AnimationModel {
   private final int duration;
 
   /**
-   * The private constructor of BasicAnimationModel using a builder.
+   * Construct an animation model.
    *
-   * @param builder the builder we use to build our model
-   * @throws NullPointerException if the builder is null
+   * @param shapes      the list of Shapes in this model
+   * @param sceneHeight the height of the scene
+   * @param sceneWidth  the width of the scene
+   * @param duration    the ticks of how long this model lasts
    */
-  private BasicAnimationModel(ModelBuilder builder) throws NullPointerException {
-    Objects.requireNonNull(builder);
-    this.shapes = builder.shapes;
-    this.sceneHeight = builder.sceneHeight;
-    this.sceneWidth = builder.sceneWidth;
-    this.duration = builder.duration;
+  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration) {
+    this.shapes = this.copyShapes(shapes);
+    this.sceneHeight = sceneHeight;
+    this.sceneWidth = sceneWidth;
+    this.duration = duration;
   }
 
-  /**
-   * Represents a builder class for BasicAnimationModel.
-   */
-  public static class ModelBuilder {
-
-    private List<IShape> shapes;
-    private int sceneHeight;
-    private int sceneWidth;
-    private int duration;
-
-    /**
-     * The constructor of the builder.
-     *
-     * @param shapes the list of IShape that we will be animated
-     */
-    public ModelBuilder(List<IShape> shapes) {
-      this.shapes = shapes;
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<IShape>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
     }
-
-    /**
-     * Sets the size of the canvas of the animation.
-     *
-     * @param h the height of the scene
-     * @param w the width of the scene
-     * @return the builder containing the size of the scene
-     * @throws IllegalArgumentException Thrown when passed invalid height or width
-     */
-    public ModelBuilder setScene(int h, int w) throws IllegalArgumentException {
-      if (h < 0 || w < 0) {
-        throw new IllegalArgumentException("Negative scene size");
-      }
-      this.sceneHeight = h;
-      this.sceneWidth = w;
-      return this;
-    }
-
-    /**
-     * Sets the duration of the animation.
-     *
-     * @param duration the ticks of how long this animation lasts
-     * @return the builder containing the duration
-     * @throws IllegalArgumentException Thrown when passed invalid duration
-     */
-    public ModelBuilder setDuration(int duration) {
-      if (duration < 0) {
-        throw new IllegalArgumentException("Negative duration");
-      }
-      this.duration = duration;
-      return this;
-    }
-
-    /**
-     * Build the animation model using the builder.
-     *
-     * @return the model being built.
-     */
-    public BasicAnimationModel build() {
-      BasicAnimationModel model = new BasicAnimationModel(this);
-      return model;
-    }
+    return copy;
   }
 
   /**

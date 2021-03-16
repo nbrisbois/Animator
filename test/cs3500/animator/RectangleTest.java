@@ -18,11 +18,14 @@ public class RectangleTest {
   @Before
   public void setUp() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
-    testRectangle = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    testRectangle = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 1,
+        motions);
   }
 
   /**
@@ -32,8 +35,10 @@ public class RectangleTest {
   @Test(expected = NullPointerException.class)
   public void RectangleNullPositionObjectConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Rectangle(null, 10, 20, Color.BLACK, 1, motions);
@@ -42,8 +47,10 @@ public class RectangleTest {
   @Test(expected = NullPointerException.class)
   public void RectangleNullColorObjectConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Rectangle(new Double(0, 0), 10, 20, null, 1, motions);
@@ -60,8 +67,10 @@ public class RectangleTest {
   @Test(expected = IllegalArgumentException.class)
   public void RectangleInvalidHeightConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Rectangle(new Double(0, 0), -1, 20, Color.BLACK, 1, motions);
@@ -70,8 +79,10 @@ public class RectangleTest {
   @Test(expected = IllegalArgumentException.class)
   public void RectangleInvalidWidthConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Rectangle(new Double(0, 0), 10, -1, Color.BLACK, 1, motions);
@@ -80,62 +91,78 @@ public class RectangleTest {
   @Test(expected = IllegalArgumentException.class)
   public void RectangleInvalidStartTickConstructorTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
     new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, -1, motions);
   }
 
   /**
-   * Render() Tests
+   * Render() Tests.
    */
   @Test
   public void renderTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0, 5);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 52);
-    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8, 32);
-    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1, 40);
+    Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
+        5);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        52);
+    Motion motion3 = new Motion(20, 10, Color.BLUE, 3, 8,
+        32);
+    Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1,
+        40);
     motions.add(motion1);
-    Rectangle testOval1 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Rectangle testOval1 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK,
+        1, motions);
     motions.add(motion2);
-    Rectangle testOval2 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Rectangle testOval2 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK,
+        1, motions);
     motions.add(motion3);
-    Rectangle testOval3 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Rectangle testOval3 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK,
+        1, motions);
     motions.add(motion4);
-    Rectangle testOval4 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Rectangle testOval4 = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK,
+        1, motions);
 
-
     Assert.assertEquals("Shape R rectangle\n"
-        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255", testOval1.render());
+            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255",
+        testOval1.render());
     Assert.assertEquals("Shape R rectangle\n"
-        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255", testOval2.render());
+            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255",
+        testOval2.render());
     Assert.assertEquals("Shape R rectangle\n"
-        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-        + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255", testOval3.render());
+            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+            + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255",
+        testOval3.render());
     Assert.assertEquals("Shape R rectangle\n"
-        + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-        + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-        + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
-        + "motion R 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ", testOval4.render());
+            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
+            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
+            + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
+            + "motion R 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ",
+        testOval4.render());
   }
 
   /**
-   * ChangePosition() AND GetPosition() Tests
+   * ChangePosition() AND GetPosition() Tests.
    */
   @Test
   public void positionMethodsTest() {
     Double positionOne = new Double(0, 0);
     Double positionTwo = new Double(1, 1);
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
-    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
+        motions);
 
     testRectangle.changePosition(positionTwo);
     Assert.assertEquals(testRectangle.getPosition(), positionTwo);
@@ -143,18 +170,21 @@ public class RectangleTest {
   }
 
   /**
-   * ChangeSize() AND GetSize() Tests
+   * ChangeSize() AND GetSize() Tests.
    */
   @Test
   public void sizeMethodsTest() {
     double[] sizeOne = new double[]{1, 1};
     double[] sizeTwo = new double[]{30, 15};
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
-    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
+        motions);
 
     testRectangle.changeSize(sizeOne);
     Assert.assertEquals(testRectangle.getSize()[0], sizeOne[0], 0);
@@ -164,16 +194,19 @@ public class RectangleTest {
   }
 
   /**
-   * ChangeColor() AND GetColor() Tests
+   * ChangeColor() AND GetColor() Tests.
    */
   @Test
   public void colorMethodsTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
-    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
+        motions);
 
     Assert.assertNotEquals(testRectangle.getColor(), Color.BLUE);
     Assert.assertEquals(testRectangle.getColor(), Color.BLACK);
@@ -183,16 +216,19 @@ public class RectangleTest {
   }
 
   /**
-   * GetPriority Tests
+   * GetPriority Tests.
    */
   @Test
   public void getPriorityTest() {
     List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
+    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
+        10);
+    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
+        10);
     motions.add(motion1);
     motions.add(motion2);
-    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
+        motions);
 
     Assert.assertEquals(testRectangle.getPriority(), 61);
   }

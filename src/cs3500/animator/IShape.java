@@ -87,4 +87,11 @@ public interface IShape {
    * @return the Shape after undergoing a motion
    */
   Shape executeMotion(int motionIndex);
+
+  /**
+   * Make a copy of the current shape.
+   *
+   * @return a shape representing the copy of this shape
+   */
+  IShape copy();
 }

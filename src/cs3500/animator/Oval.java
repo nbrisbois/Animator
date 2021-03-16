@@ -73,4 +73,15 @@ public class Oval extends Shape {
     return answer.toString();
   }
 
+  /**
+   * Make a copy of the oval.
+   *
+   * @return a new oval
+   */
+  @Override
+  public IShape copy() {
+    return new Oval(this.position, this.dimensions[0], this.dimensions[1],
+        this.color, this.startTick, this.motions);
+  }
+
 }

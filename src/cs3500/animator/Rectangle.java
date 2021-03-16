@@ -61,8 +61,8 @@ public class Rectangle extends Shape {
       rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
       rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
       */
-      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
-              + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
+      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
+              + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
           old.getStartTick(),
           old.getPosition().getX(),
           old.getPosition().getY(),
@@ -87,5 +87,15 @@ public class Rectangle extends Shape {
     return answer.toString();
   }
 
+  /**
+   * Make a copy of the Rectangle.
+   *
+   * @return a new Rectangle
+   */
+  @Override
+  public IShape copy() {
+    return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
+        this.color, this.startTick, this.motions);
+  }
 
 }

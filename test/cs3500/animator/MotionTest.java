@@ -8,6 +8,9 @@ import java.awt.Color;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test Class for Motion methods.
+ */
 public class MotionTest {
 
   /**

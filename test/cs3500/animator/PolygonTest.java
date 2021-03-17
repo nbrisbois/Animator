@@ -17,7 +17,7 @@ public class PolygonTest {
 
   @Before
   public void setUp() {
-    List<Motion> motions = new ArrayList<Motion>();
+    List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
@@ -311,7 +311,7 @@ public class PolygonTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void changeSizeNot2DSizeTest() {
-    double[] testArray = new double[]{1,1,1,1};
+    double[] testArray = new double[]{1, 1, 1, 1};
     testPolygon.changeSize(testArray);
   }
 

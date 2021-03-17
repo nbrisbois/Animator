@@ -47,10 +47,25 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.PolygonTest.executeMotionsTest">
+  <component name="RunManager" selected="JUnit.BasicAnimationModelTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
       <module name="Animator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAnimationModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,36 +132,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RectangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Animator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.RectangleTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.OvalTest" />
-      <item itemvalue="JUnit.RectangleTest" />
       <item itemvalue="JUnit.MotionTest" />
       <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
       <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
+      <item itemvalue="JUnit.BasicAnimationModelTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BasicAnimationModelTest" />
         <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
         <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
         <item itemvalue="JUnit.MotionTest" />
         <item itemvalue="JUnit.OvalTest" />
-        <item itemvalue="JUnit.RectangleTest" />
       </list>
     </recent_temporary>
   </component>

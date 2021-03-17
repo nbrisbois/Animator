@@ -1,10 +1,7 @@
 package cs3500.animator;
 
-<<<<<<< HEAD
-=======
 import static org.junit.Assert.assertEquals;
 
->>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;

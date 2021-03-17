@@ -237,7 +237,7 @@ public class RectangleTest {
   }
 
   /**
-   * executeMotions() test
+   * ExecuteMotions() test.
    */
   @Test
   public void executeMotionsTest() {

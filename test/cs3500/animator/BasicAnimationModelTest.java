@@ -10,6 +10,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for the animation model.
+ */
 public class BasicAnimationModelTest {
 
   List<Motion> motions = new ArrayList<>();

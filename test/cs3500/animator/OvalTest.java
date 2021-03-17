@@ -219,7 +219,7 @@ public class OvalTest {
   }
 
   /**
-   * executeMotions() test
+   * ExecuteMotions() tests.
    */
   @Test
   public void executeMotionsTest() {

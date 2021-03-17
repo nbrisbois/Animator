@@ -13,24 +13,6 @@ import org.junit.Test;
  */
 public class MotionTest {
 
-  /**
-   * Invalid Argument Tests.
-   */
-  @Test
-  public void motionValidScaleXArgumentTest() {
-    new Motion(0, 0, Color.BLACK, 0, 1, 1);
-  }
-
-  @Test
-  public void motionValidScaleYArgumentTest() {
-    new Motion(0, 0, Color.BLACK, 1, 0, 1);
-  }
-
-  @Test
-  public void motionValidTicksTakenArgumentTest() {
-    new Motion(0, 0, Color.BLACK, 1, 1, 0);
-  }
-
   @Test(expected = IllegalArgumentException.class)
   public void motionInvalidScaleXArgumentTest() {
     new Motion(0, 0, Color.BLACK, -1, 1, 1);

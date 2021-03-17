@@ -12,10 +12,10 @@ public class Rectangle extends Shape {
   /**
    * Constructor for a rectangle Shape.
    *
-   * @param pos   The spawn position of the Shape
-   * @param h     Height of the Rectangle
-   * @param w     Width of the Rectangle
-   * @param color The color of the Rectangle
+   * @param pos       The spawn position of the Shape
+   * @param h         Height of the Rectangle
+   * @param w         Width of the Rectangle
+   * @param color     The color of the Rectangle
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on

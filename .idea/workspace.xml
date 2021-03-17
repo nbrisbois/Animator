@@ -20,11 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

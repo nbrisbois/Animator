@@ -104,6 +104,9 @@ public class OvalTest {
    */
   @Test
   public void renderTest() {
+    /*
+    This test also affirms that there are no gaps in between motions.
+     */
     List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
         5);
@@ -212,11 +215,15 @@ public class OvalTest {
    */
   @Test
   public void getPriorityTest() {
-    Assert.assertEquals(43, testOval.getPriority());
+    Assert.assertEquals(155, testOval.getPriority());
   }
 
   /**
+<<<<<<< HEAD
    * executeMotions() test.
+=======
+   * ExecuteMotions() tests.
+>>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
    */
   @Test
   public void executeMotionsTest() {

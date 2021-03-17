@@ -11,12 +11,12 @@ import java.util.Objects;
  */
 public abstract class Shape implements IShape {
 
+  protected static int numberOfShapes = 0;
+  protected final int order;
   protected Double position;
   protected double[] dimensions;
   protected Color color;
   protected int startTick;
-  protected static int numberOfShapes = 0;
-  protected final int order;
   protected List<Motion> motions;
 
   /**
@@ -118,8 +118,7 @@ public abstract class Shape implements IShape {
    * @return a int representing the starting tick of the shape
    */
   public int getStartTick() {
-    int t = this.startTick;
-    return t;
+    return this.startTick;
   }
 
   /**

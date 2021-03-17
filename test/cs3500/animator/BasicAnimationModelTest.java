@@ -1,5 +1,10 @@
 package cs3500.animator;
 
+<<<<<<< HEAD
+=======
+import static org.junit.Assert.assertEquals;
+
+>>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
@@ -13,16 +18,15 @@ import org.junit.Test;
  */
 public class BasicAnimationModelTest {
 
-  List<Motion> motions = new ArrayList<Motion>();
+  List<Motion> motions = new ArrayList<>();
   Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 10);
   Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
-  Motion motion3 = new Motion(0, -5, Color.ORANGE, 1, 2, 20);
-  Motion motion4 = new Motion(0, 0, Color.ORANGE, 1, 1, 10);
 
   List<IShape> testShapes = new ArrayList<>();
   Oval testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 0, motions);
   Rectangle testRect = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 0, motions);
   Polygon testPoly = new Polygon(new Double(0, 0), 10, 10, Color.BLACK, 0, motions, 10);
+  BasicAnimationModel testModel;
 
   @Before
   public void setup() {
@@ -32,8 +36,6 @@ public class BasicAnimationModelTest {
     testShapes.add(testRect);
     testShapes.add(testPoly);
   }
-
-  BasicAnimationModel testModel;
 
   /**
    * Invalid Argument Testing.
@@ -55,7 +57,7 @@ public class BasicAnimationModelTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void modelInvalidShapesEmptyTest() {
-    testModel = new BasicAnimationModel(new ArrayList<IShape>(), 10, 10, 0);
+    testModel = new BasicAnimationModel(new ArrayList<>(), 10, 10, 0);
   }
 
   @Test(expected = NullPointerException.class)
@@ -118,4 +120,40 @@ public class BasicAnimationModelTest {
     Assert.assertEquals(newOval.getSize()[1], testModel.getShapes().get(3).getSize()[1], 0);
     Assert.assertEquals(newOval.getStartTick(), testModel.getShapes().get(3).getStartTick());
   }
+
+  /**
+   * ToString Tests.
+   */
+  @Test
+  public void modelCopyShapesTest() {
+    testModel = new BasicAnimationModel(testShapes, 10, 10, 10);
+
+    assertEquals("Shape O oval\n \nShape R rectangle\n \nShape P polygon\n \n",
+        testModel.toString());
+
+    Oval newOval = new Oval(new Double(59, 12), 163, 205,
+        Color.MAGENTA, 0, motions);
+    Rectangle newRect = new Rectangle(new Double(59, 12), 163, 205,
+        Color.MAGENTA, 0, motions);
+    Polygon newPoly = new Polygon(new Double(59, 12), 163, 205,
+        Color.MAGENTA, 0, motions, 10);
+    testModel.addShape(newOval);
+    testModel.addShape(newRect);
+    testModel.addShape(newPoly);
+
+    assertEquals(
+        "Shape O oval\n \nShape R rectangle\n \nShape P polygon\n \n"
+            + "Shape O oval"
+            + "\nmotion O 0   59  12  163 205 255 0   255    10  64  17  326 410 0   0   0  \n"
+            + "motion O 10  64  17  326 410 0   0   0      20  64  22  326 820 255 255 255\n \n"
+            + "Shape R rectangle"
+            + "\nmotion R 0   59  12  163 205 255 0   255   10  64  17  326 410 0   0   0  \n"
+            + "motion R 10  64  17  326 410 0   0   0     20  64  22  326 820 255 255 255\n \n"
+            + "Shape P polygon"
+            + "\nmotion P 0   59  12  163 205 255 0   255    10  64  17  326 410 0   0   0  \n"
+            + "motion P 10  64  17  326 410 0   0   0      20  64  22  326 820 255 255 255\n"
+            + " \n", testModel.toString());
+  }
+
+
 }

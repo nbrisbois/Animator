@@ -17,7 +17,7 @@ public class PolygonTest {
 
   @Before
   public void setUp() {
-    List<Motion> motions = new ArrayList<Motion>();
+    List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
@@ -117,6 +117,9 @@ public class PolygonTest {
    */
   @Test
   public void renderTest() {
+    /*
+    This test also affirms that there are no gaps in between motions.
+     */
     List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
         5);
@@ -242,7 +245,7 @@ public class PolygonTest {
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
-    Assert.assertEquals(46, testPolygon.getPriority());
+    Assert.assertEquals(204, testPolygon.getPriority());
   }
 
   /**
@@ -264,7 +267,11 @@ public class PolygonTest {
   }
 
   /**
+<<<<<<< HEAD
    * executeMotions() test.
+=======
+   * ExecuteMotions() test.
+>>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
    */
   @Test
   public void executeMotionsTest() {
@@ -308,7 +315,7 @@ public class PolygonTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void changeSizeNot2DSizeTest() {
-    double[] testArray = new double[]{1,1,1,1};
+    double[] testArray = new double[]{1, 1, 1, 1};
     testPolygon.changeSize(testArray);
   }
 

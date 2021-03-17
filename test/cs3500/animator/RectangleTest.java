@@ -105,6 +105,9 @@ public class RectangleTest {
    */
   @Test
   public void renderTest() {
+    /*
+    This test also affirms that there are no gaps in between motions.
+     */
     List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
         5);
@@ -230,11 +233,15 @@ public class RectangleTest {
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions);
 
-    Assert.assertEquals(44, testRectangle.getPriority());
+    Assert.assertEquals(253, testRectangle.getPriority());
   }
 
   /**
+<<<<<<< HEAD
    * executeMotions() test.
+=======
+   * ExecuteMotions() test.
+>>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
    */
   @Test
   public void executeMotionsTest() {

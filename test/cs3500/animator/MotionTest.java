@@ -8,11 +8,17 @@ import java.awt.Color;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test Class for Motion methods.
+ */
 public class MotionTest {
 
+<<<<<<< HEAD
   /**
    * Invalid Argument Tests.
    */
+=======
+>>>>>>> 8f54ecfe5b37d2a90e2814ee01d422fc60f9d56d
   @Test(expected = IllegalArgumentException.class)
   public void motionInvalidScaleXArgumentTest() {
     new Motion(0, 0, Color.BLACK, -1, 1, 1);

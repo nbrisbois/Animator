@@ -51,10 +51,25 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.RectangleTest">
+  <component name="RunManager" selected="JUnit.MotionTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
       <module name="Animator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.MotionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,22 +100,6 @@
       <option name="PACKAGE_NAME" value="cs3500.animator" />
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
       <option name="METHOD_NAME" value="changeColorNullTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OvalTest.getPriorityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Animator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
-      <option name="METHOD_NAME" value="getPriorityTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,18 +138,18 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.OvalTest" />
-      <item itemvalue="JUnit.OvalTest.getPriorityTest" />
       <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
       <item itemvalue="JUnit.PolygonTest" />
       <item itemvalue="JUnit.RectangleTest" />
+      <item itemvalue="JUnit.MotionTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MotionTest" />
+        <item itemvalue="JUnit.OvalTest" />
         <item itemvalue="JUnit.RectangleTest" />
         <item itemvalue="JUnit.PolygonTest" />
-        <item itemvalue="JUnit.OvalTest" />
         <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
-        <item itemvalue="JUnit.OvalTest.getPriorityTest" />
       </list>
     </recent_temporary>
   </component>

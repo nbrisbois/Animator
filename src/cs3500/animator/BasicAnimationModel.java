@@ -23,12 +23,31 @@ public class BasicAnimationModel implements AnimationModel {
    * @param sceneWidth  the width of the scene
    * @param duration    the ticks of how long this model lasts
    */
-  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration) {
+  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration)
+      throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(shapes);
+    if (shapes.isEmpty()) {
+      throw new IllegalArgumentException("List of Shapes is empty. There are no shapes.");
+    }
+    if (sceneHeight < 1 || sceneWidth < 1){
+      throw new IllegalArgumentException("Invalid Scene dimensions. Scene must be at least 1x1 units.");
+    }
+    if (duration < 0){
+      throw new IllegalArgumentException("Invalid Duration. Duration must be non-negative.");
+    }
+
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
     this.duration = duration;
+  }
+
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<IShape>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
+    }
+    return copy;
   }
 
   /**
@@ -44,16 +63,37 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Helper method used to get the current list of shapes from the Model.
+   * Helper function used to get the current list of shapes from the Model.
    *
    * @return List of IShapes
    */
   @Override
-  public List<IShape> getShapes() throws IllegalArgumentException {
-    if (this.shapes.isEmpty()) {
-      throw new IllegalStateException("There are no shapes");
-    }
+  public List<IShape> getShapes() throws IllegalArgumentException{
     return copyShapes(this.shapes);
+  }
+
+  /**
+   * Getter to retrieve SceneHeight.
+   * @return int
+   */
+  public int getSceneHeight(){
+    return this.sceneHeight;
+  }
+
+  /**
+   * Getter to retrieve SceneWidth.
+   * @return int
+   */
+  public int getSceneWidth(){
+    return this.sceneWidth;
+  }
+
+  /**
+   * Getter to retrieve duration of Animation.
+   * @return int
+   */
+  public int getDuration(){
+    return this.duration;
   }
 
   /**
@@ -69,19 +109,5 @@ public class BasicAnimationModel implements AnimationModel {
       answer += shape.render() + "\n \n";
     }
     return answer;
-  }
-
-  /**
-   * To make a copy of the list of shapes.
-   *
-   * @param shapes the list of shapes we want to copy
-   * @return a list of IShape
-   */
-  private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
-    for (IShape shape : shapes) {
-      copy.add(shape.copy());
-    }
-    return copy;
   }
 }

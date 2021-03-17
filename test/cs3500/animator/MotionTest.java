@@ -10,11 +10,6 @@ import org.junit.Test;
 
 public class MotionTest {
 
-  @Test
-  public void motionTest(){
-    Motion motion = new Motion(0, 0, Color.BLACK, 1, 1, 1);
-  }
-
   /**
    * Invalid Argument Tests.
    */

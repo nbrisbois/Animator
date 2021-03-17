@@ -42,18 +42,20 @@ It keeps track of changes in movement, size and color.
 In addition, it will also store the tick in which it will be put in motion.
 
 ### Shapes
+
 ---
+
 *The following shapes were chosen based off of the native java class 'Graphics2D' which handles 
 Ovals, Rectangles, and Polygons. Future Shapes can be supported thanks to the abstract class. 
 Examples might include Arcs, Round Rectangles, etc.* 
-  #### Oval
-  The <b>Oval</b> class extends from the abstract class 'Shape'. 
-  Ovals will be used to create curved shapes such as Circles, Ellipses, 
-  and Ovals. 
-#### Rectangle
+  #### *Oval*
+The <b>Oval</b> class extends from the abstract class 'Shape'. 
+Ovals will be used to create curved shapes such as Circles, Ellipses, 
+and Ovals. 
+#### *Rectangle*
 The <b>Rectangle</b> class extends from the abstract class 'Shape'.
 Rectangles will be used to create block shapes such as Rectangles and Squares.
-####  Polygon
+####  *Polygon*
 The <b>Polygon</b> class extends from the abstract class 'Shape'.
 Polygons will be used to create shapes that are not rectangles or Ovals.
 

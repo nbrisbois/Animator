@@ -40,6 +40,7 @@ public class Rectangle extends Shape {
     answer.append("Shape R rectangle");
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
+<<<<<<< HEAD
       IShape newShape = this.executeMotion(i);
       /*
       StringBuilder rowAnswerWithLabel = new StringBuilder();
@@ -80,16 +81,50 @@ public class Rectangle extends Shape {
               newShape.getColor().getGreen(),
               newShape.getColor().getBlue()
           );
+=======
+      IShape newShape = old.executeMotion(i);
+      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
+              + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
+          old.getStartTick(),
+          old.getPosition().getX(),
+          old.getPosition().getY(),
+          old.getSize()[0],
+          old.getSize()[1],
+          old.getColor().getRed(),
+          old.getColor().getGreen(),
+          old.getColor().getBlue(),
+          newShape.getStartTick(),
+          newShape.getPosition().getX(),
+          newShape.getPosition().getY(),
+          newShape.getSize()[0],
+          newShape.getSize()[1],
+          newShape.getColor().getRed(),
+          newShape.getColor().getGreen(),
+          newShape.getColor().getBlue()
+      );
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
 
       answer.append(rowAnswer);
-      old = this.executeMotion(i);
+      old = newShape.copy();
     }
     return answer.toString();
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Make a copy of the Rectangle.
+   *
+   * @return a new Rectangle
+   */
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
   @Override
   public IShape copy() {
     return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
 }

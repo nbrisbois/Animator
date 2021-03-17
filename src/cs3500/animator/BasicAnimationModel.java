@@ -23,6 +23,10 @@ public class BasicAnimationModel implements AnimationModel {
    * @param duration    the ticks of how long this model lasts
    */
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration) {
+<<<<<<< HEAD
+=======
+    Objects.requireNonNull(shapes);
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
@@ -55,8 +59,16 @@ public class BasicAnimationModel implements AnimationModel {
    * @return List of IShapes
    */
   @Override
+<<<<<<< HEAD
   public List<IShape> getShapes() {
     return this.copyShapes(this.shapes);
+=======
+  public List<IShape> getShapes() throws IllegalArgumentException{
+    if (this.shapes.isEmpty()) {
+      throw new IllegalStateException("There are no shapes");
+    }
+    return copyShapes(this.shapes);
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
   }
 
   /**

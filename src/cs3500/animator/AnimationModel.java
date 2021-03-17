@@ -12,14 +12,14 @@ public interface AnimationModel {
    *
    * @param shape the shape to be added
    */
-  void addShape(IShape shape);
+  void addShape(IShape shape) throws NullPointerException;
 
   /**
    * To retrieve the list of shapes in the model.
    *
    * @return a list of shapes
    */
-  List<IShape> getShapes();
+  List<IShape> getShapes() throws IllegalArgumentException;
 
   /**
    * To display the animation textually.

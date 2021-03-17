@@ -1,6 +1,7 @@
 package cs3500.animator;
 
 import java.awt.Color;
+import java.util.Objects;
 
 /**
  * Representing a motion that a shape goes through.
@@ -29,6 +30,7 @@ public class Motion {
     if (scaleX < 0 || scaleY < 0 || ticksTaken < 0) {
       throw new IllegalArgumentException("Negative argument");
     }
+    Objects.requireNonNull(color);
     this.movementX = movementX;
     this.movementY = movementY;
     this.color = color;
@@ -45,7 +47,14 @@ public class Motion {
     return movementY;
   }
 
+<<<<<<< HEAD
   public Color getColor() { return color; }
+=======
+  public Color getColor() {
+
+    return new Color(color.getRGB());
+  }
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
 
   public double getScaleX() {
     return scaleX;

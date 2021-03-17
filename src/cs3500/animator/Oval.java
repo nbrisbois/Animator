@@ -22,6 +22,7 @@ public class Oval extends Shape {
   @Override
   public String render() {
     StringBuilder answer = new StringBuilder();
+<<<<<<< HEAD
     answer.append("Shape C oval");
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
@@ -45,8 +46,14 @@ public class Oval extends Shape {
       rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
       rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
       */
+=======
+    answer.append("Shape O oval");
+    IShape old = this;
+    for (int i = 0; i < motions.size(); i++) {
+      IShape newShape = old.executeMotion(i);
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
       String rowAnswer = String.format(
-          "\nmotion C %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
+          "\nmotion O %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
               + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
           old.getStartTick(),
           old.getPosition().getX(),
@@ -67,14 +74,26 @@ public class Oval extends Shape {
       );
 
       answer.append(rowAnswer);
-      old = this.executeMotion(i);
+      old = newShape.copy();
     }
     return answer.toString();
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Make a copy of the oval.
+   *
+   * @return a new oval
+   */
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
   @Override
   public IShape copy() {
     return new Oval(this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
 }

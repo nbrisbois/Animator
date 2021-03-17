@@ -36,7 +36,7 @@ public class Polygon extends Shape {
   }
 
   /**
-   * Getter used to return the number of sides the polygon has
+   * Getter used to return the number of sides the polygon has.
    *
    * @return int number of sides
    */
@@ -55,6 +55,7 @@ public class Polygon extends Shape {
     answer.append("Shape P polygon");
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
+<<<<<<< HEAD
       IShape newShape = this.executeMotion(i);
       /*
       StringBuilder rowAnswerWithLabel = new StringBuilder();
@@ -75,6 +76,9 @@ public class Polygon extends Shape {
       rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
       rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
       */
+=======
+      IShape newShape = old.executeMotion(i);
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
       String rowAnswer = String.format(
           "\nmotion P %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
               + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
@@ -97,11 +101,19 @@ public class Polygon extends Shape {
       );
 
       answer.append(rowAnswer);
-      old = this.executeMotion(i);
+      old = newShape.copy();
     }
     return answer.toString();
   }
 
+<<<<<<< HEAD
+=======
+  /**
+   * Make a copy of the Polygon.
+   *
+   * @return a new Polygon
+   */
+>>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
   @Override
   public IShape copy() {
     return new Polygon(this.position, this.dimensions[0], this.dimensions[1],

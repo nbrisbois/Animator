@@ -21,10 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,22 +176,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512714525" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1616000667681">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1616008024294">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616000667681" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1616000667680">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616008024294" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1616008024293">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616000667680" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1616000667680">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616008024293" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1616008024293">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616000667680" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1616000667681">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616008024293" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1616008024294">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616000667681" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616008024294" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1615501402944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

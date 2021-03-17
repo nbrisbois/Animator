@@ -48,7 +48,6 @@ public class Motion {
   }
 
   public Color getColor() {
-
     return new Color(color.getRGB());
   }
 

@@ -233,6 +233,71 @@ public class RectangleTest {
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions);
 
-    Assert.assertEquals(121, testRectangle.getPriority());
+    Assert.assertEquals(44, testRectangle.getPriority());
+  }
+
+  /**
+   * executeMotions() test
+   */
+  @Test
+  public void executeMotionsTest() {
+    IShape newShape = testRectangle.executeMotion(0);
+    double[] sizeOne = new double[]{20, 20};
+
+    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
+    Assert.assertEquals(Color.BLACK, newShape.getColor());
+    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
+    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
+    Assert.assertEquals(11, newShape.getStartTick());
+  }
+
+  /**
+   * changePosition() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changePositionNullPointerTest() {
+    testRectangle.changePosition(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeSizeNullSizeTest() {
+    testRectangle.changeSize(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeEmptySizeTest() {
+    double[] testArray = new double[]{};
+    testRectangle.changeSize(testArray);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeNot2DSizeTest() {
+    double[] testArray = new double[]{1, 1, 1, 1};
+    testRectangle.changeSize(testArray);
+  }
+
+  /**
+   * changeColor() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeColorNullTest() {
+    testRectangle.changeColor(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void executeMotionNegativeIndexTest() {
+    testRectangle.executeMotion(-1);
   }
 }

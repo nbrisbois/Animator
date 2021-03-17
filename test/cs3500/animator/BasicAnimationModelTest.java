@@ -25,39 +25,40 @@ public class BasicAnimationModelTest {
   Polygon testPoly = new Polygon(new Double(0, 0), 10, 10, Color.BLACK, 0, motions, 10);
 
   @Before
-  public void setup(){
+  public void setup() {
     motions.add(motion1);
     motions.add(motion2);
     testShapes.add(testOval);
     testShapes.add(testRect);
     testShapes.add(testPoly);
   }
+
   BasicAnimationModel testModel;
 
   /**
    * Invalid Argument Testing.
    */
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void modelInvalidSceneHeightTest() {
     testModel = new BasicAnimationModel(testShapes, 0, 10, 10);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void modelInvalidSceneWidthTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 0, 10);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void modelInvalidDurationTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 10, -1);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void modelInvalidShapesEmptyTest() {
     testModel = new BasicAnimationModel(new ArrayList<IShape>(), 10, 10, 0);
   }
 
-  @Test (expected = NullPointerException.class)
+  @Test(expected = NullPointerException.class)
   public void modelInvalidShapesNullTest() {
     testModel = new BasicAnimationModel(null, 10, 10, 0);
   }
@@ -74,19 +75,19 @@ public class BasicAnimationModelTest {
   }
 
   @Test
-  public void modelGetSceneHeightTest(){
+  public void modelGetSceneHeightTest() {
     testModel = new BasicAnimationModel(testShapes, 125125, 10, 0);
     Assert.assertEquals(125125, testModel.getSceneHeight());
   }
 
   @Test
-  public void modelGetSceneWidthTest(){
+  public void modelGetSceneWidthTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 44444, 0);
     Assert.assertEquals(44444, testModel.getSceneWidth());
   }
 
   @Test
-  public void modelGetDurationTest(){
+  public void modelGetDurationTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 44444, 9999125);
     Assert.assertEquals(9999125, testModel.getDuration());
   }
@@ -94,22 +95,24 @@ public class BasicAnimationModelTest {
   /**
    * AddShape Tests.
    */
-  @Test (expected = NullPointerException.class)
-  public void modelAddNullShapeTest(){
+  @Test(expected = NullPointerException.class)
+  public void modelAddNullShapeTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 10, 10);
     testModel.addShape(null);
   }
 
   @Test
-  public void modelAddShapeTest(){
+  public void modelAddShapeTest() {
     testModel = new BasicAnimationModel(testShapes, 10, 10, 10);
     Oval newOval = new Oval(new Double(59, 12), 163, 205, Color.MAGENTA, 0, motions);
     testModel.addShape(newOval);
 
     Assert.assertNotSame(newOval, testModel.getShapes().get(3));
 
-    Assert.assertEquals(newOval.getPosition().getX(), testModel.getShapes().get(3).getPosition().getX(), 0);
-    Assert.assertEquals(newOval.getPosition().getY(), testModel.getShapes().get(3).getPosition().getY(), 0);
+    Assert.assertEquals(newOval.getPosition().getX(),
+        testModel.getShapes().get(3).getPosition().getX(), 0);
+    Assert.assertEquals(newOval.getPosition().getY(),
+        testModel.getShapes().get(3).getPosition().getY(), 0);
     Assert.assertEquals(newOval.getColor(), testModel.getShapes().get(3).getColor());
     Assert.assertEquals(newOval.getSize()[0], testModel.getShapes().get(3).getSize()[0], 0);
     Assert.assertEquals(newOval.getSize()[1], testModel.getShapes().get(3).getSize()[1], 0);

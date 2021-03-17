@@ -24,15 +24,16 @@ public class BasicAnimationModel implements AnimationModel {
    * @param duration    the ticks of how long this model lasts
    */
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration)
-    throws NullPointerException, IllegalArgumentException {
+      throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(shapes);
     if (shapes.isEmpty()) {
       throw new IllegalArgumentException("List of Shapes is empty. There are no shapes.");
     }
-    if (sceneHeight < 1 || sceneWidth < 1){
-      throw new IllegalArgumentException("Invalid Scene dimensions. Scene must be at least 1x1 units.");
+    if (sceneHeight < 1 || sceneWidth < 1) {
+      throw new IllegalArgumentException(
+          "Invalid Scene dimensions. Scene must be at least 1x1 units.");
     }
-    if (duration < 0){
+    if (duration < 0) {
       throw new IllegalArgumentException("Invalid Duration. Duration must be non-negative.");
     }
 
@@ -42,16 +43,8 @@ public class BasicAnimationModel implements AnimationModel {
     this.duration = duration;
   }
 
-  private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
-    for (IShape shape : shapes) {
-      copy.add(shape.copy());
-    }
-    return copy;
-  }
-
   /**
-   * Helper function used to add a shape to the Model
+   * Helper function used to add a shape to the Model.
    *
    * @param shape the shape to be added
    * @throws NullPointerException thrown when shape is null
@@ -63,42 +56,45 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Helper function used to get the current list of shapes from the Model
+   * Helper function used to get the current list of shapes from the Model.
    *
    * @return List of IShapes
    */
   @Override
-  public List<IShape> getShapes() throws IllegalArgumentException{
+  public List<IShape> getShapes() throws IllegalArgumentException {
     return copyShapes(this.shapes);
   }
 
   /**
    * Getter to retrieve SceneHeight.
+   *
    * @return int
    */
-  public int getSceneHeight(){
+  public int getSceneHeight() {
     return this.sceneHeight;
   }
 
   /**
    * Getter to retrieve SceneWidth.
+   *
    * @return int
    */
-  public int getSceneWidth(){
+  public int getSceneWidth() {
     return this.sceneWidth;
   }
 
   /**
    * Getter to retrieve duration of Animation.
+   *
    * @return int
    */
-  public int getDuration(){
+  public int getDuration() {
     return this.duration;
   }
 
   /**
    * Convert current model instance into a mutable string. This string contains all shapes and their
-   * motion history
+   * motion history.
    *
    * @return string
    */
@@ -109,5 +105,19 @@ public class BasicAnimationModel implements AnimationModel {
       answer += shape.render() + "\n \n";
     }
     return answer;
+  }
+
+  /**
+   * Make a copy of the list of shapes in this model.
+   *
+   * @param shapes the list of shapes we want to copy
+   * @return a list of IShape
+   */
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<IShape>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
+    }
+    return copy;
   }
 }

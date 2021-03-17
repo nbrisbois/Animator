@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for oval.
+ */
 public class OvalTest {
 
   Oval testOval;
@@ -212,15 +215,71 @@ public class OvalTest {
    */
   @Test
   public void getPriorityTest() {
-    List<Motion> motions = new ArrayList<>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
-        10);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
-        10);
-    motions.add(motion1);
-    motions.add(motion2);
-    testOval = new Oval(new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Assert.assertEquals(43, testOval.getPriority());
+  }
 
-    Assert.assertEquals(39, testOval.getPriority());
+  /**
+   * executeMotions() test
+   */
+  @Test
+  public void executeMotionsTest() {
+    IShape newShape = testOval.executeMotion(0);
+    double[] sizeOne = new double[]{20, 20};
+
+    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
+    Assert.assertEquals(Color.BLACK, newShape.getColor());
+    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
+    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
+    Assert.assertEquals(11, newShape.getStartTick());
+  }
+
+  /**
+   * changePosition() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changePositionNullPointerTest() {
+    testOval.changePosition(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeSizeNullSizeTest() {
+    testOval.changeSize(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeEmptySizeTest() {
+    double[] testArray = new double[]{};
+    testOval.changeSize(testArray);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeNot2DSizeTest() {
+    double[] testArray = new double[]{1, 1, 1, 1};
+    testOval.changeSize(testArray);
+  }
+
+  /**
+   * changeColor() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeColorNullTest() {
+    testOval.changeColor(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void executeMotionNegativeIndexTest() {
+    testOval.executeMotion(-1);
   }
 }

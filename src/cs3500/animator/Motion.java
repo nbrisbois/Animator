@@ -39,26 +39,56 @@ public class Motion {
     this.ticksTaken = ticksTaken;
   }
 
+  /**
+   * Helper method used to get the x movement of this motion.
+   *
+   * @return an integer
+   */
   public int getMoveX() {
     return movementX;
   }
 
+  /**
+   * Helper method used to get the y movement of this motion.
+   *
+   * @return an integer
+   */
   public int getMoveY() {
     return movementY;
   }
 
+  /**
+   * Helper method used to get the color of this motion, but as a copy.
+   *
+   * @return a Color object
+   */
   public Color getColor() {
     return new Color(color.getRGB());
   }
 
+  /**
+   * Helper method used to get the x scale on dimension change for this motion.
+   *
+   * @return a double
+   */
   public double getScaleX() {
     return scaleX;
   }
 
+  /**
+   * Helper method used to get the y scale on dimension change for this motion.
+   *
+   * @return a double
+   */
   public double getScaleY() {
     return scaleY;
   }
 
+  /**
+   * Helper method used to get the duration ticks for this motion.
+   *
+   * @return an integer
+   */
   public int getTicks() {
     return ticksTaken;
   }

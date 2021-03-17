@@ -1,3 +1,4 @@
+
 package cs3500.animator;
 
 import java.awt.Color;

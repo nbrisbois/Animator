@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test class for triangle.
+ * Test class for rectangle.
  */
 public class PolygonTest {
 
@@ -245,7 +245,7 @@ public class PolygonTest {
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
-    Assert.assertEquals(80, testPolygon.getPriority());
+    Assert.assertEquals(46, testPolygon.getPriority());
   }
 
   /**
@@ -264,5 +264,70 @@ public class PolygonTest {
         10);
 
     Assert.assertEquals(10, testPolygon.getSides());
+  }
+
+  /**
+   * executeMotions() test
+   */
+  @Test
+  public void executeMotionsTest() {
+    IShape newShape = testPolygon.executeMotion(0);
+    double[] sizeOne = new double[]{20, 20};
+
+    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
+    Assert.assertEquals(Color.BLACK, newShape.getColor());
+    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
+    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
+    Assert.assertEquals(11, newShape.getStartTick());
+  }
+
+  /**
+   * changePosition() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changePositionNullPointerTest() {
+    testPolygon.changePosition(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeSizeNullSizeTest() {
+    testPolygon.changeSize(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeEmptySizeTest() {
+    double[] testArray = new double[]{};
+    testPolygon.changeSize(testArray);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeNot2DSizeTest() {
+    double[] testArray = new double[]{1,1,1,1};
+    testPolygon.changeSize(testArray);
+  }
+
+  /**
+   * changeColor() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeColorNullTest() {
+    testPolygon.changeColor(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void executeMotionNegativeIndexTest() {
+    testPolygon.executeMotion(-1);
   }
 }

@@ -1,7 +1,5 @@
 package cs3500.animator;
 
-import static org.junit.Assert.*;
-
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
@@ -10,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test class for the animation model.
+ */
 public class BasicAnimationModelTest {
 
   List<Motion> motions = new ArrayList<Motion>();

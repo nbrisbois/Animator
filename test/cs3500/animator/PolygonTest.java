@@ -264,7 +264,7 @@ public class PolygonTest {
   }
 
   /**
-   * executeMotions() test
+   * executeMotions() test.
    */
   @Test
   public void executeMotionsTest() {

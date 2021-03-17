@@ -11,6 +11,7 @@ public interface AnimationModel {
    * Adds a new shape to the model.
    *
    * @param shape the shape to be added
+   * @throws NullPointerException if the given shape is null
    */
   void addShape(IShape shape) throws NullPointerException;
 
@@ -19,7 +20,7 @@ public interface AnimationModel {
    *
    * @return a list of shapes
    */
-  List<IShape> getShapes() throws IllegalArgumentException;
+  List<IShape> getShapes();
 
   /**
    * To display the animation textually.

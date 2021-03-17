@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Test class for triangle.
+ * Test class for rectangle.
  */
 public class PolygonTest {
 

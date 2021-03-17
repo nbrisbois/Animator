@@ -45,9 +45,7 @@ public class Motion {
     return movementY;
   }
 
-  public Color getColor() {
-    return color;
-  }
+  public Color getColor() { return color; }
 
   public double getScaleX() {
     return scaleX;

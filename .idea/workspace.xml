@@ -21,9 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/MotionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +51,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="JUnit.MotionTest">
+  <component name="RunManager" selected="JUnit.PolygonTest.executeMotionsTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
       <module name="Animator" />
@@ -88,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OvalTest.changeColorNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OvalTest.executeMotionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -98,13 +99,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
-      <option name="METHOD_NAME" value="changeColorNullTest" />
+      <option name="METHOD_NAME" value="executeMotionsTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PolygonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PolygonTest.executeMotionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -114,7 +115,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.PolygonTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="executeMotionsTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,18 +139,18 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.OvalTest" />
-      <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
-      <item itemvalue="JUnit.PolygonTest" />
       <item itemvalue="JUnit.RectangleTest" />
       <item itemvalue="JUnit.MotionTest" />
+      <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
+      <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
+        <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
         <item itemvalue="JUnit.MotionTest" />
         <item itemvalue="JUnit.OvalTest" />
         <item itemvalue="JUnit.RectangleTest" />
-        <item itemvalue="JUnit.PolygonTest" />
-        <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +170,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512717431" />
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1616010050403">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1616010050403" />
     <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1615511264944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -176,22 +182,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512714525" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1616008024294">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1616010343414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616008024294" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1616008024293">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616010343414" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1616010343414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616008024293" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1616008024293">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616010343414" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1616010343414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616008024293" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1616008024294">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616010343414" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1616010343414">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616008024294" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616010343414" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1615501402944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

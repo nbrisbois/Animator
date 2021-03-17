@@ -22,10 +22,4 @@ public interface AnimationModel {
    */
   List<IShape> getShapes();
 
-  /**
-   * To display the animation textually.
-   *
-   * @return a String textualize the animation
-   */
-  String toString();
 }

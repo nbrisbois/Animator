@@ -216,6 +216,21 @@ public class OvalTest {
   }
 
   /**
+   * executeMotions() test
+   */
+  @Test
+  public void executeMotionsTest() {
+    IShape newShape = testOval.executeMotion(0);
+    double[] sizeOne = new double[]{20, 20};
+
+    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
+    Assert.assertEquals(Color.BLACK, newShape.getColor());
+    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
+    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
+    Assert.assertEquals(11, newShape.getStartTick());
+  }
+
+  /**
    * changePosition() NullPointer Tests.
    */
   @Test(expected = NullPointerException.class)
@@ -245,7 +260,7 @@ public class OvalTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void changeSizeNot2DSizeTest() {
-    double[] testArray = new double[]{1,1,1,1};
+    double[] testArray = new double[]{1, 1, 1, 1};
     testOval.changeSize(testArray);
   }
 

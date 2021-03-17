@@ -47,14 +47,10 @@ public class Motion {
     return movementY;
   }
 
-<<<<<<< HEAD
-  public Color getColor() { return color; }
-=======
   public Color getColor() {
 
     return new Color(color.getRGB());
   }
->>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
 
   public double getScaleX() {
     return scaleX;

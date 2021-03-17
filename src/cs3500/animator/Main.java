@@ -1,3 +1,4 @@
+
 package cs3500.animator;
 
 import java.awt.Color;
@@ -36,11 +37,7 @@ public class Main {
     shapes.add(testRect);
     shapes.add(testPoly);
 
-<<<<<<< HEAD
-    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 30);
-=======
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 50);
->>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
     String answer = testModel.toString();
     System.out.println(answer);
   }

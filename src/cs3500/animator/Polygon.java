@@ -55,30 +55,7 @@ public class Polygon extends Shape {
     answer.append("Shape P polygon");
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
-<<<<<<< HEAD
-      IShape newShape = this.executeMotion(i);
-      /*
-      StringBuilder rowAnswerWithLabel = new StringBuilder();
-      rowAnswerWithLabel.append(String.format("\nmotion P start t: %d ", old.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", old.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", old.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", old.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", old.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", old.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", old.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", old.getColor().getBlue()));
-      rowAnswerWithLabel.append(String.format("end t: %d ",  newShape.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", newShape.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", newShape.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", newShape.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", newShape.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", newShape.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
-      */
-=======
       IShape newShape = old.executeMotion(i);
->>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
       String rowAnswer = String.format(
           "\nmotion P %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d    "
               + "%-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
@@ -106,14 +83,11 @@ public class Polygon extends Shape {
     return answer.toString();
   }
 
-<<<<<<< HEAD
-=======
   /**
    * Make a copy of the Polygon.
    *
    * @return a new Polygon
    */
->>>>>>> cde92041dadaf2cd799d9231b24072ad7d8c99ec
   @Override
   public IShape copy() {
     return new Polygon(this.position, this.dimensions[0], this.dimensions[1],

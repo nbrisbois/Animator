@@ -233,7 +233,7 @@ public class RectangleTest {
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions);
 
-    Assert.assertEquals(44, testRectangle.getPriority());
+    Assert.assertEquals(253, testRectangle.getPriority());
   }
 
   /**

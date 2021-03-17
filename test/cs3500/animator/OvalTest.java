@@ -215,7 +215,7 @@ public class OvalTest {
    */
   @Test
   public void getPriorityTest() {
-    Assert.assertEquals(43, testOval.getPriority());
+    Assert.assertEquals(155, testOval.getPriority());
   }
 
   /**

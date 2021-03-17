@@ -245,7 +245,7 @@ public class PolygonTest {
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
-    Assert.assertEquals(46, testPolygon.getPriority());
+    Assert.assertEquals(204, testPolygon.getPriority());
   }
 
   /**

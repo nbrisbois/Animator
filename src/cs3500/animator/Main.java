@@ -26,9 +26,9 @@ public class Main {
     motions.add(motion3);
     motions.add(motion4);
 
-    Oval testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 0, motions);
+    Oval testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 5, motions);
     Oval testOval2 = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 0, motions);
-    Rectangle testRect = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 0, motions);
+    Rectangle testRect = new Rectangle(new Double(0, 0), 10, 10, Color.BLACK, 20, motions);
     Polygon testPoly = new Polygon(new Double(0, 0), 10, 10, Color.BLACK, 0, motions, 10);
 
     List<IShape> shapes = new ArrayList<IShape>();

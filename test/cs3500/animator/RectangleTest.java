@@ -230,6 +230,56 @@ public class RectangleTest {
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions);
 
-    Assert.assertEquals(121, testRectangle.getPriority());
+    Assert.assertEquals(44, testRectangle.getPriority());
+  }
+
+  /**
+   * changePosition() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changePositionNullPointerTest() {
+    testRectangle.changePosition(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeSizeNullSizeTest() {
+    testRectangle.changeSize(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeEmptySizeTest() {
+    double[] testArray = new double[]{};
+    testRectangle.changeSize(testArray);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void changeSizeNot2DSizeTest() {
+    double[] testArray = new double[]{1,1,1,1};
+    testRectangle.changeSize(testArray);
+  }
+
+  /**
+   * changeColor() NullPointer Tests.
+   */
+  @Test(expected = NullPointerException.class)
+  public void changeColorNullTest() {
+    testRectangle.changeColor(null);
+  }
+
+  /**
+   * changeSize() IllegalArgument Tests.
+   */
+  @Test(expected = IllegalArgumentException.class)
+  public void executeMotionNegativeIndexTest() {
+    testRectangle.executeMotion(-1);
   }
 }

@@ -19,30 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f271b42-a700-4c6d-90c0-3daab1764a9b" name="Default Changelist" comment="Edited Shapes">
+    <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Motion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Motion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/PolygonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" afterDir="false" />
-      =======
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
-      >>>>>>> 1daab3eddfd6dd2c7253e120582cc52444d052dd
     </list>
-    <list id="31c8cd67-1c70-44ec-9d39-d080f31ab9bb" name="Revert &quot;Edited Shapes&quot;" comment="Revert &quot;Edited Shapes&quot;&#10;&#10;This reverts commit a1735bc0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,7 +54,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="JUnit.RectangleTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
       <module name="Animator" />
@@ -87,7 +77,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OvalTest.output" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OvalTest.changeColorNullTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -97,13 +87,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
-      <option name="METHOD_NAME" value="output" />
+      <option name="METHOD_NAME" value="changeColorNullTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OvalTest.getPriorityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -112,7 +102,38 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.TriangleTest" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
+      <option name="METHOD_NAME" value="getPriorityTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PolygonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.PolygonTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RectangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.RectangleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -121,14 +142,18 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="JUnit.OvalTest" />
-      <item itemvalue="JUnit.OvalTest.output" />
-      <item itemvalue="JUnit.TriangleTest" />
+      <item itemvalue="JUnit.OvalTest.getPriorityTest" />
+      <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
+      <item itemvalue="JUnit.PolygonTest" />
+      <item itemvalue="JUnit.RectangleTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RectangleTest" />
+        <item itemvalue="JUnit.PolygonTest" />
         <item itemvalue="JUnit.OvalTest" />
-        <item itemvalue="JUnit.OvalTest.output" />
-        <item itemvalue="JUnit.TriangleTest" />
+        <item itemvalue="JUnit.OvalTest.changeColorNullTest" />
+        <item itemvalue="JUnit.OvalTest.getPriorityTest" />
       </list>
     </recent_temporary>
   </component>
@@ -143,34 +168,6 @@
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <<<<<<< HEAD
-            <State />
-            =======
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="Nikolas-Branch" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-            >>>>>>> 1daab3eddfd6dd2c7253e120582cc52444d052dd
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
     <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615512717431">
       <screen x="0" y="0" width="1536" height="824" />
@@ -184,22 +181,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512714525" />
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom" timestamp="1615515306228">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1616000647166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615515306228" />
-    <state width="1493" height="208" key="GridCell.Tab.0.center" timestamp="1615515306228">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616000647166" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1616000647166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615515306228" />
-    <state width="1493" height="208" key="GridCell.Tab.0.left" timestamp="1615515306227">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616000647166" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1616000647166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615515306227" />
-    <state width="1493" height="208" key="GridCell.Tab.0.right" timestamp="1615515306228">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616000647166" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1616000647166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615515306228" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616000647166" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1615501402944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -211,10 +208,15 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/cs3500/animator/OvalTest.java</url>
           <line>18</line>
-          <properties class="cs3500.animator.OvalTest" method="setUp">
+          <properties class="cs3500.animator.OvalTest">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/cs3500/animator/OvalTest.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -31,16 +31,8 @@ public class BasicAnimationModel implements AnimationModel {
     this.duration = duration;
   }
 
-  private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
-    for (IShape shape : shapes) {
-      copy.add(shape.copy());
-    }
-    return copy;
-  }
-
   /**
-   * Helper function used to add a shape to the Model
+   * Helper function used to add a shape to the Model.
    *
    * @param shape the shape to be added
    * @throws NullPointerException thrown when shape is null
@@ -52,12 +44,12 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Helper function used to get the current list of shapes from the Model
+   * Helper method used to get the current list of shapes from the Model.
    *
    * @return List of IShapes
    */
   @Override
-  public List<IShape> getShapes() throws IllegalArgumentException{
+  public List<IShape> getShapes() throws IllegalArgumentException {
     if (this.shapes.isEmpty()) {
       throw new IllegalStateException("There are no shapes");
     }
@@ -66,7 +58,7 @@ public class BasicAnimationModel implements AnimationModel {
 
   /**
    * Convert current model instance into a mutable string. This string contains all shapes and their
-   * motion history
+   * motion history.
    *
    * @return string
    */
@@ -77,5 +69,19 @@ public class BasicAnimationModel implements AnimationModel {
       answer += shape.render() + "\n \n";
     }
     return answer;
+  }
+
+  /**
+   * To make a copy of the list of shapes.
+   *
+   * @param shapes the list of shapes we want to copy
+   * @return a list of IShape
+   */
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<IShape>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
+    }
+    return copy;
   }
 }

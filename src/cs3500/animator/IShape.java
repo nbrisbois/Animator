@@ -8,8 +8,6 @@ import java.awt.geom.Point2D.Double;
  */
 public interface IShape {
 
-  String render();
-
   /**
    * Changes the position of the same to the provided position.
    *
@@ -29,7 +27,7 @@ public interface IShape {
    *
    * @param size A two element array representing the new dimensions of the shape
    */
-  void changeSize(double[] size) throws NullPointerException;
+  void changeSize(double[] size) throws NullPointerException, IllegalArgumentException;
 
   /**
    * Getter to obtain the size dimensions of the shape.
@@ -85,8 +83,9 @@ public interface IShape {
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
    * @return the Shape after undergoing a motion
+   * @throws IllegalArgumentException when index is negative
    */
-  IShape executeMotion(int motionIndex);
+  IShape executeMotion(int motionIndex) throws IllegalArgumentException;
 
   /**
    * Make a copy of the current shape.
@@ -94,4 +93,11 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
+
+  /**
+   * The textual output the shape going through each motions.
+   *
+   * @return a string
+   */
+  String render();
 }

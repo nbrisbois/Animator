@@ -22,10 +22,10 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
-   * @param pos   The spawn position of the Shape
-   * @param x     Dimension one of Two
-   * @param y     Dimension two of Two
-   * @param color The color of the Shape
+   * @param pos       The spawn position of the Shape
+   * @param x         Dimension one of Two
+   * @param y         Dimension two of Two
+   * @param color     The color of the Shape
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
@@ -62,8 +62,11 @@ public abstract class Shape implements IShape {
     return new Double(position.getX(), position.getY());
   }
 
-  public void changeSize(double[] size) throws NullPointerException {
+  public void changeSize(double[] size) throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(size);
+    if (size.length != 2) {
+      throw new IllegalArgumentException("Invalid size");
+    }
     this.dimensions = new double[]{size[0], size[1]};
   }
 
@@ -98,7 +101,10 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  public IShape executeMotion(int motionIndex) {
+  public IShape executeMotion(int motionIndex) throws IllegalArgumentException {
+    if (motionIndex < 0) {
+      throw new IllegalArgumentException("Invalid index");
+    }
     IShape newShape = this.copy();
     Double newPosition = new Double(position.getX() + motions.get(motionIndex).getMoveX(),
         position.getY() + motions.get(motionIndex).getMoveY());

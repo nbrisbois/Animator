@@ -105,6 +105,9 @@ public class RectangleTest {
    */
   @Test
   public void renderTest() {
+    /*
+    This test also affirms that there are no gaps in between motions.
+     */
     List<Motion> motions = new ArrayList<>();
     Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
         5);

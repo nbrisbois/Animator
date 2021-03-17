@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.css.Rect;
 
 public class BasicAnimationModelTest {
 
@@ -114,4 +115,37 @@ public class BasicAnimationModelTest {
     Assert.assertEquals(newOval.getSize()[1], testModel.getShapes().get(3).getSize()[1], 0);
     Assert.assertEquals(newOval.getStartTick(), testModel.getShapes().get(3).getStartTick());
   }
+
+  /**
+   * ToString Tests.
+   */
+  @Test
+  public void modelCopyShapesTest(){
+    testModel = new BasicAnimationModel(testShapes, 10, 10, 10);
+
+    assertEquals("Shape O oval\n \nShape R rectangle\n \nShape P polygon\n \n",
+        testModel.toString());
+
+    Oval newOval = new Oval(new Double(59, 12), 163, 205, Color.MAGENTA, 0, motions);
+    Rectangle newRect = new Rectangle(new Double(59, 12), 163, 205, Color.MAGENTA, 0, motions);
+    Polygon newPoly = new Polygon(new Double(59, 12), 163, 205, Color.MAGENTA, 0, motions, 10);
+    testModel.addShape(newOval);
+    testModel.addShape(newRect);
+    testModel.addShape(newPoly);
+
+    assertEquals(
+        "Shape O oval\n \nShape R rectangle\n \nShape P polygon\n \n"
+        + "Shape O oval"
+            + "\nmotion O 0   59  12  163 205 255 0   255    10  64  17  326 410 0   0   0  \n"
+            + "motion O 10  64  17  326 410 0   0   0      20  64  22  326 820 255 255 255\n \n"
+        + "Shape R rectangle"
+            + "\nmotion R 0   59  12  163 205 255 0   255   10  64  17  326 410 0   0   0  \n"
+            + "motion R 10  64  17  326 410 0   0   0     20  64  22  326 820 255 255 255\n \n"
+        + "Shape P polygon"
+            + "\nmotion P 0   59  12  163 205 255 0   255    10  64  17  326 410 0   0   0  \n"
+            + "motion P 10  64  17  326 410 0   0   0      20  64  22  326 820 255 255 255\n"
+            + " \n", testModel.toString());
+  }
+
+
 }

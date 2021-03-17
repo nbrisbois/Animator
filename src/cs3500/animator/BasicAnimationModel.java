@@ -29,6 +29,13 @@ public class BasicAnimationModel implements AnimationModel {
     if (shapes.isEmpty()) {
       throw new IllegalArgumentException("List of Shapes is empty. There are no shapes.");
     }
+    if (sceneHeight < 1 || sceneWidth < 1){
+      throw new IllegalArgumentException("Invalid Scene dimensions. Scene must be at least 1x1 units.");
+    }
+    if (duration < 0){
+      throw new IllegalArgumentException("Invalid Duration. Duration must be non-negative.");
+    }
+
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
@@ -63,6 +70,30 @@ public class BasicAnimationModel implements AnimationModel {
   @Override
   public List<IShape> getShapes() throws IllegalArgumentException{
     return copyShapes(this.shapes);
+  }
+
+  /**
+   * Getter to retrieve SceneHeight.
+   * @return int
+   */
+  public int getSceneHeight(){
+    return this.sceneHeight;
+  }
+
+  /**
+   * Getter to retrieve SceneWidth.
+   * @return int
+   */
+  public int getSceneWidth(){
+    return this.sceneWidth;
+  }
+
+  /**
+   * Getter to retrieve duration of Animation.
+   * @return int
+   */
+  public int getDuration(){
+    return this.duration;
   }
 
   /**

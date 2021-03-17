@@ -140,22 +140,22 @@ public class PolygonTest {
         motions, 3);
 
     Assert.assertEquals("Shape P polygon\n"
-            + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255",
+            + "motion P 1   0   0   10  20  0   0   0      6   0   0   0   0   255 255 255",
         testOval1.render());
     Assert.assertEquals("Shape P polygon\n"
-            + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255",
+            + "motion P 1   0   0   10  20  0   0   0      6   0   0   0   0   255 255 255\n"
+            + "motion P 6   0   0   0   0   255 255 255    58  0   5   0   0   255 255 255",
         testOval2.render());
     Assert.assertEquals("Shape P polygon\n"
-            + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-            + "motion P 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255",
+            + "motion P 1   0   0   10  20  0   0   0      6   0   0   0   0   255 255 255\n"
+            + "motion P 6   0   0   0   0   255 255 255    58  0   5   0   0   255 255 255\n"
+            + "motion P 58  0   5   0   0   255 255 255    90  20  15  0   0   0   0   255",
         testOval3.render());
     Assert.assertEquals("Shape P polygon\n"
-            + "motion P 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion P 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-            + "motion P 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
-            + "motion P 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ",
+            + "motion P 1   0   0   10  20  0   0   0      6   0   0   0   0   255 255 255\n"
+            + "motion P 6   0   0   0   0   255 255 255    58  0   5   0   0   255 255 255\n"
+            + "motion P 58  0   5   0   0   255 255 255    90  20  15  0   0   0   0   255\n"
+            + "motion P 90  20  15  0   0   0   0   255    130 45  20  0   0   0   255 0  ",
         testOval4.render());
   }
 
@@ -242,7 +242,7 @@ public class PolygonTest {
     testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
-    Assert.assertEquals(40, testPolygon.getPriority());
+    Assert.assertEquals(80, testPolygon.getPriority());
   }
 
   /**

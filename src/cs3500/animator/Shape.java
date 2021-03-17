@@ -98,8 +98,8 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  public Shape executeMotion(int motionIndex) {
-    Shape newShape = this;
+  public IShape executeMotion(int motionIndex) {
+    IShape newShape = this.copy();
     Double newPosition = new Double(position.getX() + motions.get(motionIndex).getMoveX(),
         position.getY() + motions.get(motionIndex).getMoveY());
     double[] newSize = new double[]{dimensions[0] * motions.get(motionIndex).getScaleX(),

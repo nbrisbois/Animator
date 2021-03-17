@@ -128,22 +128,22 @@ public class RectangleTest {
         1, motions);
 
     Assert.assertEquals("Shape R rectangle\n"
-            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255",
+            + "motion R 1   0   0   10  20  0   0   0     6   0   0   0   0   255 255 255",
         testOval1.render());
     Assert.assertEquals("Shape R rectangle\n"
-            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255",
+            + "motion R 1   0   0   10  20  0   0   0     6   0   0   0   0   255 255 255\n"
+            + "motion R 6   0   0   0   0   255 255 255   58  0   5   0   0   255 255 255",
         testOval2.render());
     Assert.assertEquals("Shape R rectangle\n"
-            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-            + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255",
+            + "motion R 1   0   0   10  20  0   0   0     6   0   0   0   0   255 255 255\n"
+            + "motion R 6   0   0   0   0   255 255 255   58  0   5   0   0   255 255 255\n"
+            + "motion R 58  0   5   0   0   255 255 255   90  20  15  0   0   0   0   255",
         testOval3.render());
     Assert.assertEquals("Shape R rectangle\n"
-            + "motion R 6   0   0   0   0   255 255 255    6   0   0   0   0   255 255 255\n"
-            + "motion R 63  0   5   0   0   255 255 255    63  0   5   0   0   255 255 255\n"
-            + "motion R 147 20  20  0   0   0   0   255    147 20  20  0   0   0   0   255\n"
-            + "motion R 219 65  35  0   0   0   255 0      219 65  35  0   0   0   255 0  ",
+            + "motion R 1   0   0   10  20  0   0   0     6   0   0   0   0   255 255 255\n"
+            + "motion R 6   0   0   0   0   255 255 255   58  0   5   0   0   255 255 255\n"
+            + "motion R 58  0   5   0   0   255 255 255   90  20  15  0   0   0   0   255\n"
+            + "motion R 90  20  15  0   0   0   0   255   130 45  20  0   0   0   255 0  ",
         testOval4.render());
   }
 
@@ -230,6 +230,6 @@ public class RectangleTest {
     testRectangle = new Rectangle(new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions);
 
-    Assert.assertEquals(testRectangle.getPriority(), 61);
+    Assert.assertEquals(121, testRectangle.getPriority());
   }
 }

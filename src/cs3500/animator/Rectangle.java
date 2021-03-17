@@ -38,29 +38,9 @@ public class Rectangle extends Shape {
   public String render() {
     StringBuilder answer = new StringBuilder();
     answer.append("Shape R rectangle");
-    Shape old = this;
+    IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
-      Shape newShape = this.executeMotion(i);
-      /*
-      StringBuilder rowAnswerWithLabel = new StringBuilder();
-      rowAnswerWithLabel.append(String.format("\nmotion R start t: %d ", old.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", old.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", old.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", old.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", old.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", old.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", old.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", old.getColor().getBlue()));
-
-      rowAnswerWithLabel.append(String.format("end t: %d ",  newShape.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", newShape.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", newShape.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", newShape.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", newShape.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", newShape.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
-      */
+      IShape newShape = old.executeMotion(i);
       String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
               + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
           old.getStartTick(),
@@ -82,7 +62,7 @@ public class Rectangle extends Shape {
       );
 
       answer.append(rowAnswer);
-      old = this.executeMotion(i);
+      old = newShape.copy();
     }
     return answer.toString();
   }

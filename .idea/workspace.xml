@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_11_2021_5_39_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_11_2021_5_39_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM_[Revert__Edited_Shapes_]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM__Revert__Edited_Shapes__.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/AnimationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/AnimationModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/BasicAnimationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/BasicAnimationModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/IMotion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/IShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/IShape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Motion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Motion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Oval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Oval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Polygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Polygon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/ModelTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Motion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Motion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
-    </list>
+    <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

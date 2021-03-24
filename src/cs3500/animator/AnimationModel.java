@@ -1,5 +1,6 @@
 package cs3500.animator;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -31,5 +32,5 @@ public interface AnimationModel {
   int getDuration();
 
 
-  void moveShapes(long time);
+  void moveShapes(long time, Appendable ap) throws IOException, IllegalStateException;
 }

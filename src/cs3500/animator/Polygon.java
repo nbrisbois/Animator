@@ -1,6 +1,7 @@
 package cs3500.animator;
 
 import java.awt.Color;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
 import java.util.List;
 import java.util.Queue;
@@ -26,10 +27,10 @@ public class Polygon extends Shape {
    * @throws NullPointerException     Thrown when a null object is passed in construction
    * @throws IllegalArgumentException Thrown when an invalid primitive is passed in construction
    */
-  public Polygon(Double pos, double h, double w, Color color, int startTick, Queue<Motion> motions,
+  public Polygon(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions,
       int sides)
       throws NullPointerException, IllegalArgumentException {
-    super(pos, h, w, color, startTick, motions);
+    super(name, pos, h, w, color, startTick, motions);
     if (sides < 3) {
       throw new IllegalArgumentException("Polygon Object must have at least 3 sides");
     }
@@ -51,8 +52,9 @@ public class Polygon extends Shape {
    * @return a string showing what motions the shape would go through
    */
   @Override
-  public String render() {
-    return "";
+  public java.awt.Shape render() {
+    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
+    return circle;
   }
 
   /**
@@ -62,7 +64,13 @@ public class Polygon extends Shape {
    */
   @Override
   public IShape copy() {
-    return new Polygon(this.position, this.dimensions[0], this.dimensions[1],
+    return new Polygon(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions, this.sides);
+  }
+
+  @Override
+  public String toString() {
+    String output = name + " Polygon";
+    return output;
   }
 }

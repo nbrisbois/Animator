@@ -1,5 +1,6 @@
 package cs3500.animator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -85,10 +86,14 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
-  public void moveShapes(long time) {
+  public void moveShapes(long time, Appendable ap) throws IOException {
     for (int i = 0; i < shapes.size(); i++) {
-      shapes.get(i).calculateMotion(time*speed);
-      //something something render?
+      if (shapes.get(i).getStartTick() == time) {
+        ap.append("shape " + shapes.get(i).toString() + "\n");
+      }
+      if (shapes.get(i).getStartTick() <= time) {
+        shapes.get(i).calculateMotion(time * speed, ap);
+      }
     }
   }
 
@@ -100,6 +105,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
     return copy;
   }
+
 
 
 }

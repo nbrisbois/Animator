@@ -3,8 +3,6 @@ package cs3500.animator;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -31,6 +29,7 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
+   * @param name  The name of shape
    * @param pos   The spawn position of the Shape
    * @param x     Dimension one of Two
    * @param y     Dimension two of Two
@@ -49,7 +48,6 @@ public abstract class Shape implements IShape {
     Objects.requireNonNull(color);
     Objects.requireNonNull(motions);
     Objects.requireNonNull(name);
-
     if (x < 0 || y < 0 || startTick < 0) {
       throw new IllegalArgumentException("Primitive constructor elements must not be non negative");
     }
@@ -65,7 +63,6 @@ public abstract class Shape implements IShape {
     speedX = speedY = scaleX = scaleY = 0;
 
   }
-
 
   public void changePosition(Double pos) throws NullPointerException {
     Objects.requireNonNull(pos);
@@ -146,7 +143,6 @@ public abstract class Shape implements IShape {
 
     dimensions[0] = dimensions[0] + scaleX;
     dimensions[1] = dimensions[1] + scaleY;
-
-
+    color = motions.peek().getColor();
   }
 }

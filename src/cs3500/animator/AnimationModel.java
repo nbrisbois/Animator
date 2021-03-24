@@ -23,14 +23,17 @@ public interface AnimationModel {
   List<IShape> getShapes() throws IllegalArgumentException;
 
   /**
-   * To display the animation textually.
-   *
-   * @return a String textualize the animation
+   * To retrieve the maximum ticks of animation
+   * @return the duration of the animation
    */
-  String toString();
-
   int getDuration();
 
 
-  void moveShapes(long time, Appendable ap) throws IOException, IllegalStateException;
+  /**
+   * Runs through the list of shapes moving them by time.
+   * @param time current time of the animation run
+   * @param ap a list to append the motions of animation
+   * @throws IOException thrown when the model cannot append the motion command
+   */
+  void moveShapes(long time, Appendable ap) throws IOException;
 }

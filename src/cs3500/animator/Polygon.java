@@ -1,9 +1,7 @@
 package cs3500.animator;
 
 import java.awt.Color;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -46,22 +44,12 @@ public class Polygon extends Shape {
     return this.sides;
   }
 
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
   @Override
   public java.awt.Shape render() {
-    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
-    return circle;
+    java.awt.Shape polygon = new java.awt.Polygon();
+    return polygon;
   }
 
-  /**
-   * Make a copy of the Polygon.
-   *
-   * @return a new Polygon
-   */
   @Override
   public IShape copy() {
     return new Polygon(this.name, this.position, this.dimensions[0], this.dimensions[1],

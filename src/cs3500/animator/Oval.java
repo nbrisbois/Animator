@@ -16,11 +16,6 @@ public class Oval extends Shape {
     super(name, pos, h, w, color, t, motions);
   }
 
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
   @Override
   public java.awt.Shape render() {
 
@@ -28,11 +23,6 @@ public class Oval extends Shape {
     return circle;
   }
 
-  /**
-   * Make a copy of the oval.
-   *
-   * @return a new oval
-   */
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],

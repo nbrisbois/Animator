@@ -29,11 +29,11 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
-   * @param name  The name of shape
-   * @param pos   The spawn position of the Shape
-   * @param x     Dimension one of Two
-   * @param y     Dimension two of Two
-   * @param color The color of the Shape
+   * @param name      The name of shape
+   * @param pos       The spawn position of the Shape
+   * @param x         Dimension one of Two
+   * @param y         Dimension two of Two
+   * @param color     The color of the Shape
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
@@ -42,7 +42,8 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(String name, Double pos, double x, double y, Color color, long startTick, Queue<Motion> motions)
+  public Shape(String name, Double pos, double x, double y, Color color, long startTick,
+      Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -109,7 +110,8 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  public void calculateMotion(long currentTick, Appendable ap) throws IOException, IllegalStateException {
+  public void calculateMotion(long currentTick, Appendable ap)
+      throws IOException, IllegalStateException {
     long time = (motions.peek().getTicks() - currentTick);
     if ((currentTick >= motions.peek().getTicks())) {
       motions.remove();
@@ -123,13 +125,13 @@ public abstract class Shape implements IShape {
         time = 1;
       }
 
-      speedX = ((motions.peek().getMoveX() - position.getX())/time);
-      speedY = ((motions.peek().getMoveY()- position.getY())/time);
+      speedX = ((motions.peek().getMoveX() - position.getX()) / time);
+      speedY = ((motions.peek().getMoveY() - position.getY()) / time);
 
-      scaleX = ((motions.peek().getScaleX() - dimensions[0])/time);
-      scaleY = ((motions.peek().getScaleY() - dimensions[1])/time);
+      scaleX = ((motions.peek().getScaleX() - dimensions[0]) / time);
+      scaleY = ((motions.peek().getScaleY() - dimensions[1]) / time);
 
-      ap.append("motion " + name + " " + currentTick+ " " + position.getX() + " "
+      ap.append("motion " + name + " " + currentTick + " " + position.getX() + " "
           + position.getY() + " " + dimensions[0] + " " + dimensions[1] + " " + color.getRed()
           + " " + color.getGreen() + " " + color.getBlue() + " " + motions.peek().getTicks()
           + " " + motions.peek().getMoveX() + " " + motions.peek().getMoveY() + " "

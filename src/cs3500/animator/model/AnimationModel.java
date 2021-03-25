@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,6 +14,24 @@ public interface AnimationModel {
    * @param shape the shape to be added
    */
   void addShape(IShape shape) throws NullPointerException;
+
+  /**
+   * Gets the height of the scene.
+   * @return the height of the scene.
+   */
+  int getSceneHeight();
+
+  /**
+   * Gets the width of the scene.
+   * @return the height of the scene.
+   */
+  int getSceneWidth();
+
+  /**
+   * Gets the speed of the ticks.
+   * @return the speed of the ticks.
+   */
+  int getFrameSpeed();
 
   /**
    * To retrieve the list of shapes in the model.
@@ -32,8 +50,7 @@ public interface AnimationModel {
   /**
    * Runs through the list of shapes moving them by time.
    * @param time current time of the animation run
-   * @param ap a list to append the motions of animation
    * @throws IOException thrown when the model cannot append the motion command
    */
-  void moveShapes(long time, Appendable ap) throws IOException;
+  void moveShapes(long time) throws IOException;
 }

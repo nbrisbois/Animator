@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
@@ -109,7 +109,7 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  public void calculateMotion(long currentTick, Appendable ap) throws IOException, IllegalStateException {
+  public void calculateMotion(long currentTick) throws IOException, IllegalStateException {
     long time = (motions.peek().getTicks() - currentTick);
     if ((currentTick >= motions.peek().getTicks())) {
       motions.remove();
@@ -128,14 +128,6 @@ public abstract class Shape implements IShape {
 
       scaleX = ((motions.peek().getScaleX() - dimensions[0])/time);
       scaleY = ((motions.peek().getScaleY() - dimensions[1])/time);
-
-      ap.append("motion " + name + " " + currentTick+ " " + position.getX() + " "
-          + position.getY() + " " + dimensions[0] + " " + dimensions[1] + " " + color.getRed()
-          + " " + color.getGreen() + " " + color.getBlue() + " " + motions.peek().getTicks()
-          + " " + motions.peek().getMoveX() + " " + motions.peek().getMoveY() + " "
-          + motions.peek().getScaleX() + " " + motions.peek().getScaleY() + " "
-          + motions.peek().getColor().getRed() + " " + motions.peek().getColor().getGreen() + " "
-          + motions.peek().getColor().getBlue() + "\n");
     }
     position.setLocation(
         position.getX() + speedX,

@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -90,10 +90,9 @@ public interface IShape {
    * Applies the changes a motion would do to the shape.
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
-   * @param ap          text to document motions
    * @throws IOException if the appendable cannot append
    */
-  void calculateMotion(long motionIndex, Appendable ap) throws IOException;
+  void calculateMotion(long motionIndex) throws IOException;
 
   /**
    * Make a copy of the current shape.

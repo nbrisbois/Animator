@@ -1,9 +1,8 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -11,7 +10,8 @@ import java.util.Queue;
  */
 public class Oval extends Shape {
 
-  public Oval(String name, Double pos, double h, double w, Color color, long t, Queue<Motion> motions)
+  public Oval(String name, Double pos, double h, double w, Color color, long t,
+      Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     super(name, pos, h, w, color, t, motions);
   }
@@ -19,7 +19,8 @@ public class Oval extends Shape {
   @Override
   public java.awt.Shape render() {
 
-    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
+    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(),
+        this.dimensions[0], this.dimensions[1]);
     return circle;
   }
 

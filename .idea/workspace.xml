@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="" />
+=======
     <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
@@ -10,7 +15,9 @@
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
+>>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
     </list>
+>>>>>>> a6ca7c02c8ea3724ddc8b109452b3a295ed3df4c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -35,22 +42,33 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+<<<<<<< HEAD
+  <component name="ProjectId" id="1pt9I8FLDDUakpC32pBqswFFMLC" />
+=======
   <component name="ProjectId" id="1ptjwhdfa83PuGcQczVz8Dl74cP" />
+>>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+<<<<<<< HEAD
+  </component>
+  <component name="RunManager" selected="JUnit.ModelTest.simpleTest">
+=======
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="JUnit.Testers.testSingleShape">
+>>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.model.Main" />
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="PATTERN" value="cs3500.animator.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,7 +80,7 @@
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="PATTERN" value="cs3500.animator.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,7 +96,7 @@
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="PATTERN" value="cs3500.animator.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,7 +112,7 @@
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="PATTERN" value="cs3500.animator.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,7 +128,7 @@
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="PATTERN" value="cs3500.animator.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,10 +154,17 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="" />
+<<<<<<< HEAD
+      <created>1615991440689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615991440689</updated>
+=======
       <created>1616009527486</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616009527486</updated>
+>>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
     </task>
     <servers />
   </component>

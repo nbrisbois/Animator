@@ -1,5 +1,6 @@
 package cs3500.animator;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,7 @@ public class BasicAnimationModel implements AnimationModel {
   private final int sceneHeight;
   private final int sceneWidth;
   private final int duration;
+  private final int speed;
 
   /**
    * Construct an animation model.
@@ -23,8 +25,14 @@ public class BasicAnimationModel implements AnimationModel {
    * @param sceneWidth  the width of the scene
    * @param duration    the ticks of how long this model lasts
    */
-  public BasicAnimationModel(List<IShape> shapes, int sceneHeight, int sceneWidth, int duration)
-      throws NullPointerException, IllegalArgumentException {
+  public BasicAnimationModel (List<IShape> shapes, int sceneHeight, int sceneWidth, int duration, int frameSpeed)
+    throws NullPointerException, IllegalArgumentException {
+    if (duration < 0) {
+      throw new IllegalArgumentException("Duration cannot be less than zero ticks");
+    }
+    if (frameSpeed < 0) {
+      throw new IllegalArgumentException("Frame speed cannot go lower than 1");
+    }
     Objects.requireNonNull(shapes);
     if (shapes.isEmpty()) {
       throw new IllegalArgumentException("List of Shapes is empty. There are no shapes.");
@@ -41,6 +49,7 @@ public class BasicAnimationModel implements AnimationModel {
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
     this.duration = duration;
+    this.speed = frameSpeed;
   }
 
   /**
@@ -105,6 +114,18 @@ public class BasicAnimationModel implements AnimationModel {
       answer += shape.render() + "\n \n";
     }
     return answer;
+  }
+
+  @Override
+  public void moveShapes(long time, Appendable ap) throws IOException {
+    for (int i = 0; i < shapes.size(); i++) {
+      if (shapes.get(i).getStartTick() == time) {
+        ap.append("shape " + shapes.get(i).toString() + "\n");
+      }
+      if (shapes.get(i).getStartTick() <= time) {
+        shapes.get(i).calculateMotion(time * speed, ap);
+      }
+    }
   }
 
   /**

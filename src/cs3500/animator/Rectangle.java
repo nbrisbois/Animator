@@ -1,8 +1,11 @@
 package cs3500.animator;
 
 import java.awt.Color;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
+import java.awt.geom.Rectangle2D;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * Rectangle Specific Implementation of a Shape Class.
@@ -24,9 +27,9 @@ public class Rectangle extends Shape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Rectangle(Double pos, double h, double w, Color color, int startTick, List<Motion> motions)
+  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
-    super(pos, h, w, color, startTick, motions);
+    super(name, pos, h, w, color, startTick, motions);
   }
 
   /**
@@ -35,36 +38,9 @@ public class Rectangle extends Shape {
    * @return a string showing what motions the shape would go through
    */
   @Override
-  public String render() {
-    StringBuilder answer = new StringBuilder();
-    answer.append("Shape R rectangle");
-    IShape old = this;
-    for (int i = 0; i < motions.size(); i++) {
-      IShape newShape = old.executeMotion(i);
-      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
-              + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
-          old.getStartTick(),
-          old.getPosition().getX(),
-          old.getPosition().getY(),
-          old.getSize()[0],
-          old.getSize()[1],
-          old.getColor().getRed(),
-          old.getColor().getGreen(),
-          old.getColor().getBlue(),
-          newShape.getStartTick(),
-          newShape.getPosition().getX(),
-          newShape.getPosition().getY(),
-          newShape.getSize()[0],
-          newShape.getSize()[1],
-          newShape.getColor().getRed(),
-          newShape.getColor().getGreen(),
-          newShape.getColor().getBlue()
-      );
-
-      answer.append(rowAnswer);
-      old = newShape.copy();
-    }
-    return answer.toString();
+  public java.awt.Shape render() {
+    Rectangle2D rec = new Rectangle2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
+    return rec;
   }
 
   /**
@@ -74,8 +50,14 @@ public class Rectangle extends Shape {
    */
   @Override
   public IShape copy() {
-    return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
+    return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
+  }
+
+  @Override
+  public String toString() {
+    String output = name + " Rectangle";
+    return output;
   }
 
 }

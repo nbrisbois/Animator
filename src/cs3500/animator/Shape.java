@@ -2,22 +2,31 @@ package cs3500.animator;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Abstract Class that all eligible shapes will be created from.
  */
 public abstract class Shape implements IShape {
 
-  protected static int numberOfShapes = 0;
-  protected final int order;
+  protected final String name;
   protected Double position;
   protected double[] dimensions;
   protected Color color;
-  protected int startTick;
-  protected List<Motion> motions;
+  protected long startTick;
+  protected static int numberOfShapes = 0;
+  protected final int order;
+  protected Queue<Motion> motions;
+
+  private double speedX;
+  private double speedY;
+  private double scaleX;
+  private double scaleY;
 
   /**
    * Abstract Shape Constructor.
@@ -34,22 +43,27 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(Double pos, double x, double y, Color color, int startTick, List<Motion> motions)
+  public Shape(String name, Double pos, double x, double y, Color color, long startTick, Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
     Objects.requireNonNull(motions);
+    Objects.requireNonNull(name);
 
     if (x < 0 || y < 0 || startTick < 0) {
       throw new IllegalArgumentException("Primitive constructor elements must not be non negative");
     }
 
+    this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
     this.startTick = startTick;
-    this.motions = new ArrayList<>(motions);
+    this.motions = new PriorityQueue<Motion>(motions);
     this.order = ++numberOfShapes;
+
+    speedX = speedY = scaleX = scaleY = 0;
+
   }
 
   /**
@@ -117,8 +131,9 @@ public abstract class Shape implements IShape {
    *
    * @return a int representing the starting tick of the shape
    */
-  public int getStartTick() {
-    return this.startTick;
+  public long getStartTick() {
+    long t = this.startTick;
+    return t;
   }
 
   /**
@@ -149,26 +164,43 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  /**
-   * Applies the changes a motion would do to the shape.
-   *
-   * @param motionIndex an integer representing the index of the motion we want to execute
-   * @return the Shape after undergoing a motion
-   * @throws IllegalArgumentException when index is negative
-   */
-  public IShape executeMotion(int motionIndex) throws IllegalArgumentException {
-    if (motionIndex < 0) {
-      throw new IllegalArgumentException("Invalid index");
+  public String getName() {
+    return name;
+  }
+
+  public void calculateMotion(long currentTick, Appendable ap) throws IOException, IllegalStateException {
+    long time = (motions.peek().getTicks() - currentTick);
+    if ((currentTick >= motions.peek().getTicks())) {
+      motions.remove();
+      if (!motions.isEmpty()) {
+        startTick = currentTick;
+        time = (motions.peek().getTicks() - currentTick);
+      }
     }
-    IShape newShape = this.copy();
-    Double newPosition = new Double(position.getX() + motions.get(motionIndex).getMoveX(),
-        position.getY() + motions.get(motionIndex).getMoveY());
-    double[] newSize = new double[]{dimensions[0] * motions.get(motionIndex).getScaleX(),
-        dimensions[1] * motions.get(motionIndex).getScaleY()};
-    newShape.changePosition(newPosition);
-    newShape.changeSize(newSize);
-    newShape.changeColor(motions.get(motionIndex).getColor());
-    newShape.changeTick(motions.get(motionIndex).getTicks());
-    return newShape;
+    if (startTick + time == motions.peek().getTicks()) {
+      if (time == 0) {
+        time = 1;
+      }
+
+      speedX = ((motions.peek().getMoveX() - position.getX())/time);
+      speedY = ((motions.peek().getMoveY()- position.getY())/time);
+
+      scaleX = ((motions.peek().getScaleX() - dimensions[0])/time);
+      scaleY = ((motions.peek().getScaleY() - dimensions[1])/time);
+
+      ap.append("motion " + name + " " + currentTick+ " " + position.getX() + " "
+          + position.getY() + " " + dimensions[0] + " " + dimensions[1] + " " + color.getRed()
+          + " " + color.getGreen() + " " + color.getBlue() + " " + motions.peek().getTicks()
+          + " " + motions.peek().getMoveX() + " " + motions.peek().getMoveY() + " "
+          + motions.peek().getScaleX() + " " + motions.peek().getScaleY() + " "
+          + motions.peek().getColor().getRed() + " " + motions.peek().getColor().getGreen() + " "
+          + motions.peek().getColor().getBlue() + "\n");
+    }
+    position.setLocation(
+        position.getX() + speedX,
+        position.getY() + speedY);
+
+    dimensions[0] = dimensions[0] + scaleX;
+    dimensions[1] = dimensions[1] + scaleY;
   }
 }

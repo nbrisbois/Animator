@@ -25,7 +25,8 @@ public class Polygon extends Shape {
    * @throws NullPointerException     Thrown when a null object is passed in construction
    * @throws IllegalArgumentException Thrown when an invalid primitive is passed in construction
    */
-  public Polygon(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions,
+  public Polygon(String name, Double pos, double h, double w, Color color, long startTick,
+      Queue<Motion> motions,
       int sides)
       throws NullPointerException, IllegalArgumentException {
     super(name, pos, h, w, color, startTick, motions);

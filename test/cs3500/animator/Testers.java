@@ -37,13 +37,11 @@ public class Testers {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
     int tick = 0;
-    Appendable ap = new StringBuilder();
     while (tick != 10) {
-      testModel.moveShapes(tick, ap);
+      testModel.moveShapes(tick);
       TimeUnit.SECONDS.sleep(1);
       tick = tick + 1;
     }
-    System.out.println(ap.toString());
   }
 
   @Test
@@ -69,12 +67,10 @@ public class Testers {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
     int tick = 0;
-    Appendable ap = new StringBuilder();
     while (tick != 10) {
-      testModel.moveShapes(tick, ap);
+      testModel.moveShapes(tick);
       TimeUnit.SECONDS.sleep(1);
       tick = tick + 1;
     }
-    System.out.println(ap.toString());
   }
 }

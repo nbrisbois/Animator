@@ -1,14 +1,26 @@
 package cs3500.animator;
 
 import java.awt.Color;
+import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
+import java.io.IOException;
 
 /**
  * The interface of the shape.
  */
 public interface IShape {
 
-  String render();
+  /**
+   * renders the shape
+   * @return returns the rendered shape
+   */
+  Shape render();
+
+  /**
+   * gets the name of the shape
+   * @return the name of the shape
+   */
+  String getName();
 
   /**
    * Changes the position of the same to the provided position.
@@ -57,14 +69,8 @@ public interface IShape {
    *
    * @return a int representing the starting tick of the shape
    */
-  int getStartTick();
+  long getStartTick();
 
-  /**
-   * Change the starting tick of the shape.
-   *
-   * @param t an int representing the new tick
-   */
-  void changeTick(int t);
 
   /**
    * Getter for the Overlap priority of the shape.
@@ -84,9 +90,10 @@ public interface IShape {
    * Applies the changes a motion would do to the shape.
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
-   * @return the Shape after undergoing a motion
+   * @param ap          text to document motions
+   * @throws IOException if the appendable cannot append
    */
-  Shape executeMotion(int motionIndex);
+  void calculateMotion(long motionIndex, Appendable ap) throws IOException;
 
   /**
    * Make a copy of the current shape.

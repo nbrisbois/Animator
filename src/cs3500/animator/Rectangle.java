@@ -2,7 +2,8 @@ package cs3500.animator;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
-import java.util.List;
+import java.awt.geom.Rectangle2D;
+import java.util.Queue;
 
 /**
  * Rectangle Specific Implementation of a Shape Class.
@@ -24,78 +25,27 @@ public class Rectangle extends Shape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Rectangle(Double pos, double h, double w, Color color, int startTick, List<Motion> motions)
+  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
-    super(pos, h, w, color, startTick, motions);
+    super(name, pos, h, w, color, startTick, motions);
   }
 
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
   @Override
-  public String render() {
-    StringBuilder answer = new StringBuilder();
-    answer.append("Shape R rectangle");
-    Shape old = this;
-    for (int i = 0; i < motions.size(); i++) {
-      Shape newShape = this.executeMotion(i);
-      /*
-      StringBuilder rowAnswerWithLabel = new StringBuilder();
-      rowAnswerWithLabel.append(String.format("\nmotion R start t: %d ", old.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", old.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", old.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", old.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", old.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", old.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", old.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", old.getColor().getBlue()));
-
-      rowAnswerWithLabel.append(String.format("end t: %d ",  newShape.getStartTik()));
-      rowAnswerWithLabel.append(String.format("x: %.0f ", newShape.getPosition().getX()));
-      rowAnswerWithLabel.append(String.format("y: %.0f ", newShape.getPosition().getY()));
-      rowAnswerWithLabel.append(String.format("w: %.0f ", newShape.getSize()[0]));
-      rowAnswerWithLabel.append(String.format("h: %.0f ", newShape.getSize()[1]));
-      rowAnswerWithLabel.append(String.format("rgb: %d ", newShape.getColor().getRed()));
-      rowAnswerWithLabel.append(String.format("%d ", newShape.getColor().getGreen()));
-      rowAnswerWithLabel.append(String.format("%d   ", newShape.getColor().getBlue()));
-      */
-      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
-              + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
-          old.getStartTick(),
-          old.getPosition().getX(),
-          old.getPosition().getY(),
-          old.getSize()[0],
-          old.getSize()[1],
-          old.getColor().getRed(),
-          old.getColor().getGreen(),
-          old.getColor().getBlue(),
-          newShape.getStartTick(),
-          newShape.getPosition().getX(),
-          newShape.getPosition().getY(),
-          newShape.getSize()[0],
-          newShape.getSize()[1],
-          newShape.getColor().getRed(),
-          newShape.getColor().getGreen(),
-          newShape.getColor().getBlue()
-      );
-
-      answer.append(rowAnswer);
-      old = this.executeMotion(i);
-    }
-    return answer.toString();
+  public java.awt.Shape render() {
+    Rectangle2D rec = new Rectangle2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
+    return rec;
   }
 
-  /**
-   * Make a copy of the Rectangle.
-   *
-   * @return a new Rectangle
-   */
   @Override
   public IShape copy() {
-    return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
+    return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
+  }
+
+  @Override
+  public String toString() {
+    String output = name + " Rectangle";
+    return output;
   }
 
 }

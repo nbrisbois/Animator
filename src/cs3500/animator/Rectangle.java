@@ -2,7 +2,7 @@ package cs3500.animator;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
-import java.util.List;
+import java.awt.geom.Rectangle2D;
 import java.util.Queue;
 
 /**
@@ -25,30 +25,27 @@ public class Rectangle extends Shape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Rectangle(Double pos, double h, double w, Color color, int startTick, Queue<Motion> motions)
+  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
-    super(pos, h, w, color, startTick, motions);
+    super(name, pos, h, w, color, startTick, motions);
   }
 
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
   @Override
-  public String render() {
-    return "";
+  public java.awt.Shape render() {
+    Rectangle2D rec = new Rectangle2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
+    return rec;
   }
 
-  /**
-   * Make a copy of the Rectangle.
-   *
-   * @return a new Rectangle
-   */
   @Override
   public IShape copy() {
-    return new Rectangle(this.position, this.dimensions[0], this.dimensions[1],
+    return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
+  }
+
+  @Override
+  public String toString() {
+    String output = name + " Rectangle";
+    return output;
   }
 
 }

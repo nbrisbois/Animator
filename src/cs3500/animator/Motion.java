@@ -36,7 +36,7 @@ public class Motion implements Comparable {
     this.color = color;
     this.scaleX = scaleX;
     this.scaleY = scaleY;
-    this.ticksTaken = ticksTaken * 1000;
+    this.ticksTaken = ticksTaken;
   }
 
   public double getMoveX() {

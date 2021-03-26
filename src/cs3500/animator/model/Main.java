@@ -1,5 +1,4 @@
-
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
@@ -15,14 +14,12 @@ public class Main {
 
   /**
    * Main function to run basic model.
-   *
    * @param args StdIn
    */
   public static void main(String... args) {
     Queue<Motion> motions = new PriorityQueue<Motion>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 5);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
-
     motions.add(motion1);
     motions.add(motion2);
 

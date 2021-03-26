@@ -1,4 +1,4 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.Shape;
@@ -9,7 +9,19 @@ import java.io.IOException;
  * The interface of the shape.
  */
 public interface IShape {
+
+  /**
+   * renders the shape
+   * @return returns the rendered shape
+   */
+  Shape render();
+
+  /**
+   * gets the name of the shape
+   * @return the name of the shape
+   */
   String getName();
+
   /**
    * Changes the position of the same to the provided position.
    *
@@ -29,7 +41,7 @@ public interface IShape {
    *
    * @param size A two element array representing the new dimensions of the shape
    */
-  void changeSize(double[] size) throws NullPointerException, IllegalArgumentException;
+  void changeSize(double[] size) throws NullPointerException;
 
   /**
    * Getter to obtain the size dimensions of the shape.
@@ -78,10 +90,9 @@ public interface IShape {
    * Applies the changes a motion would do to the shape.
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
-   * @return the Shape after undergoing a motion
-   * @throws IllegalArgumentException when index is negative
+   * @throws IOException if the appendable cannot append
    */
-  void calculateMotion(long motionIndex, Appendable ap) throws IOException;
+  void calculateMotion(long motionIndex) throws IOException;
 
   /**
    * Make a copy of the current shape.
@@ -89,11 +100,4 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
-
-  /**
-   * The textual output the shape going through each motions.
-   *
-   * @return a string
-   */
-  Shape render();
 }

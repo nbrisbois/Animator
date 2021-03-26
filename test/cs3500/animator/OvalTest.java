@@ -1,5 +1,7 @@
 package cs3500.animator;
 
+import cs3500.animator.model.Motion;
+import cs3500.animator.model.Oval;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Oval(new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    testOval = new Oval("oval", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
   }
 
   /**
@@ -40,7 +42,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval(null, 10, 20, Color.BLACK, 1, motions);
+    new Oval("oval", null, 10, 20, Color.BLACK, 1, motions);
   }
 
   @Test(expected = NullPointerException.class)

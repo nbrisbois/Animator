@@ -1,10 +1,8 @@
-package cs3500.animator;
+package cs3500.animator.model;
 
 import java.awt.Color;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
 import java.awt.geom.Rectangle2D;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -32,22 +30,12 @@ public class Rectangle extends Shape {
     super(name, pos, h, w, color, startTick, motions);
   }
 
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
   @Override
   public java.awt.Shape render() {
     Rectangle2D rec = new Rectangle2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
     return rec;
   }
 
-  /**
-   * Make a copy of the Rectangle.
-   *
-   * @return a new Rectangle
-   */
   @Override
   public IShape copy() {
     return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],

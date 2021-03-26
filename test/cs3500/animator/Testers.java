@@ -1,9 +1,15 @@
 package cs3500.animator;
 
+import cs3500.animator.model.AnimationModel;
+import cs3500.animator.model.BasicAnimationModel;
+import cs3500.animator.model.IShape;
+import cs3500.animator.model.Motion;
+import cs3500.animator.model.Oval;
+import cs3500.animator.model.Rectangle;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.io.IOException;
-import java.io.StringReader;
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
@@ -31,13 +37,11 @@ public class Testers {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
     int tick = 0;
-    Appendable ap = new StringBuilder();
     while (tick != 10) {
-      testModel.moveShapes(tick, ap);
+      testModel.moveShapes(tick);
       TimeUnit.SECONDS.sleep(1);
       tick = tick + 1;
     }
-    System.out.println(ap.toString());
   }
 
   @Test
@@ -63,12 +67,10 @@ public class Testers {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
     int tick = 0;
-    Appendable ap = new StringBuilder();
     while (tick != 10) {
-      testModel.moveShapes(tick, ap);
+      testModel.moveShapes(tick);
       TimeUnit.SECONDS.sleep(1);
       tick = tick + 1;
     }
-    System.out.println(ap.toString());
   }
 }

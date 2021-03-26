@@ -1,5 +1,6 @@
 package cs3500.animator;
 
+import cs3500.animator.model.Polygon;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;

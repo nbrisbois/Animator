@@ -20,28 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e9b29c2-e741-4bf4-af41-6e9d01f5d016" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/AnimationModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/BasicAnimationModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/IShape.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Motion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Oval.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Polygon.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Rectangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Shape.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/BasicAnimationModelTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/MotionTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/OvalTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/PolygonTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/RectangleTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

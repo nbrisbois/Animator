@@ -37,5 +37,6 @@ public class TextualView implements IAnimationView {
       answer += shape.toString() + "\n \n";
     }
     this.ap.append(answer);
+    System.out.println(this.ap);
   }
 }

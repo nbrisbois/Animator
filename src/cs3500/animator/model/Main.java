@@ -17,6 +17,7 @@ public class Main {
 
   /**
    * Main function to run basic model.
+   *
    * @param args StdIn
    */
   public static void main(String... args) throws IOException {
@@ -26,10 +27,14 @@ public class Main {
     motions.add(motion1);
     motions.add(motion2);
 
-    Oval testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    IShape testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    IShape testRect = new Rectangle("r", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    IShape testPoly = new Polygon("p", new Double(0, 0), 10, 10, Color.BLACK, 1, motions, 3);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
+    shapes.add(testRect);
+    shapes.add(testPoly);
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
 

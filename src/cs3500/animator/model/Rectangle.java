@@ -31,9 +31,8 @@ public class Rectangle extends Shape {
   }
 
   @Override
-  public java.awt.Shape render() {
-    Rectangle2D rec = new Rectangle2D.Double(this.position.getX(), this.position.getY(), this.dimensions[0], this.dimensions[1]);
-    return rec;
+  public String getShape() {
+    return "rectangle";
   }
 
   @Override

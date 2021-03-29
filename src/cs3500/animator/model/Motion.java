@@ -30,7 +30,7 @@ public class Motion implements Comparable {
     if (scaleX < 0 || scaleY < 0 || ticksTaken < 0) {
       throw new IllegalArgumentException("Negative argument");
     }
-    Objects.requireNonNull(color);
+    Objects.requireNonNull(color, "Color cannot be null");
     this.movementX = movementX;
     this.movementY = movementY;
     this.color = color;

@@ -14,7 +14,7 @@ public interface IShape {
    * renders the shape
    * @return returns the rendered shape
    */
-  Shape render();
+  String getShape();
 
   /**
    * gets the name of the shape
@@ -92,7 +92,7 @@ public interface IShape {
    * @param motionIndex an integer representing the index of the motion we want to execute
    * @throws IOException if the appendable cannot append
    */
-  void calculateMotion(long motionIndex) throws IOException;
+  void calculateMotion(long motionIndex);
 
   /**
    * Make a copy of the current shape.

@@ -27,7 +27,7 @@ public class TextualView implements IAnimationView {
   }
 
   /**
-   * Animates the model and adds the textual view to an appendable.
+   * Display the animation textually and adds the textual view to an appendable.
    */
   @Override
   public void render() throws IOException {

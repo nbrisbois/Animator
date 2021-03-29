@@ -46,9 +46,8 @@ public class Polygon extends Shape {
   }
 
   @Override
-  public java.awt.Shape render() {
-    java.awt.Shape polygon = new java.awt.Polygon();
-    return polygon;
+  public String getShape() {
+    return "polygon";
   }
 
   @Override

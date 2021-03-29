@@ -1,10 +1,13 @@
 package cs3500.animator;
 
+import cs3500.animator.model.Motion;
 import cs3500.animator.model.Polygon;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,14 +21,14 @@ public class PolygonTest {
 
   @Before
   public void setUp() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 10, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 10, Color.BLACK, 1, motions,
         3);
   }
 
@@ -35,31 +38,31 @@ public class PolygonTest {
 
   @Test(expected = NullPointerException.class)
   public void PolygonNullPositionObjectConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(null, 10, 20, Color.BLACK, 1, motions, 3);
+    new Polygon("poly", null, 10, 20, Color.BLACK, 1, motions, 3);
   }
 
   @Test(expected = NullPointerException.class)
   public void PolygonNullColorObjectConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(new Double(0, 0), 10, 20, null, 1, motions, 3);
+    new Polygon("poly", new Double(0, 0), 10, 20, null, 1, motions, 3);
   }
 
   @Test(expected = NullPointerException.class)
   public void PolygonNullMotionsObjectConstructorTest() {
-    new Polygon(new Double(0, 0), 10, 20, null, 1, null, 3);
+    new Polygon("poly", new Double(0, 0), 10, 20, null, 1, null, 3);
   }
 
   /**
@@ -67,50 +70,50 @@ public class PolygonTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void PolygonInvalidHeightConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(new Double(0, 0), -1, 20, Color.BLACK, 1, motions, 5);
+    new Polygon("poly", new Double(0, 0), -1, 20, Color.BLACK, 1, motions, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void PolygonInvalidWidthConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(new Double(0, 0), 10, -1, Color.BLACK, 1, motions, 5);
+    new Polygon("poly", new Double(0, 0), 10, -1, Color.BLACK, 1, motions, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void PolygonInvalidStartTickConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(new Double(0, 0), 10, 20, Color.BLACK, -1, motions, 5);
+    new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, -1, motions, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void PolygonInvalidSidesConstructorTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions, -1);
+    new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions, -1);
   }
 
   /**
@@ -121,7 +124,7 @@ public class PolygonTest {
     /*
     This test also affirms that there are no gaps in between motions.
      */
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(0, 0, Color.WHITE, 0, 0,
         5);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
@@ -131,16 +134,16 @@ public class PolygonTest {
     Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1,
         40);
     motions.add(motion1);
-    Polygon testOval1 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1,
+    Polygon testOval1 = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions, 3);
     motions.add(motion2);
-    Polygon testOval2 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1,
+    Polygon testOval2 = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions, 3);
     motions.add(motion3);
-    Polygon testOval3 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1,
+    Polygon testOval3 = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions, 3);
     motions.add(motion4);
-    Polygon testOval4 = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1,
+    Polygon testOval4 = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1,
         motions, 3);
 
     Assert.assertEquals("Shape P polygon\n"
@@ -170,14 +173,14 @@ public class PolygonTest {
   public void positionMethodsTest() {
     Double positionOne = new Double(0, 0);
     Double positionTwo = new Double(1, 1);
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
     testPolygon.changePosition(positionTwo);
@@ -192,14 +195,14 @@ public class PolygonTest {
   public void sizeMethodsTest() {
     double[] sizeOne = new double[]{1, 1};
     double[] sizeTwo = new double[]{30, 15};
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
     testPolygon.changeSize(sizeOne);
@@ -214,14 +217,14 @@ public class PolygonTest {
    */
   @Test
   public void colorMethodsTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
     Assert.assertNotEquals(testPolygon.getColor(), Color.BLUE);
@@ -236,14 +239,14 @@ public class PolygonTest {
    */
   @Test
   public void getPriorityTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
     Assert.assertEquals(204, testPolygon.getPriority());
@@ -254,33 +257,33 @@ public class PolygonTest {
    */
   @Test
   public void getSidesTest() {
-    List<Motion> motions = new ArrayList<>();
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testPolygon = new Polygon(new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
+    testPolygon = new Polygon("poly", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,
         10);
 
     Assert.assertEquals(10, testPolygon.getSides());
   }
 
-  /**
-   * ExecuteMotions() test.
-   */
-  @Test
-  public void executeMotionsTest() {
-    IShape newShape = testPolygon.executeMotion(0);
-    double[] sizeOne = new double[]{20, 20};
-
-    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
-    Assert.assertEquals(Color.BLACK, newShape.getColor());
-    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
-    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
-    Assert.assertEquals(11, newShape.getStartTick());
-  }
+//  /**
+//   * ExecuteMotions() test.
+//   */
+//  @Test
+//  public void executeMotionsTest() {
+//    IShape newShape = testPolygon.executeMotion(0);
+//    double[] sizeOne = new double[]{20, 20};
+//
+//    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
+//    Assert.assertEquals(Color.BLACK, newShape.getColor());
+//    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
+//    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
+//    Assert.assertEquals(11, newShape.getStartTick());
+//  }
 
   /**
    * changePosition() NullPointer Tests.
@@ -324,11 +327,11 @@ public class PolygonTest {
     testPolygon.changeColor(null);
   }
 
-  /**
-   * changeSize() IllegalArgument Tests.
-   */
-  @Test(expected = IllegalArgumentException.class)
-  public void executeMotionNegativeIndexTest() {
-    testPolygon.executeMotion(-1);
-  }
+//  /**
+//   * changeSize() IllegalArgument Tests.
+//   */
+//  @Test(expected = IllegalArgumentException.class)
+//  public void executeMotionNegativeIndexTest() {
+//    testPolygon.executeMotion(-1);
+//  }
 }

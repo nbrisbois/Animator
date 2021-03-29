@@ -58,8 +58,14 @@ public class Polygon extends Shape {
   }
 
   @Override
+  public String writeAnimation() {
+    return null;
+  }
+
+  @Override
   public String toString() {
     String output = name + " Polygon";
     return output;
   }
+
 }

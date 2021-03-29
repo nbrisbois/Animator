@@ -100,4 +100,6 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
+
+  String writeAnimation();
 }

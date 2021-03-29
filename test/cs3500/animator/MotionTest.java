@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 
+import cs3500.animator.model.Motion;
 import java.awt.Color;
 import org.junit.Assert;
 import org.junit.Test;

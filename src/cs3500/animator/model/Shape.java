@@ -109,7 +109,7 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  public void calculateMotion(long currentTick) throws IOException, IllegalStateException {
+  public void calculateMotion(long currentTick) throws IllegalStateException {
     long time = (motions.peek().getTicks() - currentTick);
     if ((currentTick >= motions.peek().getTicks())) {
       motions.remove();

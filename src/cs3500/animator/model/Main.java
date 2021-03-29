@@ -29,7 +29,11 @@ public class Main {
     shapes.add(testOval);
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
-    String answer = testModel.toString();
+    String answer = "";
+    List<IShape> los = testModel.getShapes();
+    for (IShape shape : los) {
+      answer += shape.toString() + "\n \n";
+    }
     System.out.println(answer);
   }
 }

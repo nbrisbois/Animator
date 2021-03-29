@@ -19,19 +19,41 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_11_2021_5_39_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_11_2021_5_39_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM_[Revert__Edited_Shapes_]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_11_2021_5_57_PM__Revert__Edited_Shapes__.xml" beforeDir="false" />
+    <list default="true" id="0e9b29c2-e741-4bf4-af41-6e9d01f5d016" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/AnimationModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/BasicAnimationModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/IShape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Motion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Oval.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Polygon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Shape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/BasicAnimationModelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/MotionTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/OvalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/PolygonTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/RectangleTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,9 +75,9 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.model.Main" />
       <module name="Animator" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,21 +108,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.MotionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OvalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Animator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.OvalTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,21 +145,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Testers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Testers" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="JUnit.OvalTest" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.MotionTest" />
       <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
       <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
       <item itemvalue="JUnit.BasicAnimationModelTest" />
+      <item itemvalue="JUnit.Testers" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Testers" />
         <item itemvalue="JUnit.BasicAnimationModelTest" />
         <item itemvalue="JUnit.MotionTest" />
         <item itemvalue="JUnit.PolygonTest.executeMotionsTest" />
         <item itemvalue="JUnit.OvalTest.executeMotionsTest" />
-        <item itemvalue="JUnit.OvalTest" />
       </list>
     </recent_temporary>
   </component>
@@ -177,40 +199,41 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615512717431">
+    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617051106510">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512717431" />
+    <state x="223" y="0" width="1089" height="824" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1617051106510" />
     <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1616010050403">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1616010050403" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1615511264944">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1616772400572">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1615511264944" />
-    <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1615512714525">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1616772400572" />
+    <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1617051103977">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1615512714525" />
-    <state width="1493" height="364" key="GridCell.Tab.0.bottom" timestamp="1616025249928">
+    <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1617051103977" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617051163379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616025249928" />
-    <state width="1493" height="364" key="GridCell.Tab.0.center" timestamp="1616025249928">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617051163379" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617051163379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616025249928" />
-    <state width="1493" height="364" key="GridCell.Tab.0.left" timestamp="1616025249928">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617051163379" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617051163378">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616025249928" />
-    <state width="1493" height="364" key="GridCell.Tab.0.right" timestamp="1616025249928">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617051163378" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617051163379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="364" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616025249928" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617051163379" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1615501402944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

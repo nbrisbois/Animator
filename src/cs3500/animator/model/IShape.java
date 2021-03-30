@@ -100,12 +100,4 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
-
-  /**
-   * Displaying all the motions this shape would go through.
-   *
-   * @return a string showing what motions the shape would go through
-   */
-  @Override
-  String toString();
 }

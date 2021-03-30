@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface IAnimationView {
 
-  void render() throws IOException;
+  void render();
 
 }

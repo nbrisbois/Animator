@@ -30,13 +30,17 @@ public class TextualView implements IAnimationView {
    * Display the animation textually and adds the textual view to an appendable.
    */
   @Override
-  public void render() throws IOException {
+  public void render() {
     String answer = "";
     List<IShape> shapes = model.getShapes();
     for (IShape shape : shapes) {
       answer += shape.toString() + "\n \n";
     }
-    this.ap.append(answer);
+    try {
+      this.ap.append(answer);
+    } catch(IOException e) {
+      //do nothing
+    }
     System.out.println(this.ap);
   }
 }

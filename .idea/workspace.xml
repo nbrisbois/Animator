@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e9b29c2-e741-4bf4-af41-6e9d01f5d016" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TextualView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,22 +200,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="210" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1617051103977" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617052000561">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617135067280">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617052000561" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617052000561">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617135067280" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617135067280">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617052000561" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617052000561">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617135067280" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617135067279">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617052000561" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617052000561">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617135067279" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617135067280">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617052000561" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617135067280" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1615501402944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

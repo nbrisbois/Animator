@@ -12,12 +12,14 @@ public interface IShape {
 
   /**
    * renders the shape
+   *
    * @return returns the rendered shape
    */
-  Shape render();
+  String getShape();
 
   /**
    * gets the name of the shape
+   *
    * @return the name of the shape
    */
   String getName();
@@ -92,7 +94,7 @@ public interface IShape {
    * @param motionIndex an integer representing the index of the motion we want to execute
    * @throws IOException if the appendable cannot append
    */
-  void calculateMotion(long motionIndex) throws IOException;
+  void calculateMotion(long motionIndex);
 
   /**
    * Make a copy of the current shape.
@@ -100,4 +102,11 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
+
+  /**
+   * renders the shape
+   *
+   * @return returns the rendered shape
+   */
+  Shape render();
 }

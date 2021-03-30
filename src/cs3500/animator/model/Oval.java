@@ -19,17 +19,22 @@ public class Oval extends Shape {
   }
 
   @Override
-  public java.awt.Shape render() {
-
-    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(),
-        this.dimensions[0], this.dimensions[1]);
-    return circle;
+  public String getShape() {
+    return "ellipses";
   }
 
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions);
+  }
+
+  @Override
+  public java.awt.Shape render() {
+
+    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(),
+        this.dimensions[0], this.dimensions[1]);
+    return circle;
   }
 
   /**

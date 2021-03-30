@@ -119,5 +119,4 @@ public class AnimationReader {
               label, fieldName));
     }
   }
-
 }

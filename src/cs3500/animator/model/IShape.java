@@ -100,4 +100,10 @@ public interface IShape {
    * @return a shape representing the copy of this shape
    */
   IShape copy();
+
+  /**
+   * renders the shape
+   * @return returns the rendered shape
+   */
+  Shape render();
 }

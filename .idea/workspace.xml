@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="">
+    <list default="true" id="0e9b29c2-e741-4bf4-af41-6e9d01f5d016" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TexualView/TextualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualView/VisualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cs3500/animator/TexViewTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/util/AnimationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/util/AnimationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualView/VisuralView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +46,22 @@
       <recent name="cs3500.animator" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.TexViewTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TexViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.TexViewTest" />
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -65,8 +89,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
+      <item itemvalue="Application.TexViewTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TexViewTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
       </list>

@@ -104,6 +104,7 @@ public interface IShape {
   IShape copy();
 
   String writeAnimation();
+  
   /**
    * renders the shape
    *

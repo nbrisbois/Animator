@@ -29,19 +29,28 @@ public class VisViewTest {
 
   public static void main(String[] args) {
     Queue<Motion> motions = new PriorityQueue<Motion>();
-    Motion motion1 = new Motion(50, 50, Color.BLACK, 40, 40, 5000);
-    Motion motion2 = new Motion(500, 100, Color.WHITE, 150, 5, 10000);
-    motions.add(motion1);
-    motions.add(motion2);
+    Motion o1 = new Motion(440, 70, Color.BLUE, 120, 60, 20000);
+    Motion o2 = new Motion(440, 250, Color.BLUE, 120, 60, 50000);
+    Motion o3 = new Motion(440, 370, new Color(0, 170, 85), 120, 60, 70000);
+    Motion o4 = new Motion(440, 370, new Color(0, 250, 0), 120, 60, 80000);
+    Motion o5 = new Motion(440, 370, new Color(0, 250, 0), 120, 60, 100000);
 
-    IShape testOval = new Oval("c", new Double(0, 0), 100 , 100, Color.BLACK, 1000, motions);
-    IShape testRect = new Rectangle("r", new Double(0, 0), 600, 200, Color.BLACK, 1000, motions);
+
+
+    motions.add(o1);
+    motions.add(o2);
+    motions.add(o3);
+    motions.add(o4);
+    motions.add(o5);
+
+    IShape testOval = new Oval("C", new Double(440, 70), 120 , 60, Color.BLUE, 6000, motions);
+    //IShape testRect = new Rectangle("R", new Double(0, 0), 600, 200, Color.BLACK, 1000, motions);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
-    shapes.add(testRect);
+    //shapes.add(testRect);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 10, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 100000, 1);
 
     AnimationViewVisual view = new VisualView(testModel.getSceneWidth(), testModel.getSceneHeight());
     view.render();
@@ -55,12 +64,8 @@ public class VisViewTest {
         }
         view.refresh();
         tick++;
-        if (tick == testModel.getDuration()) {
-          t.stop();
-        }
       }
     };
-
     Timer t = new Timer(100, timer);
     t.start();
 

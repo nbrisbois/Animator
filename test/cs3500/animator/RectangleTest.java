@@ -4,8 +4,6 @@ import cs3500.animator.model.Motion;
 import cs3500.animator.model.Rectangle;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import org.junit.Assert;

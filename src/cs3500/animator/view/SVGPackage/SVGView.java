@@ -9,12 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
+/**
+ * The view to display the animation as a string output in a specific format.
+ */
 public class SVGView implements IAnimationView {
 
   private final AnimationModel model;
   private final FileWriter myWriter;
 
+  /**
+   * The constructor of SVGView using the model.
+   *
+   * @param model the model of the animation we want to display as a SVGView
+   * @throws IOException if file writer cannot output a desired writer
+   */
   public SVGView(AnimationModel model) throws IOException {
     super();
     Objects.requireNonNull(model);
@@ -22,6 +30,9 @@ public class SVGView implements IAnimationView {
     myWriter = new FileWriter("Animator/src/cs3500/animator/view/SVGView/animator.svg", false);
   }
 
+  /**
+   * To display the SVG output of the model.
+   */
   @Override
   public void render() {
     try {

@@ -215,6 +215,7 @@ public class BasicAnimationModel implements AnimationModel {
     return returnList;
   }
 
+  @Override
   public List<Queue<Motion>> getMotions() {
     List<Queue<Motion>> answer = new ArrayList<>();
     for (IShape shape : shapes) {
@@ -223,6 +224,7 @@ public class BasicAnimationModel implements AnimationModel {
     return answer;
   }
 
+  @Override
   public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
       double scaleY, int ticksTaken) {
     Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
@@ -233,6 +235,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeShape(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {
@@ -241,6 +244,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeMotion(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {

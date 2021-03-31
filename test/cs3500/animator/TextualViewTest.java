@@ -50,9 +50,5 @@ public class TextualViewTest {
     textView = new TextualView(null);
   }
 
-  //Render Tests
-  @Test
-  public void renderTest() {
-    textView.render();
-  }
+  //Render Tests is in src.cs3500.animator.model.main
 }

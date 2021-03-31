@@ -5,6 +5,7 @@ import java.awt.geom.Point2D.Double;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -32,6 +33,16 @@ public class Rectangle extends Shape {
       throws NullPointerException, IllegalArgumentException {
     super(name, pos, h, w, color, startTick, motions);
   }
+
+  /**
+   * A rectangle constructor using just a name.
+   *
+   * @param name The unique name of shape
+   */
+  public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<Motion>());
+  }
+
 
   @Override
   public java.awt.Shape render() {

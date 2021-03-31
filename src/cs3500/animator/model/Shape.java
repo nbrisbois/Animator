@@ -29,7 +29,7 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
-   * @param name  The name of shape
+   * @param name  The unique name of shape
    * @param pos   The spawn position of the Shape
    * @param x     Dimension one of Two
    * @param y     Dimension two of Two
@@ -140,7 +140,6 @@ public abstract class Shape implements IShape {
         time = (peekedMotion.getTicks() - currentTick);
       }
     }
-
     // Update the speed
     if (startTick + time == peekedMotion.getTicks()) {
         speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);

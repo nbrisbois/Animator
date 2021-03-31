@@ -26,10 +26,14 @@ The purpose of this class is to store shapes and run them in adjacent with the t
 ### IShape
 This interface provides the framework for the shapes that will be put into the model.
 <<<<<<< HEAD
+ This interface provides the following features:
+=======
+<<<<<<< HEAD
 This interface provides the following features:
 =======
  This interface provides the following features:
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
+>>>>>>> 6075cacaac29a32fecdae8a9b01e4a4a448ed8e8
 *   render which generates a log of the commands that a shape will execute (i.e motion)
 *   Provide changes to the shape's sizes, locations and colors.
 *   Provides getters for the shape's size, location, color, starting tick and priority in reference to other shapes.
@@ -49,6 +53,8 @@ In addition, it will also store the tick in which it will be put in motion.
 
 ---
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 *The following shapes were chosen based off of the native java class 'Graphics2D' which handles
 Ovals, Rectangles, and Polygons. Future Shapes can be supported thanks to the abstract class.
 Examples might include Arcs, Round Rectangles, etc.*
@@ -57,6 +63,7 @@ The <b>Oval</b> class extends from the abstract class 'Shape'.
 Ovals will be used to create curved shapes such as Circles, Ellipses,
 and Ovals.
 =======
+>>>>>>> 6075cacaac29a32fecdae8a9b01e4a4a448ed8e8
 
 *The following shapes were chosen based off of the native java class 'Graphics2D' which handles 
 Ovals, Rectangles, and Polygons. Future Shapes can be supported thanks to the abstract class. 
@@ -65,7 +72,10 @@ Examples might include Arcs, Round Rectangles, etc.*
 The <b>Oval</b> class extends from the abstract class 'Shape'. 
 Ovals will be used to create curved shapes such as Circles, Ellipses, 
 and Ovals. 
+<<<<<<< HEAD
+=======
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
+>>>>>>> 6075cacaac29a32fecdae8a9b01e4a4a448ed8e8
 #### *Rectangle*
 The <b>Rectangle</b> class extends from the abstract class 'Shape'.
 Rectangles will be used to create block shapes such as Rectangles and Squares.

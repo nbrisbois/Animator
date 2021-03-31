@@ -40,13 +40,13 @@ public class MotionTest {
   @Test
   public void motionGetMoveXTest() {
     Motion motion = new Motion(1251, 124, Color.ORANGE, 1, 1, 1);
-    assertEquals(1251, motion.getMoveX());
+    assertEquals(1251, (int) motion.getMoveX());
   }
 
   @Test
   public void motionGetMoveYTest() {
     Motion motion = new Motion(1251, 124, Color.ORANGE, 1, 1, 1);
-    assertEquals(124, motion.getMoveY());
+    assertEquals(124, (int) motion.getMoveY());
   }
 
   @Test

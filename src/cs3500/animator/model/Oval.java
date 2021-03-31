@@ -6,6 +6,7 @@ import java.awt.geom.Point2D.Double;
 import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -26,6 +27,15 @@ public class Oval extends Shape {
   public Oval(String name, Double pos, double h, double w, Color color, long t,
       Queue<Motion> motions) {
     super(name, pos, h, w, color, t, motions);
+  }
+
+  /**
+   * An Oval constructor using just a name.
+   *
+   * @param name The unique name of shape
+   */
+  public Oval(String name) throws NullPointerException, IllegalArgumentException {
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<Motion>());
   }
 
   @Override

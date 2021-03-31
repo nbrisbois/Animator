@@ -12,12 +12,14 @@ public interface IShape {
 
   /**
    * renders the shape
+   *
    * @return returns the rendered shape
    */
   String getShape();
 
   /**
    * gets the name of the shape
+   *
    * @return the name of the shape
    */
   String getName();
@@ -109,6 +111,7 @@ public interface IShape {
 
   /**
    * renders the shape
+   *
    * @return returns the rendered shape
    */
   Shape render();

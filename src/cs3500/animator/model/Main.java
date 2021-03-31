@@ -1,7 +1,7 @@
 package cs3500.animator.model;
 
 import cs3500.animator.view.IAnimationView;
-import cs3500.animator.view.TexualView.TextualView;
+import cs3500.animator.view.TexualPackage.TextualView;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;

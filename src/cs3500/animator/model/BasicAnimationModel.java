@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 
 /**
  * Represents an animation model that holds the information of the state of the animation.
@@ -61,6 +62,8 @@ public class BasicAnimationModel implements AnimationModel {
   public static final class Builder implements AnimationBuilder<AnimationModel> {
 
     private final List<IShape> shapes = new ArrayList<>();
+    private int x = 0;
+    private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
     private final int duration = 1;
@@ -88,6 +91,8 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationBuilder<AnimationModel> setBounds(int x, int y, int width, int height) {
+      this.x = x;
+      this.y = y;
       this.sceneHeight = height;
       this.sceneWidth = width;
       return this;
@@ -208,6 +213,40 @@ public class BasicAnimationModel implements AnimationModel {
       return 0;
     });
     return returnList;
+  }
+
+  public List<Queue<Motion>> getMotions() {
+    List<Queue<Motion>> answer = new ArrayList<>();
+    for (IShape shape : shapes) {
+      answer.add(shape.getMotion());
+    }
+    return answer;
+  }
+
+  public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
+      double scaleY, int ticksTaken) {
+    Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.addMotion(addedMotion);
+      }
+    }
+  }
+
+  public void removeShape(String name) {
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shapes.remove(shape);
+      }
+    }
+  }
+
+  public void removeMotion(String name) {
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.removeMotion();
+      }
+    }
   }
 
   /**

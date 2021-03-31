@@ -7,7 +7,7 @@ import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
 import cs3500.animator.model.Rectangle;
 import cs3500.animator.view.IAnimationView;
-import cs3500.animator.view.TexualView.TextualView;
+import cs3500.animator.view.TexualPackage.TextualView;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class TexViewTest {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
 
-    IAnimationView textView = new TextualView(testModel, new StringBuilder(""));
+    IAnimationView textView = new TextualView(testModel);
     textView.render();
   }
 }

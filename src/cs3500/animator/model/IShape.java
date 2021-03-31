@@ -3,6 +3,7 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
+import java.util.Queue;
 
 /**
  * The interface representing a certain shape.
@@ -88,6 +89,18 @@ public interface IShape {
   void addMotion(Motion m);
 
   /**
+   * A getter method to observe all the motions this shape goes through.
+   *
+   * @return a priority queue of motions that this shape will go through
+   */
+  Queue<Motion> getMotion();
+
+  /**
+   * Remove the last motion this shape will goes through.
+   */
+  void removeMotion();
+
+  /**
    * Updates the shapes attributes based off of the current and next motion the shape is executing.
    *
    * @param currentTick an integer representing the tick we want to calculate the effects of the
@@ -104,7 +117,11 @@ public interface IShape {
   IShape copy();
 
   /**
+<<<<<<< HEAD
+   * Used for SVG View to generate the
+=======
    * Used for SVG View to generate the svg representation of the shape.
+>>>>>>> 2d8d2674432b66359eb395591363cd5851c96d44
    *
    * @return A SVG representation of the Shape and it's motions
    */

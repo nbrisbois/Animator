@@ -5,34 +5,70 @@ import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
+import cs3500.animator.model.Rectangle;
+import cs3500.animator.view.AnimationViewVisual;
 import cs3500.animator.view.IAnimationView;
-import cs3500.animator.view.VisualView.VisualView;
+import cs3500.animator.view.TexualPackage.TextualView;
+import cs3500.animator.view.VisualPackage.VisualView;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Point2D.Double;
+import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.concurrent.TimeUnit;
+import javax.swing.Timer;
 import org.junit.Test;
+
 
 public class VisViewTest {
 
-  @Test
-  public void simpleMotionTest() {
+  public static void main(String[] args) {
     Queue<Motion> motions = new PriorityQueue<Motion>();
-    Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 5);
-    Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
-    motions.add(motion1);
-    motions.add(motion2);
+    Motion o1 = new Motion(440, 70, Color.BLUE, 120, 60, 20000);
+    Motion o2 = new Motion(440, 250, Color.BLUE, 120, 60, 50000);
+    Motion o3 = new Motion(440, 370, new Color(0, 170, 85), 120, 60, 70000);
+    Motion o4 = new Motion(440, 370, new Color(0, 250, 0), 120, 60, 80000);
+    Motion o5 = new Motion(440, 370, new Color(0, 250, 0), 120, 60, 100000);
 
-    Oval testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+
+
+    motions.add(o1);
+    motions.add(o2);
+    motions.add(o3);
+    motions.add(o4);
+    motions.add(o5);
+
+    IShape testOval = new Oval("C", new Double(440, 70), 120 , 60, Color.BLUE, 6000, motions);
+    //IShape testRect = new Rectangle("R", new Double(0, 0), 600, 200, Color.BLACK, 1000, motions);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
+    //shapes.add(testRect);
 
-    AnimationModel model = new BasicAnimationModel(shapes, 50, 50, 10, 1);
-    IAnimationView vis = new VisualView(model);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 100000, 1);
 
-    vis.render();
+    AnimationViewVisual view = new VisualView(testModel.getSceneWidth(), testModel.getSceneHeight());
+    view.render();
+    ActionListener timer = new ActionListener() {
+      long tick = 0;
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        List<IShape> shapes = testModel.moveShapes(tick * 100);
+        for (IShape s : shapes) {
+          view.draw(s);
+        }
+        view.refresh();
+        tick++;
+      }
+    };
+    Timer t = new Timer(100, timer);
+    t.start();
+
   }
+
 }

@@ -5,6 +5,7 @@ import java.awt.geom.Point2D.Double;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -15,10 +16,10 @@ public class Rectangle extends Shape {
   /**
    * Constructor for a rectangle Shape.
    *
-   * @param pos   The spawn position of the Shape
-   * @param h     Height of the Rectangle
-   * @param w     Width of the Rectangle
-   * @param color The color of the Rectangle
+   * @param pos       The spawn position of the Shape
+   * @param h         Height of the Rectangle
+   * @param w         Width of the Rectangle
+   * @param color     The color of the Rectangle
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
@@ -27,10 +28,21 @@ public class Rectangle extends Shape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick, Queue<Motion> motions)
+  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick,
+      Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     super(name, pos, h, w, color, startTick, motions);
   }
+
+  /**
+   * A rectangle constructor using just a name.
+   *
+   * @param name The unique name of shape
+   */
+  public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<Motion>());
+  }
+
 
   @Override
   public java.awt.Shape render() {

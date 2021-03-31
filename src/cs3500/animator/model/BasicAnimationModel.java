@@ -1,5 +1,7 @@
 package cs3500.animator.model;
 
+import cs3500.animator.util.AnimationBuilder;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -50,6 +52,114 @@ public class BasicAnimationModel implements AnimationModel {
     this.sceneWidth = sceneWidth;
     this.duration = duration;
     this.speed = frameSpeed;
+  }
+
+  /**
+   * A builder class to read the given files and use the information read to build an Animation
+   * model.
+   */
+  public static final class Builder implements AnimationBuilder<AnimationModel> {
+
+    private final List<IShape> shapes = new ArrayList<IShape>();
+    private int sceneHeight = 500;
+    private int sceneWidth = 500;
+    private final int duration = 1;
+    private final int speed = 1;
+
+
+    /**
+     * Build the model using the field of the builder.
+     *
+     * @return a animation model that has attributes defined by the file.
+     */
+    @Override
+    public AnimationModel build() {
+      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
+    }
+
+    /**
+     * Specify the bounding box to be used for the animation.
+     *
+     * @param x      The leftmost x value
+     * @param y      The topmost y value
+     * @param width  The width of the bounding box
+     * @param height The height of the bounding box
+     * @return This {@link AnimationBuilder}
+     */
+    @Override
+    public AnimationBuilder<AnimationModel> setBounds(int x, int y, int width, int height) {
+      this.sceneHeight = height;
+      this.sceneWidth = width;
+      return this;
+    }
+
+    /**
+     * Adds a new shape to the growing document.
+     *
+     * @param name The unique name of the shape to be added. No shape with this name should already
+     *             exist.
+     * @param type The type of shape (e.g. "ellipse", "rectangle") to be added. The set of supported
+     *             shapes is unspecified, but should include "ellipse" and "rectangle" as a
+     *             minimum.
+     * @return convertible builder so that it can be modified again
+     */
+    @Override
+    public AnimationBuilder<AnimationModel> declareShape(String name, String type) {
+      switch (type) {
+        case "rectangle":
+          this.shapes.add(new Rectangle(name));
+          break;
+        case "ellipse":
+          this.shapes.add(new Oval(name));
+          break;
+        default:
+          break;
+      }
+      return this;
+    }
+
+    /**
+     * Adds a transformation to the growing document.
+     *
+     * @param name The name of the shape (added with {@link AnimationBuilder#declareShape})
+     * @param t1   The start time of this transformation
+     * @param x1   The initial x-position of the shape
+     * @param y1   The initial y-position of the shape
+     * @param w1   The initial width of the shape
+     * @param h1   The initial height of the shape
+     * @param r1   The initial red color-value of the shape
+     * @param g1   The initial green color-value of the shape
+     * @param b1   The initial blue color-value of the shape
+     * @param t2   The end time of this transformation
+     * @param x2   The final x-position of the shape
+     * @param y2   The final y-position of the shape
+     * @param w2   The final width of the shape
+     * @param h2   The final height of the shape
+     * @param r2   The final red color-value of the shape
+     * @param g2   The final green color-value of the shape
+     * @param b2   The final blue color-value of the shape
+     * @return convertible builder so that it can be modified again
+     */
+    @Override
+    public AnimationBuilder<AnimationModel> addMotion(String name, int t1, int x1, int y1, int w1,
+        int h1, int r1, int g1, int b1, int t2,
+        int x2, int y2, int w2, int h2, int r2,
+        int g2, int b2) {
+      double[] val = new double[18];
+      int duration = t2 - t1;
+      double movementX = (double) (x2 - x1);
+      double movementY = (double) (y2 - y1);
+      Color color = new Color(r2, g2, b2);
+      double scaleX = (double) w2 / w1;
+      double scaleY = (double) h2 / h1;
+      Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
+      for (IShape shape : shapes) {
+        if (shape.getName().equals(name)) {
+          shape.addMotion(addedMotion);
+        }
+      }
+      return this;
+    }
   }
 
   @Override
@@ -113,3 +223,4 @@ public class BasicAnimationModel implements AnimationModel {
     return copy;
   }
 }
+

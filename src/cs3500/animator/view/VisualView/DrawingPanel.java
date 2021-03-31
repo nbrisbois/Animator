@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 public class DrawingPanel extends JPanel {
   private final List<IShape> shapes;
 
+
+
   DrawingPanel() {
     super();
     shapes = new ArrayList<IShape>();

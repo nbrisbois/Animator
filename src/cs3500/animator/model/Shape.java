@@ -127,7 +127,7 @@ public abstract class Shape implements IShape {
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
 
     // Store the next motion by peeking in the queue. Make final to make it immutable
-    final Motion peekedMotion = motions.peek();
+    Motion peekedMotion = motions.peek();
 
     long time = (peekedMotion.getTicks() - currentTick);
 
@@ -137,21 +137,26 @@ public abstract class Shape implements IShape {
       // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
+        peekedMotion = motions.peek();
         time = (peekedMotion.getTicks() - currentTick);
       }
     }
     // Update the speed
     if (startTick + time == peekedMotion.getTicks()) {
-        speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
-        speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
-        scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
-        scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
+      if (time == 0) {
+        time = 1;
+      }
+      speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
+      speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
+      scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
+      scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
     }
 
     // Update the position
     position.setLocation(
         position.getX() + speedX,
         position.getY() + speedY);
+    System.out.println(position.getX());
 
     // Update the dimensions
     dimensions[0] = dimensions[0] + scaleX;

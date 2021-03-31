@@ -203,21 +203,18 @@ public class BasicAnimationModel implements AnimationModel {
     List<IShape> returnList = new ArrayList<IShape>();
     for (int i = 0; i < shapes.size(); i++) {
       if (shapes.get(i).getStartTick() <= time) {
-        shapes.get(i).calculateMotion((time) * speed);
+        shapes.get(i).calculateMotion(time);
         returnList.add(shapes.get(i));
       }
     }
-    shapes.sort(new Comparator<IShape>() {
-      @Override
-      public int compare(IShape o1, IShape o2) {
-        if (o1.getPriority() < o2.getPriority()) {
-          return 1;
-        }
-        else if (o1.getPriority() > o2.getPriority()) {
-          return -1;
-        }
-        return 0;
+    shapes.sort((o1, o2) -> {
+      if (o1.getPriority() < o2.getPriority()) {
+        return 1;
       }
+      else if (o1.getPriority() > o2.getPriority()) {
+        return -1;
+      }
+      return 0;
     });
     return returnList;
   }

@@ -107,7 +107,7 @@ public interface IShape {
    * @return A SVG representation of the Shape and it's motions
    */
   String generateSVG();
-  
+
   /**
    * renders the shape
    *

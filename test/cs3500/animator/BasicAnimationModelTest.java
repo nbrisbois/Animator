@@ -6,7 +6,6 @@ import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
-import cs3500.animator.model.Polygon;
 import cs3500.animator.model.Rectangle;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
@@ -30,7 +29,6 @@ public class BasicAnimationModelTest {
   List<IShape> testShapes = new ArrayList<>();
   Oval testOval = new Oval("oval", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
   Rectangle testRect = new Rectangle("rect", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
-  Polygon testPoly = new Polygon("poly", new Double(0, 0), 10, 10, Color.BLACK, 0, motions, 10);
   BasicAnimationModel testModel;
 
   @Before
@@ -39,7 +37,6 @@ public class BasicAnimationModelTest {
     motions.add(motion2);
     testShapes.add(testOval);
     testShapes.add(testRect);
-    testShapes.add(testPoly);
   }
 
   /**
@@ -78,7 +75,6 @@ public class BasicAnimationModelTest {
     testModel = new BasicAnimationModel(testShapes, 10, 10, 0,1 );
     Assert.assertNotSame(testOval, testModel.getShapes().get(0));
     Assert.assertNotSame(testRect, testModel.getShapes().get(1));
-    Assert.assertNotSame(testPoly, testModel.getShapes().get(2));
   }
 
   @Test
@@ -140,11 +136,9 @@ public class BasicAnimationModelTest {
         Color.MAGENTA, 0, motions);
     Rectangle newRect = new Rectangle("oval", new Double(59, 12), 163, 205,
         Color.MAGENTA, 0, motions);
-    Polygon newPoly = new Polygon("oval", new Double(59, 12), 163, 205,
-        Color.MAGENTA, 0, motions, 10);
+
     testModel.addShape(newOval);
     testModel.addShape(newRect);
-    testModel.addShape(newPoly);
 
     assertEquals(
         "Shape O oval\n \nShape R rectangle\n \nShape P polygon\n \n"

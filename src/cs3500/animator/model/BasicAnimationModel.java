@@ -2,6 +2,7 @@ package cs3500.animator.model;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,6 +29,7 @@ public class BasicAnimationModel implements AnimationModel {
    * @throws IllegalStateException if the state of a argument is illegal
    * @throws NullPointerException if an argument is null
    */
+
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight,
       int sceneWidth, int duration, int frameSpeed)
       throws IllegalArgumentException, NullPointerException, IllegalStateException {
@@ -37,7 +39,7 @@ public class BasicAnimationModel implements AnimationModel {
     if (frameSpeed < 0) {
       throw new IllegalArgumentException("Frame speed cannot go lower than 1");
     }
-    Objects.requireNonNull(shapes);
+    Objects.requireNonNull(shapes, "List of shapes cannot be null");
     for (int i = 0; i < shapes.size(); i++) {
       for (int j = 0; j < shapes.size(); j++) {
         if (i != j && shapes.get(i).getName() == shapes.get(j).getName()) {
@@ -87,12 +89,16 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
-  public void moveShapes(long time) throws IOException {
+  public List<IShape> moveShapes(long time) {
+    List<IShape> returnList = new ArrayList<IShape>();
     for (int i = 0; i < shapes.size(); i++) {
       if (shapes.get(i).getStartTick() <= time) {
-        shapes.get(i).calculateMotion(time * speed);
+        shapes.get(i).calculateMotion((time) * speed);
+        returnList.add(shapes.get(i));
       }
     }
+    //TODO sort the returnList order
+    return returnList;
   }
 
   /**
@@ -107,7 +113,4 @@ public class BasicAnimationModel implements AnimationModel {
     }
     return copy;
   }
-
-
-
 }

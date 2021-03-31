@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="318823bf-a3a9-4993-998a-8619974db8e8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
@@ -17,20 +18,28 @@
     <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="" />
 =======
     <list default="true" id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
 =======
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/AnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/IShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Shape.java" afterDir="false" />
->>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
+    <list default="true" id="0e9b29c2-e741-4bf4-af41-6e9d01f5d016" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/TexualView/TextualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualView/VisualView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cs3500/animator/TexViewTest.java" afterDir="false" />
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Polygon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualView/VisuralView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" afterDir="false" />
     </list>
+<<<<<<< HEAD
 >>>>>>> a6ca7c02c8ea3724ddc8b109452b3a295ed3df4c
 >>>>>>> bf0422c475f55cbbac76f6b1f8b800c1fa7274ba
+=======
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,8 +50,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,33 +59,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="1pt9I8FLDDUakpC32pBqswFFMLC" />
-=======
-  <component name="ProjectId" id="1ptjwhdfa83PuGcQczVz8Dl74cP" />
->>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
+  <component name="ProjectId" id="1qM2CkGwFqWNcOFyigcFeNLmjuB" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-<<<<<<< HEAD
-  </component>
-  <component name="RunManager" selected="JUnit.ModelTest.simpleTest">
-=======
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <component name="RunManager" selected="JUnit.PolygonTest.executeMotionsTest">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -90,10 +82,20 @@
 =======
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.model.Main" />
 >>>>>>> bf0422c475f55cbbac76f6b1f8b800c1fa7274ba
+=======
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cs3500.animator" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TexViewTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Main" />
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.model.*" />
+          <option name="PATTERN" value="cs3500.animator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,22 +103,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModelTest.simpleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TexViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.TexViewTest" />
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.model.*" />
+          <option name="PATTERN" value="cs3500.animator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.ModelTest" />
-      <option name="METHOD_NAME" value="simpleTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <configuration name="MotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
@@ -137,14 +137,18 @@
 =======
     <configuration name="Testers.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
+=======
+    <configuration name="VisViewTest.simpleMotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cs3500.animator.model.*" />
+          <option name="PATTERN" value="cs3500.animator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
+<<<<<<< HEAD
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Testers" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
@@ -212,12 +216,17 @@
 =======
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Testers" />
       <option name="METHOD_NAME" value="testSingleShape" />
+=======
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.VisViewTest" />
+      <option name="METHOD_NAME" value="simpleMotionTest" />
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
       <option name="TEST_OBJECT" value="method" />
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <list>
       <item itemvalue="Application.Unnamed" />
@@ -235,14 +244,22 @@
         <item itemvalue="JUnit.OvalTest" />
         <item itemvalue="JUnit.RectangleTest" />
 =======
+=======
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
+      <item itemvalue="Application.TexViewTest" />
+    </list>
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Testers.testSingleShape" />
-        <item itemvalue="JUnit.Testers.testManyShapes" />
-        <item itemvalue="JUnit.Testers.test" />
-        <item itemvalue="JUnit.ModelTest.simpleTest" />
+        <item itemvalue="Application.TexViewTest" />
         <item itemvalue="Application.Main" />
+<<<<<<< HEAD
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
+=======
+        <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
       </list>
     </recent_temporary>
   </component>
@@ -250,17 +267,10 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a88c2a4f-1f91-4b1b-8737-cb36c2dd3c10" name="Default Changelist" comment="" />
-<<<<<<< HEAD
-      <created>1615991440689</created>
+      <created>1616875017757</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1615991440689</updated>
-=======
-      <created>1616009527486</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1616009527486</updated>
->>>>>>> f5c0cdb9bac2b6b0791682d068d07db46f388df3
+      <updated>1616875017757</updated>
     </task>
     <servers />
   </component>
@@ -316,6 +326,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
 >>>>>>> 729951418712af12c4eae4418e451caed2d3417b
   </component>
+<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -342,4 +353,6 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+=======
+>>>>>>> 424e5a701f3e493bf0c3d2bd7706a3c73fcc4011
 </project>

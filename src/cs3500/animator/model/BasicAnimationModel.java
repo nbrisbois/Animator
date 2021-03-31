@@ -4,6 +4,7 @@ package cs3500.animator.model;
 import cs3500.animator.util.AnimationBuilder;
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -206,7 +207,18 @@ public class BasicAnimationModel implements AnimationModel {
         returnList.add(shapes.get(i));
       }
     }
-    //TODO sort the returnList order
+    shapes.sort(new Comparator<IShape>() {
+      @Override
+      public int compare(IShape o1, IShape o2) {
+        if (o1.getPriority() < o2.getPriority()) {
+          return 1;
+        }
+        else if (o1.getPriority() > o2.getPriority()) {
+          return -1;
+        }
+        return 0;
+      }
+    });
     return returnList;
   }
 

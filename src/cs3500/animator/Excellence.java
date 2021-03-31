@@ -1,11 +1,10 @@
 package cs3500.animator;
 
 import cs3500.animator.model.AnimationModel;
-import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.BasicAnimationModel.Builder;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
-import java.awt.Color;
+import cs3500.animator.view.FactoryView;
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 import java.io.File;
@@ -36,7 +35,7 @@ public final class Excellence {
     String inputFileName = "";
     String output = "";
     int speed = 1;
-    String view = "";
+    String viewDel = "";
 
     // Get Inputs
     for (int ii = 0; ii < args.length; ii++) {
@@ -49,7 +48,7 @@ public final class Excellence {
             output = args[ii + 1];
             break;
           case "-view":
-            view = args[ii + 1];
+            viewDel = args[ii + 1];
             break;
           case "-speed":
             speed = Integer.parseInt(args[ii + 1]);
@@ -65,7 +64,7 @@ public final class Excellence {
     if (inputFileName.equals("")) {
       throw new IllegalArgumentException("Input file required. Format: \'-in file_name\' ");
     }
-    if (view.equals("")) {
+    if (viewDel.equals("")) {
       throw new IllegalArgumentException("View type required. Format: \'-view view_type\' ");
     }
 
@@ -125,6 +124,7 @@ public final class Excellence {
             break;
         }
       }
+      myReader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
@@ -132,7 +132,12 @@ public final class Excellence {
 
     // Create the model
     AnimationModel model = builder.build();
-
-
+    // Create View
+    FactoryView view = new FactoryView(model);
+    try {
+      view.getView(viewDel).render();
+    } catch (Exception e) {
+      System.out.println("error");
+    }
   }
 }

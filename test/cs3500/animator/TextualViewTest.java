@@ -7,7 +7,7 @@ import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
 import cs3500.animator.model.Rectangle;
 import cs3500.animator.view.IAnimationView;
-import cs3500.animator.view.TexualView.TextualView;
+import cs3500.animator.view.TexualPackage.TextualView;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
@@ -41,23 +41,14 @@ public class TextualViewTest {
 
     testModel = new BasicAnimationModel(shapes, 50, 50,0,0, 10, 1);
 
-    textView = new TextualView(testModel, new StringBuilder(""));
+    textView = new TextualView(testModel);
   }
 
   //Constructor Tests
   @Test(expected = NullPointerException.class)
   public void nullModelViewTest() {
-    textView = new TextualView(null, new StringBuilder(""));
+    textView = new TextualView(null);
   }
 
-  @Test(expected = NullPointerException.class)
-  public void nullAppendableViewTest() {
-    textView = new TextualView(testModel, null);
-  }
-
-  //Render Tests
-  @Test
-  public void renderTest() {
-    textView.render();
-  }
+  //Render Tests is in src.cs3500.animator.model.main
 }

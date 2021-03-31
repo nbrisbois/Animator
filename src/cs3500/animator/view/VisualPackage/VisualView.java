@@ -1,4 +1,4 @@
-package cs3500.animator.view.VisualView;
+package cs3500.animator.view.VisualPackage;
 
 import cs3500.animator.model.IShape;
 import cs3500.animator.view.AnimationViewVisual;

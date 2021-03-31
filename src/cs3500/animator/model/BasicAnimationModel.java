@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Queue;
 
 /**
- * TODO: Update Javadoc Feedback from HW 05:
+ * Represents an animation model that holds the information of the state of the animation.
  */
 public class BasicAnimationModel implements AnimationModel {
 
@@ -69,6 +69,8 @@ public class BasicAnimationModel implements AnimationModel {
   public static final class Builder implements AnimationBuilder<AnimationModel> {
 
     private final List<IShape> shapes = new ArrayList<>();
+    private int x = 0;
+    private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
     private int offsetY = 0;
@@ -98,6 +100,8 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationBuilder<AnimationModel> setBounds(int x, int y, int width, int height) {
+      this.x = x;
+      this.y = y;
       this.sceneHeight = height;
       this.sceneWidth = width;
       return this;
@@ -228,8 +232,7 @@ public class BasicAnimationModel implements AnimationModel {
     return returnList;
   }
 
-
-
+  @Override
   public List<Queue<Motion>> getMotions() {
     List<Queue<Motion>> answer = new ArrayList<>();
     for (IShape shape : shapes) {
@@ -238,6 +241,7 @@ public class BasicAnimationModel implements AnimationModel {
     return answer;
   }
 
+  @Override
   public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
       double scaleY, int ticksTaken) {
     Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
@@ -248,6 +252,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeShape(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {
@@ -256,6 +261,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeMotion(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {
@@ -265,7 +271,7 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Uses the copy method to clone lists of shapes
+   * Uses the copy method to clone lists of shapes.
    *
    * @param shapes inputted list of shapes
    * @return a cloned version of the list

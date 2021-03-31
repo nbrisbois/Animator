@@ -1,13 +1,9 @@
 package cs3500.animator;
 
-import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import org.junit.Assert;
@@ -200,7 +196,7 @@ public class OvalTest {
    */
   @Test
   public void colorMethodsTest() {
-    Queue<Motion> motions = new PriorityQueue<>();;
+    Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2,
         10);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2,

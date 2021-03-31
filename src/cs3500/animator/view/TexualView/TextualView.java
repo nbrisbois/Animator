@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Representing the view displaying the animation model textually.
+ */
 public class TextualView implements IAnimationView {
 
   private final AnimationModel model;
@@ -16,15 +19,13 @@ public class TextualView implements IAnimationView {
    * The constructor of the textual view for the animation.
    *
    * @param model the model we are trying to textualize
-   * @param ap    the output of tis textual view
    * @throws NullPointerException if the model or the appendable is null
    */
-  public TextualView(AnimationModel model, Appendable ap) throws NullPointerException {
+  public TextualView(AnimationModel model) throws NullPointerException {
     Objects.requireNonNull(model);
-    Objects.requireNonNull(ap);
 
     this.model = model;
-    this.ap = ap;
+    this.ap = new StringBuilder("");
   }
 
   /**
@@ -39,7 +40,7 @@ public class TextualView implements IAnimationView {
     }
     try {
       this.ap.append(answer);
-    } catch(IOException e) {
+    } catch (IOException e) {
       //do nothing
     }
     System.out.println(this.ap);

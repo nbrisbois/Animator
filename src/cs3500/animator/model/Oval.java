@@ -15,12 +15,13 @@ public class Oval extends Shape {
 
   /**
    * Public Constructor for Oval Shape. Extends abstract class Shape.
-   * @param name  The name of the shape as a String
-   * @param pos   Starting position of shape as a Double object
-   * @param h     Starting height of the shape
-   * @param w     Starting Width of the shape
-   * @param color Starting Color of the shape
-   * @param t     Spawn time of the shape
+   *
+   * @param name    The name of the shape as a String
+   * @param pos     Starting position of shape as a Double object
+   * @param h       Starting height of the shape
+   * @param w       Starting Width of the shape
+   * @param color   Starting Color of the shape
+   * @param t       Spawn time of the shape
    * @param motions A Queue of motions that the shape will utilize
    */
   public Oval(String name, Double pos, double h, double w, Color color, long t,

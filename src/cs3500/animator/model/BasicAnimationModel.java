@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.util.Queue;
 
 /**
- * TODO: Update Javadoc Feedback from HW 05:
+ * Represents an animation model that holds the information of the state of the animation.
  */
 public class BasicAnimationModel implements AnimationModel {
 
@@ -246,7 +246,7 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Uses the copy method to clone lists of shapes
+   * Uses the copy method to clone lists of shapes.
    *
    * @param shapes inputted list of shapes
    * @return a cloned version of the list

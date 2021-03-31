@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * The interface of animation model.
+ * The interface of the Animator model parameterized over IShape. It represents a single animation
+ * as a list of shapes, the shapes' motions, and the background.
  */
 public interface AnimationModel {
 
@@ -40,7 +41,7 @@ public interface AnimationModel {
   List<IShape> getShapes() throws IllegalArgumentException;
 
   /**
-   * To retrieve the maximum ticks of animation
+   * To retrieve the maximum ticks of animation.
    *
    * @return the duration of the animation
    */

@@ -1,5 +1,10 @@
 package cs3500.animator.util;
 
+/**
+ * An interface that help us to build a builder class for the animation model using a certain file.
+ *
+ * @param <Doc> the file we are using to build the animation model.
+ */
 public interface AnimationBuilder<Doc> {
 
   /**

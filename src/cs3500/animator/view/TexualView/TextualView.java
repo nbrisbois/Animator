@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Representing the view displaying the animation model textually.
+ */
 public class TextualView implements IAnimationView {
 
   private final AnimationModel model;
@@ -39,7 +42,7 @@ public class TextualView implements IAnimationView {
     }
     try {
       this.ap.append(answer);
-    } catch(IOException e) {
+    } catch (IOException e) {
       //do nothing
     }
     System.out.println(this.ap);

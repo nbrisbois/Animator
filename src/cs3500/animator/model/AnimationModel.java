@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * The interface of animation model.
+ * The interface of the Animator model parameterized over IShape. It represents a single animation
+ * as a list of shapes, the shapes' motions, and the background.
  */
 public interface AnimationModel {
 

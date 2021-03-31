@@ -22,7 +22,7 @@ public class VisualView extends JFrame implements AnimationViewVisual {
     drawingPanel = new DrawingPanel();
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     setSize(model.getSceneWidth(), model.getSceneHeight());
-    setLayout( new BorderLayout());
+    setLayout(new BorderLayout());
     add(drawingPanel);
   }
 

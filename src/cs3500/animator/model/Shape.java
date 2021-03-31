@@ -28,11 +28,11 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
-   * @param name  The unique name of shape
-   * @param pos   The spawn position of the Shape
-   * @param x     Dimension one of Two
-   * @param y     Dimension two of Two
-   * @param color The color of the Shape
+   * @param name      The unique name of shape
+   * @param pos       The spawn position of the Shape
+   * @param x         Dimension one of Two
+   * @param y         Dimension two of Two
+   * @param color     The color of the Shape
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
@@ -41,7 +41,8 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(String name, Double pos, double x, double y, Color color, long startTick, Queue<Motion> motions)
+  public Shape(String name, Double pos, double x, double y, Color color, long startTick,
+      Queue<Motion> motions)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -145,10 +146,10 @@ public abstract class Shape implements IShape {
     }
     // Update the speed
     if (startTick + time == peekedMotion.getTicks()) {
-        speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
-        speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
-        scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
-        scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
+      speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
+      speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
+      scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
+      scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
     }
 
     // Update the position

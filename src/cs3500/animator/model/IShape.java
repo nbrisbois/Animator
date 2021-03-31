@@ -104,6 +104,7 @@ public interface IShape {
 
   /**
    * Used for SVG View to generate the
+   *
    * @return A SVG representation of the Shape and it's motions
    */
   String generateSVG();
@@ -117,12 +118,14 @@ public interface IShape {
 
   /**
    * Gets the type of the shape
+   *
    * @return String representation of the shape
    */
   String getType();
 
   /**
    * Gets the SVG attributes needed for the shape
+   *
    * @return String[] of attributes
    */
   String[] getSVGAttributes();

@@ -33,7 +33,6 @@ public class VisViewTest {
     AnimationModel model = new BasicAnimationModel(shapes, 50, 50, 10, 1);
     IAnimationView vis = new VisualView(model);
 
-
     vis.render();
   }
 }

@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * TODO: Update Javadoc
- * Feedback from HW 05: 
+ * Represents an animation model that holds the information of the state of the animation.
  */
 public class BasicAnimationModel implements AnimationModel {
 
@@ -203,8 +202,7 @@ public class BasicAnimationModel implements AnimationModel {
     shapes.sort((o1, o2) -> {
       if (o1.getPriority() < o2.getPriority()) {
         return 1;
-      }
-      else if (o1.getPriority() > o2.getPriority()) {
+      } else if (o1.getPriority() > o2.getPriority()) {
         return -1;
       }
       return 0;

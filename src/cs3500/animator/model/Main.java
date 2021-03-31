@@ -19,7 +19,7 @@ public class Main {
    *
    * @param args StdIn
    */
-  public static void main(String... args){
+  public static void main(String... args) {
     Queue<Motion> motions = new PriorityQueue<>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 5);
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);

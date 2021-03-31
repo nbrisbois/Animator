@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
 import java.util.Objects;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -52,18 +51,23 @@ public abstract class Shape implements IShape {
       throw new IllegalArgumentException("Primitive constructor elements must not be non negative");
     }
 
-    /**
+    /*
      * Check to see if each motion's ticks are greater than the previous.
      * This is important since there cannot be gaps, but there will be bugs if the,
      * the wrong tick is given.
      */
-    this.motions = new LinkedList<Motion>();
+    this.motions = new LinkedList<>();
     for (Motion m : motions) {
-      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks() ) {
-        throw new IllegalStateException("No tick can be less than the previous tick");
+      try {
+        Objects.requireNonNull(motions.peek());
+        if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
+          throw new IllegalStateException("No tick can be less than the previous tick");
+        }
+        this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
+            m.getScaleY(), m.getTicks()));
+      } catch (Exception e) {
+        throw new NullPointerException("No motion found");
       }
-      this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
-          m.getScaleY(), m.getTicks()));
     }
 
     this.name = name;
@@ -105,8 +109,7 @@ public abstract class Shape implements IShape {
   }
 
   public long getStartTick() {
-    long t = this.startTick;
-    return t;
+    return this.startTick;
   }
 
   public int getPriority() {
@@ -159,5 +162,98 @@ public abstract class Shape implements IShape {
 
     // Update the color
     color = peekedMotion.getColor();
+  }
+
+  private String getHex(Color c) {
+    return String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue());
+  }
+
+  @Override
+  public String generateSVG() {
+    long ticks_passed = this.getStartTick();
+    StringBuilder svg = new StringBuilder();
+
+    double previousScaleX = this.getSize()[0];
+    double previousScaleY = this.getSize()[1];
+    Color previousColor = this.getColor();
+
+    String[] attributes = this.getSVGAttributes();
+
+    svg.append(
+        String.format("<%s %s= \"%scm\" %s=\"%scm\" %s=\"%s\" %s=\"%s\" fill=\"%s\">",
+            this.getType(),
+            attributes[0],
+            this.getPosition().getX(),
+            attributes[1],
+            this.getPosition().getY(),
+            attributes[2],
+            this.getSize()[0],
+            attributes[3],
+            this.getSize()[1],
+            getHex(this.getColor())));
+    svg.append("\n\t");
+
+    while (!this.motions.isEmpty()) {
+      Motion nextMotion;
+      try {
+        nextMotion = this.motions.peek();
+      } catch (Exception e) {
+        throw new NullPointerException("Next motion cannot be NULL");
+      }
+      // AnimateMotion
+      svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
+              + "path=\"M %s, %s L %s %s\" "
+              + "begin=\"%s\" "
+              + "/>\n\t",
+          nextMotion.getTicks(),
+          this.getPosition().getX(),
+          this.getPosition().getY(),
+          nextMotion.getMoveX(),
+          nextMotion.getMoveY(),
+          ticks_passed
+      ));
+      // AnimateColor
+      svg.append(String.format("<animate attributeName=\"fill\" dur=\"%ss\" repeatCount=\"0\" "
+              + "from=\"#%02x%02x%02x\" to=\"#%02x%02x%02x\" "
+              + "begin=\"%s\" "
+              + "/>\n\t",
+          nextMotion.getTicks(),
+          previousColor.getRed(),
+          previousColor.getGreen(),
+          previousColor.getBlue(),
+          nextMotion.getColor().getRed(),
+          nextMotion.getColor().getGreen(),
+          nextMotion.getColor().getBlue(),
+          ticks_passed
+      ));
+      // AnimateScale
+      svg.append(String.format(("<animateTransform dur=\"%ss\" repeatCount=\"0\" "
+              + "attributeName=\"transform\" "
+              + "type=\"scale\" "
+              + "additive=\"sum\" "
+              + "from=\"%s %s\" "
+              + "to=\"%s %s\" "
+              + "begin=\"%s\" "
+              + "/>\n"),
+          nextMotion.getTicks(),
+          previousScaleX / 100,
+          previousScaleY / 100,
+          nextMotion.getScaleX() / 100,
+          nextMotion.getScaleY() / 100,
+          ticks_passed
+      ));
+      svg.append("\n\t");
+      ticks_passed += nextMotion.getTicks();
+      previousScaleX = nextMotion.getScaleX();
+      previousScaleY = nextMotion.getScaleY();
+      previousColor = nextMotion.getColor();
+      try {
+        calculateMotion(ticks_passed);
+      } catch (Exception e) {
+        break;
+      }
+    }
+    svg.append(String.format("</%s>\n", this.getType()));
+    return svg.toString();
   }
 }

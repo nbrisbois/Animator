@@ -99,4 +99,71 @@ public class Oval extends Shape {
     return newShape;
   }
 
+  @Override
+  public String writeAnimation() {
+    long ticks_passed = this.getStartTick();
+    StringBuilder svg = new StringBuilder();
+
+    double previousScaleX = this.getSize()[0];
+    double previousScaleY = this.getSize()[1];
+    Color previousColor = this.getColor();
+
+    while (!this.motions.isEmpty()){
+      // AnimateMotion
+      svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
+              + "path=\"M %s, %s L %s %s\" "
+              + "begin=\"%s\" "
+              + "/>\n\t",
+          this.motions.peek().getTicks(),
+          this.getPosition().getX(),
+          this.getPosition().getY(),
+          this.motions.peek().getMoveX(),
+          this.motions.peek().getMoveY(),
+          ticks_passed
+      ));
+      // AnimateColor
+      svg.append(String.format("<animate attributeName=\"fill\" dur=\"%ss\" repeatCount=\"0\" "
+              + "from=\"#%02x%02x%02x\" to=\"#%02x%02x%02x\" "
+              + "begin=\"%s\" "
+              + "/>\n\t",
+          this.motions.peek().getTicks(),
+          previousColor.getRed(),
+          previousColor.getGreen(),
+          previousColor.getBlue(),
+          this.motions.peek().getColor().getRed(),
+          this.motions.peek().getColor().getGreen(),
+          this.motions.peek().getColor().getBlue(),
+          ticks_passed
+      ));
+      // AnimateScale
+      svg.append(String.format(("<animateTransform dur=\"%ss\" repeatCount=\"0\" "
+              + "attributeName=\"transform\" "
+              + "type=\"scale\" "
+              + "additive=\"sum\" "
+              + "from=\"%s %s\" "
+              + "to=\"%s %s\" "
+              + "begin=\"%s\" "
+              + "/>\n"),
+          this.motions.peek().getTicks(),
+          previousScaleX / 100,
+          previousScaleY / 100,
+          this.motions.peek().getScaleX() / 100,
+          this.motions.peek().getScaleY() / 100,
+          ticks_passed
+      ));
+      svg.append("\n\t");
+      ticks_passed += this.motions.peek().getTicks();
+      previousScaleX = this.motions.peek().getScaleX();
+      previousScaleY = this.motions.peek().getScaleY();
+      previousColor = this.motions.peek().getColor();
+      try {
+        calculateMotion(ticks_passed);
+      } catch (Exception e){
+        break;
+      }
+    }
+    svg.append("\n");
+    return svg.toString();
+  }
+
 }

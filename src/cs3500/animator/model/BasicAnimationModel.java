@@ -29,6 +29,7 @@ public class BasicAnimationModel implements AnimationModel {
    * @throws IllegalStateException if the state of a argument is illegal
    * @throws NullPointerException if an argument is null
    */
+
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight,
       int sceneWidth, int duration, int frameSpeed)
       throws IllegalArgumentException, NullPointerException, IllegalStateException {

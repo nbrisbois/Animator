@@ -17,18 +17,21 @@ public interface AnimationModel {
 
   /**
    * Gets the height of the scene.
+   *
    * @return the height of the scene.
    */
   int getSceneHeight();
 
   /**
    * Gets the width of the scene.
+   *
    * @return the height of the scene.
    */
   int getSceneWidth();
 
   /**
    * Gets the speed of the ticks.
+   *
    * @return the speed of the ticks.
    */
   int getFrameSpeed();
@@ -42,6 +45,7 @@ public interface AnimationModel {
 
   /**
    * To retrieve the maximum ticks of animation
+   *
    * @return the duration of the animation
    */
   int getDuration();
@@ -49,6 +53,7 @@ public interface AnimationModel {
 
   /**
    * Runs through the list of shapes moving them by time.
+   *
    * @param time current time of the animation run
    * @throws IOException thrown when the model cannot append the motion command
    */

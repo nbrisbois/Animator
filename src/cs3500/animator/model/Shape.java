@@ -29,7 +29,7 @@ public abstract class Shape implements IShape {
   /**
    * Abstract Shape Constructor.
    *
-   * @param name  The name of shape
+   * @param name  The unique name of shape
    * @param pos   The spawn position of the Shape
    * @param x     Dimension one of Two
    * @param y     Dimension two of Two
@@ -138,10 +138,10 @@ public abstract class Shape implements IShape {
       }
     }
     if (startTick + time == motions.peek().getTicks()) {
-        speedX = (((motions.peek().getMoveX() - position.getX()) / time) * 100);
-        speedY = (((motions.peek().getMoveY() - position.getY()) / time) * 100);
-        scaleX = (((motions.peek().getScaleX() - dimensions[0]) / time) * 100);
-        scaleY = (((motions.peek().getScaleY() - dimensions[1]) / time) * 100);
+      speedX = (((motions.peek().getMoveX() - position.getX()) / time) * 100);
+      speedY = (((motions.peek().getMoveY() - position.getY()) / time) * 100);
+      scaleX = (((motions.peek().getScaleX() - dimensions[0]) / time) * 100);
+      scaleY = (((motions.peek().getScaleY() - dimensions[1]) / time) * 100);
     }
     position.setLocation(
         position.getX() + speedX,

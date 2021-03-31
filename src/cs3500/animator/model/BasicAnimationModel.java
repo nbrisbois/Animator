@@ -211,7 +211,7 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   /**
-   * Uses the copy method to clone lists of shapes
+   * Uses the copy method to clone lists of shapes.
    *
    * @param shapes inputted list of shapes
    * @return a cloned version of the list

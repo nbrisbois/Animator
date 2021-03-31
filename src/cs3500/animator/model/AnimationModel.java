@@ -38,7 +38,7 @@ public interface AnimationModel {
   List<IShape> getShapes() throws IllegalArgumentException;
 
   /**
-   * To retrieve the maximum ticks of animation
+   * To retrieve the maximum ticks of animation.
    *
    * @return the duration of the animation
    */

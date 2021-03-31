@@ -35,7 +35,7 @@ public class Main {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
 
-    IAnimationView textView = new TextualView(testModel, new StringBuilder());
+    IAnimationView textView = new TextualView(testModel);
     textView.render();
   }
 }

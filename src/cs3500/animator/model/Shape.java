@@ -67,7 +67,7 @@ public abstract class Shape implements IShape {
         this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
             m.getScaleY(), m.getTicks()));
       } catch (Exception e) {
-        throw new NullPointerException("No motion found");
+        //do nothing
       }
     }
 
@@ -126,6 +126,13 @@ public abstract class Shape implements IShape {
     return name;
   }
 
+  /**
+   * Updates the shapes attributes based off of the current and next motion the shape is executing.
+   *
+   * @param currentTick an integer representing the tick we want to calculate the effects of the
+   *                    motion at
+   * @throws NullPointerException thrown if queue peek does not return a motion
+   */
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
@@ -196,11 +203,9 @@ public abstract class Shape implements IShape {
 
     while (!this.motions.isEmpty()) {
       Motion nextMotion;
-      try {
-        nextMotion = this.motions.peek();
-      } catch (Exception e) {
-        throw new NullPointerException("Next motion cannot be NULL");
-      }
+      Objects.requireNonNull(motions.peek());
+      nextMotion = this.motions.peek();
+
       // AnimateMotion
       svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
               + "path=\"M %s, %s L %s %s\" "

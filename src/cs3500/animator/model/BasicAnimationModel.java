@@ -62,6 +62,8 @@ public class BasicAnimationModel implements AnimationModel {
   public static final class Builder implements AnimationBuilder<AnimationModel> {
 
     private final List<IShape> shapes = new ArrayList<>();
+    private int x = 0;
+    private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
     private final int duration = 1;
@@ -89,6 +91,8 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationBuilder<AnimationModel> setBounds(int x, int y, int width, int height) {
+      this.x = x;
+      this.y = y;
       this.sceneHeight = height;
       this.sceneWidth = width;
       return this;

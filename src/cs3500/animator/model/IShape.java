@@ -3,7 +3,6 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
-import java.io.IOException;
 import java.util.Queue;
 
 /**
@@ -118,9 +117,10 @@ public interface IShape {
 
   /**
    * Used for SVG View to generate the
+   *
    * @return A SVG representation of the Shape and it's motions
    */
-  String writeAnimation();
+  String generateSVG();
 
   /**
    * renders the shape
@@ -128,4 +128,18 @@ public interface IShape {
    * @return returns the rendered shape
    */
   Shape render();
+
+  /**
+   * Gets the type of the shape
+   *
+   * @return String representation of the shape
+   */
+  String getType();
+
+  /**
+   * Gets the SVG attributes needed for the shape
+   *
+   * @return String[] of attributes
+   */
+  String[] getSVGAttributes();
 }

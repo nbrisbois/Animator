@@ -10,19 +10,21 @@ import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
 import java.util.Objects;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class VisualView extends JFrame implements AnimationViewVisual {
 
   private final DrawingPanel drawingPanel;
+  JScrollPane scroller;
 
-  public VisualView(AnimationModel model) {
+  public VisualView(int w, int h) {
     super();
-    Objects.requireNonNull(model);
-
     drawingPanel = new DrawingPanel();
+    scroller = new JScrollPane(drawingPanel);
     setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(model.getSceneWidth(), model.getSceneHeight());
+    setSize(w, h);
     setLayout( new BorderLayout());
+    add(scroller);
     add(drawingPanel);
   }
 

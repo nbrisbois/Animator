@@ -9,8 +9,7 @@ import java.util.Objects;
 import java.util.Queue;
 
 /**
- * TODO: Update Javadoc
- * Feedback from HW 05: 
+ * TODO: Update Javadoc Feedback from HW 05:
  */
 public class BasicAnimationModel implements AnimationModel {
 
@@ -44,7 +43,7 @@ public class BasicAnimationModel implements AnimationModel {
     Objects.requireNonNull(shapes, "List of shapes cannot be null");
     for (int i = 0; i < shapes.size(); i++) {
       for (int j = 0; j < shapes.size(); j++) {
-        if (i != j && shapes.get(i).getName() == shapes.get(j).getName()) {
+        if (i != j && shapes.get(i).getName().equals(shapes.get(j).getName())) {
           throw new IllegalStateException("Cannot have shapes of the same name");
         }
       }
@@ -62,7 +61,7 @@ public class BasicAnimationModel implements AnimationModel {
    */
   public static final class Builder implements AnimationBuilder<AnimationModel> {
 
-    private final List<IShape> shapes = new ArrayList<IShape>();
+    private final List<IShape> shapes = new ArrayList<>();
     private int sceneHeight = 500;
     private int sceneWidth = 500;
     private final int duration = 1;
@@ -193,20 +192,22 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
-  public int getFrameSpeed() {
-    return speed;
-  }
-
-  @Override
   public List<IShape> moveShapes(long time) {
-    List<IShape> returnList = new ArrayList<IShape>();
-    for (int i = 0; i < shapes.size(); i++) {
-      if (shapes.get(i).getStartTick() <= time) {
-        shapes.get(i).calculateMotion((time) * speed);
-        returnList.add(shapes.get(i));
+    List<IShape> returnList = new ArrayList<>();
+    for (IShape shape : shapes) {
+      if (shape.getStartTick() <= time) {
+        shape.calculateMotion((time) * speed);
+        returnList.add(shape);
       }
     }
-    //TODO sort the returnList order
+    shapes.sort((o1, o2) -> {
+      if (o1.getPriority() < o2.getPriority()) {
+        return 1;
+      } else if (o1.getPriority() > o2.getPriority()) {
+        return -1;
+      }
+      return 0;
+    });
     return returnList;
   }
 
@@ -251,7 +252,7 @@ public class BasicAnimationModel implements AnimationModel {
    * @return a cloned version of the list
    */
   private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
+    List<IShape> copy = new ArrayList<>();
     for (IShape shape : shapes) {
       copy.add(shape.copy());
     }

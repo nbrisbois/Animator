@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Queue;
 
 /**
  * TODO: Update Javadoc
@@ -146,10 +147,9 @@ public class BasicAnimationModel implements AnimationModel {
         int h1, int r1, int g1, int b1, int t2,
         int x2, int y2, int w2, int h2, int r2,
         int g2, int b2) {
-      double[] val = new double[18];
       int duration = t2 - t1;
-      double movementX = (double) (x2 - x1);
-      double movementY = (double) (y2 - y1);
+      double movementX = x2 - x1;
+      double movementY = y2 - y1;
       Color color = new Color(r2, g2, b2);
       double scaleX = (double) w2 / w1;
       double scaleY = (double) h2 / h1;
@@ -208,6 +208,40 @@ public class BasicAnimationModel implements AnimationModel {
     }
     //TODO sort the returnList order
     return returnList;
+  }
+
+  public List<Queue<Motion>> getMotions() {
+    List<Queue<Motion>> answer = new ArrayList<>();
+    for (IShape shape : shapes) {
+      answer.add(shape.getMotion());
+    }
+    return answer;
+  }
+
+  public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
+      double scaleY, int ticksTaken) {
+    Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.addMotion(addedMotion);
+      }
+    }
+  }
+
+  public void removeShape(String name) {
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shapes.remove(shape);
+      }
+    }
+  }
+
+  public void removeMotion(String name) {
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.removeMotion();
+      }
+    }
   }
 
   /**

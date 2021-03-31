@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
 import java.io.IOException;
+import java.util.Queue;
 
 /**
  * The interface of the shape.
@@ -87,6 +88,18 @@ public interface IShape {
    * @param m A Motion object representing the new motion being added.
    */
   void addMotion(Motion m);
+
+  /**
+   * A getter method to observe all the motions this shape goes through.
+   *
+   * @return a priority queue of motions that this shape will go through
+   */
+  Queue<Motion> getMotion();
+
+  /**
+   * Remove the last motion this shape will goes through.
+   */
+  void removeMotion();
 
   /**
    * Updates the shapes attributes based off of the current and next motion the shape is executing.

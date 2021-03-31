@@ -5,6 +5,10 @@ import java.util.Objects;
 
 /**
  * Representing a motion that a shape goes through.
+ * A motion can be one of the following:
+ * 1. A Horizontal AND/OR Vertical movement along the screen.
+ *    (Both in one motion creates a diagonal movement)
+ * 2.
  */
 public class Motion implements Comparable {
 
@@ -28,10 +32,10 @@ public class Motion implements Comparable {
   public Motion(double movementX, double movementY, Color color, double scaleX, double scaleY,
       int ticksTaken) throws IllegalArgumentException {
     // Check for Valid Inputs
-    if (scaleX < 0 ) {
+    if (scaleX < 0) {
       throw new IllegalArgumentException("ScaleX cannot be Negative");
     }
-    if (scaleY < 0 ) {
+    if (scaleY < 0) {
       throw new IllegalArgumentException("ScaleY cannot be Negative");
     }
     if (ticksTaken < 0) {
@@ -48,19 +52,33 @@ public class Motion implements Comparable {
     this.ticksTaken = ticksTaken;
   }
 
-  public double getMoveX() { return movementX; }
+  public double getMoveX() {
+    return movementX;
+  }
 
-  public double getMoveY() { return movementY; }
+  public double getMoveY() {
+    return movementY;
+  }
 
-  public Color getColor() { return new Color(color.getRGB()); }
+  public double getScaleX() {
+    return scaleX;
+  }
 
-  public double getScaleX() { return scaleX; }
+  public double getScaleY() {
+    return scaleY;
+  }
 
-  public double getScaleY() { return scaleY; }
+  public int getTicks() {
+    return ticksTaken;
+  }
 
-  public int getTicks() { return ticksTaken;  }
+  public Color getColor() {
+    return new Color(color.getRGB());
+  }
 
   @Override
-  public int compareTo(Object o) { return 0; }
+  public int compareTo(Object o) {
+    return 0;
+  }
 }
 

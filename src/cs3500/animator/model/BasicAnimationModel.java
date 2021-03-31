@@ -4,7 +4,6 @@ package cs3500.animator.model;
 import cs3500.animator.util.AnimationBuilder;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -44,7 +43,7 @@ public class BasicAnimationModel implements AnimationModel {
     Objects.requireNonNull(shapes, "List of shapes cannot be null");
     for (int i = 0; i < shapes.size(); i++) {
       for (int j = 0; j < shapes.size(); j++) {
-        if (i != j && shapes.get(i).getName() == shapes.get(j).getName()) {
+        if (i != j && shapes.get(i).getName().equals(shapes.get(j).getName())) {
           throw new IllegalStateException("Cannot have shapes of the same name");
         }
       }
@@ -62,7 +61,7 @@ public class BasicAnimationModel implements AnimationModel {
    */
   public static final class Builder implements AnimationBuilder<AnimationModel> {
 
-    private final List<IShape> shapes = new ArrayList<IShape>();
+    private final List<IShape> shapes = new ArrayList<>();
     private int sceneHeight = 500;
     private int sceneWidth = 500;
     private final int duration = 1;
@@ -147,10 +146,9 @@ public class BasicAnimationModel implements AnimationModel {
         int h1, int r1, int g1, int b1, int t2,
         int x2, int y2, int w2, int h2, int r2,
         int g2, int b2) {
-      double[] val = new double[18];
       int duration = t2 - t1;
-      double movementX = (double) (x2 - x1);
-      double movementY = (double) (y2 - y1);
+      double movementX = x2 - x1;
+      double movementY = y2 - y1;
       Color color = new Color(r2, g2, b2);
       double scaleX = (double) w2 / w1;
       double scaleY = (double) h2 / h1;
@@ -194,17 +192,12 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
-  public int getFrameSpeed() {
-    return speed;
-  }
-
-  @Override
   public List<IShape> moveShapes(long time) {
-    List<IShape> returnList = new ArrayList<IShape>();
-    for (int i = 0; i < shapes.size(); i++) {
-      if (shapes.get(i).getStartTick() <= time) {
-        shapes.get(i).calculateMotion(time);
-        returnList.add(shapes.get(i));
+    List<IShape> returnList = new ArrayList<>();
+    for (IShape shape : shapes) {
+      if (shape.getStartTick() <= time) {
+        shape.calculateMotion((time) * speed);
+        returnList.add(shape);
       }
     }
     shapes.sort((o1, o2) -> {
@@ -226,7 +219,7 @@ public class BasicAnimationModel implements AnimationModel {
    * @return a cloned version of the list
    */
   private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<IShape>();
+    List<IShape> copy = new ArrayList<>();
     for (IShape shape : shapes) {
       copy.add(shape.copy());
     }

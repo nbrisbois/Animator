@@ -1,5 +1,10 @@
 package cs3500.animator.util;
 
+/**
+ * An interface that help us to build a builder class for the animation model using a certain file.
+ *
+ * @param <Doc> the file we are using to build the animation model.
+ */
 public interface AnimationBuilder<Doc> {
 
   /**
@@ -57,6 +62,5 @@ public interface AnimationBuilder<Doc> {
   AnimationBuilder<Doc> addMotion(String name,
       int t1, int x1, int y1, int w1, int h1, int r1, int g1, int b1,
       int t2, int x2, int y2, int w2, int h2, int r2, int g2, int b2);
-
 
 }

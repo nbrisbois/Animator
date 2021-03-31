@@ -3,6 +3,7 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 
@@ -58,16 +59,12 @@ public abstract class Shape implements IShape {
      */
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
-      try {
-        Objects.requireNonNull(motions.peek());
-        if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
-          throw new IllegalStateException("No tick can be less than the previous tick");
-        }
-        this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
-            m.getScaleY(), m.getTicks()));
-      } catch (Exception e) {
-        throw new NullPointerException("No motion found");
+      Objects.requireNonNull(motions.peek());
+      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
+        throw new IllegalStateException("No tick can be less than the previous tick");
       }
+      this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
+          m.getScaleY(), m.getTicks()));
     }
 
     this.name = name;
@@ -121,6 +118,12 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
+  public Queue<Motion> getMotion() { return this.motions;}
+
+  public void removeMotion() {
+    this.motions.remove(this.motions.size() - 1);
+  }
+
   public String getName() {
     return name;
   }
@@ -159,7 +162,6 @@ public abstract class Shape implements IShape {
     position.setLocation(
         position.getX() + speedX,
         position.getY() + speedY);
-    System.out.println(position.getX());
 
     // Update the dimensions
     dimensions[0] = dimensions[0] + scaleX;

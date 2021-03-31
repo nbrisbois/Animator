@@ -4,11 +4,9 @@ import java.awt.Color;
 import java.util.Objects;
 
 /**
- * Representing a motion that a shape goes through.
- * A motion can be one of the following:
- * 1. A Horizontal AND/OR Vertical movement along the screen.
- *    (Both in one motion creates a diagonal movement)
- * 2.
+ * Representing a motion that a shape goes through. A motion can be one of the following: 1. A
+ * Horizontal AND/OR Vertical movement along the screen. (Both in one motion creates a diagonal
+ * movement) 2.
  */
 public class Motion implements Comparable {
 

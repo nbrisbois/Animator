@@ -3,21 +3,22 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
+import java.util.Queue;
 
 /**
- * The interface of the shape.
+ * The interface representing a certain shape.
  */
 public interface IShape {
 
   /**
-   * renders the shape
+   * Get the name of the type of the shape.
    *
-   * @return returns the rendered shape
+   * @return returns the rendered shape.
    */
   String getShape();
 
   /**
-   * gets the name of the shape
+   * gets the name of the shape.
    *
    * @return the name of the shape
    */
@@ -88,12 +89,25 @@ public interface IShape {
   void addMotion(Motion m);
 
   /**
+   * A getter method to observe all the motions this shape goes through.
+   *
+   * @return a priority queue of motions that this shape will go through
+   */
+  Queue<Motion> getMotion();
+
+  /**
+   * Remove the last motion this shape will goes through.
+   */
+  void removeMotion();
+
+  /**
    * Updates the shapes attributes based off of the current and next motion the shape is executing.
    *
-   * @param motionIndex an integer representing the index of the motion we want to execute
+   * @param currentTick an integer representing the tick we want to calculate the effects of the
+   *                    motion at
    * @throws NullPointerException thrown if queue peek does not return a motion
    */
-  void calculateMotion(long motionIndex);
+  void calculateMotion(long currentTick);
 
   /**
    * Make a copy of the current shape.
@@ -103,26 +117,33 @@ public interface IShape {
   IShape copy();
 
   /**
+<<<<<<< HEAD
    * Used for SVG View to generate the
+=======
+   * Used for SVG View to generate the svg representation of the shape.
+>>>>>>> 2d8d2674432b66359eb395591363cd5851c96d44
+   *
    * @return A SVG representation of the Shape and it's motions
    */
   String generateSVG();
 
   /**
-   * renders the shape
+   * renders the shape.
    *
    * @return returns the rendered shape
    */
   Shape render();
 
   /**
-   * Gets the type of the shape
+   * Gets the type of the shape in SVG style.
+   *
    * @return String representation of the shape
    */
   String getType();
 
   /**
-   * Gets the SVG attributes needed for the shape
+   * Gets the SVG attributes needed for the shape.
+   *
    * @return String[] of attributes
    */
   String[] getSVGAttributes();

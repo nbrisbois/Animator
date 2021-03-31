@@ -41,18 +41,13 @@ public class TextualViewTest {
 
     testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
 
-    textView = new TextualView(testModel, new StringBuilder(""));
+    textView = new TextualView(testModel);
   }
 
   //Constructor Tests
   @Test(expected = NullPointerException.class)
   public void nullModelViewTest() {
-    textView = new TextualView(null, new StringBuilder(""));
-  }
-
-  @Test(expected = NullPointerException.class)
-  public void nullAppendableViewTest() {
-    textView = new TextualView(testModel, null);
+    textView = new TextualView(null);
   }
 
   //Render Tests

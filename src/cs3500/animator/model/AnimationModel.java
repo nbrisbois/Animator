@@ -89,5 +89,9 @@ public interface AnimationModel {
    */
   void removeMotion(String name);
 
+  int getOffsetY();
+
+  int getOffsetX();
+
 }
 

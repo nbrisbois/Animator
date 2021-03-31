@@ -50,9 +50,9 @@ public class VisViewTest {
     shapes.add(testOval);
     //shapes.add(testRect);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 100000, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 0 ,0, 100000, 1);
 
-    AnimationViewVisual view = new VisualView(testModel.getSceneWidth(), testModel.getSceneHeight());
+    AnimationViewVisual view = new VisualView(testModel.getOffsetX(), testModel.getOffsetY(), testModel.getSceneWidth(), testModel.getSceneHeight());
     view.render();
     ActionListener timer = new ActionListener() {
       long tick = 0;

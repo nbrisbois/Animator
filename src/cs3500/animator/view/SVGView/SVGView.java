@@ -49,7 +49,7 @@ public class SVGView implements IAnimationView {
     shapes.add(testRect);
     shapes.add(testOval);
 
-    AnimationModel model = new BasicAnimationModel(shapes, 10, 10, 20, 1);
+    AnimationModel model = new BasicAnimationModel(shapes, 10, 10,0,0, 20, 1);
     SVGView newView = new SVGView(model);
     newView.render();
   }

@@ -128,6 +128,13 @@ public abstract class Shape implements IShape {
     return name;
   }
 
+  @Override
+  public void setOffset(int offsetX, int offsetY) {
+    position.setLocation(position.getX() + offsetX,
+        position.getY() + offsetY);
+  }
+
+
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");

@@ -40,7 +40,7 @@ public class TexViewTest {
     shapes.add(testOval);
     shapes.add(testRect);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50,0,0, 10, 1);
 
     IAnimationView textView = new TextualView(testModel, new StringBuilder(""));
     textView.render();

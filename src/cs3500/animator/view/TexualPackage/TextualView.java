@@ -1,4 +1,4 @@
-package cs3500.animator.view.TexualView;
+package cs3500.animator.view.TexualPackage;
 
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;

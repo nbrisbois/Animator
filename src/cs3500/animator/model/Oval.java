@@ -13,9 +13,18 @@ import java.util.Queue;
  */
 public class Oval extends Shape {
 
+  /**
+   * Public Constructor for Oval Shape. Extends abstract class Shape.
+   * @param name  The name of the shape as a String
+   * @param pos   Starting position of shape as a Double object
+   * @param h     Starting height of the shape
+   * @param w     Starting Width of the shape
+   * @param color Starting Color of the shape
+   * @param t     Spawn time of the shape
+   * @param motions A Queue of motions that the shape will utilize
+   */
   public Oval(String name, Double pos, double h, double w, Color color, long t,
-      Queue<Motion> motions)
-      throws NullPointerException, IllegalArgumentException {
+      Queue<Motion> motions) {
     super(name, pos, h, w, color, t, motions);
   }
 
@@ -25,7 +34,7 @@ public class Oval extends Shape {
    * @param name The unique name of shape
    */
   public Oval(String name) throws NullPointerException, IllegalArgumentException {
-    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<Motion>());
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>());
   }
 
   @Override
@@ -42,9 +51,18 @@ public class Oval extends Shape {
   @Override
   public java.awt.Shape render() {
 
-    Ellipse2D circle = new Ellipse2D.Double(this.position.getX(), this.position.getY(),
+    return new Ellipse2D.Double(this.position.getX(), this.position.getY(),
         this.dimensions[0], this.dimensions[1]);
-    return circle;
+  }
+
+  @Override
+  public String getType() {
+    return "ellipse";
+  }
+
+  @Override
+  public String[] getSVGAttributes() {
+    return new String[]{"cx", "cy", "rx", "ry"};
   }
 
   /**
@@ -99,81 +117,11 @@ public class Oval extends Shape {
     }
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
-    double[] newSize = new double[]{dimensions[0] * lom.get(motionIndex).getScaleX(),
-        dimensions[1] * lom.get(motionIndex).getScaleY()};
-    IShape newShape = new Oval(this.name, newPosition,
+    return new Oval(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
         lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
         this.motions);
-    return newShape;
-  }
-
-  @Override
-  public String writeAnimation() {
-    long ticks_passed = this.getStartTick();
-    StringBuilder svg = new StringBuilder();
-
-    double previousScaleX = this.getSize()[0];
-    double previousScaleY = this.getSize()[1];
-    Color previousColor = this.getColor();
-
-    while (!this.motions.isEmpty()){
-      // AnimateMotion
-      svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
-              + "path=\"M %s, %s L %s %s\" "
-              + "begin=\"%s\" "
-              + "/>\n\t",
-          this.motions.peek().getTicks(),
-          this.getPosition().getX(),
-          this.getPosition().getY(),
-          this.motions.peek().getMoveX(),
-          this.motions.peek().getMoveY(),
-          ticks_passed
-      ));
-      // AnimateColor
-      svg.append(String.format("<animate attributeName=\"fill\" dur=\"%ss\" repeatCount=\"0\" "
-              + "from=\"#%02x%02x%02x\" to=\"#%02x%02x%02x\" "
-              + "begin=\"%s\" "
-              + "/>\n\t",
-          this.motions.peek().getTicks(),
-          previousColor.getRed(),
-          previousColor.getGreen(),
-          previousColor.getBlue(),
-          this.motions.peek().getColor().getRed(),
-          this.motions.peek().getColor().getGreen(),
-          this.motions.peek().getColor().getBlue(),
-          ticks_passed
-      ));
-      // AnimateScale
-      svg.append(String.format(("<animateTransform dur=\"%ss\" repeatCount=\"0\" "
-              + "attributeName=\"transform\" "
-              + "type=\"scale\" "
-              + "additive=\"sum\" "
-              + "from=\"%s %s\" "
-              + "to=\"%s %s\" "
-              + "begin=\"%s\" "
-              + "/>\n"),
-          this.motions.peek().getTicks(),
-          previousScaleX / 100,
-          previousScaleY / 100,
-          this.motions.peek().getScaleX() / 100,
-          this.motions.peek().getScaleY() / 100,
-          ticks_passed
-      ));
-      svg.append("\n\t");
-      ticks_passed += this.motions.peek().getTicks();
-      previousScaleX = this.motions.peek().getScaleX();
-      previousScaleY = this.motions.peek().getScaleY();
-      previousColor = this.motions.peek().getColor();
-      try {
-        calculateMotion(ticks_passed);
-      } catch (Exception e){
-        break;
-      }
-    }
-    svg.append("\n");
-    return svg.toString();
   }
 
 }

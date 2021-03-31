@@ -30,13 +30,6 @@ public interface AnimationModel {
   int getSceneWidth();
 
   /**
-   * Gets the speed of the ticks.
-   *
-   * @return the speed of the ticks.
-   */
-  int getFrameSpeed();
-
-  /**
    * To retrieve the list of shapes in the model.
    *
    * @return a list of shapes
@@ -50,7 +43,6 @@ public interface AnimationModel {
    */
   int getDuration();
 
-
   /**
    * Runs through the list of shapes moving them by time.
    *
@@ -59,3 +51,4 @@ public interface AnimationModel {
    */
   List<IShape> moveShapes(long time);
 }
+

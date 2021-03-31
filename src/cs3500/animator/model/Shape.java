@@ -122,33 +122,43 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  public void calculateMotion(long currentTick) throws IllegalStateException {
-    long time = (motions.peek().getTicks() - currentTick);
-    /**
-     * This is to collect the next motion
-     */
-    if ((currentTick >= motions.peek().getTicks())) {
+  public void calculateMotion(long currentTick) throws NullPointerException {
+    // A next motion is required for calculating
+    Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
+
+    // Store the next motion by peeking in the queue. Make final to make it immutable
+    final Motion peekedMotion = motions.peek();
+
+    long time = (peekedMotion.getTicks() - currentTick);
+
+    // Remove the current motion if we are at the start or greater than the next motion
+    if ((currentTick >= peekedMotion.getTicks())) {
       motions.remove();
-      /**
-       * The same concept, but only if it is not at the end of the queue.
-       */
+      // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
-        time = (motions.peek().getTicks() - currentTick);
+        time = (peekedMotion.getTicks() - currentTick);
       }
     }
-    if (startTick + time == motions.peek().getTicks()) {
-        speedX = (((motions.peek().getMoveX() - position.getX()) / time) * 100);
-        speedY = (((motions.peek().getMoveY() - position.getY()) / time) * 100);
-        scaleX = (((motions.peek().getScaleX() - dimensions[0]) / time) * 100);
-        scaleY = (((motions.peek().getScaleY() - dimensions[1]) / time) * 100);
+
+    // Update the speed
+    if (startTick + time == peekedMotion.getTicks()) {
+        speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
+        speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
+        scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
+        scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
     }
+
+    // Update the position
     position.setLocation(
         position.getX() + speedX,
         position.getY() + speedY);
 
+    // Update the dimensions
     dimensions[0] = dimensions[0] + scaleX;
     dimensions[1] = dimensions[1] + scaleY;
-    color = motions.peek().getColor();
+
+    // Update the color
+    color = peekedMotion.getColor();
   }
 }

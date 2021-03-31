@@ -52,5 +52,5 @@ public interface AnimationModel {
    * @param time current time of the animation run
    * @throws IOException thrown when the model cannot append the motion command
    */
-  List<IShape> moveShapes(long time);
+  List<IShape> moveShapes (long time);
 }

@@ -1,13 +1,12 @@
 package cs3500.animator.model;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a basic animation model.
+ * TODO: Update Javadoc
+ * Feedback from HW 05: 
  */
 public class BasicAnimationModel implements AnimationModel {
 

@@ -80,17 +80,17 @@ public interface IShape {
   int getPriority();
 
   /**
-   * Adding a motion to this shape.
+   * Add a singular motion to the List of motions attached to the shape.
    *
-   * @param m a motion representing the new motion being added
+   * @param m A Motion object representing the new motion being added.
    */
   void addMotion(Motion m);
 
   /**
-   * Applies the changes a motion would do to the shape.
+   * Updates the shapes attributes based off of the current and next motion the shape is executing.
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
-   * @throws IOException if the appendable cannot append
+   * @throws NullPointerException thrown if queue peek does not return a motion
    */
   void calculateMotion(long motionIndex);
 
@@ -101,7 +101,12 @@ public interface IShape {
    */
   IShape copy();
 
+  /**
+   * Used for SVG View to generate the
+   * @return A SVG representation of the Shape and it's motions
+   */
   String writeAnimation();
+
   /**
    * renders the shape
    * @return returns the rendered shape

@@ -27,10 +27,19 @@ public class Motion implements Comparable {
    */
   public Motion(double movementX, double movementY, Color color, double scaleX, double scaleY,
       int ticksTaken) throws IllegalArgumentException {
-    if (scaleX < 0 || scaleY < 0 || ticksTaken < 0) {
-      throw new IllegalArgumentException("Negative argument");
+    // Check for Valid Inputs
+    if (scaleX < 0 ) {
+      throw new IllegalArgumentException("ScaleX cannot be Negative");
     }
+    if (scaleY < 0 ) {
+      throw new IllegalArgumentException("ScaleY cannot be Negative");
+    }
+    if (ticksTaken < 0) {
+      throw new IllegalArgumentException("TicksTaken cannot be Negative");
+    }
+    // Check for Null Inputs
     Objects.requireNonNull(color, "Color cannot be null");
+
     this.movementX = movementX;
     this.movementY = movementY;
     this.color = color;
@@ -39,33 +48,18 @@ public class Motion implements Comparable {
     this.ticksTaken = ticksTaken;
   }
 
-  public double getMoveX() {
-    return movementX;
-  }
+  public double getMoveX() { return movementX; }
 
-  public double getMoveY() {
-    return movementY;
-  }
+  public double getMoveY() { return movementY; }
 
-  public Color getColor() {
+  public Color getColor() { return new Color(color.getRGB()); }
 
-    return new Color(color.getRGB());
-  }
+  public double getScaleX() { return scaleX; }
 
-  public double getScaleX() {
-    return scaleX;
-  }
+  public double getScaleY() { return scaleY; }
 
-  public double getScaleY() {
-    return scaleY;
-  }
-
-  public int getTicks() {
-    return ticksTaken;
-  }
+  public int getTicks() { return ticksTaken;  }
 
   @Override
-  public int compareTo(Object o) {
-    return 0;
-  }
+  public int compareTo(Object o) { return 0; }
 }

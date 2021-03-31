@@ -3,6 +3,7 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
+import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -12,9 +13,18 @@ import java.util.Queue;
  */
 public class Oval extends Shape {
 
+  /**
+   * Public Constructor for Oval Shape. Extends abstract class Shape.
+   * @param name  The name of the shape as a String
+   * @param pos   Starting position of shape as a Double object
+   * @param h     Starting height of the shape
+   * @param w     Starting Width of the shape
+   * @param color Starting Color of the shape
+   * @param t     Spawn time of the shape
+   * @param motions A Queue of motions that the shape will utilize
+   */
   public Oval(String name, Double pos, double h, double w, Color color, long t,
-      Queue<Motion> motions)
-      throws NullPointerException, IllegalArgumentException {
+      Queue<Motion> motions) {
     super(name, pos, h, w, color, t, motions);
   }
 
@@ -100,7 +110,7 @@ public class Oval extends Shape {
   }
 
   @Override
-  public String writeAnimation() {
+  public String writeAnimation() throws NullPointerException {
     long ticks_passed = this.getStartTick();
     StringBuilder svg = new StringBuilder();
 
@@ -109,6 +119,11 @@ public class Oval extends Shape {
     Color previousColor = this.getColor();
 
     while (!this.motions.isEmpty()){
+      try {
+        Motion nextMotion = this.motions.peek();
+      } catch (Exception e) {
+        throw new NullPointerException("Next motion cannot be NULL");
+      }
       // AnimateMotion
       svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
               + "path=\"M %s, %s L %s %s\" "

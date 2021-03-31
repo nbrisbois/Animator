@@ -3,6 +3,7 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.Point2D.Double;
+import java.util.Queue;
 
 /**
  * The interface of the shape.
@@ -88,6 +89,18 @@ public interface IShape {
   void addMotion(Motion m);
 
   /**
+   * A getter method to observe all the motions this shape goes through.
+   *
+   * @return a priority queue of motions that this shape will go through
+   */
+  Queue<Motion> getMotion();
+
+  /**
+   * Remove the last motion this shape will goes through.
+   */
+  void removeMotion();
+
+  /**
    * Updates the shapes attributes based off of the current and next motion the shape is executing.
    *
    * @param motionIndex an integer representing the index of the motion we want to execute
@@ -104,6 +117,7 @@ public interface IShape {
 
   /**
    * Used for SVG View to generate the
+   *
    * @return A SVG representation of the Shape and it's motions
    */
   String generateSVG();
@@ -117,12 +131,14 @@ public interface IShape {
 
   /**
    * Gets the type of the shape
+   *
    * @return String representation of the shape
    */
   String getType();
 
   /**
    * Gets the SVG attributes needed for the shape
+   *
    * @return String[] of attributes
    */
   String[] getSVGAttributes();

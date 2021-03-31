@@ -3,6 +3,7 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
 
@@ -115,6 +116,12 @@ public abstract class Shape implements IShape {
   public void addMotion(Motion m) {
     this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(),
         m.getScaleX(), m.getScaleY(), m.getTicks()));
+  }
+
+  public Queue<Motion> getMotion() { return this.motions;}
+
+  public void removeMotion() {
+    this.motions.remove(this.motions.size() - 1);
   }
 
   public String getName() {

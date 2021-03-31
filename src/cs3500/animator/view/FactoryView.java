@@ -36,7 +36,7 @@ public class FactoryView {
     } else if (viewType.equals("svg")) {
       return new SVGView(model);
     } else if (viewType.equals("visual")) {
-      return new VisualView(model.getSceneWidth(),model.getSceneHeight());
+      return new VisualView(model.getOffsetX(), model.getOffsetY(), model.getSceneWidth(),model.getSceneHeight());
     } else {
       return null;
     }

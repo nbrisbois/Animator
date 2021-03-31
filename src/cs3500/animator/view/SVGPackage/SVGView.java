@@ -1,13 +1,21 @@
 package cs3500.animator.view.SVGPackage;
 
 import cs3500.animator.model.AnimationModel;
+import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
+import cs3500.animator.model.Motion;
+import cs3500.animator.model.Oval;
+import cs3500.animator.model.Rectangle;
 import cs3500.animator.view.IAnimationView;
+import java.awt.Color;
+import java.awt.geom.Point2D.Double;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * The view to display the animation as a string output in a specific format.
@@ -30,7 +38,6 @@ public class SVGView implements IAnimationView {
     myWriter = new FileWriter("Animator/src/cs3500/animator/view/SVGView/animator.svg", false);
   }
 
-<<<<<<< HEAD:src/cs3500/animator/view/SVGView/SVGView.java
   public static void main(String[] args) throws IOException {
     Queue<Motion> motionsR = new PriorityQueue<>();
     Queue<Motion> motionsO = new PriorityQueue<>();
@@ -56,11 +63,9 @@ public class SVGView implements IAnimationView {
     newView.render();
   }
 
-=======
   /**
    * To display the SVG output of the model.
    */
->>>>>>> 10898b02cb476355dde2484c2fa0eb9292146919:src/cs3500/animator/view/SVGPackage/SVGView.java
   @Override
   public void render() {
     try {

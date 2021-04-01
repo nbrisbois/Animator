@@ -5,5 +5,8 @@ package cs3500.animator.view;
  */
 public interface IAnimationView {
 
+  /**
+   * To display the animation for the user to view.
+   */
   void render();
 }

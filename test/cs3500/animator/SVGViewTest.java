@@ -18,7 +18,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
- * Tester class to see the rendering results of the SVGView
+ * Tester class to see the rendering results of the SVGView.
  */
 public class SVGViewTest {
 

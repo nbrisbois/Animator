@@ -140,15 +140,13 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  public int getOffsetY() {
-    return OffsetY;
-  }
-
-  public int getOffsetX() {
-    return offsetX;
-  }
-
-
+  /**
+   * Updates the shapes attributes based off of the current and next motion the shape is executing.
+   *
+   * @param currentTick an integer representing the tick we want to calculate the effects of the
+   *                    motion at
+   * @throws NullPointerException thrown if queue peek does not return a motion
+   */
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");

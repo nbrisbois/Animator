@@ -67,6 +67,13 @@ public class Oval extends Shape {
     return new String[]{"cx", "cy", "rx", "ry"};
   }
 
+  public int getOffsetX() {
+    return offsetX;
+  }
+
+  public int getOffsetY() {
+    return OffsetY;
+  }
   /**
    * Displaying all the motions this shape would go through.
    *

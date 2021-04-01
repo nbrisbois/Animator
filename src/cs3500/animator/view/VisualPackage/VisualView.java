@@ -36,10 +36,12 @@ public class VisualView extends JFrame implements AnimationViewVisual {
     setVisible(true);
   }
 
+  @Override
   public void refresh() {
     repaint();
   }
 
+  @Override
   public void draw(IShape shape) {
     drawingPanel.addShape(shape);
   }

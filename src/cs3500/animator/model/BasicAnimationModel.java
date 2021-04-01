@@ -79,6 +79,7 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
+
       return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
     }
 

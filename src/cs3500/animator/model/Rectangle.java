@@ -71,6 +71,14 @@ public class Rectangle extends Shape {
         this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
   }
 
+  public int getOffsetX() {
+    return offsetX;
+  }
+
+  public int getOffsetY() {
+    return OffsetY;
+  }
+
   /**
    * Displaying all the motions this shape would go through.
    *

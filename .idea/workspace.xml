@@ -20,37 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68f86a27-f211-486e-81ee-d53c8fd02e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/AnimationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/AnimationModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/IShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/IShape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Oval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Oval.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/BasicAnimationModelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/BasicAnimationModelTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/OvalTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/OvalTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/RectangleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/RectangleTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/TextualViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/TextualViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/AnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/BasicAnimationModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/OvalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/RectangleTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/TextualViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/TextualViewTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -101,11 +101,18 @@ public final class Excellence {
 
     try {
       IAnimationView v = view.getView(viewDel);
-      Timer t = new Timer(100, new ActionListener() {
+      Timer t = new Timer(100,null);
+      t.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          v.render();
+          try {
+            v.render();
+          }
+          catch (Exception nullPoint) {
+            t.stop();
+          }
         }
+
       });
       t.start();
     } catch (Exception e) {

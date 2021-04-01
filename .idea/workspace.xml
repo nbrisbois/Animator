@@ -20,14 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/svg/SVGView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/textual/TextualView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/DrawingPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/VisualView.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/SVGViewTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/VisualPackage/DrawingPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,48 +197,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617300994444">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1617300994444" />
-    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1617297084125">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1617297084125" />
-    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1617246713346">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1617246713346" />
-    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1617298651624">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1617298651624" />
-    <state width="1493" height="666" key="GridCell.Tab.0.bottom" timestamp="1617300996310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="666" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617300996310" />
-    <state width="1493" height="666" key="GridCell.Tab.0.center" timestamp="1617300996310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="666" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617300996310" />
-    <state width="1493" height="666" key="GridCell.Tab.0.left" timestamp="1617300996310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="666" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617300996310" />
-    <state width="1493" height="666" key="GridCell.Tab.0.right" timestamp="1617300996310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="666" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617300996310" />
-    <state x="584" y="190" key="chooseDestDirectoryDialog" timestamp="1617298203002">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="584" y="190" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617298203002" />
-    <state x="540" y="234" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1617298639658">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="540" y="234" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1617298639658" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

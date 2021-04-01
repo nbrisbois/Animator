@@ -70,14 +70,6 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
-  public List<IShape> getShapes() throws IllegalArgumentException {
-    if (this.shapes.isEmpty()) {
-      throw new IllegalStateException("There are no shapes");
-    }
-    return copyShapes(this.shapes);
-  }
-
-  @Override
   public int getDuration() {
     return duration;
   }
@@ -102,34 +94,6 @@ public class BasicAnimationModel implements AnimationModel {
     return this.topLeftY;
   }
 
-  @Override
-  public List<IShape> moveShapes(long time) {
-    List<IShape> returnList = new ArrayList<>();
-    for (IShape shape : shapes) {
-      if (shape.getStartTick() <= time) {
-        shape.calculateMotion((time) * speed);
-        returnList.add(shape);
-      }
-    }
-    shapes.sort((o1, o2) -> {
-      if (o1.getPriority() < o2.getPriority()) {
-        return 1;
-      } else if (o1.getPriority() > o2.getPriority()) {
-        return -1;
-      }
-      return 0;
-    });
-    return returnList;
-  }
-
-  @Override
-  public List<Queue<Motion>> getMotions() {
-    List<Queue<Motion>> answer = new ArrayList<>();
-    for (IShape shape : shapes) {
-      answer.add(shape.getMotion());
-    }
-    return answer;
-  }
 
   @Override
   public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
@@ -181,8 +145,6 @@ public class BasicAnimationModel implements AnimationModel {
     private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
-    private int offsetY = 0;
-    private int offsetX = 0;
     private int tally = 0;
 
 
@@ -230,10 +192,10 @@ public class BasicAnimationModel implements AnimationModel {
     public AnimationBuilder<AnimationModel> declareShape(String name, String type) {
       switch (type) {
         case "rectangle":
-          this.shapes.add(new Rectangle(name));
+          this.shapes.add(new Rectangle(name, x ,y));
           break;
         case "ellipse":
-          this.shapes.add(new Oval(name));
+          this.shapes.add(new Oval(name, x, y));
           tally++;
           break;
         default:
@@ -290,5 +252,45 @@ public class BasicAnimationModel implements AnimationModel {
       }
       return this;
     }
+  }
+
+  @Override
+  public List<IShape> getShapes() throws IllegalArgumentException {
+    if (this.shapes.isEmpty()) {
+      throw new IllegalStateException("There are no shapes");
+    }
+    return copyShapes(this.shapes);
+  }
+
+
+  @Override
+  public List<IShape> moveShapes(long time) {
+    List<IShape> returnList = new ArrayList<>();
+    for (IShape shape : shapes) {
+      shape.isVisual();
+
+      if ((shape.getStartTick()) <= time) {
+        shape.calculateMotion((time) * speed);
+        returnList.add(shape);
+      }
+    }
+    shapes.sort((o1, o2) -> {
+      if (o1.getPriority() < o2.getPriority()) {
+        return 1;
+      } else if (o1.getPriority() > o2.getPriority()) {
+        return -1;
+      }
+      return 0;
+    });
+    return returnList;
+  }
+
+  @Override
+  public List<Queue<Motion>> getMotions() {
+    List<Queue<Motion>> answer = new ArrayList<>();
+    for (IShape shape : shapes) {
+      answer.add(shape.getMotion());
+    }
+    return answer;
   }
 }

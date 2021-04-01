@@ -4,11 +4,15 @@ import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.BasicAnimationModel.Builder;
 import cs3500.animator.util.AnimationReader;
 import cs3500.animator.view.FactoryView;
+import cs3500.animator.view.IAnimationView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  * Excellence Class representing the main interaction with our Model and View
@@ -16,14 +20,12 @@ import javax.swing.JOptionPane;
  * <p>The function is called via the command line.
  *
  * <p>Available Command Flags: -in "name-of-animation-file"      The file that will be used for
- * the
- * animation -view "type-of-view"              The view type that will be used for the animation
+ * the animation -view "type-of-view"              The view type that will be used for the animation
  * -out "where-output-show-go"       The output location of the data -speed
  * "integer-ticks-per-second" The speed in which the animation should run
  *
  * <p>Example Commands: -in smalldemo.txt -view text -speed 2 -view svg -out out.svg -in
- * buildings.txt
- * -in smalldemo.txt -view text -in smalldemo.txt -speed 50 -view visual
+ * buildings.txt -in smalldemo.txt -view text -in smalldemo.txt -speed 50 -view visual
  */
 public final class Excellence {
 
@@ -95,7 +97,24 @@ public final class Excellence {
     FactoryView view = new FactoryView(model, output, speed);
 
     try {
-      view.getView(viewDel).render();
+      IAnimationView v = view.getView(viewDel);
+
+      if (viewDel.equals("visual")) {
+        Timer t = new Timer(100, null);
+        t.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            try {
+              v.render();
+            } catch (Exception nullPoint) {
+              t.stop();
+            }
+          }
+        });
+        t.start();
+      } else {
+        v.render();
+      }
     } catch (Exception e) {
       System.out.printf("%s%n", e);
     }

@@ -27,6 +27,9 @@ public abstract class Shape implements IShape {
   private double speedY;
   private double scaleX;
   private double scaleY;
+  private boolean visual;
+  private final double orignalSizeX;
+  private final double orignalSizeY;
 
   /**
    * Abstract Shape Constructor.
@@ -69,6 +72,7 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
+    this.visual = false;
     this.offsetX = offsetX;
     this.offsetY = offsetY;
     this.name = name;
@@ -78,6 +82,8 @@ public abstract class Shape implements IShape {
     this.startTick = startTick;
     this.order = ++numberOfShapes;
 
+    this.orignalSizeX = x;
+    this.orignalSizeY = y;
     speedX = speedY = scaleX = scaleY = 0;
 
   }
@@ -91,10 +97,23 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(String name) throws NullPointerException, IllegalArgumentException {
+  public Shape(String name, int offsetX, int offsetY)
+      throws NullPointerException, IllegalArgumentException {
     this.name = name;
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
     this.order = 0;
+    this.orignalSizeX = 0;
+    this.orignalSizeY = 0;
     this.motions = new PriorityQueue<>();
+  }
+
+  @Override
+  public void isVisual() {
+    if (!visual) {
+      startTick = startTick * 1000;
+    }
+    visual = true;
   }
 
   public void changePosition(Double pos) throws NullPointerException {
@@ -163,27 +182,28 @@ public abstract class Shape implements IShape {
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 
-    long time = (peekedMotion.getTicks() - currentTick);
+    long time = ((peekedMotion.getTicks() * 1000) - currentTick);
 
     // Remove the current motion if we are at the start or greater than the next motion
-    if ((currentTick >= peekedMotion.getTicks())) {
+    if (currentTick >= ((peekedMotion.getTicks() * 1000) + (startTick))) {
       motions.remove();
       // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
-        peekedMotion = motions.peek();
-        time = (peekedMotion.getTicks() - currentTick);
       }
+      peekedMotion = motions.peek();
+      time = ((peekedMotion.getTicks() * 1000) - currentTick);
     }
     // Update the speed
-    if (startTick + time == peekedMotion.getTicks()) {
+    if (startTick + time == (peekedMotion.getTicks() * 1000)) {
       if (time == 0) {
         time = 1;
       }
-      speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
-      speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
-      scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
-      scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
+      speedX = ((peekedMotion.getMoveX() / time) * 100);
+      speedY = ((peekedMotion.getMoveY() / time) * 100);
+
+      scaleX = (((orignalSizeX * peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
+      scaleY = (((orignalSizeY * peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
     }
 
     // Update the position
@@ -237,7 +257,6 @@ public abstract class Shape implements IShape {
             + "attributeName=\"visibility\" "
             + "to=\"visible\" "
             + "begin=\"%sms\" "
-            + "duration=\"indefinite\" "
             + "fill=\"freeze\"/>\n",
         ticks_passed));
 
@@ -334,13 +353,13 @@ public abstract class Shape implements IShape {
           ticks_passed
       ));
       ticks_passed += duration;
-      this.updateShape(motions.remove(), nextMotion);
+      this.updateShape(motions.remove());
     }
     svg.append(String.format("\t</%s>\n\n", this.getType()));
     return svg.toString();
   }
 
-  private void updateShape(Motion m, Motion nextMotion) {
+  private void updateShape(Motion m) {
     this.position.setLocation(
         this.getPosition().getX() + m.getMoveX(),
         this.getPosition().getY() + m.getMoveY()

@@ -81,10 +81,6 @@ The following are the view components that this document will go over:
 ### IAnimationView
 This interface provides a framework for how each individual view will serve to display the animation
 *   render to display the animation for the user to view.
-### AnimationViewVisual
-This interface specifically defines how each visual view will display the animation
-*   draw to draw out the given shape on the canvas.
-*   repaint to repaint the Visual View.
 
 ### SVGView
 The view to display the animation as a string output in SVG format,  an XML-based format that can be
@@ -109,6 +105,9 @@ The view to display the animation model textually.
 
 ### VisualView
 The view to show the visual demonstration of the animation.
+Private methods used:
+*   draw to draw out the given shape on the canvas.
+*   repaint to repaint the Visual View.
 
 ### DrawingPannel
 A class to help the visual view to draw out each needed shape.

@@ -25,14 +25,17 @@ public class DrawingPanel extends JPanel {
     for (IShape s : shapes) {
       if (s.getShape().equals("rectangle")) {
         g.setColor(s.getColor());
-        g.fillRect((int) s.getPosition().getX(), (int) s.getPosition().getY(),
+        g.fillRect((int) s.getPosition().getX() - s.getOffsetX(),
+            (int) s.getPosition().getY() - s.getOffsetY(),
             (int) s.getSize()[0], (int) s.getSize()[1]);
-      } else if (s.getShape().equals("oval")) {
+      } else if (s.getShape().equals("ellipses")) {
         g.setColor(s.getColor());
-        g.fillOval((int) s.getPosition().getX(), (int) s.getPosition().getY(),
+        g.fillOval((int) s.getPosition().getX() - s.getOffsetX(),
+            (int) s.getPosition().getY() - s.getOffsetY(),
             (int) s.getSize()[0], (int) s.getSize()[1]);
       }
     }
+    shapes.clear();
   }
 
   public void addShape(IShape shape) {

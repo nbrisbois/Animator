@@ -2,32 +2,31 @@ package cs3500.animator.view.visual;
 
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;
-import cs3500.animator.view.AnimationViewVisual;
+import cs3500.animator.view.IAnimationView;
 import java.awt.Dimension;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 /**
- *  Representing the visual view that renders the animation model.
+ * Representing the visual view that renders the animation model.
  */
-public class VisualView extends JFrame implements AnimationViewVisual {
+public class VisualView extends JFrame implements IAnimationView {
 
+  private long tick;
   private final DrawingPanel drawingPanel;
   private final AnimationModel model;
 
   /**
    * THe constructor to create a visual view.
-
+   *
    * @param model the model we are using for visual view
    */
   public VisualView(AnimationModel model) {
     super();
     this.model = model;
+    this.tick = tick;
     this.drawingPanel = new DrawingPanel();
-    for (IShape shape : model.getShapes()) {
-      drawingPanel.addShape(shape);
-    }
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,23 +38,29 @@ public class VisualView extends JFrame implements AnimationViewVisual {
 
   @Override
   public void render() {
-    setVisible(true);
-    for (int i = 0; i <= 100; i++) {
-      List<IShape> los = model.moveShapes(i);
-      for (IShape s : los) {
-        draw(s);
-      }
-    }
 
+    List<IShape> shapes = model.moveShapes(tick * 100);
+    for (IShape s : shapes) {
+      drawingPanel.addShape(s);
+    }
+    setVisible(true);
+    tick++;
+    refresh();
   }
 
-  @Override
-  public void refresh() {
+  /**
+   * To repaint the animation view.
+   */
+  private void refresh() {
     repaint();
   }
 
-  @Override
-  public void draw(IShape shape) {
+  /**
+   * To draw an additional desired shape by adding it to the list of shapes in the drawing panel.
+   *
+   * @param shape the desired shape we want to draw
+   */
+  private void draw(IShape shape) {
     drawingPanel.addShape(shape);
   }
 }

@@ -5,7 +5,7 @@ import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
-import cs3500.animator.view.AnimationViewVisual;
+import cs3500.animator.view.IAnimationView;
 import cs3500.animator.view.visual.VisualView;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -51,20 +51,15 @@ public class VisViewTest {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 0, 0, 1000, 1000, 100000, 1);
 
-    AnimationViewVisual view = new VisualView(testModel);
+    IAnimationView view = new VisualView(testModel);
 
-    view.render();
+
     ActionListener timer = new ActionListener() {
       long tick = 0;
 
       @Override
       public void actionPerformed(ActionEvent e) {
-        List<IShape> shapes = testModel.moveShapes(tick * 100);
-        for (IShape s : shapes) {
-          view.draw(s);
-        }
-        view.refresh();
-        tick++;
+        view.render();
       }
     };
     Timer t = new Timer(100, timer);

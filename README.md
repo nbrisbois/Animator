@@ -34,6 +34,7 @@ This class implements AnimationModel and provides the bulk of the program's func
 The purpose of this class is to store shapes and run them in adjacent with the tick.
 ### IShape
 This interface provides the framework for the shapes that will be put into the model.
+We added a few more getter methods to help other classes to retrieve needed information.
 This interface provides the following features:
 *   render which generates a log of the commands that a shape will execute (i.e motion)
 *   Provide changes to the shape's sizes, locations and colors.

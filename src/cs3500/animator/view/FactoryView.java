@@ -1,9 +1,9 @@
 package cs3500.animator.view;
 
 import cs3500.animator.model.AnimationModel;
-import cs3500.animator.view.SVGPackage.SVGView;
-import cs3500.animator.view.TexualPackage.TextualView;
-import cs3500.animator.view.VisualPackage.VisualView;
+import cs3500.animator.view.svg.SVGView;
+import cs3500.animator.view.textual.TextualView;
+import cs3500.animator.view.visual.VisualView;
 import java.io.IOException;
 
 /**
@@ -40,8 +40,7 @@ public class FactoryView {
     } else if (viewType.equals("svg")) {
       return new SVGView(model, this.outFileName, speed);
     } else if (viewType.equals("visual")) {
-      return new VisualView(model.getSceneWidth(),
-          model.getSceneHeight());
+      return new VisualView(model);
     } else {
       return null;
     }

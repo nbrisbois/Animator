@@ -123,7 +123,7 @@ public interface IShape {
   String generateSVG(int speed);
 
   /**
-   * Renders the Shape opject of the Shape for the visiual View
+   * Renders the Shape opject of the Shape for the visiual View.
    *
    * @return returns the rendered shape
    */
@@ -144,7 +144,7 @@ public interface IShape {
   String[] getSVGAttributes();
 
   /**
-   * Change the tick of the shape
+   * Change the tick of the shape.
    *
    * @param t int
    */

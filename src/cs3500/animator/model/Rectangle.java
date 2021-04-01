@@ -73,7 +73,7 @@ public class Rectangle extends Shape {
   @Override
   public IShape copy() {
     return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
+        this.color, this.startTick, this.motions, this.offsetY, this.offsetX);
   }
 
   public int getOffsetX() {
@@ -81,7 +81,7 @@ public class Rectangle extends Shape {
   }
 
   public int getOffsetY() {
-    return OffsetY;
+    return offsetY;
   }
 
   /**
@@ -136,13 +136,13 @@ public class Rectangle extends Shape {
     }
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
-    // Return a new Shape
     this.timeElapsed += lom.get(motionIndex).getTicks();
     return new Rectangle(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
-        lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
-        this.motions, this.OffsetY, this.offsetX);
+        lom.get(motionIndex).getColor(), this.startTick + timeElapsed,
+        this.motions, this.offsetY, this.offsetX);
+
   }
 
 }

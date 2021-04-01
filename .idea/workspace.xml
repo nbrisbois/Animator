@@ -19,19 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68f86a27-f211-486e-81ee-d53c8fd02e10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" afterDir="false" />
+    <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/SVGViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/SVGViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,33 +31,41 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
   <component name="PropertiesComponent">
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/cs3500/animator/view" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cs3500.animator" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Northeastern\ood\easyAnimator\Animator\src\cs3500\animator" />
       <recent name="D:\Northeastern\ood\easyAnimator\Animator\src\cs3500\animator\view\SVGPackage" />
       <recent name="D:\Northeastern\ood\easyAnimator\Animator\src\cs3500\animator\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VisViewTest">
-    <configuration name="VisViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.VisViewTest" />
+  <component name="RunManager" selected="Application.Execellence">
+    <configuration name="Execellence" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Excellence" />
       <module name="Animator" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs3500.animator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PROGRAM_PARAMETERS" value="-in smalldemo.txt -view visual -speed 1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VisViewTest.simpleMotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BasicAnimationModelTest.modelAddShapeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Animator" />
       <extension name="coverage">
         <pattern>
@@ -77,21 +74,92 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="cs3500.animator" />
-      <option name="MAIN_CLASS_NAME" value="cs3500.animator.VisViewTest" />
-      <option name="METHOD_NAME" value="simpleMotionTest" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="METHOD_NAME" value="modelAddShapeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAnimationModelTest.modelGetDurationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="METHOD_NAME" value="modelGetDurationTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAnimationModelTest.modelGetMotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="METHOD_NAME" value="modelGetMotionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAnimationModelTest.modelInvalidSceneHeightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="METHOD_NAME" value="modelInvalidSceneHeightTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BasicAnimationModelTest.modelInvalidSceneWidthTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Animator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cs3500.animator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cs3500.animator" />
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.BasicAnimationModelTest" />
+      <option name="METHOD_NAME" value="modelInvalidSceneWidthTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.VisViewTest" />
-      <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
+      <item itemvalue="Application.Execellence" />
+      <item itemvalue="JUnit.BasicAnimationModelTest.modelInvalidSceneHeightTest" />
+      <item itemvalue="JUnit.BasicAnimationModelTest.modelInvalidSceneWidthTest" />
+      <item itemvalue="JUnit.BasicAnimationModelTest.modelAddShapeTest" />
+      <item itemvalue="JUnit.BasicAnimationModelTest.modelGetMotionTest" />
+      <item itemvalue="JUnit.BasicAnimationModelTest.modelGetDurationTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.VisViewTest" />
-        <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
+        <item itemvalue="JUnit.BasicAnimationModelTest.modelGetDurationTest" />
+        <item itemvalue="JUnit.BasicAnimationModelTest.modelGetMotionTest" />
+        <item itemvalue="JUnit.BasicAnimationModelTest.modelAddShapeTest" />
+        <item itemvalue="JUnit.BasicAnimationModelTest.modelInvalidSceneWidthTest" />
+        <item itemvalue="JUnit.BasicAnimationModelTest.modelInvalidSceneHeightTest" />
       </list>
     </recent_temporary>
   </component>
@@ -109,6 +177,48 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617299262554">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1617299262554" />
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1617297084125">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1617297084125" />
+    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1617246713346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="214" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1617246713346" />
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1617298651624">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1617298651624" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617299266836">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617299266836">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617299266836">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617299266836">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state x="584" y="190" key="chooseDestDirectoryDialog" timestamp="1617298203002">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="584" y="190" key="chooseDestDirectoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617298203002" />
+    <state x="540" y="234" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1617298639658">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="540" y="234" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1617298639658" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

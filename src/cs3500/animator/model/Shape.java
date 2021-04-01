@@ -21,7 +21,7 @@ public abstract class Shape implements IShape {
   protected long startTick;
   protected Queue<Motion> motions;
   protected int offsetX;
-  protected int OffsetY;
+  protected int offsetY;
   protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
@@ -70,7 +70,7 @@ public abstract class Shape implements IShape {
     }
 
     this.offsetX = offsetX;
-    this.OffsetY = offsetY;
+    this.offsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
@@ -82,6 +82,15 @@ public abstract class Shape implements IShape {
 
   }
 
+  /**
+   * Construct a Shape object using its unique name.
+   *
+   * @param name the unique name of this shape
+   * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
+   *                                  is provided
+   * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
+   *                                  invalid
+   */
   public Shape(String name) throws NullPointerException, IllegalArgumentException {
     this.name = name;
     this.order = 0;

@@ -43,6 +43,9 @@ public class BasicAnimationModel implements AnimationModel {
     if (frameSpeed < 0) {
       throw new IllegalArgumentException("Frame speed cannot go lower than 1");
     }
+    if (sceneHeight <= 0 || sceneWidth <= 0) {
+      throw new IllegalArgumentException("Frame speed cannot go lower than 1");
+    }
     Objects.requireNonNull(shapes, "List of shapes cannot be null");
     for (int i = 0; i < shapes.size(); i++) {
       for (int j = 0; j < shapes.size(); j++) {
@@ -289,4 +292,3 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 }
-

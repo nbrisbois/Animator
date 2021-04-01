@@ -32,14 +32,14 @@ public interface AnimationModel {
   int getSceneWidth();
 
   /**
-   * Gets the top left X coordinate of the canvas
+   * Gets the top left X coordinate of the canvas.
    *
    * @return the height of the scene.
    */
   int getTopLeftX();
 
   /**
-   * Gets the top left Y coordinate of the canvas
+   * Gets the top left Y coordinate of the canvas.
    *
    * @return the height of the scene.
    */

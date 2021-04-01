@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/TexualPackage/TextualView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/DrawingPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

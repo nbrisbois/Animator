@@ -97,10 +97,10 @@ The view to display the animation model textually.
 The view to show the visual demonstration of the animation.
 
 ### DrawingPannel
-A class to help the visual view to draw out each needed shape/
+A class to help the visual view to draw out each needed shape.
 
 ### FactoryView
-A factory class to help produce an IAnimationView based on desired View Type
+A factory class to help produce an IAnimationView based on desired View Type.
 
 ---
 

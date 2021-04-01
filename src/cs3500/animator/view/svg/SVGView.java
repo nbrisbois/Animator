@@ -1,4 +1,4 @@
-package cs3500.animator.view.SVGPackage;
+package cs3500.animator.view.svg;
 
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;

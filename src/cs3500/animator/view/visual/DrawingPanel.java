@@ -1,4 +1,4 @@
-package cs3500.animator.view.VisualPackage;
+package cs3500.animator.view.visual;
 
 import cs3500.animator.model.IShape;
 import java.awt.Graphics;

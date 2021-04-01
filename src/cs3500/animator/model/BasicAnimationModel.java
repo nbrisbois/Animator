@@ -3,6 +3,7 @@ package cs3500.animator.model;
 
 import cs3500.animator.util.AnimationBuilder;
 import java.awt.Color;
+import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -18,8 +19,6 @@ public class BasicAnimationModel implements AnimationModel {
   private final int sceneWidth;
   private final int duration;
   private final int speed;
-  private final int offsetY;
-  private final int offsetX;
 
   /**
    * Construct an animation model.
@@ -34,7 +33,7 @@ public class BasicAnimationModel implements AnimationModel {
    */
 
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight,
-      int sceneWidth, int offsetX, int offsetY, int duration, int frameSpeed)
+      int sceneWidth, int duration, int frameSpeed)
       throws IllegalArgumentException, NullPointerException, IllegalStateException {
     if (duration < 0) {
       throw new IllegalArgumentException("Duration cannot be less than zero ticks");
@@ -50,11 +49,6 @@ public class BasicAnimationModel implements AnimationModel {
         }
       }
     }
-    if (offsetX < 0 || offsetY < 0) {
-      throw new IllegalArgumentException("Offset cannot be less than zero");
-    }
-    this.offsetX = offsetX;
-    this.offsetY = offsetY;
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
@@ -77,6 +71,7 @@ public class BasicAnimationModel implements AnimationModel {
     private int offsetX = 0;
     private final int duration = 1;
     private final int speed = 1;
+    private int tally = 0;
 
 
     /**
@@ -86,8 +81,8 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
-      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, offsetX, offsetY, duration,
-          speed);
+
+      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
     }
 
     /**
@@ -126,6 +121,7 @@ public class BasicAnimationModel implements AnimationModel {
           break;
         case "ellipse":
           this.shapes.add(new Oval(name));
+          tally++;
           break;
         default:
           break;
@@ -169,19 +165,18 @@ public class BasicAnimationModel implements AnimationModel {
       Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
       for (IShape shape : shapes) {
         if (shape.getName().equals(name)) {
+          if (shape.getMotion().isEmpty()){
+            Color c = new Color(r1, g1, b1);
+            shape.changeColor(c);
+            shape.changePosition(new Double(x1, y1));
+            shape.changeSize(new double[]{w1, h1});
+            shape.changeTick(t1);
+          }
           shape.addMotion(addedMotion);
         }
       }
       return this;
     }
-  }
-
-  public int getOffsetY() {
-    return offsetY;
-  }
-
-  public int getOffsetX() {
-    return offsetX;
   }
 
   @Override
@@ -285,4 +280,3 @@ public class BasicAnimationModel implements AnimationModel {
     return copy;
   }
 }
-

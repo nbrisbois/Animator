@@ -10,7 +10,8 @@ import cs3500.animator.view.VisualPackage.VisualView;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Point2D.Double;import java.util.ArrayList;
+import java.awt.geom.Point2D.Double;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -21,6 +22,11 @@ import javax.swing.Timer;
  */
 public class VisViewTest {
 
+  /**
+   * Renders the visual view.
+   *
+   * @param args StdIn
+   */
   public static void main(String[] args) {
     Queue<Motion> motions = new PriorityQueue<Motion>();
     Motion o1 = new Motion(440, 70, Color.BLUE, 120, 60, 20000);

@@ -238,21 +238,6 @@ public class RectangleTest {
     Assert.assertEquals(253, testRectangle.getPriority());
   }
 
-//  /**
-//   * ExecuteMotions() test.
-//   */
-//  @Test
-//  public void executeMotionsTest() {
-//    IShape newShape = testRectangle.executeMotion(0);
-//    double[] sizeOne = new double[]{20, 20};
-//
-//    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
-//    Assert.assertEquals(Color.BLACK, newShape.getColor());
-//    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
-//    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
-//    Assert.assertEquals(11, newShape.getStartTick());
-//  }
-
   /**
    * changePosition() NullPointer Tests.
    */
@@ -295,11 +280,4 @@ public class RectangleTest {
     testRectangle.changeColor(null);
   }
 
-//  /**
-//   * changeSize() IllegalArgument Tests.
-//   */
-//  @Test(expected = IllegalArgumentException.class)
-//  public void executeMotionNegativeIndexTest() {
-//    testRectangle.executeMotion(-1);
-//  }
 }

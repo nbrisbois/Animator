@@ -220,21 +220,6 @@ public class OvalTest {
     Assert.assertEquals(155, testOval.getPriority());
   }
 
-//  /**
-//   * ExecuteMotions() tests.
-//   */
-//  @Test
-//  public void executeMotionsTest() throws IOException {
-//    IShape newShape = testOval.calculateMotion(0);
-//    double[] sizeOne = new double[]{20, 20};
-//
-//    Assert.assertEquals(new Double(5.0, 5.0), newShape.getPosition());
-//    Assert.assertEquals(Color.BLACK, newShape.getColor());
-//    Assert.assertEquals(newShape.getSize()[0], sizeOne[0], 0);
-//    Assert.assertEquals(newShape.getSize()[1], sizeOne[1], 0);
-//    Assert.assertEquals(11, newShape.getStartTick());
-//  }
-
   /**
    * changePosition() NullPointer Tests.
    */
@@ -277,11 +262,4 @@ public class OvalTest {
     testOval.changeColor(null);
   }
 
-//  /**
-//   * changeSize() IllegalArgument Tests.
-//   */
-//  @Test(expected = IllegalArgumentException.class)
-//  public void executeMotionNegativeIndexTest() {
-//    testOval.executeMotion(-1);
-//  }
 }

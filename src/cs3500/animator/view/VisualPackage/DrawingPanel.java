@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
+/**
+ * Represents the JPanel we will use to draw the scene for visual view.
+ */
 public class DrawingPanel extends JPanel {
 
   private final List<IShape> shapes;
@@ -21,19 +24,15 @@ public class DrawingPanel extends JPanel {
     super.paintComponent(g);
     for (IShape s : shapes) {
       switch (s.getShape()) {
-        case "rectangle": {
+        case "rectangle":
           g.setColor(s.getColor());
           g.fillRect((int) s.getPosition().getX(), (int) s.getPosition().getY(),
               (int) s.getSize()[0], (int) s.getSize()[1]);
-        }
-        case "ellipses": {
+        case "ellipses":
           g.setColor(s.getColor());
           g.fillOval((int) s.getPosition().getX(), (int) s.getPosition().getY(),
               (int) s.getSize()[0], (int) s.getSize()[1]);
-        }
-        default: {
-
-        }
+          //default
       }
     }
   }

@@ -2,18 +2,27 @@ package cs3500.animator.view.VisualPackage;
 
 import cs3500.animator.model.IShape;
 import cs3500.animator.view.AnimationViewVisual;
-import java.awt.Canvas;
 import java.awt.Dimension;
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
+/**
+ *  Representing the visual view that renders the animation model.
+ */
 public class VisualView extends JFrame implements AnimationViewVisual {
 
   private final DrawingPanel drawingPanel;
   private final int topW;
   private final int topH;
 
+  /**
+   * THe constructor to create a visual view.
+   *
+   * @param topH the top height of the canvas
+   * @param topW the top width of the canvas
+   * @param w the width of the canvas
+   * @param h the height of the canvas
+   */
   public VisualView(int topH, int topW, int w, int h) {
     super();
     drawingPanel = new DrawingPanel();

@@ -33,8 +33,8 @@ public class Oval extends Shape {
    *
    * @param name The unique name of shape
    */
-  public Oval(String name) throws NullPointerException, IllegalArgumentException {
-    super(name);
+  public Oval(String name, int offsetX, int offsetY) throws NullPointerException, IllegalArgumentException {
+    super(name, offsetX, offsetY);
   }
 
   @Override

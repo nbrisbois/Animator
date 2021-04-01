@@ -39,9 +39,9 @@ public class Rectangle extends Shape {
    *
    * @param name The unique name of shape
    */
-  public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
+  public Rectangle(String name, int offsetX, int offsetY) throws NullPointerException, IllegalArgumentException {
     super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>(),
-        0, 0);
+        offsetY, offsetX);
   }
 
   @Override

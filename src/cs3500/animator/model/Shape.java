@@ -98,8 +98,10 @@ public abstract class Shape implements IShape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(String name) throws NullPointerException, IllegalArgumentException {
+  public Shape(String name, int offsetX, int offsetY) throws NullPointerException, IllegalArgumentException {
     this.name = name;
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
     this.order = 0;
     this.orignalSizeX = 0;
     this.orignalSizeY = 0;

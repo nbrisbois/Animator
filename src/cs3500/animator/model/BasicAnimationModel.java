@@ -145,8 +145,6 @@ public class BasicAnimationModel implements AnimationModel {
     private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
-    private int offsetY = 0;
-    private int offsetX = 0;
     private int tally = 0;
 
 
@@ -194,10 +192,10 @@ public class BasicAnimationModel implements AnimationModel {
     public AnimationBuilder<AnimationModel> declareShape(String name, String type) {
       switch (type) {
         case "rectangle":
-          this.shapes.add(new Rectangle(name));
+          this.shapes.add(new Rectangle(name, x ,y));
           break;
         case "ellipse":
-          this.shapes.add(new Oval(name));
+          this.shapes.add(new Oval(name, x, y));
           tally++;
           break;
         default:

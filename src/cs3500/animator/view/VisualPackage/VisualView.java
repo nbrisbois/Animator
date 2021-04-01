@@ -12,22 +12,16 @@ import javax.swing.JScrollPane;
 public class VisualView extends JFrame implements AnimationViewVisual {
 
   private final DrawingPanel drawingPanel;
-  private final int topW;
-  private final int topH;
 
   /**
    * THe constructor to create a visual view.
-   *
-   * @param topH the top height of the canvas
-   * @param topW the top width of the canvas
+
    * @param w the width of the canvas
    * @param h the height of the canvas
    */
-  public VisualView(int topH, int topW, int w, int h) {
+  public VisualView(int w, int h) {
     super();
     drawingPanel = new DrawingPanel();
-    this.topH = topH;
-    this.topW =  topW;
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -49,10 +43,6 @@ public class VisualView extends JFrame implements AnimationViewVisual {
 
   @Override
   public void draw(IShape shape) {
-    if (shape.getPosition().getX() - topW < 0 || shape.getPosition().getY() - topH < 0) {
-      throw new IllegalArgumentException("Shapes cannot have be less than the offset");
-    }
-    shape.setOffset(topH,topH);
     drawingPanel.addShape(shape);
   }
 }

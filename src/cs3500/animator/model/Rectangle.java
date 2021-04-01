@@ -29,9 +29,9 @@ public class Rectangle extends Shape {
    *                                  invalid
    */
   public Rectangle(String name, Double pos, double h, double w, Color color, long startTick,
-      Queue<Motion> motions)
+      Queue<Motion> motions, int offsetY, int offsetX)
       throws NullPointerException, IllegalArgumentException {
-    super(name, pos, h, w, color, startTick, motions);
+    super(name, pos, h, w, color, startTick, motions, offsetY, offsetX);
   }
 
   /**
@@ -40,7 +40,8 @@ public class Rectangle extends Shape {
    * @param name The unique name of shape
    */
   public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
-    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>());
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>(),
+        0,0);
   }
 
   @Override
@@ -60,6 +61,11 @@ public class Rectangle extends Shape {
   }
 
   @Override
+  public void changeTick(int t) {
+    this.startTick = t;
+  }
+
+  @Override
   public String getShape() {
     return "rectangle";
   }
@@ -67,7 +73,15 @@ public class Rectangle extends Shape {
   @Override
   public IShape copy() {
     return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions);
+        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
+  }
+
+  public int getOffsetX() {
+    return offsetX;
+  }
+
+  public int getOffsetY() {
+    return OffsetY;
   }
 
   /**
@@ -123,11 +137,12 @@ public class Rectangle extends Shape {
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
     // Return a new Shape
+    this.timeElapsed += lom.get(motionIndex).getTicks();
     return new Rectangle(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
         lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
-        this.motions);
+        this.motions, this.OffsetY, this.offsetX);
   }
 
 }

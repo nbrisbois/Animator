@@ -27,7 +27,7 @@ public class RectangleTest {
     motions.add(motion1);
     motions.add(motion2);
     testRectangle = new Rectangle("rect", new Double(0, 0), 10, 10, Color.BLACK, 1,
-        motions);
+        motions,0,0);
   }
 
   /**
@@ -43,7 +43,7 @@ public class RectangleTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Rectangle("rect", null, 10, 20, Color.BLACK, 1, motions);
+    new Rectangle("rect", null, 10, 20, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = NullPointerException.class)
@@ -55,12 +55,12 @@ public class RectangleTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Rectangle("rect", new Double(0, 0), 10, 20, null, 1, motions);
+    new Rectangle("rect", new Double(0, 0), 10, 20, null, 1, motions,0,0);
   }
 
   @Test(expected = NullPointerException.class)
   public void RectangleNullMotionsObjectConstructorTest() {
-    new Rectangle("rect", new Double(0, 0), 10, 20, null, 1, null);
+    new Rectangle("rect", new Double(0, 0), 10, 20, null, 1, null,0,0);
   }
 
   /**
@@ -75,7 +75,7 @@ public class RectangleTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Rectangle("rect", new Double(0, 0), -1, 20, Color.BLACK, 1, motions);
+    new Rectangle("rect", new Double(0, 0), -1, 20, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -87,7 +87,7 @@ public class RectangleTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Rectangle("rect", new Double(0, 0), 10, -1, Color.BLACK, 1, motions);
+    new Rectangle("rect", new Double(0, 0), 10, -1, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -99,7 +99,7 @@ public class RectangleTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, -1, motions);
+    new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, -1, motions,0,0);
   }
 
   /**
@@ -121,16 +121,16 @@ public class RectangleTest {
         40);
     motions.add(motion1);
     Rectangle testOval1 = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK,
-        1, motions);
+        1, motions,0,0);
     motions.add(motion2);
     Rectangle testOval2 = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK,
-        1, motions);
+        1, motions,0,0);
     motions.add(motion3);
     Rectangle testOval3 = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK,
-        1, motions);
+        1, motions,0,0);
     motions.add(motion4);
     Rectangle testOval4 = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK,
-        1, motions);
+        1, motions,0,0);
 
     Assert.assertEquals("Shape R rectangle\n"
             + "motion R 1   0   0   10  20  0   0   0     6   0   0   0   0   255 255 255",
@@ -167,7 +167,7 @@ public class RectangleTest {
     motions.add(motion1);
     motions.add(motion2);
     testRectangle = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, 1,
-        motions);
+        motions,0,0);
 
     testRectangle.changePosition(positionTwo);
     Assert.assertEquals(testRectangle.getPosition(), positionTwo);
@@ -189,7 +189,7 @@ public class RectangleTest {
     motions.add(motion1);
     motions.add(motion2);
     testRectangle = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, 1,
-        motions);
+        motions,0,0);
 
     testRectangle.changeSize(sizeOne);
     Assert.assertEquals(testRectangle.getSize()[0], sizeOne[0], 0);
@@ -211,7 +211,7 @@ public class RectangleTest {
     motions.add(motion1);
     motions.add(motion2);
     testRectangle = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, 1,
-        motions);
+        motions,0,0);
 
     Assert.assertNotEquals(testRectangle.getColor(), Color.BLUE);
     Assert.assertEquals(testRectangle.getColor(), Color.BLACK);
@@ -233,7 +233,7 @@ public class RectangleTest {
     motions.add(motion1);
     motions.add(motion2);
     testRectangle = new Rectangle("rect", new Double(0, 0), 10, 20, Color.BLACK, 1,
-        motions);
+        motions,0,0);
 
     Assert.assertEquals(253, testRectangle.getPriority());
   }

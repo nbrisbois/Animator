@@ -1,27 +1,12 @@
 package cs3500.animator;
 
 import cs3500.animator.model.AnimationModel;
-import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.BasicAnimationModel.Builder;
-import cs3500.animator.model.IShape;
-import cs3500.animator.model.Motion;
 import cs3500.animator.util.AnimationReader;
 import cs3500.animator.view.FactoryView;
-import cs3500.animator.view.IAnimationView;
-import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.StringReader;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -46,69 +31,71 @@ public final class Excellence {
    * @param args command lines that the user inputs in
    */
   public static void main(String[] args) {
+    // Set Defaults
+    Readable inputFileName = new StringReader("");
+    String output = "";
+    String viewDel = "";
+    Builder builder = new Builder();
     AnimationModel model = null;
-    String viewType = null;
-    String out = null;
-    int tempo = 1;
-    JFrame frame = new JFrame();
-    frame.setSize(100, 100);
-    for (int i = 0; i < args.length; i++) {
-      // reads input file
-      if (args[i].equals("-in")) {
-        try {
-          InputStream inputStream = new FileInputStream(args[i + 1]);
-          model = AnimationReader.parseFile(new InputStreamReader(inputStream),
-              new BasicAnimationModel.Builder());
-        } catch (FileNotFoundException e) {
-          // catch file not found error
-          JOptionPane.showMessageDialog(frame,
-              "File not found",
-              "File warning",
-              JOptionPane.WARNING_MESSAGE);
-        }
-      }
-      // reads output file path
-      if (args[i].equals("-out")) {
-        try {
-          if (!args[i + 1].equals("out")) {
-            out = args[i + 1];
+
+    int speed = 1;
+    // Get Inputs
+    for (int ii = 0; ii < args.length; ii++) {
+      switch (args[ii]) {
+        case "-in":
+          try {
+            model = AnimationReader.parseFile(new FileReader(args[ii+1]), builder);
+          } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(new JFrame(),
+                "File not Found",
+                "File warning",
+                JOptionPane.WARNING_MESSAGE);
           }
-        } catch (Exception e) {
-          JOptionPane.showMessageDialog(frame,
-              "Output source not found", "Output warning",
-              JOptionPane.WARNING_MESSAGE);
-        }
+          break;
+        case "-out":
+          try {
+            output = args[ii + 1];
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(),
+                "Output not found",
+                "Output Warning",
+                JOptionPane.WARNING_MESSAGE);
+          }
+          break;
+        case "-view":
+          try {
+            viewDel = args[ii + 1];
+          } catch (Exception e) {
+            JOptionPane.showMessageDialog(new JFrame(),
+                "No view provided",
+                "View Warning",
+                JOptionPane.WARNING_MESSAGE);
+          }
+          break;
+        case "-speed":
+          System.out.println(ii);
+          speed = Integer.parseInt(args[ii + 1]);
+          break;
       }
-      // reads which kind of view the user wants
-      if (args[i].equals("-view")) {
-        try {
-          viewType = args[i + 1];
-        } catch (Exception e) {
-          // catch no input given
-          JOptionPane.showMessageDialog(frame, "please give me a view",
-              "View warning",
-              JOptionPane.WARNING_MESSAGE);
-        }
-      }
-      // reads the speed
-      try {
-        if (args[i].equals("-speed")) {
-          tempo = Integer.valueOf(args[i + 1]);
-        }
-      } catch (Exception e) {
-        // catch no input given
-        JOptionPane.showMessageDialog(frame, "speed sir speed",
-            "speed warning",
-            JOptionPane.WARNING_MESSAGE);
-      }
+      System.out.println(ii);
+      ii++;
     }
-    FactoryView factory = new FactoryView(model);
-    // runs the program
+
+    // Check Mandatory inputs
+    if (inputFileName.equals("")) {
+      throw new IllegalArgumentException("Input file required. Format: '-in file_name' ");
+    }
+    if (viewDel.equals("")) {
+      throw new IllegalArgumentException("View type required. Format: '-view view_type' ");
+    }
+
+    // Create View
+    FactoryView view = new FactoryView(model);
+
     try {
-      IAnimationView view = factory.getView(viewType);
-    } catch (NullPointerException | IOException e) {
-      JOptionPane.showMessageDialog(frame, "oh well I guess nothing happens",
-          "Null Error", JOptionPane.ERROR_MESSAGE);
+      view.getView(viewDel).render();
+    } catch (Exception e) {
+      System.out.printf("%s%n", e);
     }
   }
 }

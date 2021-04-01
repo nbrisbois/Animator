@@ -26,7 +26,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Oval("oval", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    testOval = new Oval("oval", new Double(0, 0), 10, 10, Color.BLACK, 1, motions,0,0);
   }
 
   /**
@@ -42,7 +42,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval("oval", null, 10, 20, Color.BLACK, 1, motions);
+    new Oval("oval", null, 10, 20, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = NullPointerException.class)
@@ -54,12 +54,12 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval("oval", new Double(0, 0), 10, 20, null, 1, motions);
+    new Oval("oval", new Double(0, 0), 10, 20, null, 1, motions,0,0);
   }
 
   @Test(expected = NullPointerException.class)
   public void ovalNullMotionsObjectConstructorTest() {
-    new Oval("oval", new Double(0, 0), 10, 20, null, 1, null);
+    new Oval("oval", new Double(0, 0), 10, 20, null, 1, null,0,0);
   }
 
   /**
@@ -74,7 +74,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval("oval", new Double(0, 0), -1, 20, Color.BLACK, 1, motions);
+    new Oval("oval", new Double(0, 0), -1, 20, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -86,7 +86,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval("oval", new Double(0, 0), 10, -1, Color.BLACK, 1, motions);
+    new Oval("oval", new Double(0, 0), 10, -1, Color.BLACK, 1, motions,0,0);
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -98,7 +98,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, -1, motions);
+    new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, -1, motions,0,0);
   }
 
   /**
@@ -119,13 +119,13 @@ public class OvalTest {
     Motion motion4 = new Motion(25, 5, Color.GREEN, 10, 1,
         40);
     motions.add(motion1);
-    Oval testOval1 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Oval testOval1 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
     motions.add(motion2);
-    Oval testOval2 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Oval testOval2 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
     motions.add(motion3);
-    Oval testOval3 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Oval testOval3 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
     motions.add(motion4);
-    Oval testOval4 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    Oval testOval4 = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
 
     Assert.assertEquals("Shape O oval\n"
             + "motion O 1   0   0   10  20  0   0   0      6   0   0   0   0   255 255 255",
@@ -161,7 +161,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
 
     testOval.changePosition(positionTwo);
     Assert.assertEquals(testOval.getPosition(), positionTwo);
@@ -182,7 +182,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
 
     testOval.changeSize(sizeOne);
     Assert.assertEquals(testOval.getSize()[0], sizeOne[0], 0);
@@ -203,7 +203,7 @@ public class OvalTest {
         10);
     motions.add(motion1);
     motions.add(motion2);
-    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions);
+    testOval = new Oval("oval", new Double(0, 0), 10, 20, Color.BLACK, 1, motions,0,0);
 
     Assert.assertNotEquals(testOval.getColor(), Color.BLUE);
     Assert.assertEquals(testOval.getColor(), Color.BLACK);

@@ -117,11 +117,7 @@ public interface IShape {
   IShape copy();
 
   /**
-<<<<<<< HEAD
-   * Used for SVG View to generate the
-=======
    * Used for SVG View to generate the svg representation of the shape.
->>>>>>> 2d8d2674432b66359eb395591363cd5851c96d44
    *
    * @return A SVG representation of the Shape and it's motions
    */
@@ -148,5 +144,24 @@ public interface IShape {
    */
   String[] getSVGAttributes();
 
-  void setOffset(int offsetX, int offsetY);
+  /**
+   * Change the tick of the shape
+   *
+   * @param t int
+   */
+  void changeTick(int t);
+
+  /**
+   * gets the X offset.
+   *
+   * @return the x offset.
+   */
+  int getOffsetX();
+
+  /**
+   * gets the Y offset.
+   *
+   * @return the y offset.
+   */
+  int getOffsetY();
 }

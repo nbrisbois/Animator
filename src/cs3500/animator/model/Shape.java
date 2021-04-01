@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -11,15 +12,17 @@ import java.util.Queue;
  */
 public abstract class Shape implements IShape {
 
+  protected static int numberOfShapes = 0;
   protected final String name;
+  protected final int order;
   protected Double position;
   protected double[] dimensions;
   protected Color color;
   protected long startTick;
-  protected static int numberOfShapes = 0;
-  protected final int order;
   protected Queue<Motion> motions;
-
+  protected int offsetX;
+  protected int OffsetY;
+  protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
   private double scaleX;
@@ -36,13 +39,15 @@ public abstract class Shape implements IShape {
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
+   * @param offsetX   The offset in the x direction
+   * @param offsetY   The offset in the y direction
    * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
    *                                  is provided
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
   public Shape(String name, Double pos, double x, double y, Color color, long startTick,
-      Queue<Motion> motions)
+      Queue<Motion> motions, int offsetY, int offsetX)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -57,16 +62,21 @@ public abstract class Shape implements IShape {
      * This is important since there cannot be gaps, but there will be bugs if the,
      * the wrong tick is given.
      */
+    if (pos.getX() - offsetX < 0 || pos.getY() - offsetY < 0) {
+      throw new IllegalArgumentException("position cannot be less than offset");
+    }
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
       Objects.requireNonNull(motions.peek());
-      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
-        throw new IllegalStateException("No tick can be less than the previous tick");
-      }
+//      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
+//        throw new IllegalStateException("No tick can be less than the previous tick");
+//      }
       this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
           m.getScaleY(), m.getTicks()));
     }
 
+    this.offsetX = offsetX;
+    this.OffsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
@@ -76,6 +86,12 @@ public abstract class Shape implements IShape {
 
     speedX = speedY = scaleX = scaleY = 0;
 
+  }
+
+  public Shape(String name) throws NullPointerException, IllegalArgumentException {
+    this.name = name;
+    this.order = 0;
+    this.motions = new PriorityQueue<>();
   }
 
   public void changePosition(Double pos) throws NullPointerException {
@@ -128,12 +144,6 @@ public abstract class Shape implements IShape {
 
   public String getName() {
     return name;
-  }
-
-  @Override
-  public void setOffset(int offsetX, int offsetY) {
-    position.setLocation(position.getX() + offsetX,
-        position.getY() + offsetY);
   }
 
   /**
@@ -195,8 +205,8 @@ public abstract class Shape implements IShape {
     long ticks_passed = this.getStartTick();
     StringBuilder svg = new StringBuilder();
 
-    double previousScaleX = this.getSize()[0];
-    double previousScaleY = this.getSize()[1];
+    int previousScaleX = (int) this.getSize()[0];
+    int previousScaleY = (int) this.getSize()[1];
     Color previousColor = this.getColor();
 
     String[] attributes = this.getSVGAttributes();
@@ -255,16 +265,16 @@ public abstract class Shape implements IShape {
               + "begin=\"%s\" "
               + "/>\n"),
           nextMotion.getTicks(),
-          previousScaleX / 100,
-          previousScaleY / 100,
-          nextMotion.getScaleX() / 100,
-          nextMotion.getScaleY() / 100,
+          previousScaleX,
+          previousScaleY,
+          nextMotion.getScaleX() * 100,
+          nextMotion.getScaleY() * 100,
           ticks_passed
       ));
       svg.append("\n\t");
       ticks_passed += nextMotion.getTicks();
-      previousScaleX = nextMotion.getScaleX();
-      previousScaleY = nextMotion.getScaleY();
+      previousScaleX = (int) nextMotion.getScaleX();
+      previousScaleY = (int) nextMotion.getScaleY();
       previousColor = nextMotion.getColor();
       try {
         calculateMotion(ticks_passed);

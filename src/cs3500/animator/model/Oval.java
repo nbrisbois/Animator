@@ -5,7 +5,6 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -25,8 +24,8 @@ public class Oval extends Shape {
    * @param motions A Queue of motions that the shape will utilize
    */
   public Oval(String name, Double pos, double h, double w, Color color, long t,
-      Queue<Motion> motions) {
-    super(name, pos, h, w, color, t, motions);
+      Queue<Motion> motions, int offsetY, int offsetX) {
+    super(name, pos, h, w, color, t, motions, offsetY, offsetX);
   }
 
   /**
@@ -35,7 +34,7 @@ public class Oval extends Shape {
    * @param name The unique name of shape
    */
   public Oval(String name) throws NullPointerException, IllegalArgumentException {
-    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>());
+    super(name);
   }
 
   @Override
@@ -46,7 +45,7 @@ public class Oval extends Shape {
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions);
+        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
   }
 
   @Override
@@ -64,6 +63,19 @@ public class Oval extends Shape {
   @Override
   public String[] getSVGAttributes() {
     return new String[]{"cx", "cy", "rx", "ry"};
+  }
+
+  @Override
+  public void changeTick(int t) {
+    this.startTick = t;
+  }
+
+  public int getOffsetX() {
+    return offsetX;
+  }
+
+  public int getOffsetY() {
+    return OffsetY;
   }
 
   /**
@@ -118,11 +130,13 @@ public class Oval extends Shape {
     }
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
+    this.timeElapsed += lom.get(motionIndex).getTicks();
     return new Oval(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
-        lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
-        this.motions);
+        lom.get(motionIndex).getColor(), this.startTick + timeElapsed,
+        this.motions, this.OffsetY, this.offsetX);
+
   }
 
 }

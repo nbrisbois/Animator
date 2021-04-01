@@ -83,7 +83,7 @@ public abstract class Shape implements IShape {
   }
 
   /**
-   * Construct a Shape object using its unique name
+   * Construct a Shape object using its unique name.
    *
    * @param name the unique name of this shape
    * @throws NullPointerException     A NullPointerException is thrown when a null Object argument

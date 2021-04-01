@@ -20,17 +20,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68f86a27-f211-486e-81ee-d53c8fd02e10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/Excellence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/big-bang-big-crunch.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/buildings.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/hanoi.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/smalldemo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/toh-12.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/toh-3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/toh-5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/code-1/toh-8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/BasicAnimationModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/IShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/IShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Oval.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Oval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/model/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/AnimationViewVisual.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/FactoryView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/FactoryView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/SVGPackage/SVGView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/SVGPackage/SVGView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/SVGPackage/animator.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/VisualPackage/DrawingPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/VisualPackage/DrawingPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/VisualPackage/VisualView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/VisualPackage/VisualView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Animator/cs3500/animator/VisViewTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Oval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/AnimationViewVisual.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/SVGPackage/SVGView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/DrawingPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/VisualPackage/VisualView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/Testers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/VisViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,16 +68,35 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qZvCUQcSHypWXo0QmfvLWfwkbt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/cs3500/animator/view" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Harold\CS3500\hw5\Animator" />
       <recent name="D:\Northeastern\ood\easyAnimator\Animator\src\cs3500\animator\view\SVGPackage" />
       <recent name="D:\Northeastern\ood\easyAnimator\Animator\src\cs3500\animator\view" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.VisViewTest">
+  <component name="RunManager" selected="Application.-in smalldemo.txt -view visual -speed 1 ">
+    <configuration name="-in smalldemo.txt -view visual -speed 1 " type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="cs3500.animator.Excellence" />
+      <module name="Animator" />
+      <option name="PROGRAM_PARAMETERS" value="-in smalldemo.txt -view visual -speed 1 " />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VisViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.VisViewTest" />
       <module name="Animator" />
@@ -85,6 +127,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.-in smalldemo.txt -view visual -speed 1 " />
       <item itemvalue="Application.VisViewTest" />
       <item itemvalue="JUnit.VisViewTest.simpleMotionTest" />
     </list>
@@ -95,7 +138,15 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68f86a27-f211-486e-81ee-d53c8fd02e10" name="Default Changelist" comment="" />
+      <created>1617299805603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617299805603</updated>
+    </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,8 +166,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/cs3500/animator/model/Shape.java</url>
-          <line>65</line>
+          <line>64</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs3500/animator/model/Shape.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cs3500/animator/model/Shape.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

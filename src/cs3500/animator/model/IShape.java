@@ -164,4 +164,6 @@ public interface IShape {
    * @return the y offset.
    */
   int getOffsetY();
+
+  void isVisual();
 }

@@ -45,7 +45,7 @@ public class Oval extends Shape {
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
+        this.color, this.startTick, this.motions, this.offsetY, this.offsetX);
   }
 
   @Override
@@ -75,7 +75,7 @@ public class Oval extends Shape {
   }
 
   public int getOffsetY() {
-    return OffsetY;
+    return offsetY;
   }
 
   /**
@@ -135,7 +135,7 @@ public class Oval extends Shape {
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
         lom.get(motionIndex).getColor(), this.startTick + timeElapsed,
-        this.motions, this.OffsetY, this.offsetX);
+        this.motions, this.offsetY, this.offsetX);
 
   }
 

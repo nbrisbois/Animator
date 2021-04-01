@@ -212,7 +212,12 @@ public class BasicAnimationModel implements AnimationModel {
   public List<IShape> moveShapes(long time) {
     List<IShape> returnList = new ArrayList<>();
     for (IShape shape : shapes) {
-      if (shape.getStartTick() <= time) {
+      shape.isVisual();
+      System.out.println((shape.getStartTick()*1000));
+      System.out.println(time);
+      System.out.println();
+
+      if ((shape.getStartTick()*1000) <= time) {
         shape.calculateMotion((time) * speed);
         returnList.add(shape);
       }

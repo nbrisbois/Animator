@@ -4,11 +4,15 @@ import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.BasicAnimationModel.Builder;
 import cs3500.animator.util.AnimationReader;
 import cs3500.animator.view.FactoryView;
+import cs3500.animator.view.IAnimationView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  * Excellence Class representing the main interaction with our Model and View
@@ -92,8 +96,18 @@ public final class Excellence {
     // Create View
     FactoryView view = new FactoryView(model);
 
+
+
+
     try {
-      view.getView(viewDel).render();
+      IAnimationView v = view.getView(viewDel);
+      Timer t = new Timer(100, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          v.render();
+        }
+      });
+      t.start();
     } catch (Exception e) {
       System.out.printf("%s%n", e);
     }

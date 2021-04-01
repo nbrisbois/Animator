@@ -21,12 +21,13 @@ public abstract class Shape implements IShape {
   protected long startTick;
   protected Queue<Motion> motions;
   protected int offsetX;
-  protected int OffsetY;
+  protected int offsetY;
   protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
   private double scaleX;
   private double scaleY;
+  private boolean visual;
 
   /**
    * Abstract Shape Constructor.
@@ -75,8 +76,9 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
+    this.visual = false;
     this.offsetX = offsetX;
-    this.OffsetY = offsetY;
+    this.offsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
@@ -92,6 +94,11 @@ public abstract class Shape implements IShape {
     this.name = name;
     this.order = 0;
     this.motions = new PriorityQueue<>();
+  }
+
+  @Override
+  public void isVisual() {
+    visual = true;
   }
 
   public void changePosition(Double pos) throws NullPointerException {
@@ -160,27 +167,30 @@ public abstract class Shape implements IShape {
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 
-    long time = (peekedMotion.getTicks() - currentTick);
+    long time = ((peekedMotion.getTicks() * filter()) - currentTick);
 
     // Remove the current motion if we are at the start or greater than the next motion
-    if ((currentTick >= peekedMotion.getTicks())) {
+    if ((currentTick >= (peekedMotion.getTicks() * filter()))) {
       motions.remove();
       // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
-        peekedMotion = motions.peek();
-        time = (peekedMotion.getTicks() - currentTick);
+        if (visual) {
+          startTick = startTick / 1000;
+        }
       }
+      peekedMotion = motions.peek();
+      time = ((peekedMotion.getTicks() * filter()) - currentTick);
     }
     // Update the speed
-    if (startTick + time == peekedMotion.getTicks()) {
+    if (startTick + time == (peekedMotion.getTicks() * filter())) {
       if (time == 0) {
         time = 1;
       }
-      speedX = (((peekedMotion.getMoveX() - position.getX()) / time) * 100);
-      speedY = (((peekedMotion.getMoveY() - position.getY()) / time) * 100);
-      scaleX = (((peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
-      scaleY = (((peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
+      speedX = ((peekedMotion.getMoveX() - position.getX() / time) * 100);
+      speedY = ((peekedMotion.getMoveY() - position.getY() / time) * 100);
+      scaleX = ((peekedMotion.getScaleX()- dimensions[0] / time) * 100);
+      scaleY = ((peekedMotion.getMoveX() - dimensions[1] / time) * 100);
     }
 
     // Update the position
@@ -284,5 +294,15 @@ public abstract class Shape implements IShape {
     }
     svg.append(String.format("</%s>\n", this.getType()));
     return svg.toString();
+  }
+
+  private long filter() {
+    if (visual) {
+      if (startTick < 999) {
+        startTick = startTick * 1000;
+      }
+      return 1000;
+    }
+    return 1;
   }
 }

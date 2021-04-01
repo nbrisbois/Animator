@@ -2,7 +2,6 @@ package cs3500.animator.model;
 
 import java.awt.Color;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
@@ -89,6 +88,7 @@ public interface AnimationModel {
    * @param name the unique name of the shape we want to have its motion removed
    */
   void removeMotion(String name);
+
 
 }
 

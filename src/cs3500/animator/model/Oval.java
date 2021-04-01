@@ -11,6 +11,7 @@ import java.util.Queue;
  * Oval Specific Implementation of a Shape Class.
  */
 public class Oval extends Shape {
+
   /**
    * Public Constructor for Oval Shape. Extends abstract class Shape.
    *
@@ -23,8 +24,8 @@ public class Oval extends Shape {
    * @param motions A Queue of motions that the shape will utilize
    */
   public Oval(String name, Double pos, double h, double w, Color color, long t,
-      Queue<Motion> motions) {
-    super(name, pos, h, w, color, t, motions);
+      Queue<Motion> motions, int offsetY, int offsetX) {
+    super(name, pos, h, w, color, t, motions, offsetY, offsetX);
   }
 
   /**
@@ -44,7 +45,7 @@ public class Oval extends Shape {
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions);
+        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
   }
 
   @Override
@@ -67,6 +68,14 @@ public class Oval extends Shape {
   @Override
   public void changeTick(int t) {
     this.startTick = t;
+  }
+
+  public int getOffsetX() {
+    return offsetX;
+  }
+
+  public int getOffsetY() {
+    return OffsetY;
   }
 
   /**
@@ -125,8 +134,9 @@ public class Oval extends Shape {
     return new Oval(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
-        lom.get(motionIndex).getColor(), this.startTick + this.timeElapsed,
-        this.motions);
+        lom.get(motionIndex).getColor(), this.startTick + timeElapsed,
+        this.motions, this.OffsetY, this.offsetX);
+
   }
 
 }

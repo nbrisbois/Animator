@@ -12,37 +12,42 @@ import java.util.Queue;
  */
 public abstract class Shape implements IShape {
 
+  protected static int numberOfShapes = 0;
   protected final String name;
+  protected final int order;
   protected Double position;
   protected double[] dimensions;
   protected Color color;
   protected long startTick;
-  protected static int numberOfShapes = 0;
-  protected final int order;
   protected Queue<Motion> motions;
+  protected int offsetX;
+  protected int OffsetY;
+  protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
   private double scaleX;
   private double scaleY;
-  protected long timeElapsed = 0;
 
   /**
    * Abstract Shape Constructor.
    *
-   * @param name  The unique name of shape
-   * @param pos   The spawn position of the Shape
-   * @param x     Dimension one of Two
-   * @param y     Dimension two of Two
-   * @param color The color of the Shape
+   * @param name      The unique name of shape
+   * @param pos       The spawn position of the Shape
+   * @param x         Dimension one of Two
+   * @param y         Dimension two of Two
+   * @param color     The color of the Shape
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
+   * @param offsetX   The offset in the x direction
+   * @param offsetY   The offset in the y direction
    * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
    *                                  is provided
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Shape(String name, Double pos, double x, double y, Color color, long startTick, Queue<Motion> motions)
+  public Shape(String name, Double pos, double x, double y, Color color, long startTick,
+      Queue<Motion> motions, int offsetY, int offsetX)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -57,6 +62,9 @@ public abstract class Shape implements IShape {
      * This is important since there cannot be gaps, but there will be bugs if the,
      * the wrong tick is given.
      */
+    if (pos.getX() - offsetX < 0 || pos.getY() - offsetY < 0) {
+      throw new IllegalArgumentException("position cannot be less than offset");
+    }
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
       Objects.requireNonNull(motions.peek());
@@ -67,6 +75,8 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
+    this.offsetX = offsetX;
+    this.OffsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
@@ -124,7 +134,9 @@ public abstract class Shape implements IShape {
         m.getScaleX(), m.getScaleY(), m.getTicks()));
   }
 
-  public Queue<Motion> getMotion() { return this.motions;}
+  public Queue<Motion> getMotion() {
+    return this.motions;
+  }
 
   public void removeMotion() {
     this.motions.remove(this.motions.size() - 1);
@@ -134,6 +146,13 @@ public abstract class Shape implements IShape {
     return name;
   }
 
+  /**
+   * Updates the shapes attributes based off of the current and next motion the shape is executing.
+   *
+   * @param currentTick an integer representing the tick we want to calculate the effects of the
+   *                    motion at
+   * @throws NullPointerException thrown if queue peek does not return a motion
+   */
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
@@ -208,11 +227,8 @@ public abstract class Shape implements IShape {
 
     while (!this.motions.isEmpty()) {
       Motion nextMotion;
-      try {
-        nextMotion = this.motions.peek();
-      } catch (Exception e) {
-        throw new NullPointerException("Next motion cannot be NULL");
-      }
+      Objects.requireNonNull(this.motions.peek());
+      nextMotion = this.motions.peek();
       // AnimateMotion
       svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
               + "path=\"M %s, %s L %s %s\" "
@@ -250,9 +266,9 @@ public abstract class Shape implements IShape {
               + "/>\n"),
           nextMotion.getTicks(),
           previousScaleX,
-          previousScaleY ,
-          nextMotion.getScaleX() *100,
-          nextMotion.getScaleY() *100,
+          previousScaleY,
+          nextMotion.getScaleX() * 100,
+          nextMotion.getScaleY() * 100,
           ticks_passed
       ));
       svg.append("\n\t");

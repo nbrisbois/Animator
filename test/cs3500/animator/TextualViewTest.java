@@ -32,8 +32,8 @@ public class TextualViewTest {
     motions.add(motion1);
     motions.add(motion2);
 
-    IShape testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
-    IShape testRect = new Rectangle("r", new Double(0, 0), 10, 10, Color.BLACK, 1, motions);
+    IShape testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 1, motions,0,0);
+    IShape testRect = new Rectangle("r", new Double(0, 0), 10, 10, Color.BLACK, 1, motions,0,0);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
@@ -50,9 +50,5 @@ public class TextualViewTest {
     textView = new TextualView(null);
   }
 
-  //Render Tests
-  @Test
-  public void renderTest() {
-    textView.render();
-  }
+  //Render Tests is in src.cs3500.animator.model.main
 }

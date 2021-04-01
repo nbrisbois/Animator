@@ -30,7 +30,7 @@ public class Testers {
     motions.add(motion1);
     motions.add(motion2);
 
-    Oval testOval = new Oval("c", new Double(0, 0), 10, 10, Color.YELLOW, 1, motions);
+    Oval testOval = new Oval("c", new Double(0, 0), 10, 10, Color.YELLOW, 1, motions,0,0);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
@@ -52,20 +52,20 @@ public class Testers {
     Motion motion2 = new Motion(0, 5, Color.WHITE, 1, 2, 10);
     ovalMotion.add(motion1);
     ovalMotion.add(motion2);
-    IShape testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 2, ovalMotion);
+    IShape testOval = new Oval("c", new Double(0, 0), 10, 10, Color.BLACK, 2, ovalMotion,0,0);
 
     Queue<Motion> squareMotion = new PriorityQueue<Motion>();
     Motion motion3 = new Motion(14, 6, Color.PINK, 2, 2, 3);
     Motion motion4 = new Motion(-20, -10, Color.WHITE, 1, 2, 10);
     squareMotion.add(motion3);
     squareMotion.add(motion4);
-    IShape testSquare = new Rectangle("s", new Double(50, 50), 2, 6, Color.BLACK, 0, squareMotion);
+    IShape testSquare = new Rectangle("s", new Double(50, 50), 2, 6, Color.BLACK, 0, squareMotion,0,0);
 
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
     shapes.add(testSquare);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50,10, 1);
     int tick = 0;
     while (tick != 10) {
       testModel.moveShapes(tick);

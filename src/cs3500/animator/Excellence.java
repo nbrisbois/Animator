@@ -25,6 +25,11 @@ import javax.swing.JOptionPane;
  */
 public final class Excellence {
 
+  /**
+   * runs the program in three forms: text, visual, or SVG.
+   *
+   * @param args command lines that the user inputs in
+   */
   public static void main(String[] args) {
     // Set Defaults
     Readable inputFileName = new StringReader("");

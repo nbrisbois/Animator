@@ -67,6 +67,8 @@ public class BasicAnimationModel implements AnimationModel {
     private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
+    private int offsetY = 0;
+    private int offsetX = 0;
     private final int duration = 1;
     private final int speed = 1;
     private int tally = 0;
@@ -79,6 +81,7 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
+
       return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
     }
 
@@ -225,6 +228,7 @@ public class BasicAnimationModel implements AnimationModel {
     return returnList;
   }
 
+  @Override
   public List<Queue<Motion>> getMotions() {
     List<Queue<Motion>> answer = new ArrayList<>();
     for (IShape shape : shapes) {
@@ -233,6 +237,7 @@ public class BasicAnimationModel implements AnimationModel {
     return answer;
   }
 
+  @Override
   public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
       double scaleY, int ticksTaken) {
     Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
@@ -243,6 +248,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeShape(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {
@@ -251,6 +257,7 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
+  @Override
   public void removeMotion(String name) {
     for (IShape shape : shapes) {
       if (shape.getName().equals(name)) {

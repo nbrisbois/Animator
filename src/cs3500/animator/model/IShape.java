@@ -146,7 +146,22 @@ public interface IShape {
 
   /**
    * Change the tick of the shape
+   *
    * @param t int
    */
   void changeTick(int t);
+
+  /**
+   * gets the X offset.
+   *
+   * @return the x offset.
+   */
+  int getOffsetX();
+
+  /**
+   * gets the Y offset.
+   *
+   * @return the y offset.
+   */
+  int getOffsetY();
 }

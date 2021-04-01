@@ -257,7 +257,7 @@ public abstract class Shape implements IShape {
             + "attributeName=\"visibility\" "
             + "to=\"visible\" "
             + "begin=\"%sms\" "
-            + "duration=\"indefinite\" "
+            //+ "duration=\"indefinite\" "
             + "fill=\"freeze\"/>\n",
         ticks_passed));
 

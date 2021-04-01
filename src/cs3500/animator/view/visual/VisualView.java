@@ -1,4 +1,4 @@
-package cs3500.animator.view.VisualPackage;
+package cs3500.animator.view.visual;
 
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;
@@ -20,12 +20,16 @@ public class VisualView extends JFrame implements IAnimationView {
   /**
    * THe constructor to create a visual view.
 
+<<<<<<< HEAD:src/cs3500/animator/view/VisualPackage/VisualView.java
+=======
+   * @param model the model we are using for visual view
+>>>>>>> ab398b5c399b988aceac7094a319f509eeaa295f:src/cs3500/animator/view/visual/VisualView.java
    */
   public VisualView(AnimationModel model) {
     super();
     this.model = model;
     this.tick = tick;
-    drawingPanel = new DrawingPanel();
+    this.drawingPanel = new DrawingPanel();
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
     setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -16,15 +16,17 @@ import javax.swing.Timer;
 
 /**
  * Excellence Class representing the main interaction with our Model and View
- * <p>
- * The function is called via the command line.
- * <p>
- * Available Command Flags: -in "name-of-animation-file"      The file that will be used for the
+ *
+ * <p>The function is called via the command line.
+ *
+ * <p>Available Command Flags: -in "name-of-animation-file"      The file that will be used for
+ * the
  * animation -view "type-of-view"              The view type that will be used for the animation
  * -out "where-output-show-go"       The output location of the data -speed
  * "integer-ticks-per-second" The speed in which the animation should run
- * <p>
- * Example Commands: -in smalldemo.txt -view text -speed 2 -view svg -out out.svg -in buildings.txt
+ *
+ * <p>Example Commands: -in smalldemo.txt -view text -speed 2 -view svg -out out.svg -in
+ * buildings.txt
  * -in smalldemo.txt -view text -in smalldemo.txt -speed 50 -view visual
  */
 public final class Excellence {
@@ -48,7 +50,7 @@ public final class Excellence {
       switch (args[ii]) {
         case "-in":
           try {
-            model = AnimationReader.parseFile(new FileReader(args[ii+1]), builder);
+            model = AnimationReader.parseFile(new FileReader(args[ii + 1]), builder);
           } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(new JFrame(),
                 "File not Found",
@@ -77,11 +79,11 @@ public final class Excellence {
           }
           break;
         case "-speed":
-          System.out.println(ii);
           speed = Integer.parseInt(args[ii + 1]);
           break;
+        default:
+          continue;
       }
-      System.out.println(ii);
       ii++;
     }
 
@@ -94,9 +96,7 @@ public final class Excellence {
     }
 
     // Create View
-    FactoryView view = new FactoryView(model);
-
-
+    FactoryView view = new FactoryView(model, output, speed);
 
 
     try {

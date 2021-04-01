@@ -41,7 +41,7 @@ public class Rectangle extends Shape {
    */
   public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
     super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>(),
-        0,0);
+        0, 0);
   }
 
   @Override
@@ -136,12 +136,11 @@ public class Rectangle extends Shape {
     }
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
-    // Return a new Shape
     this.timeElapsed += lom.get(motionIndex).getTicks();
     return new Rectangle(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
-        lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
+        lom.get(motionIndex).getColor(), this.startTick + timeElapsed,
         this.motions, this.offsetY, this.offsetX);
   }
 

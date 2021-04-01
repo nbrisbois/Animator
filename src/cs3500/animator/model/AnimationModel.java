@@ -1,7 +1,6 @@
 package cs3500.animator.model;
 
 import java.awt.Color;
-import java.io.IOException;
 import java.util.List;
 import java.util.Queue;
 
@@ -33,6 +32,20 @@ public interface AnimationModel {
   int getSceneWidth();
 
   /**
+   * Gets the top left X coordinate of the canvas.
+   *
+   * @return the height of the scene.
+   */
+  int getTopLeftX();
+
+  /**
+   * Gets the top left Y coordinate of the canvas.
+   *
+   * @return the height of the scene.
+   */
+  int getTopLeftY();
+
+  /**
    * To retrieve the list of shapes in the model.
    *
    * @return a list of shapes
@@ -50,7 +63,6 @@ public interface AnimationModel {
    * Runs through the list of shapes moving them by time.
    *
    * @param time current time of the animation run
-   * @throws IOException thrown when the model cannot append the motion command
    */
   List<IShape> moveShapes(long time);
 

@@ -28,6 +28,8 @@ public abstract class Shape implements IShape {
   private double scaleX;
   private double scaleY;
   private boolean visual;
+  private final double orignalSizeX;
+  private final double orignalSizeY;
 
   /**
    * Abstract Shape Constructor.
@@ -63,15 +65,9 @@ public abstract class Shape implements IShape {
      * This is important since there cannot be gaps, but there will be bugs if the,
      * the wrong tick is given.
      */
-    if (pos.getX() - offsetX < 0 || pos.getY() - offsetY < 0) {
-      throw new IllegalArgumentException("position cannot be less than offset");
-    }
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
       Objects.requireNonNull(motions.peek());
-//      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
-//        throw new IllegalStateException("No tick can be less than the previous tick");
-//      }
       this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
           m.getScaleY(), m.getTicks()));
     }
@@ -86,18 +82,35 @@ public abstract class Shape implements IShape {
     this.startTick = startTick;
     this.order = ++numberOfShapes;
 
+
+    this.orignalSizeX = x;
+    this.orignalSizeY = y;
     speedX = speedY = scaleX = scaleY = 0;
 
   }
 
+  /**
+   * Construct a Shape object using its unique name.
+   *
+   * @param name the unique name of this shape
+   * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
+   *                                  is provided
+   * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
+   *                                  invalid
+   */
   public Shape(String name) throws NullPointerException, IllegalArgumentException {
     this.name = name;
     this.order = 0;
+    this.orignalSizeX = 0;
+    this.orignalSizeY = 0;
     this.motions = new PriorityQueue<>();
   }
 
   @Override
   public void isVisual() {
+    if (!visual) {
+      startTick = startTick * 1000;
+    }
     visual = true;
   }
 
@@ -167,30 +180,28 @@ public abstract class Shape implements IShape {
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 
-    long time = ((peekedMotion.getTicks() * filter()) - currentTick);
+    long time = ((peekedMotion.getTicks() * 1000) - currentTick);
 
     // Remove the current motion if we are at the start or greater than the next motion
-    if ((currentTick >= (peekedMotion.getTicks() * filter()))) {
+    if (currentTick >= ((peekedMotion.getTicks() * 1000) + (startTick))) {
       motions.remove();
       // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
-        if (visual) {
-          startTick = startTick / 1000;
-        }
       }
       peekedMotion = motions.peek();
-      time = ((peekedMotion.getTicks() * filter()) - currentTick);
+      time = ((peekedMotion.getTicks() * 1000) - currentTick);
     }
     // Update the speed
-    if (startTick + time == (peekedMotion.getTicks() * filter())) {
+    if (startTick + time == (peekedMotion.getTicks() * 1000)) {
       if (time == 0) {
         time = 1;
       }
-      speedX = ((peekedMotion.getMoveX() - position.getX() / time) * 100);
-      speedY = ((peekedMotion.getMoveY() - position.getY() / time) * 100);
-      scaleX = ((peekedMotion.getScaleX()- dimensions[0] / time) * 100);
-      scaleY = ((peekedMotion.getMoveX() - dimensions[1] / time) * 100);
+      speedX = ((peekedMotion.getMoveX() / time) * 100);
+      speedY = ((peekedMotion.getMoveY()/ time) * 100);
+
+      scaleX = (((orignalSizeX * peekedMotion.getScaleX() - dimensions[0])/ time) * 100);
+      scaleY = (((orignalSizeY * peekedMotion.getScaleY() - dimensions[1])/ time) * 100);
     }
 
     // Update the position
@@ -211,19 +222,23 @@ public abstract class Shape implements IShape {
   }
 
   @Override
-  public String generateSVG() {
-    long ticks_passed = this.getStartTick();
+  public String generateSVG(int speed) {
+    long ticks_passed = this.getStartTick() * 100 / speed;
     StringBuilder svg = new StringBuilder();
 
-    int previousScaleX = (int) this.getSize()[0];
-    int previousScaleY = (int) this.getSize()[1];
-    Color previousColor = this.getColor();
-
+    // Add shape attributes
     String[] attributes = this.getSVGAttributes();
-
     svg.append(
-        String.format("<%s %s= \"%scm\" %s=\"%scm\" %s=\"%s\" %s=\"%s\" fill=\"%s\">",
+        String.format("\t<%s "    // Shape Type
+                + "id=\"%s\" "      // Shape Name
+                + "%s=\"%s\" "  // Attribute 1 Position X
+                + "%s=\"%s\" "  // Attribute 2 Position Y
+                + "%s=\"%s\" "  // Attribute 3 Size Width/Radius X
+                + "%s=\"%s\" "  // Attribute 4 Size Height/Radius Y
+                + "fill=\"%s\" "// Shape Color
+                + "visibility=\"hidden\" >",
             this.getType(),
+            this.getName(),
             attributes[0],
             this.getPosition().getX(),
             attributes[1],
@@ -233,76 +248,124 @@ public abstract class Shape implements IShape {
             attributes[3],
             this.getSize()[1],
             getHex(this.getColor())));
-    svg.append("\n\t");
+    svg.append("\n");
 
+    svg.append(String.format("\t\t<set "
+            + "attributeType=\"xml\" "
+            + "attributeName=\"visibility\" "
+            + "to=\"visible\" "
+            + "begin=\"%sms\" "
+            + "duration=\"indefinite\" "
+            + "fill=\"freeze\"/>\n",
+        ticks_passed));
+
+    // Begin adding animations
     while (!this.motions.isEmpty()) {
-      Motion nextMotion;
       Objects.requireNonNull(this.motions.peek());
-      nextMotion = this.motions.peek();
-      // AnimateMotion
-      svg.append(String.format("<animateMotion dur=\"%ss\" repeatCount=\"0\" "
-              + "path=\"M %s, %s L %s %s\" "
-              + "begin=\"%s\" "
-              + "/>\n\t",
-          nextMotion.getTicks(),
+      Motion nextMotion = this.motions.peek();
+      long duration = nextMotion.getTicks() * 100L / speed;
+
+      // Move Position X
+      svg.append(String.format("\t\t<animate "
+              + "attributeType=\"xml\" "
+              + "attributeName=\"%s\" "
+              + "dur=\"%sms\" "
+              + "repeatCount=\"0\" "
+              + "from=\"%s\" to=\"%s\" "
+              + "begin=\"%sms\" "
+              + "fill=\"freeze\" "
+              + "/>\n",
+          attributes[0],
+          duration,
           this.getPosition().getX(),
-          this.getPosition().getY(),
-          nextMotion.getMoveX(),
-          nextMotion.getMoveY(),
+          this.getPosition().getX() + this.motions.peek().getMoveX(),
           ticks_passed
       ));
-      // AnimateColor
-      svg.append(String.format("<animate attributeName=\"fill\" dur=\"%ss\" repeatCount=\"0\" "
-              + "from=\"#%02x%02x%02x\" to=\"#%02x%02x%02x\" "
-              + "begin=\"%s\" "
-              + "/>\n\t",
-          nextMotion.getTicks(),
-          previousColor.getRed(),
-          previousColor.getGreen(),
-          previousColor.getBlue(),
+      // Move Position Y
+      svg.append(String.format("\t\t<animate "
+              + "attributeType=\"xml\" "
+              + "attributeName=\"%s\" "
+              + "dur=\"%sms\" "
+              + "repeatCount=\"0\" "
+              + "from=\"%s\" to=\"%s\" "
+              + "begin=\"%sms\" "
+              + "fill=\"freeze\" "
+              + "/>\n",
+          attributes[1],
+          duration,
+          this.getPosition().getY(),
+          this.getPosition().getY() + this.motions.peek().getMoveY(),
+          ticks_passed
+      ));
+      // Change Color
+      svg.append(String.format("\t\t<animate "
+              + "attributeType=\"xml\" "
+              + "attributeName=\"fill\" "
+              + "dur=\"%sms\" "
+              + "repeatCount=\"0\" "
+              + "from=\"#%02x%02x%02x\" "
+              + "to=\"#%02x%02x%02x\" "
+              + "begin=\"%sms\" "
+              + "fill=\"freeze\" "
+              + "/>\n",
+          duration,
+          this.getColor().getRed(),
+          this.getColor().getGreen(),
+          this.getColor().getBlue(),
           nextMotion.getColor().getRed(),
           nextMotion.getColor().getGreen(),
           nextMotion.getColor().getBlue(),
           ticks_passed
       ));
-      // AnimateScale
-      svg.append(String.format(("<animateTransform dur=\"%ss\" repeatCount=\"0\" "
-              + "attributeName=\"transform\" "
-              + "type=\"scale\" "
-              + "additive=\"sum\" "
-              + "from=\"%s %s\" "
-              + "to=\"%s %s\" "
-              + "begin=\"%s\" "
+      // Change X Scale
+      svg.append(String.format(("\t\t<animate "
+              + "dur=\"%sms\" "
+              + "repeatCount=\"0\" "
+              + "attributeType=\"xml\" "
+              + "attributeName=\"%s\" "
+              + "from=\"%s\" "
+              + "to=\"%s\" "
+              + "begin=\"%sms\" "
+              + "fill=\"freeze\" "
               + "/>\n"),
-          nextMotion.getTicks(),
-          previousScaleX,
-          previousScaleY,
-          nextMotion.getScaleX() * 100,
-          nextMotion.getScaleY() * 100,
+          duration,
+          attributes[2],
+          this.getSize()[0],
+          this.getSize()[0] * nextMotion.getScaleX(),
           ticks_passed
       ));
-      svg.append("\n\t");
-      ticks_passed += nextMotion.getTicks();
-      previousScaleX = (int) nextMotion.getScaleX();
-      previousScaleY = (int) nextMotion.getScaleY();
-      previousColor = nextMotion.getColor();
-      try {
-        calculateMotion(ticks_passed);
-      } catch (Exception e) {
-        break;
-      }
+      // Change Y Scale
+      svg.append(String.format(("\t\t<animate "
+              + "dur=\"%sms\" "
+              + "repeatCount=\"0\" "
+              + "attributeType=\"xml\" "
+              + "attributeName=\"%s\" "
+              + "from=\"%s\" "
+              + "to=\"%s\" "
+              + "begin=\"%sms\" "
+              + "fill=\"freeze\" "
+              + "/>\n\n"),
+          duration,
+          attributes[3],
+          this.getSize()[1],
+          this.getSize()[1] * nextMotion.getScaleY(),
+          ticks_passed
+      ));
+      ticks_passed += duration;
+      this.updateShape(motions.remove(), nextMotion);
     }
-    svg.append(String.format("</%s>\n", this.getType()));
+    svg.append(String.format("\t</%s>\n\n", this.getType()));
     return svg.toString();
   }
 
-  private long filter() {
-    if (visual) {
-      if (startTick < 999) {
-        startTick = startTick * 1000;
-      }
-      return 1000;
-    }
-    return 1;
+  private void updateShape(Motion m, Motion nextMotion) {
+    this.position.setLocation(
+        this.getPosition().getX() + m.getMoveX(),
+        this.getPosition().getY() + m.getMoveY()
+    );
+    this.color = m.getColor();
+    this.dimensions = new double[]{
+        this.dimensions[0] * m.getScaleX(),
+        this.dimensions[1] * m.getScaleY()};
   }
 }

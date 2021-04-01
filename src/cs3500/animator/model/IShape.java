@@ -73,7 +73,6 @@ public interface IShape {
    */
   long getStartTick();
 
-
   /**
    * Getter for the Overlap priority of the shape.
    *
@@ -121,10 +120,10 @@ public interface IShape {
    *
    * @return A SVG representation of the Shape and it's motions
    */
-  String generateSVG();
+  String generateSVG(int speed);
 
   /**
-   * renders the shape.
+   * Renders the Shape opject of the Shape for the visiual View.
    *
    * @return returns the rendered shape
    */
@@ -145,7 +144,7 @@ public interface IShape {
   String[] getSVGAttributes();
 
   /**
-   * Change the tick of the shape
+   * Change the tick of the shape.
    *
    * @param t int
    */

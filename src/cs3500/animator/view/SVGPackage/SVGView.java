@@ -19,7 +19,7 @@ public class SVGView implements IAnimationView {
     super();
     Objects.requireNonNull(model);
     this.model = model;
-    myWriter = new FileWriter("Animator/src/cs3500/animator/view/SVGView/animator.svg", false);
+    myWriter = new FileWriter("Animator/src/cs3500/animator/animator.svg", false);
   }
 
   @Override

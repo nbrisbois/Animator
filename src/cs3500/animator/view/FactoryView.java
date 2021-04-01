@@ -2,8 +2,8 @@ package cs3500.animator.view;
 
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.view.SVGPackage.SVGView;
-import cs3500.animator.view.TexualView.TextualView;
-import cs3500.animator.view.VisualView.VisualView;
+import cs3500.animator.view.TexualPackage.TextualView;
+import cs3500.animator.view.VisualPackage.VisualView;
 import java.io.IOException;
 
 /**

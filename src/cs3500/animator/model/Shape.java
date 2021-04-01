@@ -3,8 +3,8 @@ package cs3500.animator.model;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -20,11 +20,11 @@ public abstract class Shape implements IShape {
   protected static int numberOfShapes = 0;
   protected final int order;
   protected Queue<Motion> motions;
-
   private double speedX;
   private double speedY;
   private double scaleX;
   private double scaleY;
+  protected long timeElapsed = 0;
 
   /**
    * Abstract Shape Constructor.
@@ -60,9 +60,9 @@ public abstract class Shape implements IShape {
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
       Objects.requireNonNull(motions.peek());
-      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
-        throw new IllegalStateException("No tick can be less than the previous tick");
-      }
+//      if (!this.motions.isEmpty() && m.getTicks() < motions.peek().getTicks()) {
+//        throw new IllegalStateException("No tick can be less than the previous tick");
+//      }
       this.motions.add(new Motion(m.getMoveX(), m.getMoveY(), m.getColor(), m.getScaleX(),
           m.getScaleY(), m.getTicks()));
     }
@@ -76,6 +76,12 @@ public abstract class Shape implements IShape {
 
     speedX = speedY = scaleX = scaleY = 0;
 
+  }
+
+  public Shape(String name) throws NullPointerException, IllegalArgumentException {
+    this.name = name;
+    this.order = 0;
+    this.motions = new PriorityQueue<>();
   }
 
   public void changePosition(Double pos) throws NullPointerException {
@@ -180,8 +186,8 @@ public abstract class Shape implements IShape {
     long ticks_passed = this.getStartTick();
     StringBuilder svg = new StringBuilder();
 
-    double previousScaleX = this.getSize()[0];
-    double previousScaleY = this.getSize()[1];
+    int previousScaleX = (int) this.getSize()[0];
+    int previousScaleY = (int) this.getSize()[1];
     Color previousColor = this.getColor();
 
     String[] attributes = this.getSVGAttributes();
@@ -243,16 +249,16 @@ public abstract class Shape implements IShape {
               + "begin=\"%s\" "
               + "/>\n"),
           nextMotion.getTicks(),
-          previousScaleX / 100,
-          previousScaleY / 100,
-          nextMotion.getScaleX() / 100,
-          nextMotion.getScaleY() / 100,
+          previousScaleX,
+          previousScaleY ,
+          nextMotion.getScaleX() *100,
+          nextMotion.getScaleY() *100,
           ticks_passed
       ));
       svg.append("\n\t");
       ticks_passed += nextMotion.getTicks();
-      previousScaleX = nextMotion.getScaleX();
-      previousScaleY = nextMotion.getScaleY();
+      previousScaleX = (int) nextMotion.getScaleX();
+      previousScaleY = (int) nextMotion.getScaleY();
       previousColor = nextMotion.getColor();
       try {
         calculateMotion(ticks_passed);

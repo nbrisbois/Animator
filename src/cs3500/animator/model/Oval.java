@@ -5,14 +5,12 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
  * Oval Specific Implementation of a Shape Class.
  */
 public class Oval extends Shape {
-
   /**
    * Public Constructor for Oval Shape. Extends abstract class Shape.
    *
@@ -35,7 +33,7 @@ public class Oval extends Shape {
    * @param name The unique name of shape
    */
   public Oval(String name) throws NullPointerException, IllegalArgumentException {
-    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>());
+    super(name);
   }
 
   @Override
@@ -64,6 +62,11 @@ public class Oval extends Shape {
   @Override
   public String[] getSVGAttributes() {
     return new String[]{"cx", "cy", "rx", "ry"};
+  }
+
+  @Override
+  public void changeTick(int t) {
+    this.startTick = t;
   }
 
   /**
@@ -118,10 +121,11 @@ public class Oval extends Shape {
     }
     Double newPosition = new Double(position.getX() + lom.get(motionIndex).getMoveX(),
         position.getY() + lom.get(motionIndex).getMoveY());
+    this.timeElapsed += lom.get(motionIndex).getTicks();
     return new Oval(this.name, newPosition,
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
-        lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
+        lom.get(motionIndex).getColor(), this.startTick + this.timeElapsed,
         this.motions);
   }
 

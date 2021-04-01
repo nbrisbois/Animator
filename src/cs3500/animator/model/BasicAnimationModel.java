@@ -3,6 +3,7 @@ package cs3500.animator.model;
 
 import cs3500.animator.util.AnimationBuilder;
 import java.awt.Color;
+import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,6 +69,7 @@ public class BasicAnimationModel implements AnimationModel {
     private int sceneWidth = 500;
     private final int duration = 1;
     private final int speed = 1;
+    private int tally = 0;
 
 
     /**
@@ -116,6 +118,7 @@ public class BasicAnimationModel implements AnimationModel {
           break;
         case "ellipse":
           this.shapes.add(new Oval(name));
+          tally++;
           break;
         default:
           break;
@@ -159,6 +162,13 @@ public class BasicAnimationModel implements AnimationModel {
       Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
       for (IShape shape : shapes) {
         if (shape.getName().equals(name)) {
+          if (shape.getMotion().isEmpty()){
+            Color c = new Color(r1, g1, b1);
+              shape.changeColor(c);
+              shape.changePosition(new Double(x1, y1));
+              shape.changeSize(new double[]{w1, h1});
+              shape.changeTick(t1);
+          }
           shape.addMotion(addedMotion);
         }
       }

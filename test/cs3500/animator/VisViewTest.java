@@ -5,24 +5,18 @@ import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
-import cs3500.animator.model.Rectangle;
 import cs3500.animator.view.AnimationViewVisual;
-import cs3500.animator.view.IAnimationView;
-import cs3500.animator.view.TexualPackage.TextualView;
 import cs3500.animator.view.VisualPackage.VisualView;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D.Double;
-import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.concurrent.TimeUnit;
 import javax.swing.Timer;
-import org.junit.Test;
 
 
 public class VisViewTest {

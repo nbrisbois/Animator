@@ -20,15 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/big-bang-big-crunch.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/buildings.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/hanoi.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/smalldemo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/toh-12.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/toh-3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/toh-5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cs3500/animator/code-1/toh-8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/Excellence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

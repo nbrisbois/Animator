@@ -90,6 +90,20 @@ This interface specifically defines how each visual view will display the animat
 The view to display the animation as a string output in SVG format,  an XML-based format that can be
  used to describe images and animations.
 
+The view is currently created by taking in a Model, a file name, and a speed.
+- The model: represents the instance of AnimationModel that will be used to generate the SVG text
+- The fileName: will be used for storing the svg text to a file. If empty, generated svg is sent to System.out
+- The speed: the speed in which the animation will play. This is used when determining durations and start ticks for animations
+
+(Disclaimer: Once a controller is implemented, this structure will change)
+
+For this assignment, the SVG native function 'animate' was used to handle shape Translations in the x and y axis, shape transformations regarding width and height, and changes in color.
+An Example of an SVG animate command is as follows:
+
+" animate attributeType="xml" attributeName="<attribute_being_changed>" dur="<animation_duration>" from="<start_of_animation>" to="<end_of_animation>" fill="color" ""
+
+You can run an SVG file in any Browser that supports them. Most modern browsers do.
+
 ### TextualView
 The view to display the animation model textually.
 
@@ -101,6 +115,7 @@ A class to help the visual view to draw out each needed shape.
 
 ### FactoryView
 A factory class to help produce an IAnimationView based on desired View Type.
+
 
 ---
 

@@ -35,7 +35,7 @@ public class Testers {
     List<IShape> shapes = new ArrayList<IShape>();
     shapes.add(testOval);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 0, 0, 50, 50, 10, 1);
     int tick = 0;
     while (tick != 10) {
       testModel.moveShapes(tick);
@@ -65,7 +65,7 @@ public class Testers {
     shapes.add(testOval);
     shapes.add(testSquare);
 
-    AnimationModel testModel = new BasicAnimationModel(shapes, 50, 50,10, 1);
+    AnimationModel testModel = new BasicAnimationModel(shapes, 0, 0, 50, 50,10, 1);
     int tick = 0;
     while (tick != 10) {
       testModel.moveShapes(tick);

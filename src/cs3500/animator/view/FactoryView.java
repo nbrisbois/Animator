@@ -13,14 +13,18 @@ import java.io.IOException;
 public class FactoryView {
 
   private final AnimationModel model;
+  private final String outFileName;
+  private final int speed;
 
   /**
    * The constructor of the factory view.
    *
    * @param model the model that will be used to create an IAnimationView
    */
-  public FactoryView(AnimationModel model) {
+  public FactoryView(AnimationModel model, String outFileName, int speed) {
     this.model = model;
+    this.outFileName = outFileName;
+    this.speed = Math.max(speed, 1);
   }
 
   /**
@@ -34,7 +38,7 @@ public class FactoryView {
     if (viewType.equals("text")) {
       return new TextualView(model);
     } else if (viewType.equals("svg")) {
-      return new SVGView(model);
+      return new SVGView(model, this.outFileName, speed);
     } else if (viewType.equals("visual")) {
       return new VisualView(model.getSceneWidth(),
           model.getSceneHeight());

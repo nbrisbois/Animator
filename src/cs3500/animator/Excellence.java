@@ -44,7 +44,7 @@ public final class Excellence {
       switch (args[ii]) {
         case "-in":
           try {
-            model = AnimationReader.parseFile(new FileReader(args[ii+1]), builder);
+            model = AnimationReader.parseFile(new FileReader(args[ii + 1]), builder);
           } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(new JFrame(),
                 "File not Found",
@@ -73,11 +73,9 @@ public final class Excellence {
           }
           break;
         case "-speed":
-          System.out.println(ii);
           speed = Integer.parseInt(args[ii + 1]);
           break;
       }
-      System.out.println(ii);
       ii++;
     }
 
@@ -90,7 +88,7 @@ public final class Excellence {
     }
 
     // Create View
-    FactoryView view = new FactoryView(model);
+    FactoryView view = new FactoryView(model, output, speed);
 
     try {
       view.getView(viewDel).render();

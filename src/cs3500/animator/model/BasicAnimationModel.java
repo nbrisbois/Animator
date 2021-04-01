@@ -15,6 +15,8 @@ import java.util.Queue;
 public class BasicAnimationModel implements AnimationModel {
 
   private final List<IShape> shapes;
+  private final int topLeftX;
+  private final int topLeftY;
   private final int sceneHeight;
   private final int sceneWidth;
   private final int duration;
@@ -32,7 +34,7 @@ public class BasicAnimationModel implements AnimationModel {
    * @throws NullPointerException     if an argument is null
    */
 
-  public BasicAnimationModel(List<IShape> shapes, int sceneHeight,
+  public BasicAnimationModel(List<IShape> shapes, int x, int y, int sceneHeight,
       int sceneWidth, int duration, int frameSpeed)
       throws IllegalArgumentException, NullPointerException, IllegalStateException {
     if (duration < 0) {
@@ -50,10 +52,119 @@ public class BasicAnimationModel implements AnimationModel {
       }
     }
     this.shapes = this.copyShapes(shapes);
+    this.topLeftX = x;
+    this.topLeftY = y;
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
     this.duration = duration;
     this.speed = frameSpeed;
+  }
+
+  @Override
+  public void addShape(IShape shape) throws NullPointerException {
+    Objects.requireNonNull(shape);
+    this.shapes.add(shape.copy());
+  }
+
+  @Override
+  public List<IShape> getShapes() throws IllegalArgumentException {
+    if (this.shapes.isEmpty()) {
+      throw new IllegalStateException("There are no shapes");
+    }
+    return copyShapes(this.shapes);
+  }
+
+  @Override
+  public int getDuration() {
+    return duration;
+  }
+
+  @Override
+  public int getSceneHeight() {
+    return sceneHeight;
+  }
+
+  @Override
+  public int getSceneWidth() {
+    return sceneWidth;
+  }
+
+  @Override
+  public int getTopLeftX() {
+    return this.topLeftX;
+  }
+
+  @Override
+  public int getTopLeftY() {
+    return this.topLeftY;
+  }
+
+  @Override
+  public List<IShape> moveShapes(long time) {
+    List<IShape> returnList = new ArrayList<>();
+    for (IShape shape : shapes) {
+      if (shape.getStartTick() <= time) {
+        shape.calculateMotion((time) * speed);
+        returnList.add(shape);
+      }
+    }
+    shapes.sort((o1, o2) -> {
+      if (o1.getPriority() < o2.getPriority()) {
+        return 1;
+      } else if (o1.getPriority() > o2.getPriority()) {
+        return -1;
+      }
+      return 0;
+    });
+    return returnList;
+  }
+
+  @Override
+  public List<Queue<Motion>> getMotions() {
+    List<Queue<Motion>> answer = new ArrayList<>();
+    for (IShape shape : shapes) {
+      answer.add(shape.getMotion());
+    }
+    return answer;
+  }
+
+  @Override
+  public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
+      double scaleY, int ticksTaken) {
+    Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.addMotion(addedMotion);
+      }
+    }
+  }
+
+  @Override
+  public void removeShape(String name) {
+    shapes.removeIf(shape -> shape.getName().equals(name));
+  }
+
+  @Override
+  public void removeMotion(String name) {
+    for (IShape shape : shapes) {
+      if (shape.getName().equals(name)) {
+        shape.removeMotion();
+      }
+    }
+  }
+
+  /**
+   * Uses the copy method to clone lists of shapes.
+   *
+   * @param shapes inputted list of shapes
+   * @return a cloned version of the list
+   */
+  private List<IShape> copyShapes(List<IShape> shapes) {
+    List<IShape> copy = new ArrayList<>();
+    for (IShape shape : shapes) {
+      copy.add(shape.copy());
+    }
+    return copy;
   }
 
   /**
@@ -69,8 +180,6 @@ public class BasicAnimationModel implements AnimationModel {
     private int sceneWidth = 500;
     private int offsetY = 0;
     private int offsetX = 0;
-    private final int duration = 1;
-    private final int speed = 1;
     private int tally = 0;
 
 
@@ -81,8 +190,9 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
-
-      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
+      int duration = 1;
+      int speed = 1;
+      return new BasicAnimationModel(shapes, x, y, sceneHeight, sceneWidth, duration, speed);
     }
 
     /**
@@ -165,119 +275,18 @@ public class BasicAnimationModel implements AnimationModel {
       Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
       for (IShape shape : shapes) {
         if (shape.getName().equals(name)) {
-          if (shape.getMotion().isEmpty()){
+          if (shape.getMotion().isEmpty()) {
             Color c = new Color(r1, g1, b1);
-              shape.changeColor(c);
-              shape.changePosition(new Double(x1, y1));
-              shape.changeSize(new double[]{w1, h1});
-              shape.changeTick(t1);
+            shape.changeColor(c);
+            shape.changePosition(new Double(x1, y1));
+            shape.changeSize(new double[]{w1, h1});
+            shape.changeTick(t1);
           }
           shape.addMotion(addedMotion);
         }
       }
       return this;
     }
-  }
-
-  @Override
-  public void addShape(IShape shape) throws NullPointerException {
-    Objects.requireNonNull(shape);
-    this.shapes.add(shape.copy());
-  }
-
-  @Override
-  public List<IShape> getShapes() throws IllegalArgumentException {
-    if (this.shapes.isEmpty()) {
-      throw new IllegalStateException("There are no shapes");
-    }
-    return copyShapes(this.shapes);
-  }
-
-  @Override
-  public int getDuration() {
-    return duration;
-  }
-
-  @Override
-  public int getSceneHeight() {
-    return sceneHeight;
-  }
-
-  @Override
-  public int getSceneWidth() {
-    return sceneWidth;
-  }
-
-  @Override
-  public List<IShape> moveShapes(long time) {
-    List<IShape> returnList = new ArrayList<>();
-    for (IShape shape : shapes) {
-      if (shape.getStartTick() <= time) {
-        shape.calculateMotion((time) * speed);
-        returnList.add(shape);
-      }
-    }
-    shapes.sort((o1, o2) -> {
-      if (o1.getPriority() < o2.getPriority()) {
-        return 1;
-      } else if (o1.getPriority() > o2.getPriority()) {
-        return -1;
-      }
-      return 0;
-    });
-    return returnList;
-  }
-
-  @Override
-  public List<Queue<Motion>> getMotions() {
-    List<Queue<Motion>> answer = new ArrayList<>();
-    for (IShape shape : shapes) {
-      answer.add(shape.getMotion());
-    }
-    return answer;
-  }
-
-  @Override
-  public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
-      double scaleY, int ticksTaken) {
-    Motion addedMotion = new Motion(movementX, movementY, color, scaleX, scaleY, duration);
-    for (IShape shape : shapes) {
-      if (shape.getName().equals(name)) {
-        shape.addMotion(addedMotion);
-      }
-    }
-  }
-
-  @Override
-  public void removeShape(String name) {
-    for (IShape shape : shapes) {
-      if (shape.getName().equals(name)) {
-        shapes.remove(shape);
-      }
-    }
-  }
-
-  @Override
-  public void removeMotion(String name) {
-    for (IShape shape : shapes) {
-      if (shape.getName().equals(name)) {
-        shape.removeMotion();
-      }
-    }
-  }
-
-  /**
-   * Uses the copy method to clone lists of shapes.
-   *
-   * @param shapes inputted list of shapes
-   * @return a cloned version of the list
-   */
-  private List<IShape> copyShapes(List<IShape> shapes) {
-    List<IShape> copy = new ArrayList<>();
-    for (IShape shape : shapes) {
-      copy.add(shape.copy());
-    }
-    return copy;
   }
 }
 

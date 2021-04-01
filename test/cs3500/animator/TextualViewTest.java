@@ -39,7 +39,7 @@ public class TextualViewTest {
     shapes.add(testOval);
     shapes.add(testRect);
 
-    testModel = new BasicAnimationModel(shapes, 50, 50, 10, 1);
+    testModel = new BasicAnimationModel(shapes, 0, 0, 50, 50, 10, 1);
 
     textView = new TextualView(testModel);
   }

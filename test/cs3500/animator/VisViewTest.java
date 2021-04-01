@@ -51,7 +51,7 @@ public class VisViewTest {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 1000, 1000, 100000, 1);
 
-    AnimationViewVisual view = new VisualView(testModel.getSceneWidth(), testModel.getSceneHeight());
+    AnimationViewVisual view = new VisualView(testModel);
 
     view.render();
     ActionListener timer = new ActionListener() {

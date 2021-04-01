@@ -44,7 +44,7 @@ public final class Excellence {
       switch (args[ii]) {
         case "-in":
           try {
-            model = AnimationReader.parseFile(new FileReader(args[ii+1]), builder);
+            model = AnimationReader.parseFile(new FileReader(args[ii + 1]), builder);
           } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(new JFrame(),
                 "File not Found",

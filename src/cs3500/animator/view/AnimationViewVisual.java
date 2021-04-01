@@ -10,7 +10,7 @@ public interface AnimationViewVisual extends IAnimationView {
   /**
    * Draws out the given shape on the canvas.
    *
-   * @param shape
+   * @param shape the shape we want to draw
    */
   void draw(IShape shape);
 

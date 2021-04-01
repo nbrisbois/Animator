@@ -38,6 +38,11 @@ public class SVGView implements IAnimationView {
     myWriter = new FileWriter("Animator/src/cs3500/animator/view/SVGView/animator.svg", false);
   }
 
+  /**
+   * Main function to display to out put of the SVGView.
+   *
+   * @param args StdIn
+   */
   public static void main(String[] args) throws IOException {
     Queue<Motion> motionsR = new PriorityQueue<>();
     Queue<Motion> motionsO = new PriorityQueue<>();

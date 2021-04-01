@@ -1,19 +1,29 @@
 package cs3500.animator;
 
 import cs3500.animator.model.AnimationModel;
+import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.BasicAnimationModel.Builder;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
+import cs3500.animator.util.AnimationReader;
 import cs3500.animator.view.FactoryView;
+import cs3500.animator.view.IAnimationView;
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Excellence Class representing the main interaction with our Model and View
@@ -30,114 +40,75 @@ import java.util.Scanner;
  */
 public final class Excellence {
 
+  /**
+   * runs the program in three forms: text, visual, or SVG.
+   *
+   * @param args command lines that the user inputs in
+   */
   public static void main(String[] args) {
-    // Set Defaults
-    String inputFileName = "";
-    String output = "";
-    int speed = 1;
-    String viewDel = "";
-
-    // Get Inputs
-    for (int ii = 0; ii < args.length; ii++) {
+    AnimationModel model = null;
+    String viewType = null;
+    String out = null;
+    int tempo = 1;
+    JFrame frame = new JFrame();
+    frame.setSize(100, 100);
+    for (int i = 0; i < args.length; i++) {
+      // reads input file
+      if (args[i].equals("-in")) {
+        try {
+          InputStream inputStream = new FileInputStream(args[i + 1]);
+          model = AnimationReader.parseFile(new InputStreamReader(inputStream),
+              new BasicAnimationModel.Builder());
+        } catch (FileNotFoundException e) {
+          // catch file not found error
+          JOptionPane.showMessageDialog(frame,
+              "File not found",
+              "File warning",
+              JOptionPane.WARNING_MESSAGE);
+        }
+      }
+      // reads output file path
+      if (args[i].equals("-out")) {
+        try {
+          if (!args[i + 1].equals("out")) {
+            out = args[i + 1];
+          }
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(frame,
+              "Output source not found", "Output warning",
+              JOptionPane.WARNING_MESSAGE);
+        }
+      }
+      // reads which kind of view the user wants
+      if (args[i].equals("-view")) {
+        try {
+          viewType = args[i + 1];
+        } catch (Exception e) {
+          // catch no input given
+          JOptionPane.showMessageDialog(frame, "please give me a view",
+              "View warning",
+              JOptionPane.WARNING_MESSAGE);
+        }
+      }
+      // reads the speed
       try {
-        switch (args[ii]) {
-          case "-in":
-            inputFileName = args[ii + 1];
-            break;
-          case "-out":
-            output = args[ii + 1];
-            break;
-          case "-view":
-            viewDel = args[ii + 1];
-            break;
-          case "-speed":
-            speed = Integer.parseInt(args[ii + 1]);
-            break;
+        if (args[i].equals("-speed")) {
+          tempo = Integer.valueOf(args[i + 1]);
         }
       } catch (Exception e) {
-        throw new ArrayIndexOutOfBoundsException("Array index out of bounds");
+        // catch no input given
+        JOptionPane.showMessageDialog(frame, "speed sir speed",
+            "speed warning",
+            JOptionPane.WARNING_MESSAGE);
       }
-      ii++;
     }
-
-    // Check Mandatory inputs
-    if (inputFileName.equals("")) {
-      throw new IllegalArgumentException("Input file required. Format: \'-in file_name\' ");
-    }
-    if (viewDel.equals("")) {
-      throw new IllegalArgumentException("View type required. Format: \'-view view_type\' ");
-    }
-
-    List<IShape> shapes = new ArrayList<>();
-    Point2D.Double topLeftCorner = new Double(0, 0);
-    int height;
-    int width;
-    Map<String, List<Motion>> shapeMotionMap = new HashMap<>();
-
-    Builder builder = new Builder();
-
-    // Read File
-    File myFile = new File(String.format("%s", inputFileName));
+    FactoryView factory = new FactoryView(model);
+    // runs the program
     try {
-      Scanner myReader = new Scanner(myFile);
-      while (myReader.hasNextLine()) {
-        String delimiter = myReader.next();
-        switch (delimiter) {
-          case "canvas":
-            int x = Integer.parseInt(myReader.next());
-            int y = Integer.parseInt(myReader.next());
-            topLeftCorner.setLocation(x, y);
-            height = Integer.parseInt(myReader.next());
-            width = Integer.parseInt(myReader.next());
-            // Set screen bounds for model
-            builder.setBounds(x, y, width, height);
-            break;
-          case "shape":
-            String name = myReader.next();
-            String shapeType = myReader.next();
-            builder.declareShape(name, shapeType);
-            break;
-          case "motion":
-            String shapeName = myReader.next();
-            int timeStart1 = Integer.parseInt(myReader.next());
-            int movementX1 = Integer.parseInt(myReader.next());
-            int movementY1 = Integer.parseInt(myReader.next());
-            int w1 = Integer.parseInt(myReader.next());
-            int h1 = Integer.parseInt(myReader.next());
-            int r1 = Integer.parseInt(myReader.next());
-            int b1 = Integer.parseInt(myReader.next());
-            int g1 = Integer.parseInt(myReader.next());
-
-            int timeStart2 = Integer.parseInt(myReader.next());
-            int movementX2 = Integer.parseInt(myReader.next());
-            int movementY2 = Integer.parseInt(myReader.next());
-            int w2 = Integer.parseInt(myReader.next());
-            int h2 = Integer.parseInt(myReader.next());
-            int r2 = Integer.parseInt(myReader.next());
-            int b2 = Integer.parseInt(myReader.next());
-            int g2 = Integer.parseInt(myReader.next());
-
-            builder.addMotion(
-                shapeName, timeStart1, movementX1, movementY1, w1, h1, r1, b1, g1,
-                timeStart2, movementX2, movementY2, w2, h2, r2, b2, g2
-            );
-            break;
-        }
-      }
-      myReader.close();
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-    }
-
-    // Create the model
-    AnimationModel model = builder.build();
-    // Create View
-    FactoryView view = new FactoryView(model);
-    try {
-      view.getView(viewDel).render();
-    } catch (Exception e) {
-      System.out.println("error");
+      IAnimationView view = factory.getView(viewType);
+    } catch (NullPointerException | IOException e) {
+      JOptionPane.showMessageDialog(frame, "oh well I guess nothing happens",
+          "Null Error", JOptionPane.ERROR_MESSAGE);
     }
   }
 }

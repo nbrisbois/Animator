@@ -42,10 +42,12 @@ public class VisualView extends JFrame implements AnimationViewVisual {
     setVisible(true);
   }
 
+  @Override
   public void refresh() {
     repaint();
   }
 
+  @Override
   public void draw(IShape shape) {
     if (shape.getPosition().getX() - topW < 0 || shape.getPosition().getY() - topH < 0) {
       throw new IllegalArgumentException("Shapes cannot have be less than the offset");

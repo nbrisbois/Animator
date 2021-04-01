@@ -23,9 +23,9 @@ public class Oval extends Shape {
    * @param t       Spawn time of the shape
    * @param motions A Queue of motions that the shape will utilize
    */
-  public Oval(String name, Double pos, double h, double w, Color color, long t,
+  public Oval(String name, Double pos, double w, double h, Color color, long t,
       Queue<Motion> motions, int offsetY, int offsetX) {
-    super(name, pos, h, w, color, t, motions, offsetY, offsetX);
+    super(name, pos, w, h, color, t, motions, offsetY, offsetX);
   }
 
   /**

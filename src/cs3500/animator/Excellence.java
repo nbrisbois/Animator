@@ -73,11 +73,9 @@ public final class Excellence {
           }
           break;
         case "-speed":
-          System.out.println(ii);
           speed = Integer.parseInt(args[ii + 1]);
           break;
       }
-      System.out.println(ii);
       ii++;
     }
 
@@ -90,7 +88,7 @@ public final class Excellence {
     }
 
     // Create View
-    FactoryView view = new FactoryView(model);
+    FactoryView view = new FactoryView(model, output, speed);
 
     try {
       view.getView(viewDel).render();

@@ -41,7 +41,7 @@ public class Rectangle extends Shape {
    */
   public Rectangle(String name) throws NullPointerException, IllegalArgumentException {
     super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>(),
-        0,0);
+        0, 0);
   }
 
   @Override

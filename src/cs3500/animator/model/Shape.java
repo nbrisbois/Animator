@@ -257,7 +257,6 @@ public abstract class Shape implements IShape {
             + "attributeName=\"visibility\" "
             + "to=\"visible\" "
             + "begin=\"%sms\" "
-            //+ "duration=\"indefinite\" "
             + "fill=\"freeze\"/>\n",
         ticks_passed));
 
@@ -354,13 +353,13 @@ public abstract class Shape implements IShape {
           ticks_passed
       ));
       ticks_passed += duration;
-      this.updateShape(motions.remove(), nextMotion);
+      this.updateShape(motions.remove());
     }
     svg.append(String.format("\t</%s>\n\n", this.getType()));
     return svg.toString();
   }
 
-  private void updateShape(Motion m, Motion nextMotion) {
+  private void updateShape(Motion m) {
     this.position.setLocation(
         this.getPosition().getX() + m.getMoveX(),
         this.getPosition().getY() + m.getMoveY()

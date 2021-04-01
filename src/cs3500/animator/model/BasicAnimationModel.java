@@ -86,7 +86,8 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
-      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, offsetX, offsetY, duration, speed);
+      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, offsetX, offsetY, duration,
+          speed);
     }
 
     /**
@@ -175,11 +176,11 @@ public class BasicAnimationModel implements AnimationModel {
     }
   }
 
-  public int getOffsetY(){
+  public int getOffsetY() {
     return offsetY;
   }
 
-  public int getOffsetX(){
+  public int getOffsetX() {
     return offsetX;
   }
 

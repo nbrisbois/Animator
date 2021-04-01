@@ -18,6 +18,8 @@ public class BasicAnimationModel implements AnimationModel {
   private final int sceneWidth;
   private final int duration;
   private final int speed;
+  private final int offsetY;
+  private final int offsetX;
 
   /**
    * Construct an animation model.
@@ -32,7 +34,7 @@ public class BasicAnimationModel implements AnimationModel {
    */
 
   public BasicAnimationModel(List<IShape> shapes, int sceneHeight,
-      int sceneWidth, int duration, int frameSpeed)
+      int sceneWidth, int offsetX, int offsetY, int duration, int frameSpeed)
       throws IllegalArgumentException, NullPointerException, IllegalStateException {
     if (duration < 0) {
       throw new IllegalArgumentException("Duration cannot be less than zero ticks");
@@ -48,6 +50,11 @@ public class BasicAnimationModel implements AnimationModel {
         }
       }
     }
+    if (offsetX < 0 || offsetY < 0) {
+      throw new IllegalArgumentException("Offset cannot be less than zero");
+    }
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
     this.shapes = this.copyShapes(shapes);
     this.sceneHeight = sceneHeight;
     this.sceneWidth = sceneWidth;
@@ -66,6 +73,8 @@ public class BasicAnimationModel implements AnimationModel {
     private int y = 0;
     private int sceneHeight = 500;
     private int sceneWidth = 500;
+    private int offsetY = 0;
+    private int offsetX = 0;
     private final int duration = 1;
     private final int speed = 1;
 
@@ -77,7 +86,7 @@ public class BasicAnimationModel implements AnimationModel {
      */
     @Override
     public AnimationModel build() {
-      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, duration, speed);
+      return new BasicAnimationModel(shapes, sceneHeight, sceneWidth, offsetX, offsetY, duration, speed);
     }
 
     /**
@@ -164,6 +173,14 @@ public class BasicAnimationModel implements AnimationModel {
       }
       return this;
     }
+  }
+
+  public int getOffsetY(){
+    return offsetY;
+  }
+
+  public int getOffsetX(){
+    return offsetX;
   }
 
   @Override

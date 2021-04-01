@@ -89,5 +89,19 @@ public interface AnimationModel {
    */
   void removeMotion(String name);
 
+  /**
+   * Gets the offset vertical position.
+   *
+   * @return an integer representing the vertical position of the
+   */
+  int getOffsetY();
+
+  /**
+   * Gets the offset horizontal position.
+   *
+   * @return an integer representing the horizontal position of the
+   */
+  int getOffsetX();
+
 }
 

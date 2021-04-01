@@ -147,4 +147,6 @@ public interface IShape {
    * @return String[] of attributes
    */
   String[] getSVGAttributes();
+
+  void setOffset(int offsetX, int offsetY);
 }

@@ -58,6 +58,26 @@ Rectangles will be used to create block shapes such as Rectangles and Squares.
 Main function can be used to demonstrate how our program works. It can also be used
 for testing purposes
 
+
+### SVG View
+Scalable Vector Graphics or SVG is an Extensible Markup Language-based vector image format
+for two-dimensional graphics. The SVG view a part of this assignment is used to create an SVG
+file or output SVG syntax from which an AnimationModel can be visualized. 
+
+The view is currently created by taking in a Model, a file name, and a speed. 
+- The model: represents the instance of AnimationModel that will be used to generate the SVG text
+- The fileName: will be used for storing the svg text to a file. If empty, generated svg is sent to System.out
+- The speed: the speed in which the animation will play. This is used when determining durations and start ticks for animations
+
+(Disclaimer: Once a controller is implemented, this structure will change)
+
+For this assignment, the SVG native function 'animate' was used to handle shape Translations in the x and y axis, shape transformations regarding width and height, and changes in color.
+An Example of an SVG animate command is as follows: 
+
+" animate attributeType="xml" attributeName="<attribute_being_changed>" dur="<animation_duration>" from="<start_of_animation>" to="<end_of_animation>" fill="color" ""
+
+You can run an SVG file in any Browser that supports them. Most modern browsers do.
+
 ---
 
 # Excellence

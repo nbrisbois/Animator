@@ -28,7 +28,7 @@ public class SVGView implements IAnimationView {
     super();
     this.speed = speed;
     this.model = model;
-    if (outFileName == "") {
+    if (outFileName.equals("")) {
       myWriter = new FileWriter(FileDescriptor.out);
     } else {
       myWriter = new FileWriter(String.format("Animator/src/cs3500/animator/%s", outFileName),

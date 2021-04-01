@@ -6,7 +6,7 @@ import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
 import cs3500.animator.view.AnimationViewVisual;
-import cs3500.animator.view.VisualPackage.VisualView;
+import cs3500.animator.view.visual.VisualView;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

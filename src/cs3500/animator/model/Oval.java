@@ -25,8 +25,8 @@ public class Oval extends Shape {
    * @param motions A Queue of motions that the shape will utilize
    */
   public Oval(String name, Double pos, double h, double w, Color color, long t,
-      Queue<Motion> motions) {
-    super(name, pos, h, w, color, t, motions);
+      Queue<Motion> motions, int offsetY, int offsetX) {
+    super(name, pos, h, w, color, t, motions, offsetY, offsetX);
   }
 
   /**
@@ -35,7 +35,8 @@ public class Oval extends Shape {
    * @param name The unique name of shape
    */
   public Oval(String name) throws NullPointerException, IllegalArgumentException {
-    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>());
+    super(name, new Double(1, 1), 2, 2, Color.WHITE, 1, new PriorityQueue<>(),
+        0, 0);
   }
 
   @Override
@@ -46,7 +47,7 @@ public class Oval extends Shape {
   @Override
   public IShape copy() {
     return new Oval(this.name, this.position, this.dimensions[0], this.dimensions[1],
-        this.color, this.startTick, this.motions);
+        this.color, this.startTick, this.motions, this.OffsetY, this.offsetX);
   }
 
   @Override
@@ -122,7 +123,7 @@ public class Oval extends Shape {
         dimensions[0] * lom.get(motionIndex).getScaleX(),
         dimensions[1] * lom.get(motionIndex).getScaleY(),
         lom.get(motionIndex).getColor(), this.startTick + lom.get(motionIndex).getTicks(),
-        this.motions);
+        this.motions, this.OffsetY, this.offsetX);
   }
 
 }

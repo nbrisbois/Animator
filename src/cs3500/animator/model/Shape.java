@@ -1,6 +1,7 @@
 package cs3500.animator.model;
 
 import java.awt.Color;
+import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
 import java.util.LinkedList;
 import java.util.Objects;
@@ -19,6 +20,8 @@ public abstract class Shape implements IShape {
   protected static int numberOfShapes = 0;
   protected final int order;
   protected Queue<Motion> motions;
+  protected int offsetX;
+  protected int OffsetY;
 
   private double speedX;
   private double speedY;
@@ -36,13 +39,15 @@ public abstract class Shape implements IShape {
    * @param startTick The start tick of the Polygon. This is where the shape will be rendered on the
    *                  initially on the Screen
    * @param motions   A list of motions detailing how the shape will move as time goes on
+   * @param offsetX   The offset in the x direction
+   * @param offsetY   The offset in the y direction
    * @throws NullPointerException     A NullPointerException is thrown when a null Object argument
    *                                  is provided
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
   public Shape(String name, Double pos, double x, double y, Color color, long startTick,
-      Queue<Motion> motions)
+      Queue<Motion> motions, int offsetY, int offsetX)
       throws NullPointerException, IllegalArgumentException {
     Objects.requireNonNull(pos);
     Objects.requireNonNull(color);
@@ -57,6 +62,9 @@ public abstract class Shape implements IShape {
      * This is important since there cannot be gaps, but there will be bugs if the,
      * the wrong tick is given.
      */
+    if (pos.getX() - offsetX < 0 || pos.getY() - offsetY< 0) {
+      throw new IllegalArgumentException("position cannot be less than offset");
+    }
     this.motions = new LinkedList<>();
     for (Motion m : motions) {
       Objects.requireNonNull(motions.peek());
@@ -67,6 +75,8 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
+    this.offsetX = offsetX;
+    this.OffsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
@@ -130,11 +140,14 @@ public abstract class Shape implements IShape {
     return name;
   }
 
-  @Override
-  public void setOffset(int offsetX, int offsetY) {
-    position.setLocation(position.getX() + offsetX,
-        position.getY() + offsetY);
+  public int getOffsetY() {
+    return OffsetY;
   }
+
+  public int getOffsetX() {
+    return offsetX;
+  }
+
 
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating

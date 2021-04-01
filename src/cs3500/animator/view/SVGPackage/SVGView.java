@@ -51,14 +51,14 @@ public class SVGView implements IAnimationView {
     motionsO.add(new Motion(0, 10, Color.BLUE, 100, 100, 4));
     motionsO.add(new Motion(0, 0, Color.GREEN, 100, 100, 4));
 
-    Rectangle testRect = new Rectangle("rect", new Double(5, 5), 50, 50, Color.RED, 0, motionsR);
-    Oval testOval = new Oval("oval", new Double(8, 3), 50, 50, Color.BLUE, 0, motionsO);
+    Rectangle testRect = new Rectangle("rect", new Double(5, 5), 50, 50, Color.RED, 0, motionsR,0,0);
+    Oval testOval = new Oval("oval", new Double(8, 3), 50, 50, Color.BLUE, 0, motionsO,0,0);
 
     List<IShape> shapes = new ArrayList<>();
     shapes.add(testRect);
     shapes.add(testOval);
 
-    AnimationModel model = new BasicAnimationModel(shapes, 10, 10,0,0, 20, 1);
+    AnimationModel model = new BasicAnimationModel(shapes, 10, 10, 20, 1);
     SVGView newView = new SVGView(model);
     newView.render();
   }

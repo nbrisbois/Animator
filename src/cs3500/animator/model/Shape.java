@@ -325,19 +325,20 @@ public abstract class Shape implements IShape {
           ticks_passed
       ));
       ticks_passed += duration;
-      this.updateShape(motions.remove());
+      this.updateShape(motions.remove(), nextMotion);
     }
     svg.append(String.format("\t</%s>\n\n", this.getType()));
     return svg.toString();
   }
 
-  private void updateShape(Motion m) {
+  private void updateShape(Motion m, Motion nextMotion) {
     this.position.setLocation(
         this.getPosition().getX() + m.getMoveX(),
         this.getPosition().getY() + m.getMoveY()
     );
     this.color = m.getColor();
-    this.scaleX = this.getSize()[0] * m.getScaleX();
-    this.scaleY = this.getSize()[1] * m.getScaleY();
+    this.dimensions = new double[]{
+        this.dimensions[0] * m.getScaleX(),
+        this.dimensions[1] * m.getScaleY()};
   }
 }

@@ -20,8 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/cs3500/animator/SVGViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/FactoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cs3500/animator/SVGViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cs3500/animator/SVGViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +61,7 @@
     <configuration name="Execellence" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Excellence" />
       <module name="Animator" />
-      <option name="PROGRAM_PARAMETERS" value="-in smalldemo.txt -view text -speed 1" />
+      <option name="PROGRAM_PARAMETERS" value="-in smalldemo.txt -view visual -speed 1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,10 +180,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617251385555">
+    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617299262554">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1617251385555" />
+    <state x="214" y="87" width="1089" height="737" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1617299262554" />
     <state x="93" y="93" width="1350" height="638" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1617297084125">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -196,22 +196,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1617298651624" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617297088752">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1617299266836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617297088752" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617297088751">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1617299266836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617297088751" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617297088751">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1617299266836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617297088751" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617297088751">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1617299266836">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617297088751" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617299266836" />
     <state x="584" y="190" key="chooseDestDirectoryDialog" timestamp="1617298203002">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

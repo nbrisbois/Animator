@@ -7,20 +7,15 @@ import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
 import cs3500.animator.model.Rectangle;
-import cs3500.animator.view.AnimationViewVisual;
 import cs3500.animator.view.IAnimationView;
 import cs3500.animator.view.svg.SVGView;
-import cs3500.animator.view.visual.VisualView;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.geom.Point2D.Double;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import javax.swing.Timer;
 
 /**
  * Tester class to see the rendering results of the SVGView

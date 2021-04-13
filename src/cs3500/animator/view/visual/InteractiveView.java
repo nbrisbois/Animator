@@ -4,30 +4,24 @@ import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.view.IAnimationView;
 import java.awt.Dimension;
-import java.util.List;
-import java.util.Objects;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-/**
- * Representing the visual view that renders the animation model.
- */
-public class VisualView extends JFrame implements NewAnimationView {
+public class InteractiveView extends JFrame implements NewAnimationView {
 
   private long tick;
-  private final DrawingPanel drawingPanel;
   private final AnimationModel model;
+  private final DrawingPanel drawingPanel;
 
-  /**
-   * THe constructor to create a visual view.
-   *
-   * @param model the model we are using for visual view
-   */
-  public VisualView(AnimationModel model) {
+  public InteractiveView(AnimationModel model) {
     super();
     this.model = model;
     this.tick = 0;
     this.drawingPanel = new DrawingPanel();
+    JButton startStop = new JButton("Start/Stop");
+    JButton restart = new JButton("Restart");
+    JButton loop = new JButton("Loop Animation");
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -35,35 +29,22 @@ public class VisualView extends JFrame implements NewAnimationView {
     scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     add(scroller);
+    add(startStop);
+    add(restart);
+    add(loop);
   }
-
-
 
   @Override
   public void render() {
-
-    List<IShape> shapes = model.moveShapes(tick * 100);
-    for (IShape s : shapes) {
-      drawingPanel.addShape(s);
-    }
     setVisible(true);
-    tick++;
-    refresh();
   }
 
-  /**
-   * To repaint the animation view.
-   */
+  @Override
   public void refresh() {
-    repaint();
+    this.repaint();
   }
 
-  /**
-   * To draw an additional desired shape by adding it to the list of shapes in the drawing panel.
-   *
-   * @param shape the desired shape we want to draw
-   */
+  @Override
   public void draw(IShape shape) throws IllegalArgumentException {
-    drawingPanel.addShape(Objects.requireNonNull(shape));
   }
 }

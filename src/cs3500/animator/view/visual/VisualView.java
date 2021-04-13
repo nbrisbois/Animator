@@ -5,14 +5,13 @@ import cs3500.animator.model.IShape;
 import cs3500.animator.view.IAnimationView;
 import java.awt.Dimension;
 import java.util.List;
-import java.util.Objects;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 /**
  * Representing the visual view that renders the animation model.
  */
-public class VisualView extends JFrame implements NewAnimationView {
+public class VisualView extends JFrame implements IAnimationView {
 
   private long tick;
   private final DrawingPanel drawingPanel;
@@ -26,7 +25,7 @@ public class VisualView extends JFrame implements NewAnimationView {
   public VisualView(AnimationModel model) {
     super();
     this.model = model;
-    this.tick = 0;
+    this.tick = tick;
     this.drawingPanel = new DrawingPanel();
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
@@ -36,8 +35,6 @@ public class VisualView extends JFrame implements NewAnimationView {
     scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     add(scroller);
   }
-
-
 
   @Override
   public void render() {
@@ -54,7 +51,7 @@ public class VisualView extends JFrame implements NewAnimationView {
   /**
    * To repaint the animation view.
    */
-  public void refresh() {
+  private void refresh() {
     repaint();
   }
 
@@ -63,7 +60,7 @@ public class VisualView extends JFrame implements NewAnimationView {
    *
    * @param shape the desired shape we want to draw
    */
-  public void draw(IShape shape) throws IllegalArgumentException {
-    drawingPanel.addShape(Objects.requireNonNull(shape));
+  private void draw(IShape shape) {
+    drawingPanel.addShape(shape);
   }
 }

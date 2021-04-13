@@ -21,11 +21,13 @@ public class DrawingPanel extends JPanel implements ActionListener {
   private final JButton loop;
   private final JButton speedUp;
   private final JButton slowDown;
+  private boolean isRunning;
   
 
   DrawingPanel() {
-    
     super();
+
+    isRunning = true;
     shapes = new ArrayList<IShape>();
 
     setLayout(new BorderLayout());
@@ -47,10 +49,19 @@ public class DrawingPanel extends JPanel implements ActionListener {
     add(subPan, BorderLayout.PAGE_END);
   }
 
+  public boolean isRunning() {
+    return isRunning;
+  }
+
   @Override
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == startStop) {
-
+      if (isRunning) {
+        isRunning = false;
+      }
+      else {
+        isRunning = true;
+      }
     }
     else if (e.getSource() == restart) {
 

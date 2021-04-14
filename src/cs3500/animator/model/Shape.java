@@ -2,7 +2,9 @@ package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -20,6 +22,7 @@ public abstract class Shape implements IShape {
   protected Color color;
   protected long startTick;
   protected Queue<Motion> motions;
+  protected final List<Motion> originalMotions;
   protected int offsetX;
   protected int offsetY;
   protected long timeElapsed = 0;
@@ -30,7 +33,7 @@ public abstract class Shape implements IShape {
   private boolean visual;
   private final double orignalSizeX;
   private final double orignalSizeY;
-
+  private final Double originalPos;
   /**
    * Abstract Shape Constructor.
    *
@@ -72,11 +75,13 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
+    this.originalMotions = new ArrayList(motions);
     this.visual = false;
     this.offsetX = offsetX;
     this.offsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
+    this.originalPos = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
     this.startTick = startTick;
@@ -106,6 +111,8 @@ public abstract class Shape implements IShape {
     this.orignalSizeX = 0;
     this.orignalSizeY = 0;
     this.motions = new PriorityQueue<>();
+    this.originalMotions = new ArrayList<>();
+    this.originalPos = new Double(0,0);
   }
 
   @Override
@@ -166,6 +173,14 @@ public abstract class Shape implements IShape {
 
   public String getName() {
     return name;
+  }
+
+  public void reset() {
+    this.motions = new PriorityQueue<>(originalMotions);
+    this.position.x = this.originalPos.getX();
+    this.position.y = this.originalPos.getY();;
+    this.dimensions[0] = this.orignalSizeX;
+    this.dimensions[1] = this.orignalSizeY;
   }
 
   /**

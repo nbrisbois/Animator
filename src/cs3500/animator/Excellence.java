@@ -5,14 +5,11 @@ import cs3500.animator.model.BasicAnimationModel.Builder;
 import cs3500.animator.util.AnimationReader;
 import cs3500.animator.view.FactoryView;
 import cs3500.animator.view.IAnimationView;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.StringReader;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 /**
  * Excellence Class representing the main interaction with our Model and View

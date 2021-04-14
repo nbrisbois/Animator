@@ -165,4 +165,6 @@ public interface IShape {
   int getOffsetY();
 
   void isVisual();
+
+  void reset();
 }

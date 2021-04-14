@@ -20,6 +20,9 @@ public class InteractiveView extends JFrame implements IAnimationView {
   private final JButton startStop;
   private final JButton restart;
   private final JButton loop;
+  private final JButton increaseSpeed;
+  private final JButton decreaseSpeed;
+
   private final Timer timer;
 
   private int speed = 1;
@@ -52,6 +55,14 @@ public class InteractiveView extends JFrame implements IAnimationView {
     loop.addActionListener(click);
     drawingPanel.panel.add(loop);
 
+    increaseSpeed = new JButton("Increase Speed");
+    increaseSpeed.addActionListener(click);
+    drawingPanel.panel.add(increaseSpeed);
+
+    decreaseSpeed = new JButton("Decrease Speed");
+    decreaseSpeed.addActionListener(click);
+    drawingPanel.panel.add(decreaseSpeed);
+
     add(scroller);
 
     timer = new Timer(100, new TimerListener());
@@ -68,7 +79,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
     if (startStopFlag) {
       System.out.println("I am running");
-      tick = tick + (speed);
+      tick = tick + speed;
     } else {
       System.out.println("I am running");
       timer.stop();
@@ -95,10 +106,23 @@ public class InteractiveView extends JFrame implements IAnimationView {
           timer.start();
         }
       } else if (e.getSource() == restart) {
+        // TODO:
         System.out.println("restart pressed");
+        model.resetShapes();
         timer.restart();
       } else if (e.getSource() == loop) {
+        // TODO
         System.out.println("loop pressed");
+      } else if (e.getSource() == increaseSpeed) {
+        speed++;
+        System.out.printf("speed: %s%n", speed);
+      } else if (e.getSource() == decreaseSpeed) {
+        speed--;
+        System.out.printf("speed: %s%n", speed);
+        if (speed < 1) {
+          speed = 1;
+        }
+        System.out.printf("reset speed: %s%n", speed);
       }
     }
   }

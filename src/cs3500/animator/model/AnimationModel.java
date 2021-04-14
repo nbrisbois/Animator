@@ -101,6 +101,6 @@ public interface AnimationModel {
    */
   void removeMotion(String name);
 
-
+  void resetShapes();
 }
 

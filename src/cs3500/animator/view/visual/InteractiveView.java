@@ -114,6 +114,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
         model.resetShapes();
         startStopFlag = true;
         timer.start();
+
       } else if (e.getSource() == loop) {
         // TODO
         System.out.println("loop pressed");

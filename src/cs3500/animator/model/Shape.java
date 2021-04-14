@@ -35,7 +35,7 @@ public abstract class Shape implements IShape {
   private final double orignalSizeX;
   private final double orignalSizeY;
   private final Double originalPos;
-  private final IShape copy;
+  //private final IShape copy;
   /**
    * Abstract Shape Constructor.
    *
@@ -94,7 +94,7 @@ public abstract class Shape implements IShape {
     this.originalStartTick = startTick;
     speedX = speedY = scaleX = scaleY = 0;
 
-    copy = this.copy();
+    //copy = this.copy();
 
   }
 
@@ -119,7 +119,7 @@ public abstract class Shape implements IShape {
     this.originalMotions = new ArrayList<>();
     this.originalPos = new Double(0,0);
     this.originalStartTick = startTick;
-    copy = this.copy();
+    //copy = this.copy();
   }
 
   @Override
@@ -188,6 +188,7 @@ public abstract class Shape implements IShape {
     this.position.y = this.originalPos.getY();;
     this.dimensions[0] = this.orignalSizeX;
     this.dimensions[1] = this.orignalSizeY;
+    this.startTick = originalStartTick * 1000;
     this.timeElapsed = 0;
     speedX = speedY = scaleX = scaleY = 0;
   }

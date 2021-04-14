@@ -292,4 +292,10 @@ public class BasicAnimationModel implements AnimationModel {
     }
     return answer;
   }
+
+  public void resetShapes() {
+    for (IShape s: shapes) {
+      s.reset();
+    }
+  }
 }

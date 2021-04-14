@@ -2,7 +2,9 @@ package cs3500.animator.model;
 
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -19,9 +21,11 @@ public abstract class Shape implements IShape {
   protected double[] dimensions;
   protected Color color;
   protected long startTick;
+  protected long originalStartTick;
   protected Queue<Motion> motions;
-  protected int offsetX;
-  protected int offsetY;
+  protected final List<Motion> originalMotions;
+  protected final int offsetX;
+  protected final int offsetY;
   protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
@@ -30,7 +34,8 @@ public abstract class Shape implements IShape {
   private boolean visual;
   private final double orignalSizeX;
   private final double orignalSizeY;
-
+  private final Double originalPos;
+  private final IShape copy;
   /**
    * Abstract Shape Constructor.
    *
@@ -82,9 +87,14 @@ public abstract class Shape implements IShape {
     this.startTick = startTick;
     this.order = ++numberOfShapes;
 
+    this.originalMotions = new ArrayList(motions);
     this.orignalSizeX = x;
     this.orignalSizeY = y;
+    this.originalPos = new Double(pos.getX(), pos.getY());
+    this.originalStartTick = startTick;
     speedX = speedY = scaleX = scaleY = 0;
+
+    copy = this.copy();
 
   }
 
@@ -106,6 +116,10 @@ public abstract class Shape implements IShape {
     this.orignalSizeX = 0;
     this.orignalSizeY = 0;
     this.motions = new PriorityQueue<>();
+    this.originalMotions = new ArrayList<>();
+    this.originalPos = new Double(0,0);
+    this.originalStartTick = startTick;
+    copy = this.copy();
   }
 
   @Override
@@ -166,6 +180,16 @@ public abstract class Shape implements IShape {
 
   public String getName() {
     return name;
+  }
+
+  public void reset() {
+    this.motions = new PriorityQueue<>(originalMotions);
+    this.position.x = this.originalPos.getX();
+    this.position.y = this.originalPos.getY();;
+    this.dimensions[0] = this.orignalSizeX;
+    this.dimensions[1] = this.orignalSizeY;
+    this.timeElapsed = 0;
+    speedX = speedY = scaleX = scaleY = 0;
   }
 
   /**

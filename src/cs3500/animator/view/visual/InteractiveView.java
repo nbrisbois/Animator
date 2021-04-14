@@ -36,7 +36,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
     scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
-    Clicklistener click = new Clicklistener();
+    ClickListener click = new ClickListener();
 
     startStop = new JButton("Start/Stop");
     startStop.addActionListener(click);
@@ -63,7 +63,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
     if (startStopFlag) {
       System.out.println("I am running");
-      tick = tick + (1 * speed);
+      tick = tick + (speed);
     } else {
       System.out.println("I am not running");
     }
@@ -78,7 +78,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
     this.speed = speed;
   }
 
-  private class Clicklistener implements ActionListener {
+  private class ClickListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
       System.out.println("button pressed");

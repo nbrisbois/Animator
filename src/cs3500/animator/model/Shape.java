@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 /**
@@ -35,7 +34,6 @@ public abstract class Shape implements IShape {
   private final double orignalSizeX;
   private final double orignalSizeY;
   private final Double originalPos;
-  //private final IShape copy;
   /**
    * Abstract Shape Constructor.
    *
@@ -93,9 +91,6 @@ public abstract class Shape implements IShape {
     this.originalPos = new Double(pos.getX(), pos.getY());
     this.originalStartTick = startTick;
     speedX = speedY = scaleX = scaleY = 0;
-
-    //copy = this.copy();
-
   }
 
   /**
@@ -115,11 +110,10 @@ public abstract class Shape implements IShape {
     this.order = 0;
     this.orignalSizeX = 0;
     this.orignalSizeY = 0;
-    this.motions = new PriorityQueue<>();
+    this.motions = new LinkedList<>();
     this.originalMotions = new ArrayList<>();
     this.originalPos = new Double(0,0);
     this.originalStartTick = startTick;
-    //copy = this.copy();
   }
 
   @Override
@@ -183,7 +177,7 @@ public abstract class Shape implements IShape {
   }
 
   public void reset() {
-    this.motions = new PriorityQueue<>(originalMotions);
+    this.motions = new LinkedList<>(originalMotions);
     this.position.x = this.originalPos.getX();
     this.position.y = this.originalPos.getY();;
     this.dimensions[0] = this.orignalSizeX;

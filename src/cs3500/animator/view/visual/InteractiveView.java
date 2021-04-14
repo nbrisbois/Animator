@@ -71,7 +71,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    setVisible(true);
+    System.out.println(tick);
     List<IShape> shapes = model.moveShapes(tick * 100);
     for (IShape s : shapes) {
       drawingPanel.addShape(s);
@@ -81,9 +81,10 @@ public class InteractiveView extends JFrame implements IAnimationView {
       System.out.println("I am running");
       tick = tick + speed;
     } else {
-      System.out.println("I am running");
+      System.out.println("I am not running");
       timer.stop();
     }
+    setVisible(true);
     refresh();
   }
 
@@ -108,8 +109,11 @@ public class InteractiveView extends JFrame implements IAnimationView {
       } else if (e.getSource() == restart) {
         // TODO:
         System.out.println("restart pressed");
+        startStopFlag = false;
+        tick = 0;
         model.resetShapes();
-        timer.restart();
+        startStopFlag = true;
+        timer.start();
       } else if (e.getSource() == loop) {
         // TODO
         System.out.println("loop pressed");

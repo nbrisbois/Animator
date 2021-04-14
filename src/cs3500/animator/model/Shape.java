@@ -21,10 +21,11 @@ public abstract class Shape implements IShape {
   protected double[] dimensions;
   protected Color color;
   protected long startTick;
+  protected long originalStartTick;
   protected Queue<Motion> motions;
   protected final List<Motion> originalMotions;
-  protected int offsetX;
-  protected int offsetY;
+  protected final int offsetX;
+  protected final int offsetY;
   protected long timeElapsed = 0;
   private double speedX;
   private double speedY;
@@ -34,6 +35,7 @@ public abstract class Shape implements IShape {
   private final double orignalSizeX;
   private final double orignalSizeY;
   private final Double originalPos;
+  private final IShape copy;
   /**
    * Abstract Shape Constructor.
    *
@@ -75,21 +77,24 @@ public abstract class Shape implements IShape {
           m.getScaleY(), m.getTicks()));
     }
 
-    this.originalMotions = new ArrayList(motions);
     this.visual = false;
     this.offsetX = offsetX;
     this.offsetY = offsetY;
     this.name = name;
     this.position = new Double(pos.getX(), pos.getY());
-    this.originalPos = new Double(pos.getX(), pos.getY());
     this.dimensions = new double[]{x, y};
     this.color = new Color(color.getRGB());
     this.startTick = startTick;
     this.order = ++numberOfShapes;
 
+    this.originalMotions = new ArrayList(motions);
     this.orignalSizeX = x;
     this.orignalSizeY = y;
+    this.originalPos = new Double(pos.getX(), pos.getY());
+    this.originalStartTick = startTick;
     speedX = speedY = scaleX = scaleY = 0;
+
+    copy = this.copy();
 
   }
 
@@ -113,6 +118,8 @@ public abstract class Shape implements IShape {
     this.motions = new PriorityQueue<>();
     this.originalMotions = new ArrayList<>();
     this.originalPos = new Double(0,0);
+    this.originalStartTick = startTick;
+    copy = this.copy();
   }
 
   @Override
@@ -181,6 +188,8 @@ public abstract class Shape implements IShape {
     this.position.y = this.originalPos.getY();;
     this.dimensions[0] = this.orignalSizeX;
     this.dimensions[1] = this.orignalSizeY;
+    this.timeElapsed = 0;
+    speedX = speedY = scaleX = scaleY = 0;
   }
 
   /**

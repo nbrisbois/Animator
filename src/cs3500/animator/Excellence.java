@@ -94,12 +94,12 @@ public final class Excellence {
     }
 
     // Create View
-    FactoryView view = new FactoryView(model, output, speed);
-
+    FactoryView view = new FactoryView(model, output);
     try {
       IAnimationView v = view.getView(viewDel);
+      v.setSpeed(speed);
 
-      if (viewDel.equals("visual")) {
+      if (viewDel.equals("visual") || viewDel.equals("interactive")) {
         Timer t = new Timer(100, null);
         t.addActionListener(new ActionListener() {
           @Override

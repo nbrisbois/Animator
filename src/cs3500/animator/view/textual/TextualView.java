@@ -14,6 +14,7 @@ public class TextualView implements IAnimationView {
 
   private final AnimationModel model;
   private final Appendable ap;
+  private int speed = 1;
 
   /**
    * The constructor of the textual view for the animation.
@@ -44,5 +45,10 @@ public class TextualView implements IAnimationView {
       //do nothing
     }
     System.out.println(this.ap);
+  }
+
+  @Override
+  public void setSpeed(int speed) {
+    this.speed = speed;
   }
 }

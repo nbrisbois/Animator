@@ -52,7 +52,7 @@ public class SVGViewTest {
 
     AnimationModel testModel = new BasicAnimationModel(shapes, 0, 0, 1000, 1000, 100000, 1);
 
-    IAnimationView view = new SVGView(testModel, "test.txt", 1);
+    IAnimationView view = new SVGView(testModel, "test.txt");
 
     view.render();
 

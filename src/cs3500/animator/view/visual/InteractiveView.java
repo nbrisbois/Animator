@@ -6,11 +6,12 @@ import cs3500.animator.view.IAnimationView;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-public class InteractiveView extends JFrame implements NewAnimationView, ActionListener {
+public class InteractiveView extends JFrame implements IAnimationView {
 
   private long tick;
   private final AnimationModel model;
@@ -19,15 +20,14 @@ public class InteractiveView extends JFrame implements NewAnimationView, ActionL
   private final JButton restart;
   private final JButton loop;
 
+  private int speed = 1;
+  private boolean startStopFlag = true; // true = started, false = stopped
+
   public InteractiveView(AnimationModel model) {
     super();
     this.model = model;
     this.tick = 0;
-
     this.drawingPanel = new DrawingPanel();
-    startStop = new JButton("Start/Stop");
-    restart = new JButton("Restart");
-    loop = new JButton("Loop Animation");
 
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
@@ -36,36 +36,61 @@ public class InteractiveView extends JFrame implements NewAnimationView, ActionL
     scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 
+    Clicklistener click = new Clicklistener();
+
+    startStop = new JButton("Start/Stop");
+    startStop.addActionListener(click);
+    drawingPanel.panel.add(startStop);
+
+    restart = new JButton("Restart");
+    restart.addActionListener(click);
+    drawingPanel.panel.add(restart);
+
+    loop = new JButton("Loop Animation");
+    loop.addActionListener(click);
+    drawingPanel.panel.add(loop);
+
     add(scroller);
-    add(startStop);
-    add(restart);
-    add(loop);
   }
 
   @Override
   public void render() {
     setVisible(true);
+    List<IShape> shapes = model.moveShapes(tick * 100);
+    for (IShape s : shapes) {
+      drawingPanel.addShape(s);
+    }
+
+    if (startStopFlag) {
+      System.out.println("I am running");
+      tick = tick + (1 * speed);
+    } else {
+      System.out.println("I am not running");
+    }
+    refresh();
   }
 
-  @Override
   public void refresh() {
     this.repaint();
   }
 
-  @Override
-  public void draw(IShape shape) throws IllegalArgumentException {
+  public void setSpeed(int speed) {
+    this.speed = speed;
   }
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == startStop) {
-
-    }
-    else if (e.getSource() == restart) {
-
-    }
-    else if (e.getSource() == loop) {
-
+  private class Clicklistener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      System.out.println("button pressed");
+      if (e.getSource() == startStop) {
+        System.out.println("startstop pressed");
+        startStopFlag = !startStopFlag;
+      } else if (e.getSource() == restart) {
+        System.out.println("restart pressed");
+        tick = 0;
+      } else if (e.getSource() == loop) {
+        System.out.println("loop pressed");
+      }
     }
   }
 }

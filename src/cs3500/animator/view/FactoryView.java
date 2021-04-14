@@ -3,6 +3,7 @@ package cs3500.animator.view;
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.view.svg.SVGView;
 import cs3500.animator.view.textual.TextualView;
+import cs3500.animator.view.visual.InteractiveView;
 import cs3500.animator.view.visual.VisualView;
 import java.io.IOException;
 
@@ -14,17 +15,15 @@ public class FactoryView {
 
   private final AnimationModel model;
   private final String outFileName;
-  private final int speed;
 
   /**
    * The constructor of the factory view.
    *
    * @param model the model that will be used to create an IAnimationView
    */
-  public FactoryView(AnimationModel model, String outFileName, int speed) {
+  public FactoryView(AnimationModel model, String outFileName) {
     this.model = model;
     this.outFileName = outFileName;
-    this.speed = Math.max(speed, 1);
   }
 
   /**
@@ -38,9 +37,11 @@ public class FactoryView {
     if (viewType.equals("text")) {
       return new TextualView(model);
     } else if (viewType.equals("svg")) {
-      return new SVGView(model, this.outFileName, speed);
+      return new SVGView(model, this.outFileName);
     } else if (viewType.equals("visual")) {
       return new VisualView(model);
+    } else if (viewType.equals("interactive")) {
+      return new InteractiveView(model);
     } else {
       return null;
     }

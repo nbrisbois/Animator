@@ -16,7 +16,7 @@ public class SVGView implements IAnimationView {
 
   private final AnimationModel model;
   private final FileWriter myWriter;
-  private final int speed;
+  private int speed;
 
   /**
    * The constructor of SVGView using the model.
@@ -24,9 +24,8 @@ public class SVGView implements IAnimationView {
    * @param model the model of the animation we want to display as a SVGView
    * @throws IOException if file writer cannot output a desired writer
    */
-  public SVGView(AnimationModel model, String outFileName, int speed) throws IOException {
+  public SVGView(AnimationModel model, String outFileName) throws IOException {
     super();
-    this.speed = speed;
     this.model = model;
     if (outFileName.equals("")) {
       myWriter = new FileWriter(FileDescriptor.out);
@@ -63,5 +62,10 @@ public class SVGView implements IAnimationView {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
+  }
+
+  @Override
+  public void setSpeed(int speed) {
+    this.speed = speed;
   }
 }

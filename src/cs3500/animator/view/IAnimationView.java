@@ -9,4 +9,9 @@ public interface IAnimationView {
    * To display the animation for the user to view.
    */
   void render();
+
+  /**
+   * sets the speed to which the animation should play
+   */
+  void setSpeed(int speed);
 }

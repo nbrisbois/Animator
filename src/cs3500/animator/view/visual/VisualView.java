@@ -13,10 +13,10 @@ import javax.swing.JScrollPane;
  */
 public class VisualView extends JFrame implements IAnimationView {
 
-  private long tick;
+  private long tick = 0;
   private final DrawingPanel drawingPanel;
   private final AnimationModel model;
-
+  private int speed;
   /**
    * THe constructor to create a visual view.
    *
@@ -24,8 +24,8 @@ public class VisualView extends JFrame implements IAnimationView {
    */
   public VisualView(AnimationModel model) {
     super();
+    this.speed = 1;
     this.model = model;
-    this.tick = tick;
     this.drawingPanel = new DrawingPanel();
     JScrollPane scroller = new JScrollPane(drawingPanel);
     scroller.setPreferredSize(new Dimension(50, 50));
@@ -46,6 +46,11 @@ public class VisualView extends JFrame implements IAnimationView {
     setVisible(true);
     tick++;
     refresh();
+  }
+
+  @Override
+  public void setSpeed(int speed) {
+    this.speed = speed;
   }
 
   /**

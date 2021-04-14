@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
+import javax.swing.Timer;
 
 public class InteractiveView extends JFrame implements IAnimationView {
 
@@ -19,6 +20,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
   private final JButton startStop;
   private final JButton restart;
   private final JButton loop;
+  private final Timer timer;
 
   private int speed = 1;
   private boolean startStopFlag = true; // true = started, false = stopped
@@ -51,6 +53,9 @@ public class InteractiveView extends JFrame implements IAnimationView {
     drawingPanel.panel.add(loop);
 
     add(scroller);
+
+    timer = new Timer(100, new TimerListener());
+    timer.start();
   }
 
   @Override
@@ -65,7 +70,8 @@ public class InteractiveView extends JFrame implements IAnimationView {
       System.out.println("I am running");
       tick = tick + (speed);
     } else {
-      System.out.println("I am not running");
+      System.out.println("I am running");
+      timer.stop();
     }
     refresh();
   }
@@ -85,11 +91,25 @@ public class InteractiveView extends JFrame implements IAnimationView {
       if (e.getSource() == startStop) {
         System.out.println("startstop pressed");
         startStopFlag = !startStopFlag;
+        if (startStopFlag) {
+          timer.start();
+        }
       } else if (e.getSource() == restart) {
         System.out.println("restart pressed");
-        tick = 0;
+        timer.restart();
       } else if (e.getSource() == loop) {
         System.out.println("loop pressed");
+      }
+    }
+  }
+
+  private class TimerListener implements ActionListener {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      try {
+        render();
+      } catch (Exception nullPoint) {
+        timer.stop();
       }
     }
   }

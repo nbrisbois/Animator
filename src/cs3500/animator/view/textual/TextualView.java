@@ -51,4 +51,5 @@ public class TextualView implements IAnimationView {
   public void setSpeed(int speed) {
     this.speed = speed;
   }
+
 }

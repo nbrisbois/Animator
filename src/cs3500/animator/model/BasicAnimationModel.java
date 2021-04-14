@@ -268,7 +268,6 @@ public class BasicAnimationModel implements AnimationModel {
     List<IShape> returnList = new ArrayList<>();
     for (IShape shape : shapes) {
       shape.isVisual();
-
       if ((shape.getStartTick()) <= time) {
         shape.calculateMotion((time) * speed);
         returnList.add(shape);

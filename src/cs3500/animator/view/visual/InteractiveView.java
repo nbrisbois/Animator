@@ -14,6 +14,7 @@ import javax.swing.Timer;
 
 public class InteractiveView extends JFrame implements IAnimationView {
 
+  private boolean speedChange;
   private long tick;
   private final AnimationModel model;
   private final DrawingPanel drawingPanel;
@@ -43,6 +44,8 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
     ClickListener click = new ClickListener();
 
+    speedChange = false;
+
     startStop = new JButton("Start/Stop");
     startStop.addActionListener(click);
     drawingPanel.panel.add(startStop);
@@ -71,11 +74,6 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    System.out.println(tick);
-    List<IShape> shapes = model.moveShapes(tick * 100);
-    for (IShape s : shapes) {
-      drawingPanel.addShape(s);
-    }
 
     if (startStopFlag) {
       System.out.println("I am running");
@@ -83,6 +81,13 @@ public class InteractiveView extends JFrame implements IAnimationView {
     } else {
       System.out.println("I am not running");
       timer.stop();
+    }
+    List<IShape> shapes = model.moveShapes(tick * 100, speed);
+    for (IShape s : shapes) {
+      drawingPanel.addShape(s);
+    }
+    if(speedChange) {
+      speedChange = false;
     }
     setVisible(true);
     refresh();
@@ -119,9 +124,11 @@ public class InteractiveView extends JFrame implements IAnimationView {
         // TODO
         System.out.println("loop pressed");
       } else if (e.getSource() == increaseSpeed) {
+        speedChange = true;
         speed++;
         System.out.printf("speed: %s%n", speed);
       } else if (e.getSource() == decreaseSpeed) {
+        speedChange = true;
         speed--;
         System.out.printf("speed: %s%n", speed);
         if (speed < 1) {

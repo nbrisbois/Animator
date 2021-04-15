@@ -264,12 +264,12 @@ public class BasicAnimationModel implements AnimationModel {
 
 
   @Override
-  public List<IShape> moveShapes(long time) {
+  public List<IShape> moveShapes(long time, int tickSpeed) {
     List<IShape> returnList = new ArrayList<>();
     for (IShape shape : shapes) {
       shape.isVisual();
       if ((shape.getStartTick()) <= time) {
-        shape.calculateMotion((time) * speed);
+        shape.calculateMotion((time) * speed, tickSpeed);
         returnList.add(shape);
       }
     }

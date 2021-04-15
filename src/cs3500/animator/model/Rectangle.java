@@ -93,12 +93,13 @@ public class Rectangle extends Shape {
   @Override
   public String toString() {
     StringBuilder answer = new StringBuilder();
-    answer.append("Shape R rectangle");
+    answer.append(String.format("shape %s rectangle", this.getName()));
     IShape old = this;
     for (int i = 0; i < motions.size(); i++) {
       IShape newShape = this.executeMotion(i);
-      String rowAnswer = String.format("\nmotion R %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
+      String rowAnswer = String.format("\nmotion %s %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d"
               + "   %-3d %-3.0f %-3.0f %-3.0f %-3.0f %-3d %-3d %-3d",
+          old.getName(),
           old.getStartTick(),
           old.getPosition().getX(),
           old.getPosition().getY(),

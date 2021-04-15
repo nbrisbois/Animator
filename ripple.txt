@@ -1,0 +1,33 @@
+canvas 0 0 400 200
+shape ball ellipse
+motion ball 0   20  387 6   6   0   0   0     10  45  103 6   6   0   0   0  
+motion ball 10  45  103 6   6   0   0   0     20  45  671 6   6   0   0   0  
+motion ball 20  45  671 6   6   0   0   0     30  60  103 6   6   0   0   0  
+motion ball 30  60  103 6   6   0   0   0     40  60  671 6   6   0   0   0  
+motion ball 40  60  671 6   6   0   0   0     50  67  103 6   6   0   0   0  
+motion ball 50  67  103 6   6   0   0   0     55  -27 337 6   6   0   0   0  
+motion ball 55  -27 337 6   6   0   0   0     70  -30 721 6   6   0   0   0  
+motion ball 70  -30 721 6   6   0   0   0     85  -30 53  6   6   0   0   0  
+motion ball 85  -30 53  6   6   0   0   0     100 -30 721 6   6   0   0   0  
+ 
+shape platform rectangle
+motion platform 0   20  395 10  10  0   0   0     20  70  395 10  10  0   0   0  
+motion platform 20  70  395 10  10  0   0   0     40  100 395 10  10  0   0   0  
+motion platform 40  100 395 10  10  0   0   0     70  -30 395 10  10  0   0   0  
+ 
+shape blue brick rectangle
+motion blue brick 0   50  75  100 50  0   0   255   10  50  75  100 50  0   0   255
+motion blue brick 10  50  75  100 50  0   0   255   100 50  75  100 50  255 255 255
+ 
+shape yellow brick rectangle
+motion yellow brick 0   150 25  100 50  255 255 0     85  150 25  100 50  255 255 0  
+motion yellow brick 85  150 25  100 50  255 255 0     100 150 25  100 50  255 255 255
+ 
+shape green brick rectangle
+motion green brick 0   150 75  100 50  0   255 0     55  150 75  100 50  0   255 0  
+motion green brick 55  150 75  100 50  0   255 0     100 150 75  100 50  255 255 255
+ 
+shape red brick rectangle
+motion red brick 0   50  25  100 50  255 0   0     30  50  25  100 50  255 0   0  
+motion red brick 30  50  25  100 50  255 0   0     100 50  25  100 50  255 255 255
+ 

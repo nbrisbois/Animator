@@ -204,7 +204,7 @@ public abstract class Shape implements IShape {
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 
-    long time = ((peekedMotion.getTicks() * 1000) - currentTick);
+    long time = ((peekedMotion.getTicks() * 1000) - currentTick) / speed;
 
     // Remove the current motion if we are at the start or greater than the next motion
     if (currentTick >= ((peekedMotion.getTicks() * 1000) + (startTick))) {

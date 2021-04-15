@@ -28,7 +28,7 @@ public class Rectangle extends Shape {
    * @throws IllegalArgumentException An IllegalArgumentException is thrown when the arguments are
    *                                  invalid
    */
-  public Rectangle(String name, Double pos, double w, double h, Color color, long startTick,
+  public Rectangle(String name, Double pos, double h, double w, Color color, long startTick,
       Queue<Motion> motions, int offsetY, int offsetX)
       throws NullPointerException, IllegalArgumentException {
     super(name, pos, h, w, color, startTick, motions, offsetY, offsetX);

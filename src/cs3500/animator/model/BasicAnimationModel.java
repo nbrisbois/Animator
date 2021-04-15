@@ -269,14 +269,14 @@ public class BasicAnimationModel implements AnimationModel {
     for (IShape shape : shapes) {
       shape.isVisual();
       if ((shape.getStartTick()) <= time) {
-        shape.calculateMotion((time) * speed, tickSpeed);
+        shape.calculateMotion((time), tickSpeed);
         returnList.add(shape);
       }
     }
     shapes.sort((o1, o2) -> {
-      if (o1.getPriority() < o2.getPriority()) {
+      if (o1.getPriority() > o2.getPriority()) {
         return 1;
-      } else if (o1.getPriority() > o2.getPriority()) {
+      } else if (o1.getPriority() < o2.getPriority()) {
         return -1;
       }
       return 0;

@@ -66,15 +66,6 @@ public class VisualView extends JFrame implements IAnimationView {
     repaint();
   }
 
-  /**
-   * To draw an additional desired shape by adding it to the list of shapes in the drawing panel.
-   *
-   * @param shape the desired shape we want to draw
-   */
-  private void draw(IShape shape) {
-    drawingPanel.addShape(shape);
-  }
-
   private class TimerListener implements ActionListener {
 
     @Override

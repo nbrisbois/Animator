@@ -63,7 +63,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
     restart.addActionListener(click);
     drawingPanel.panel.add(restart);
 
-    loop = new JButton("Loop Animation");
+    loop = new JButton("Enable/Disable Loop");
     loop.addActionListener(click);
     drawingPanel.panel.add(loop);
 

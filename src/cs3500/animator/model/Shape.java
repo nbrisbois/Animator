@@ -215,9 +215,12 @@ public abstract class Shape implements IShape {
       // If the queue is still not empty, update the tick of the shape
       if (!motions.isEmpty()) {
         startTick = currentTick;
+        peekedMotion = motions.peek();
+        time = ((peekedMotion.getTicks() * 1000));
       }
-      peekedMotion = motions.peek();
-      time = ((peekedMotion.getTicks() * 1000));
+      else {
+        return;
+      }
     }
 
     // Update the speed

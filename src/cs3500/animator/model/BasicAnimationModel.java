@@ -269,10 +269,13 @@ public class BasicAnimationModel implements AnimationModel {
 
   @Override
   public List<IShape> moveShapes(long time) {
+    if(time == 12100) {
+      int i = 0;
+    }
     List<IShape> returnList = new ArrayList<>();
     for (IShape shape : shapes) {
       shape.isVisual();
-      if ((shape.getStartTick()) <= time) {
+      if ((shape.getStartTick()) <= time && !shape.getMotion().isEmpty()) {
         shape.calculateMotion((time));
         returnList.add(shape);
       }

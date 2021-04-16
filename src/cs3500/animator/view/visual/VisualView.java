@@ -51,6 +51,9 @@ public class VisualView extends JFrame implements IAnimationView {
     }
     setVisible(true);
     tick++;
+    timer.stop();
+    timer = new Timer((int) (100 / (speed * .6)), new VisualView.TimerListener());
+    timer.start();
     refresh();
   }
 

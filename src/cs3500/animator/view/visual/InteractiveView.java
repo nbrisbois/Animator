@@ -6,6 +6,7 @@ import cs3500.animator.view.IAnimationView;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ import javax.swing.Timer;
 
 public class InteractiveView extends JFrame implements IAnimationView {
 
+  private boolean isLoop;
   private long tick;
   private final AnimationModel model;
   private final DrawingPanel drawingPanel;
@@ -43,6 +45,8 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
     ClickListener click = new ClickListener();
 
+    isLoop = false;
+
     startStop = new JButton("Start/Stop");
     startStop.addActionListener(click);
     drawingPanel.panel.add(startStop);
@@ -71,18 +75,16 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    System.out.println(tick);
-    List<IShape> shapes = model.moveShapes(tick * 100);
-    for (IShape s : shapes) {
-      drawingPanel.addShape(s);
-    }
-
     if (startStopFlag) {
       System.out.println("I am running");
       tick = tick + speed;
     } else {
       System.out.println("I am not running");
       timer.stop();
+    }
+    List<IShape> shapes = model.moveShapes(tick * 100, speed);
+    for (IShape s : shapes) {
+      drawingPanel.addShape(s);
     }
     setVisible(true);
     refresh();
@@ -107,7 +109,6 @@ public class InteractiveView extends JFrame implements IAnimationView {
           timer.start();
         }
       } else if (e.getSource() == restart) {
-        // TODO:
         System.out.println("restart pressed");
         startStopFlag = false;
         tick = 0;
@@ -116,7 +117,12 @@ public class InteractiveView extends JFrame implements IAnimationView {
         timer.start();
 
       } else if (e.getSource() == loop) {
-        // TODO
+        if (isLoop) {
+          isLoop = false;
+        }
+        else {
+          isLoop = true;
+        }
         System.out.println("loop pressed");
       } else if (e.getSource() == increaseSpeed) {
         speed++;
@@ -138,7 +144,16 @@ public class InteractiveView extends JFrame implements IAnimationView {
       try {
         render();
       } catch (Exception nullPoint) {
-        timer.stop();
+        if (isLoop) {
+          startStopFlag = false;
+          tick = 0;
+          model.resetShapes();
+          startStopFlag = true;
+          timer.start();
+        }
+        else {
+          timer.stop();
+        }
       }
     }
   }

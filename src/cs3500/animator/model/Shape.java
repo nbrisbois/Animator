@@ -197,14 +197,14 @@ public abstract class Shape implements IShape {
    *                    motion at
    * @throws NullPointerException thrown if queue peek does not return a motion
    */
-  public void calculateMotion(long currentTick) throws NullPointerException {
+  public void calculateMotion(long currentTick, int speed) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
 
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 
-    long time = ((peekedMotion.getTicks() * 1000) - currentTick);
+    long time = ((peekedMotion.getTicks() * 1000) - currentTick) / speed;
 
     // Remove the current motion if we are at the start or greater than the next motion
     if (currentTick >= ((peekedMotion.getTicks() * 1000) + (startTick))) {
@@ -221,11 +221,11 @@ public abstract class Shape implements IShape {
       if (time == 0) {
         time = 1;
       }
-      speedX = ((peekedMotion.getMoveX() / time) * 100);
-      speedY = ((peekedMotion.getMoveY() / time) * 100);
+      speedX = ((peekedMotion.getMoveX() / time) * 100) * speed;
+      speedY = ((peekedMotion.getMoveY() / time) * 100) * speed;
 
-      scaleX = (((orignalSizeX * peekedMotion.getScaleX() - dimensions[0]) / time) * 100);
-      scaleY = (((orignalSizeY * peekedMotion.getScaleY() - dimensions[1]) / time) * 100);
+      scaleX = (((orignalSizeX * peekedMotion.getScaleX() - dimensions[0]) / time) * 100) * speed;
+      scaleY = (((orignalSizeY * peekedMotion.getScaleY() - dimensions[1]) / time) * 100) * speed;
     }
 
     // Update the position

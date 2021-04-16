@@ -5,6 +5,7 @@ import cs3500.animator.model.BasicAnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.model.Motion;
 import cs3500.animator.model.Oval;
+import cs3500.animator.model.Rectangle;
 import java.awt.Color;
 import java.awt.geom.Point2D.Double;
 import java.io.FileWriter;
@@ -13,68 +14,55 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 
 public class GenerateFiles {
 
   public static void main(String[] args) throws IOException {
 
-    Motion centerMotion1 = new Motion(0, 200, Color.BLACK, 1, 1, 10);
-    Motion centerMotion2 = new Motion(-150, 100, Color.BLUE, 1, 1, 10);
-    Motion centerMotion3 = new Motion(-125, -150, Color.ORANGE, 1, 1, 10);
-    Motion centerMotion4 = new Motion(125, -150, Color.YELLOW, 1, 1, 10);
-    Motion centerMotion5 = new Motion(150, 100, Color.RED, 1, 1, 10);
+    Motion dropletFalling = new Motion(0, 400, Color.CYAN, 1, 1, 15);
+    Motion ripple = new Motion(dropletFalling.getMoveX(), dropletFalling.getMoveY(), Color.BLUE, 1.5, 0, 10);
 
-    Motion scaleMotion1 = new Motion(0, 200, Color.BLACK, 1, 1, 10);
-    Motion scaleMotion2 = new Motion(-150, 100, Color.BLUE, 1.5, 1.5, 10);
-    Motion scaleMotion3 = new Motion(-125, -150, Color.ORANGE, 2, 2, 10);
-    Motion scaleMotion4 = new Motion(125, -150, Color.YELLOW, 2.5, 2.5, 10);
-    Motion scaleMotion5 = new Motion(150, 100, Color.RED, 3, 3, 10);
-
-    Motion scaleMotion11 = new Motion(0, 200, Color.BLACK, 1, 1, 10);
-    Motion scaleMotion21 = new Motion(-150, 100, Color.BLUE, 1.5, 1.5, 10);
-    Motion scaleMotion31 = new Motion(-125, -150, Color.ORANGE, 2, 2, 10);
-    Motion scaleMotion41 = new Motion(125, -150, Color.YELLOW, 2.5, 2.5, 10);
-    Motion scaleMotion51 = new Motion(150, 100, Color.RED, 3, 3, 10);
-
-    Motion scaleMotion12 = new Motion(0, 200, Color.BLACK, 1, 1, 10);
-    Motion scaleMotion22 = new Motion(-150, 100, Color.BLUE, 1.5, 1.5, 10);
-    Motion scaleMotion32 = new Motion(-125, -150, Color.ORANGE, 2, 2, 10);
-    Motion scaleMotion42 = new Motion(125, -150, Color.YELLOW, 2.5, 2.5, 10);
-    Motion scaleMotion52 = new Motion(150, 100, Color.RED, 3, 3, 10);
-
-    Queue<Motion> oval1Motions = new LinkedList<>();
-    oval1Motions.add(centerMotion1);
-    oval1Motions.add(scaleMotion1);
-
-    Queue<Motion> oval2Motions = new LinkedList<>();
-    oval2Motions.add(centerMotion2);
-    oval2Motions.add(scaleMotion2);
-
-    Queue<Motion> oval3Motions = new LinkedList<>();
-    oval3Motions.add(centerMotion3);
-    oval3Motions.add(scaleMotion3);
-
-    Queue<Motion> oval4Motions = new LinkedList<>();
-    oval4Motions.add(centerMotion4);
-    oval4Motions.add(scaleMotion4);
-
-    Queue<Motion> oval5Motions = new LinkedList<>();
-    oval5Motions.add(centerMotion5);
-    oval5Motions.add(scaleMotion5);
-
+    Queue<Motion> rainMotions = new LinkedList<>();
+    rainMotions.add(dropletFalling);
+    rainMotions.add(ripple);
     List shapes = new ArrayList<>();
-    IShape oval1 = new Oval("oval1", new Double(250.0, 50.0), 25, 25, Color.BLACK, 0, oval1Motions, 0, 0);
-    IShape oval2 = new Oval("oval2", new Double(400, 150.0), 25, 25, Color.BLUE, 0, oval2Motions, 0, 0);
-    IShape oval3 = new Oval("oval3", new Double(375.0, 400.0), 25, 25, Color.ORANGE, 0, oval3Motions, 0, 0);
-    IShape oval4 = new Oval("oval4", new Double(125.0, 400.0), 25, 25, Color.YELLOW, 0, oval4Motions, 0, 0);
-    IShape oval5 = new Oval("oval5", new Double(100.0, 150.0), 25, 25, Color.RED, 0, oval5Motions, 0, 0);
-    IShape oval6 = new Oval("oval5", new Double(100.0, 150.0), 25, 25, Color.RED, 10, oval5Motions, 0, 0);
-    shapes.add(oval5);
-    shapes.add(oval4);
-    shapes.add(oval3);
-    shapes.add(oval2);
-    shapes.add(oval1);
-    shapes.add(oval6);
+
+
+    Queue floorMotion = new LinkedList<>();
+    floorMotion.add(new Motion(0,0,Color.DARK_GRAY, 1, 1, 1000));
+    shapes.add(new Rectangle("floor", new Double(0, 400),
+        500,
+        400,
+        Color.DARK_GRAY,
+        0,
+        floorMotion,
+        0, 0));
+
+    Queue backgroundMotion = new LinkedList<>();
+    backgroundMotion.add(new Motion(0,0,Color.DARK_GRAY, 1, 1, 200));
+    backgroundMotion.add(new Motion(0,0,Color.CYAN, 1, 1, 2));
+    backgroundMotion.add(new Motion(0, 0, Color.CYAN, 1, 1, 200));
+    shapes.add(new Rectangle("background", new Double(0, 0),
+        500,
+        400,
+        Color.GRAY,
+        0,
+        backgroundMotion,
+        0, 0));
+
+    for (int ii = 0; ii < 1000; ii++ ) {
+      Random r = new Random();
+      shapes.add(new Oval(
+          String.format("oval%s", ii),
+          new Double(r.nextInt(500 - 1) + 1, 0),
+          5,
+          5,
+          Color.CYAN,
+          r.nextInt(100 - 1) + 1,
+          rainMotions,
+          0, 0));
+    }
 
     AnimationModel model = new BasicAnimationModel(shapes,  0, 0, 500, 500, 100, 1);
 
@@ -86,14 +74,31 @@ public class GenerateFiles {
 
     myWriter.write(String.format("canvas %s %s %s %s\n", model.getTopLeftX(), model.getTopLeftY(), model.getSceneHeight(), model.getSceneWidth()));
 
-    //TextualView view = new TextualView(model);
-
     for (IShape shape : model.getShapes()) {
       myWriter.write(shape.toString() + "\n \n");
     }
 
     myWriter.close();
 
+  }
+
+  private static void addRippleMotion(Queue<Motion> motion, double scale) {
+    List<Motion> newMotions = new ArrayList<>(motion);
+    int last = newMotions.size() - 1;
+    motion.add(new Motion(
+        newMotions.get(last).getMoveX(),
+        newMotions.get(last).getMoveY(),
+        newMotions.get(last).getColor(),
+        newMotions.get(last).getScaleX() * (1 + scale),
+        newMotions.get(last).getScaleY() * (1 + scale),
+        newMotions.get(last).getTicks()));
+    motion.add(new Motion(
+        newMotions.get(last).getMoveX(),
+        newMotions.get(last).getMoveY(),
+        newMotions.get(last).getColor(),
+        newMotions.get(last).getScaleX() * (1 - scale),
+        newMotions.get(last).getScaleY() * (1 - scale),
+        newMotions.get(last).getTicks()));
   }
 
 }

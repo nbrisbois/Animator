@@ -13,20 +13,14 @@ import javax.swing.JPanel;
 public class DrawingPanel extends JPanel {
 
   private final List<IShape> shapes;
-  private boolean isRunning;
   public final JPanel panel;
 
   DrawingPanel() {
     super();
-    isRunning = true;
     shapes = new ArrayList<>();
     setLayout(new BorderLayout());
     panel = new JPanel();
     add(panel, BorderLayout.PAGE_END);
-  }
-
-  public boolean isRunning() {
-    return isRunning;
   }
 
   @Override

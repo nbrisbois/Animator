@@ -137,8 +137,8 @@ input.
 
 # GenerateFiles
 Main function that generate a .txt file that consists information for animation that represents the 
-scenery of a rainy day.
+scenery of a rainy day with a rocket rising up.
 
-# Excellence
+# GenerateBrickBreaker
 Main function that generate a .txt file that consists information for animation that represents the
 brick breaker game.

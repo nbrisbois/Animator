@@ -18,7 +18,7 @@ import java.util.Random;
 
 /**
  * Main Class for generating a .txt file that consists information for animation that represents the
- * scenery of a rainy day.
+ * scenery of a rainy day with a rocket rising up.
  */
 public class GenerateFiles {
 

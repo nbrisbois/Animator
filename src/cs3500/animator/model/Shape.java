@@ -203,7 +203,7 @@ public abstract class Shape implements IShape {
   public void calculateMotion(long currentTick) throws NullPointerException {
     // A next motion is required for calculating
     Objects.requireNonNull(motions.peek(), "No next motion for Calculation");
-    
+
     // Store the next motion by peeking in the queue. Make final to make it immutable
     Motion peekedMotion = motions.peek();
 

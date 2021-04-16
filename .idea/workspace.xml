@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Animator:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -21,9 +26,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Animator_jar/Animator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Animator_jar/Animator.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/GenerateRocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/GenerateRocket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView$ClickListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView$ClickListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView$TimerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView$TimerListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/view/visual/InteractiveView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/GenerateRocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/GenerateRocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +61,8 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/cs3500/animator/view" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -75,7 +84,7 @@
     <configuration name="BrickBreaker" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="cs3500.animator.Excellence" />
       <module name="Animator" />
-      <option name="PROGRAM_PARAMETERS" value="-in brickBreaker.txt -view interactive -speed 1" />
+      <option name="PROGRAM_PARAMETERS" value="-in rocketship.txt -view svg -speed 1 -out rocketship.svg" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -217,34 +226,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="39" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618606069718">
+    <state x="223" y="39" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618607302337">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="39" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1618606069718" />
+    <state x="223" y="39" width="1089" height="785" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1618607302337" />
     <state x="499" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1618606191175">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="203" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1618606191175" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1618606087330">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1618607311504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618606087330" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1618606087329">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618607311504" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1618607311503">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618606087329" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1618606087329">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618607311503" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1618607311503">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618606087329" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1618606087330">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618607311503" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1618607311504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618606087330" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1618606241137">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618607311504" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1618606446656">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1618606241137" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1618606446656" />
     <state x="209" y="33" key="new project wizard" timestamp="1617888837325">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

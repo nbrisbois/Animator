@@ -16,8 +16,18 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Random;
 
+/**
+ * Main function that generate a .txt file that consists information for animation that represents
+ * the brick breaker game.
+ */
 public class GenerateRocket {
 
+  /**
+   * Create an animation model and translate the model to a .txt file representing the animation.
+   *
+   * @param args StdIn
+   * @throws IOException when fails to render the model
+   */
   public static void main(String[] args) throws IOException {
 
     Motion dropletFalling = new Motion(0, 400,
@@ -32,14 +42,14 @@ public class GenerateRocket {
 
     // Add the Floor
     Queue<Motion> floorMotion = new LinkedList<>();
-    floorMotion.add(new Motion(0,0,Color.DARK_GRAY,
+    floorMotion.add(new Motion(0, 0, Color.DARK_GRAY,
         1, 1, 1000));
     shapes.add(new Rectangle("floor", new Double(0, 400), 500, 400,
         Color.DARK_GRAY, 0, floorMotion, 0, 0));
 
     // Add the Background
     Queue<Motion> backgroundMotion = new LinkedList<>();
-    backgroundMotion.add(new Motion(0,0, Color.GRAY, 1, 1, 200));
+    backgroundMotion.add(new Motion(0, 0, Color.GRAY, 1, 1, 200));
     shapes.add(new Rectangle("background", new Double(0, 0),
         500,
         400,
@@ -50,7 +60,7 @@ public class GenerateRocket {
 
     // Blast
     boolean directionflag = true;
-    for (int ii = 0; ii < 100; ii++){
+    for (int ii = 0; ii < 100; ii++) {
       Queue<Motion> puffMotions = new LinkedList<>();
       Random puffR = new Random();
       directionflag = !directionflag;
@@ -63,7 +73,7 @@ public class GenerateRocket {
       puffMotions.add(puffStall);
       puffMotions.add(generatePuff);
 
-      shapes.add(new Oval(String.format("puff%s", ii), new Double( 260, 400 - ii*5), 5, 5,
+      shapes.add(new Oval(String.format("puff%s", ii), new Double(260, 400 - ii * 5), 5, 5,
           Color.WHITE, ii + 10, puffMotions, 0, 0));
     }
 
@@ -87,20 +97,27 @@ public class GenerateRocket {
         0, rocketMotion, 0, 0));
 
     // Add all the Rain
-    for (int ii = 0; ii < 2000; ii++ ) {
+    for (int ii = 0; ii < 2000; ii++) {
       Random r = new Random();
       shapes.add(new Rectangle(String.format("rectangle%s", ii),
           new Double(r.nextInt(500 - 1) + 1, 0), 1, 8, Color.DARK_GRAY,
           r.nextInt(100 - 1) + 1, rainMotions, 0, 0));
     }
 
-    AnimationModel model = new BasicAnimationModel(shapes,  0, 0, 500, 500, 100, 1);
+    AnimationModel model = new BasicAnimationModel(shapes, 0, 0, 500, 500, 100, 1);
     renderModel(model);
   }
 
+  /**
+   * To convert the given model in to a .txt file that contains all information for an animation.
+   *
+   * @param model the model the file take information from
+   */
   private static void renderModel(AnimationModel model) throws IOException {
-    FileWriter myWriter = new FileWriter(String.format("%s/%s", System.getProperty("user.dir"), "rocketship.txt"));
-    myWriter.write(String.format("canvas %s %s %s %s\n", model.getTopLeftX(), model.getTopLeftY(), model.getSceneHeight(), model.getSceneWidth()));
+    FileWriter myWriter = new FileWriter(
+        String.format("%s/%s", System.getProperty("user.dir"), "rocketship.txt"));
+    myWriter.write(String.format("canvas %s %s %s %s\n", model.getTopLeftX(), model.getTopLeftY(),
+        model.getSceneHeight(), model.getSceneWidth()));
     for (IShape shape : model.getShapes()) {
       myWriter.write(shape.toString() + "\n \n");
     }

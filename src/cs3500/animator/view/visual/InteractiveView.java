@@ -83,8 +83,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    if (startStopFlag) {
-    } else {
+    if (!startStopFlag) {
       timer.stop();
     }
     List<IShape> shapes = model.moveShapes(tick * 100);

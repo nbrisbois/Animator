@@ -83,10 +83,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    if (startStopFlag) {
-      //  System.out.println("I am running");
-    } else {
-      System.out.println("I am not running");
+    if (!startStopFlag) {
       timer.stop();
     }
     List<IShape> shapes = model.moveShapes(tick * 100);
@@ -117,15 +114,12 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-      System.out.println("button pressed");
       if (e.getSource() == startStop) {
-        System.out.println("startstop pressed");
         startStopFlag = !startStopFlag;
         if (startStopFlag) {
           timer.start();
         }
       } else if (e.getSource() == restart) {
-        System.out.println("restart pressed");
         startStopFlag = false;
         tick = 0;
         model.resetShapes();
@@ -138,25 +132,22 @@ public class InteractiveView extends JFrame implements IAnimationView {
         } else {
           isLoop = true;
         }
-        System.out.println("loop pressed");
       } else if (e.getSource() == increaseSpeed) {
-        speed++;
-        timer.stop();
-        System.out.println((int) (100 / (speed * .6)));
-        timer = new Timer((int) (100 / (speed * .6)), new TimerListener());
-        timer.start();
-        System.out.printf("speed: %s%n", speed);
+        if (speed < 5) {
+          speed++;
+          timer.stop();
+          timer = new Timer((int) (100 / (speed * .6)), new TimerListener());
+          timer.start();
+        }
       } else if (e.getSource() == decreaseSpeed) {
         speed--;
         timer.stop();
-        System.out.println((int) (100 / (speed / .6)));
         timer = new Timer((int) (100 / (speed / .6)), new TimerListener());
         timer.start();
-        System.out.printf("speed: %s%n", speed);
         if (speed < 1) {
           speed = 1;
+          timer = new Timer((int) (100), new TimerListener());
         }
-        System.out.printf("reset speed: %s%n", speed);
       }
     }
   }

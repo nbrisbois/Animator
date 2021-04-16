@@ -31,19 +31,19 @@ public class GenerateBrickBreaker {
     //bricks motions
     Motion blueMotion1 = new Motion(0, 0, Color.BLUE, 1, 1, 10);
     Motion blueMotion2 = new Motion(0, 0, Color.WHITE, 1, 1, 1);
-    Motion blueMotion3 = new Motion(50, 75, Color.WHITE, 1, 1, 89);
+    Motion blueMotion3 = new Motion(0, 0, Color.WHITE, 1, 1, 89);
 
     Motion redMotion1 = new Motion(0, 0, Color.RED, 1, 1, 30);
     Motion redMotion2 = new Motion(0, 0, Color.WHITE, 1, 1, 1);
-    Motion redMotion3 = new Motion(150, 75, Color.WHITE, 1, 1, 69);
+    Motion redMotion3 = new Motion(0, 0, Color.WHITE, 1, 1, 69);
 
     Motion greenMotion1 = new Motion(0, 0, Color.GREEN, 1, 1, 55);
     Motion greenMotion2 = new Motion(0, 0, Color.WHITE, 1, 1, 1);
-    Motion greenMotion3 = new Motion(150, 25, Color.WHITE, 1, 1, 44);
+    Motion greenMotion3 = new Motion(0, 0, Color.WHITE, 1, 1, 44);
 
     Motion yellowMotion1 = new Motion(0, 0, Color.YELLOW, 1, 1, 85);
-    Motion yellowMotion2 = new Motion(50, 25, Color.WHITE, 1, 1, 1);
-    Motion yellowMotion3 = new Motion(50, 25, Color.WHITE, 1, 1, 14);
+    Motion yellowMotion2 = new Motion(0, 0, Color.WHITE, 1, 1, 1);
+    Motion yellowMotion3 = new Motion(0, 0, Color.WHITE, 1, 1, 14);
 
     Queue<Motion> blueMotions = new LinkedList<>();
     blueMotions.add(blueMotion1);

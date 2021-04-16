@@ -240,16 +240,6 @@ public abstract class Shape implements IShape {
     dimensions[0] = dimensions[0] + scaleX;
     dimensions[1] = dimensions[1] + scaleY;
 
-    if (position.getX() < 0) {
-      position.setLocation(
-          0,
-          position.getY() + speedY);
-    } else if (position.getY() < 0) {
-      position.setLocation(
-          position.getX() + speedX,
-          0);
-    }
-
     // Update the color
     color = peekedMotion.getColor();
   }

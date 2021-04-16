@@ -3,7 +3,10 @@ package cs3500.animator.view.visual;
 import cs3500.animator.model.AnimationModel;
 import cs3500.animator.model.IShape;
 import cs3500.animator.view.IAnimationView;
+import javax.swing.Timer;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -14,6 +17,7 @@ import javax.swing.JScrollPane;
 public class VisualView extends JFrame implements IAnimationView {
 
   private long tick = 0;
+  private Timer timer;
   private final DrawingPanel drawingPanel;
   private final AnimationModel model;
   private int speed;
@@ -35,11 +39,12 @@ public class VisualView extends JFrame implements IAnimationView {
     scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
     add(scroller);
+    timer = new Timer(100, new VisualView.TimerListener());
+    timer.start();
   }
 
   @Override
   public void render() {
-
     List<IShape> shapes = model.moveShapes(tick * 100);
     for (IShape s : shapes) {
       drawingPanel.addShape(s);
@@ -68,5 +73,17 @@ public class VisualView extends JFrame implements IAnimationView {
    */
   private void draw(IShape shape) {
     drawingPanel.addShape(shape);
+  }
+
+  private class TimerListener implements ActionListener {
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      try {
+        render();
+      } catch (Exception nullPoint) {
+          timer.stop();
+      }
+    }
   }
 }

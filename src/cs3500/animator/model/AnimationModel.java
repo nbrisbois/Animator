@@ -64,7 +64,7 @@ public interface AnimationModel {
    *
    * @param time current time of the animation run
    */
-  List<IShape> moveShapes(long time, int tickSpeed);
+  List<IShape> moveShapes(long time);
 
   /**
    * Observe the motions in this animation model.

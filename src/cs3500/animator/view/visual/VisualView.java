@@ -39,7 +39,7 @@ public class VisualView extends JFrame implements IAnimationView {
   @Override
   public void render() {
 
-    List<IShape> shapes = model.moveShapes(tick * 100, 1);
+    List<IShape> shapes = model.moveShapes(tick * 100);
     for (IShape s : shapes) {
       drawingPanel.addShape(s);
     }

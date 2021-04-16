@@ -25,7 +25,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
   private final JButton increaseSpeed;
   private final JButton decreaseSpeed;
 
-  private final Timer timer;
+  private Timer timer;
 
   private int speed = 1;
   private boolean startStopFlag = true; // true = started, false = stopped
@@ -76,16 +76,16 @@ public class InteractiveView extends JFrame implements IAnimationView {
   @Override
   public void render() {
     if (startStopFlag) {
-      System.out.println("I am running");
-      tick = tick + speed;
+    //  System.out.println("I am running");
     } else {
       System.out.println("I am not running");
       timer.stop();
     }
-    List<IShape> shapes = model.moveShapes(tick * 100, speed);
+    List<IShape> shapes = model.moveShapes(tick * 100);
     for (IShape s : shapes) {
       drawingPanel.addShape(s);
     }
+    tick = tick + 1;
     setVisible(true);
     refresh();
   }
@@ -126,9 +126,17 @@ public class InteractiveView extends JFrame implements IAnimationView {
         System.out.println("loop pressed");
       } else if (e.getSource() == increaseSpeed) {
         speed++;
+        timer.stop();
+        System.out.println((int)(100/(speed * .6)));
+        timer = new Timer((int)(100/(speed * .6)), new TimerListener());
+        timer.start();
         System.out.printf("speed: %s%n", speed);
       } else if (e.getSource() == decreaseSpeed) {
         speed--;
+        timer.stop();
+        System.out.println((int)(100/(speed / .6)));
+        timer = new Timer((int)(100/(speed / .6)), new TimerListener());
+        timer.start();
         System.out.printf("speed: %s%n", speed);
         if (speed < 1) {
           speed = 1;

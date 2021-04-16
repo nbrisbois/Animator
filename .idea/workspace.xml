@@ -25,13 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Animator_jar/Animator.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Animator_jar/Animator.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/hw7.jar" beforeDir="false" afterPath="$PROJECT_DIR$/resources/hw7.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/rocketship.svg" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rocketship.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/rocketship.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rocketship.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +278,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/cs3500/animator/view/visual/DrawingPanel.java</url>
-          <line>40</line>
+          <line>34</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -133,12 +133,12 @@ public class InteractiveView extends JFrame implements IAnimationView {
           isLoop = true;
         }
       } else if (e.getSource() == increaseSpeed) {
-        if (speed < 5) {
+        //if (speed < 5) {
           speed++;
           timer.stop();
           timer = new Timer((int) (100 / (speed * .6)), new TimerListener());
           timer.start();
-        }
+        //}
       } else if (e.getSource() == decreaseSpeed) {
         speed--;
         timer.stop();

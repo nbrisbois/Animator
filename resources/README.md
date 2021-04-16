@@ -109,6 +109,19 @@ Private methods used:
 *   draw to draw out the given shape on the canvas.
 *   repaint to repaint the Visual View.
 
+### InteractiveView 
+The view to show the visual demonstration of the animation while giving the user buttons to control
+the animation.
+
+Buttons function:
+* To stop/start the animation
+* To restart the animation
+* To adjust the animation's speed
+
+Added two ActionListener to track information when the program runs:
+* TimeListener: a listener that checks the timer when the program runs.
+* ClickListener: a listener that checks any click events on the buttons.
+
 ### DrawingPannel
 A class to help the visual view to draw out each needed shape.
 
@@ -121,3 +134,11 @@ A factory class to help produce an IAnimationView based on desired View Type.
 # Excellence
 Main function that allow us to render one of SVGview, TextualView, and VisualView based on user's
 input.
+
+# GenerateFiles
+Main function that generate a .txt file that consists information for animation that represents the 
+scenery of a rainy day.
+
+# Excellence
+Main function that generate a .txt file that consists information for animation that represents the
+brick breaker game.

@@ -63,7 +63,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
     restart.addActionListener(click);
     drawingPanel.panel.add(restart);
 
-    loop = new JButton("Loop Animation");
+    loop = new JButton("Enable/Disable Loop");
     loop.addActionListener(click);
     drawingPanel.panel.add(loop);
 
@@ -83,8 +83,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
 
   @Override
   public void render() {
-    if (startStopFlag) {
-    } else {
+    if (!startStopFlag) {
       timer.stop();
     }
     List<IShape> shapes = model.moveShapes(tick * 100);
@@ -134,12 +133,12 @@ public class InteractiveView extends JFrame implements IAnimationView {
           isLoop = true;
         }
       } else if (e.getSource() == increaseSpeed) {
-        if (speed < 5) {
+        //if (speed < 5) {
           speed++;
           timer.stop();
           timer = new Timer((int) (100 / (speed * .6)), new TimerListener());
           timer.start();
-        }
+        //}
       } else if (e.getSource() == decreaseSpeed) {
         speed--;
         timer.stop();

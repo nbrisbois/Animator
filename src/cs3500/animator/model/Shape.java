@@ -217,8 +217,7 @@ public abstract class Shape implements IShape {
         startTick = currentTick;
         peekedMotion = motions.peek();
         time = ((peekedMotion.getTicks() * 1000));
-      }
-      else {
+      } else {
         return;
       }
     }

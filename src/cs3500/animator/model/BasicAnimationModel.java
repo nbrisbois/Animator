@@ -269,7 +269,7 @@ public class BasicAnimationModel implements AnimationModel {
 
   @Override
   public List<IShape> moveShapes(long time) {
-    if(time == 12100) {
+    if (time == 12100) {
       int i = 0;
     }
     List<IShape> returnList = new ArrayList<>();

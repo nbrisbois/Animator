@@ -82,7 +82,7 @@ public class VisualView extends JFrame implements IAnimationView {
       try {
         render();
       } catch (Exception nullPoint) {
-          timer.stop();
+        timer.stop();
       }
     }
   }

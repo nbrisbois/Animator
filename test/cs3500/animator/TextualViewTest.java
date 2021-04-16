@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import org.junit.Before;
-import org.junit.Test;
 
 /**
  * Test class for Textual View.
@@ -24,7 +22,6 @@ public class TextualViewTest {
   IAnimationView textView;
   AnimationModel testModel;
 
-  @Before
   public void setUp() {
     Queue<Motion> motions = new PriorityQueue<Motion>();
     Motion motion1 = new Motion(5, 5, Color.BLACK, 2, 2, 5);
@@ -45,7 +42,6 @@ public class TextualViewTest {
   }
 
   //Constructor Tests
-  @Test(expected = NullPointerException.class)
   public void nullModelViewTest() {
     textView = new TextualView(null);
   }

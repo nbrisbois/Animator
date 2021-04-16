@@ -22,7 +22,8 @@ public class TextualView implements IAnimationView {
    * @param model the model we are trying to textualize
    * @throws NullPointerException if the model or the appendable is null
    */
-  public TextualView(AnimationModel model) {
+  public TextualView(AnimationModel model) throws NullPointerException {
+    Objects.requireNonNull(model, "null model");
 
     this.model = model;
     this.ap = new StringBuilder("");

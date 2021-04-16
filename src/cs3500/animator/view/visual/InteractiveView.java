@@ -33,6 +33,11 @@ public class InteractiveView extends JFrame implements IAnimationView {
   private int speed = 1;
   private boolean startStopFlag = true; // true = started, false = stopped
 
+  /**
+   * The constructor of InteractiveView using the model.
+   *
+   * @param model the model of the animation we want to display as an interactive view
+   */
   public InteractiveView(AnimationModel model) {
     super();
     this.model = model;
@@ -151,6 +156,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
       }
     }
   }
+
   /**
    * Representing a listener that checks the timer when the program runs.
    */

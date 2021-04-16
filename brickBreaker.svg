@@ -1,20 +1,20 @@
 <svg viewBox="0 0 200 400"  xmlns="http://www.w3.org/2000/svg">
-	<rect id="platform" x="20.0" y="395.0" width="80.0" height="10.0" fill="#000000" visibility="hidden" >
+	<rect id="platform" x="15.0" y="390.0" width="80.0" height="10.0" fill="#000000" visibility="hidden" >
 		<set attributeType="xml" attributeName="visibility" to="visible" begin="0ms" fill="freeze"/>
-		<animate attributeType="xml" attributeName="x" dur="2000ms" repeatCount="0" from="20.0" to="90.0" begin="0ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="y" dur="2000ms" repeatCount="0" from="395.0" to="395.0" begin="0ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="x" dur="2000ms" repeatCount="0" from="15.0" to="85.0" begin="0ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="y" dur="2000ms" repeatCount="0" from="390.0" to="390.0" begin="0ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="2000ms" repeatCount="0" from="#000000" to="#000000" begin="0ms" fill="freeze" />
 		<animate dur="2000ms" repeatCount="0" attributeType="xml" attributeName="width" from="80.0" to="80.0" begin="0ms" fill="freeze" />
 		<animate dur="2000ms" repeatCount="0" attributeType="xml" attributeName="height" from="10.0" to="10.0" begin="0ms" fill="freeze" />
 
-		<animate attributeType="xml" attributeName="x" dur="2000ms" repeatCount="0" from="90.0" to="170.0" begin="2000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="y" dur="2000ms" repeatCount="0" from="395.0" to="395.0" begin="2000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="x" dur="2000ms" repeatCount="0" from="85.0" to="165.0" begin="2000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="y" dur="2000ms" repeatCount="0" from="390.0" to="390.0" begin="2000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="2000ms" repeatCount="0" from="#000000" to="#000000" begin="2000ms" fill="freeze" />
 		<animate dur="2000ms" repeatCount="0" attributeType="xml" attributeName="width" from="80.0" to="80.0" begin="2000ms" fill="freeze" />
 		<animate dur="2000ms" repeatCount="0" attributeType="xml" attributeName="height" from="10.0" to="10.0" begin="2000ms" fill="freeze" />
 
-		<animate attributeType="xml" attributeName="x" dur="3000ms" repeatCount="0" from="170.0" to="120.0" begin="4000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="y" dur="3000ms" repeatCount="0" from="395.0" to="395.0" begin="4000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="x" dur="3000ms" repeatCount="0" from="165.0" to="115.0" begin="4000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="y" dur="3000ms" repeatCount="0" from="390.0" to="390.0" begin="4000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="3000ms" repeatCount="0" from="#000000" to="#000000" begin="4000ms" fill="freeze" />
 		<animate dur="3000ms" repeatCount="0" attributeType="xml" attributeName="width" from="80.0" to="80.0" begin="4000ms" fill="freeze" />
 		<animate dur="3000ms" repeatCount="0" attributeType="xml" attributeName="height" from="10.0" to="10.0" begin="4000ms" fill="freeze" />
@@ -109,52 +109,52 @@
 
 	</rect>
 
-	<ellipse id="ball" cx="20.0" cy="390.0" rx="6.0" ry="6.0" fill="#000000" visibility="hidden" >
+	<ellipse id="ball" cx="20.0" cy="386.0" rx="6.0" ry="6.0" fill="#000000" visibility="hidden" >
 		<set attributeType="xml" attributeName="visibility" to="visible" begin="0ms" fill="freeze"/>
 		<animate attributeType="xml" attributeName="cx" dur="1000ms" repeatCount="0" from="20.0" to="65.0" begin="0ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="390.0" to="134.0" begin="0ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="386.0" to="130.0" begin="0ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1000ms" repeatCount="0" from="#000000" to="#000000" begin="0ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="0ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="0ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1000ms" repeatCount="0" from="65.0" to="90.0" begin="1000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="134.0" to="440.0" begin="1000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="130.0" to="398.0" begin="1000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1000ms" repeatCount="0" from="#000000" to="#000000" begin="1000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="1000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="1000ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1000ms" repeatCount="0" from="90.0" to="170.0" begin="2000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="440.0" to="134.0" begin="2000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="398.0" to="130.0" begin="2000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1000ms" repeatCount="0" from="#000000" to="#000000" begin="2000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="2000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="2000ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1000ms" repeatCount="0" from="170.0" to="200.0" begin="3000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="134.0" to="440.0" begin="3000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1000ms" repeatCount="0" from="130.0" to="398.0" begin="3000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1000ms" repeatCount="0" from="#000000" to="#000000" begin="3000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="3000ms" fill="freeze" />
 		<animate dur="1000ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="3000ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1500ms" repeatCount="0" from="200.0" to="170.0" begin="4000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="440.0" to="90.0" begin="4000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="398.0" to="86.0" begin="4000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1500ms" repeatCount="0" from="#000000" to="#000000" begin="4000ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="4000ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="4000ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1500ms" repeatCount="0" from="170.0" to="160.0" begin="5500ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="90.0" to="650.0" begin="5500ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="86.0" to="394.0" begin="5500ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1500ms" repeatCount="0" from="#000000" to="#000000" begin="5500ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="5500ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="5500ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1500ms" repeatCount="0" from="160.0" to="90.0" begin="7000ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="650.0" to="90.0" begin="7000ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="394.0" to="86.0" begin="7000ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1500ms" repeatCount="0" from="#000000" to="#000000" begin="7000ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="7000ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="7000ms" fill="freeze" />
 
 		<animate attributeType="xml" attributeName="cx" dur="1500ms" repeatCount="0" from="90.0" to="50.0" begin="8500ms" fill="freeze" />
-		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="90.0" to="650.0" begin="8500ms" fill="freeze" />
+		<animate attributeType="xml" attributeName="cy" dur="1500ms" repeatCount="0" from="86.0" to="394.0" begin="8500ms" fill="freeze" />
 		<animate attributeType="xml" attributeName="fill" dur="1500ms" repeatCount="0" from="#000000" to="#000000" begin="8500ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="rx" from="6.0" to="6.0" begin="8500ms" fill="freeze" />
 		<animate dur="1500ms" repeatCount="0" attributeType="xml" attributeName="ry" from="6.0" to="6.0" begin="8500ms" fill="freeze" />

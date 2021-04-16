@@ -77,13 +77,13 @@ public class GenerateBrickBreaker {
 
     //ball motions
     Motion ballMotion1 = new Motion(45, -256, Color.BLACK, 1, 1, 10);
-    Motion ballMotion2 = new Motion(70, 50, Color.BLACK, 1, 1, 10);
+    Motion ballMotion2 = new Motion(70, 12, Color.BLACK, 1, 1, 10);
     Motion ballMotion3 = new Motion(150, -256, Color.BLACK, 1, 1, 10);
-    Motion ballMotion4 = new Motion(180, 50, Color.BLACK, 1, 1, 10);
+    Motion ballMotion4 = new Motion(180, 12, Color.BLACK, 1, 1, 10);
     Motion ballMotion5 = new Motion(150, -300, Color.BLACK, 1, 1, 15);
-    Motion ballMotion7 = new Motion(140, 260, Color.BLACK, 1, 1, 15);
+    Motion ballMotion7 = new Motion(140, 8, Color.BLACK, 1, 1, 15);
     Motion ballMotion8 = new Motion(70, -300, Color.BLACK, 1, 1, 15);
-    Motion ballMotion9 = new Motion(30, 260, Color.BLACK, 1, 1, 15);
+    Motion ballMotion9 = new Motion(30, 8, Color.BLACK, 1, 1, 15);
 
     Queue<Motion> ballMotions = new LinkedList<>();
     ballMotions.add(ballMotion1);
@@ -97,7 +97,7 @@ public class GenerateBrickBreaker {
 
     //shapes
     List shapes = new ArrayList<>();
-    IShape platform = new Rectangle("platform", new Double(20.0, 395.0), 80, 10, Color.BLACK, 0,
+    IShape platform = new Rectangle("platform", new Double(15.0, 390.0), 80, 10, Color.BLACK, 0,
         platformMotions, 0, 0);
     IShape blue = new Rectangle("blue", new Double(50.0, 75.0), 100, 50, Color.BLUE, 0,
         blueMotions, 0, 0);
@@ -107,7 +107,7 @@ public class GenerateBrickBreaker {
         greenMotions, 0, 0);
     IShape yellow = new Rectangle("yellow", new Double(50.0, 25.0), 100, 50, Color.YELLOW, 0,
         yellowMotions, 0, 0);
-    IShape ball = new Oval("ball", new Double(20.0, 390.0), 6, 6, Color.BLACK, 0, ballMotions,
+    IShape ball = new Oval("ball", new Double(20.0, 386.0), 6, 6, Color.BLACK, 0, ballMotions,
         0, 0);
 
     shapes.add(platform);

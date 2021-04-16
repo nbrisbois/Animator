@@ -25,8 +25,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/rocketship.svg" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rocketship.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/rocketship.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rocketship.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/brickBreaker.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

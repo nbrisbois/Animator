@@ -38,10 +38,6 @@ public class Oval extends Shape {
     super(name, offsetX, offsetY);
   }
 
-  @Override
-  public String getShape() {
-    return "ellipses";
-  }
 
   @Override
   public IShape copy() {

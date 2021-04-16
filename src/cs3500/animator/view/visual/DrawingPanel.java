@@ -33,12 +33,12 @@ public class DrawingPanel extends JPanel {
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
     for (IShape s : shapes) {
-      if (s.getShape().equals("rectangle")) {
+      if (s.getType().equals("rect")) {
         g.setColor(s.getColor());
         g.fillRect((int) s.getPosition().getX() - s.getOffsetX(),
             (int) s.getPosition().getY() - s.getOffsetY(),
             (int) s.getSize()[0], (int) s.getSize()[1]);
-      } else if (s.getShape().equals("ellipses")) {
+      } else if (s.getType().equals("ellipse")) {
         g.setColor(s.getColor());
         g.fillOval((int) s.getPosition().getX() - s.getOffsetX(),
             (int) s.getPosition().getY() - s.getOffsetY(),

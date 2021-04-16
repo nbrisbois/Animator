@@ -67,11 +67,6 @@ public class Rectangle extends Shape {
   }
 
   @Override
-  public String getShape() {
-    return "rectangle";
-  }
-
-  @Override
   public IShape copy() {
     return new Rectangle(this.name, this.position, this.dimensions[0], this.dimensions[1],
         this.color, this.startTick, this.motions, this.offsetY, this.offsetX);

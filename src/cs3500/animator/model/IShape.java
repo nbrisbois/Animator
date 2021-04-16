@@ -10,12 +10,6 @@ import java.util.Queue;
  */
 public interface IShape {
 
-  /**
-   * Get the name of the type of the shape.
-   *
-   * @return returns the rendered shape.
-   */
-  String getShape();
 
   /**
    * gets the name of the shape.

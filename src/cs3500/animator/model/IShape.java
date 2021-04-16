@@ -164,7 +164,13 @@ public interface IShape {
    */
   int getOffsetY();
 
+  /**
+   * To keep track that if this shape has been made visible.
+   */
   void isVisual();
 
+  /**
+   * To reset any changes that may have been made to this shape.
+   */
   void reset();
 }

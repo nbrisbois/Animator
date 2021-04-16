@@ -114,7 +114,7 @@ public abstract class Shape implements IShape {
     this.orignalSizeY = 0;
     this.motions = new LinkedList<>();
     this.originalMotions = new ArrayList<>();
-    this.originalPos = new Double(0,0);
+    this.originalPos = new Double(0, 0);
     this.originalStartTick = startTick;
 
   }
@@ -179,10 +179,13 @@ public abstract class Shape implements IShape {
     return name;
   }
 
+  /**
+   * To reset any changes that may have been made to this shape.
+   */
   public void reset() {
     this.motions = new LinkedList<>(originalMotions);
     this.position.x = this.originalPos.getX();
-    this.position.y = this.originalPos.getY();;
+    this.position.y = this.originalPos.getY();
     this.dimensions[0] = this.orignalSizeX;
     this.dimensions[1] = this.orignalSizeY;
     this.startTick = originalStartTick * 1000;
@@ -231,8 +234,8 @@ public abstract class Shape implements IShape {
 
     // Update the position
     position.setLocation(
-          position.getX() + speedX,
-          position.getY() + speedY);
+        position.getX() + speedX,
+        position.getY() + speedY);
     // Update the dimensions
     dimensions[0] = dimensions[0] + scaleX;
     dimensions[1] = dimensions[1] + scaleY;
@@ -241,8 +244,7 @@ public abstract class Shape implements IShape {
       position.setLocation(
           0,
           position.getY() + speedY);
-    }
-    else if (position.getY() < 0) {
+    } else if (position.getY() < 0) {
       position.setLocation(
           position.getX() + speedX,
           0);
@@ -252,6 +254,12 @@ public abstract class Shape implements IShape {
     color = peekedMotion.getColor();
   }
 
+  /**
+   * To get a string representing the given color.
+   *
+   * @param c the color we want to convert to a string
+   * @return string that contains the rgb component of the given color.
+   */
   private String getHex(Color c) {
     return String.format("#%02x%02x%02x", c.getRed(), c.getGreen(), c.getBlue());
   }
@@ -392,6 +400,11 @@ public abstract class Shape implements IShape {
     return svg.toString();
   }
 
+  /**
+   * To update the shape after undergoing a certain motion.
+   *
+   * @param m the motion we want the shape to undergo
+   */
   private void updateShape(Motion m) {
     this.position.setLocation(
         this.getPosition().getX() + m.getMoveX(),

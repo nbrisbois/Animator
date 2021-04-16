@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2f22a7b7-9874-4d4f-972d-eb52df22feac" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brickBreaker.svg" beforeDir="false" afterPath="$PROJECT_DIR$/brickBreaker.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brickBreaker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/brickBreaker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/GenerateBrickBreaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Animator/cs3500/animator/GenerateBrickBreaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/GenerateBrickBreaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/GenerateBrickBreaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/GenerateFiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/GenerateFiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/AnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/AnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/BasicAnimationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/IShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/model/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/IAnimationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/textual/TextualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/textual/TextualView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/InteractiveView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs3500/animator/view/visual/VisualView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

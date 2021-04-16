@@ -60,6 +60,13 @@ public interface AnimationModel {
   int getDuration();
 
   /**
+   * To retrieve the speed of animation.
+   *
+   * @return the speed of the animation
+   */
+  int getSpeed();
+
+  /**
    * Runs through the list of shapes moving them by time.
    *
    * @param time current time of the animation run
@@ -101,6 +108,9 @@ public interface AnimationModel {
    */
   void removeMotion(String name);
 
+  /**
+   * To reset any shape in the model.
+   */
   void resetShapes();
 }
 

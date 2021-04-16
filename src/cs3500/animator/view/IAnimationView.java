@@ -11,7 +11,7 @@ public interface IAnimationView {
   void render();
 
   /**
-   * sets the speed to which the animation should play
+   * Sets the speed to which the animation should play.
    */
   void setSpeed(int speed);
 }

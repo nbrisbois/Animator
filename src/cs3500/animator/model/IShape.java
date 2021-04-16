@@ -106,7 +106,7 @@ public interface IShape {
    *                    motion at
    * @throws NullPointerException thrown if queue peek does not return a motion
    */
-  void calculateMotion(long currentTick,int speed);
+  void calculateMotion(long currentTick);
 
   /**
    * Make a copy of the current shape.

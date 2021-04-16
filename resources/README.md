@@ -114,13 +114,16 @@ The view to show the visual demonstration of the animation while giving the user
 the animation.
 
 Buttons function:
-* To stop/start the animation
-* To restart the animation
-* To adjust the animation's speed
+* To stop/start the animation ( 1 button )
+* To restart the animation ( 1 button )
+* To adjust the animation's speed ( 2 buttons )
+* To enable/disable looping the animation ( 1 button )
 
 Added two ActionListener to track information when the program runs:
 * TimeListener: a listener that checks the timer when the program runs.
 * ClickListener: a listener that checks any click events on the buttons.
+
+You run interactive mode by changing the view flag to 'interactive' when running Excellence. 
 
 ### DrawingPannel
 A class to help the visual view to draw out each needed shape.
@@ -137,8 +140,8 @@ input.
 
 # GenerateFiles
 Main function that generate a .txt file that consists information for animation that represents the 
-scenery of a rainy day with a rocket rising up.
+scenery of a rainy day with a rocket rising up. You can then run Excellence using the generated .txt file.
 
 # GenerateBrickBreaker
 Main function that generate a .txt file that consists information for animation that represents the
-brick breaker game.
+brick breaker game. You can then run Excellence using the generated .txt file.

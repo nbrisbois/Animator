@@ -75,6 +75,11 @@ public class BasicAnimationModel implements AnimationModel {
   }
 
   @Override
+  public int getSpeed() {
+    return speed;
+  }
+
+  @Override
   public int getSceneHeight() {
     return sceneHeight;
   }
@@ -93,7 +98,6 @@ public class BasicAnimationModel implements AnimationModel {
   public int getTopLeftY() {
     return this.topLeftY;
   }
-
 
   @Override
   public void addMotion(String name, double movementX, double movementY, Color color, double scaleX,
@@ -192,7 +196,7 @@ public class BasicAnimationModel implements AnimationModel {
     public AnimationBuilder<AnimationModel> declareShape(String name, String type) {
       switch (type) {
         case "rectangle":
-          this.shapes.add(new Rectangle(name, x ,y));
+          this.shapes.add(new Rectangle(name, x, y));
           break;
         case "ellipse":
           this.shapes.add(new Oval(name, x, y));
@@ -293,8 +297,9 @@ public class BasicAnimationModel implements AnimationModel {
     return answer;
   }
 
+  @Override
   public void resetShapes() {
-    for (IShape s: shapes) {
+    for (IShape s : shapes) {
       s.reset();
     }
   }

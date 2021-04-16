@@ -12,6 +12,10 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.Timer;
 
+/**
+ * Representing an interactive visual view that renders the animation model and allows the user to
+ * control the animation.
+ */
 public class InteractiveView extends JFrame implements IAnimationView {
 
   private boolean isLoop;
@@ -29,6 +33,11 @@ public class InteractiveView extends JFrame implements IAnimationView {
   private int speed = 1;
   private boolean startStopFlag = true; // true = started, false = stopped
 
+  /**
+   * The constructor of InteractiveView using the model.
+   *
+   * @param model the model of the animation we want to display as an interactive view
+   */
   public InteractiveView(AnimationModel model) {
     super();
     this.model = model;
@@ -75,7 +84,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
   @Override
   public void render() {
     if (startStopFlag) {
-    //  System.out.println("I am running");
+      //  System.out.println("I am running");
     } else {
       System.out.println("I am not running");
       timer.stop();
@@ -88,17 +97,24 @@ public class InteractiveView extends JFrame implements IAnimationView {
     setVisible(true);
     refresh();
   }
+
   @Override
   public void setSpeed(int speed) {
     this.speed = speed;
   }
 
-
+  /**
+   * Repaint the visual view on panel.
+   */
   private void refresh() {
     this.repaint();
   }
 
+  /**
+   * Representing a listener that checks any click events on the buttons.
+   */
   private class ClickListener implements ActionListener {
+
     @Override
     public void actionPerformed(ActionEvent e) {
       System.out.println("button pressed");
@@ -119,23 +135,22 @@ public class InteractiveView extends JFrame implements IAnimationView {
       } else if (e.getSource() == loop) {
         if (isLoop) {
           isLoop = false;
-        }
-        else {
+        } else {
           isLoop = true;
         }
         System.out.println("loop pressed");
       } else if (e.getSource() == increaseSpeed) {
         speed++;
         timer.stop();
-        System.out.println((int)(100/(speed * .6)));
-        timer = new Timer((int)(100/(speed * .6)), new TimerListener());
+        System.out.println((int) (100 / (speed * .6)));
+        timer = new Timer((int) (100 / (speed * .6)), new TimerListener());
         timer.start();
         System.out.printf("speed: %s%n", speed);
       } else if (e.getSource() == decreaseSpeed) {
         speed--;
         timer.stop();
-        System.out.println((int)(100/(speed / .6)));
-        timer = new Timer((int)(100/(speed / .6)), new TimerListener());
+        System.out.println((int) (100 / (speed / .6)));
+        timer = new Timer((int) (100 / (speed / .6)), new TimerListener());
         timer.start();
         System.out.printf("speed: %s%n", speed);
         if (speed < 1) {
@@ -146,7 +161,11 @@ public class InteractiveView extends JFrame implements IAnimationView {
     }
   }
 
+  /**
+   * Representing a listener that checks the timer when the program runs.
+   */
   private class TimerListener implements ActionListener {
+
     @Override
     public void actionPerformed(ActionEvent e) {
       try {
@@ -158,8 +177,7 @@ public class InteractiveView extends JFrame implements IAnimationView {
           model.resetShapes();
           startStopFlag = true;
           timer.start();
-        }
-        else {
+        } else {
           timer.stop();
         }
       }

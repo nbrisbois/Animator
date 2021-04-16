@@ -14,7 +14,7 @@ public class TextualView implements IAnimationView {
 
   private final AnimationModel model;
   private final Appendable ap;
-  private int speed = 1;
+  private int speed;
 
   /**
    * The constructor of the textual view for the animation.
@@ -27,6 +27,7 @@ public class TextualView implements IAnimationView {
 
     this.model = model;
     this.ap = new StringBuilder("");
+    this.speed = 1;
   }
 
   /**

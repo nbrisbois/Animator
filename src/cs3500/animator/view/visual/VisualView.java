@@ -17,6 +17,7 @@ public class VisualView extends JFrame implements IAnimationView {
   private final DrawingPanel drawingPanel;
   private final AnimationModel model;
   private int speed;
+
   /**
    * THe constructor to create a visual view.
    *

@@ -98,7 +98,10 @@ public class InteractiveView extends JFrame implements IAnimationView {
     refresh();
   }
 
-  public void refresh() {
+  /**
+   * Repaint the visual view on panel.
+   */
+  private void refresh() {
     this.repaint();
   }
 
